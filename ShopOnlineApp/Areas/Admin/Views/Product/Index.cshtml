@@ -1,0 +1,83 @@
+﻿@using System.Collections.Specialized
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+@section Styles{
+    <link href="~/lib/jQuery-EasyUI/themes/bootstrap/easyui.css" rel="stylesheet" />
+    <link href="~/lib/jQuery-EasyUI/themes/icon.css" rel="stylesheet" />
+}
+@section Scripts
+    {
+    <script src="~/app/controller/product/index.js" asp-append-version="true"></script>
+    <script>
+        var product = new productController();
+        product.initialize();
+    </script>
+}
+<div class="col-md-12 col-sm-12 col-xs-12">
+    <div class="x_panel">
+        <div class="x_title">
+            <h2>Boardered table <small>Bordered table subtitle</small></h2>
+            <ul class="nav navbar-right panel_toolbox">
+                <li>
+                    <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li>
+                            <a href="#">Settings 1</a>
+                        </li>
+                        <li>
+                            <a href="#">Settings 2</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a class="close-link"><i class="fa fa-close"></i></a>
+                </li>
+            </ul>
+            <div class="clearfix"></div>
+        </div>
+        <div class="x_content">
+
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Category</th>
+                        <th>Price</th>
+                        <th>Image</th>
+                        <th>Created Date</th>
+                        <th>Status</th>
+                        <th width="20%">#</th>
+                    </tr>
+                </thead>
+                <tbody id="tbl-content"></tbody>
+            </table>
+
+        </div>
+    </div>
+</div>
+
+<div class="clearfix"></div>
+
+<script id="table-template" type="x-tmpl-mustache">
+    <tr>
+        <td>{{Name}}</td>
+        <td>{{CategoryName}}</td>
+        <td>{{Price}}</td>
+        <td>{{{Image}}}</td>
+        <td>{{CreatedDate}}</td>
+        <td>{{{Status}}}</td>
+        <th scope="row">
+            <a class="btn  btn-sm btn-edit" data-id="{{Id}}"><i class="fa fa-pencil"></i></a>
+            <a class="btn  btn-sm btn-delete" data-id="{{Id}}"><i class="fa fa-trash"></i></a>
+            <a href="#" data-id="{{Id}}" class="btn btn-xs btn-images"><i class="fa fa-image"></i></a>
+            <a href="#" data-id="{{Id}}" class="btn btn-xs btn-quantity"><i class="fa fa-hourglass-start"></i></a>
+            <a href="#" data-id="{{Id}}" class="btn btn-xs btn-whole-price"><i class="fa fa-money"></i></a>
+        </th>
+    </tr>
+</script>
