@@ -87,7 +87,7 @@
                             <a id="menu_toggle"><i class="fa fa-bars"></i></a>
                         </div>
 
-                        <ul class="nav navbar-nav navbar-right"">
+                        <ul class="nav navbar-nav navbar-right" ">
                             <li class="">
                                 @await Html.PartialAsync("_LoginPartial")
                             </li>
@@ -153,17 +153,17 @@
     <script src="~/lib/DateJS/build/date.js"></script>
     <!-- bootstrap-daterangepicker -->
     <script src="~/lib/moment/min/moment.min.js"></script>
-<script src="~/lib/bootstrap-daterangepicker/daterangepicker.js"></script>
-<script src="~/lib/notifyjs/dist/styles/metro/notify-metro.js"></script>
-<script src="~/lib/notifyjs/dist/notify.js"></script>
-<script src="~/lib/bootbox/bootbox.js"></script>
-<script src="~/lib/mustache/mustache.min.js"></script>
+    <script src="~/lib/bootstrap-daterangepicker/daterangepicker.js"></script>
+    <script src="~/lib/notifyjs/dist/styles/metro/notify-metro.js"></script>
+    <script src="~/lib/notifyjs/dist/notify.js"></script>
+    <script src="~/lib/bootbox/bootbox.js"></script>
+    <script src="~/lib/mustache/mustache.min.js"></script>
+    <script src="~/lib/twbs-pagination/jquery.twbsPagination.js"></script>
+    <!--Client side-->
+    <script src="~/app/shared/shoponline.js"></script>
 
-<!--Client side-->
-<script src="~/app/shared/shoponline.js"></script>
-
-<!-- Custom Theme Scripts -->
-<script src="~/admin-side/js/custom.min.js"></script>
-@RenderSection("Scripts",required:false);
+    <!-- Custom Theme Scripts -->
+    <script src="~/admin-side/js/custom.min.js"></script>
+    @RenderSection("Scripts", required: false);
 </body>
 </html>

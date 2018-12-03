@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace ShopOnlineApp.Data.EF.ConfigSystem
+namespace ShopOnlineApp.Utilities.Enum
 {
     public enum QueryStatus
     {
-        Info,
-        Success,
-        Warning,
-        Fail,
+        Info=0,
+        Success=1,
+        Warning=2,
+        Fail=3,
     }
 }

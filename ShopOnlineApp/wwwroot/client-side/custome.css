@@ -1,0 +1,12 @@
+﻿body {
+}
+.page-title .title_left {
+    width: 29% !important;
+    float: left;
+    display: block;
+}
+.page-title .title_right {
+    width: 71%;
+    float: left;
+    display: block;
+}

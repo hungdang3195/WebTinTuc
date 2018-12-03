@@ -18,4 +18,8 @@
     <ProjectReference Include="..\ShopOnlineApp.Utilities\ShopOnlineApp.Utilities.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="ConfigSystem\" />
+  </ItemGroup>
+
 </Project>

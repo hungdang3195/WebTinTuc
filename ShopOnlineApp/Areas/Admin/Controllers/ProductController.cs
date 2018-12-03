@@ -33,5 +33,14 @@ namespace ShopOnlineApp.Areas.Admin.Controllers
             return new OkObjectResult(model);
 
         }
+
+        public async Task<IActionResult> GetAllPaging(ProductRequest request)
+        {
+            var model = await _productService.GetAllPaging(request);
+            
+            return  new OkObjectResult(model);
+
+        }
+
     }
 }

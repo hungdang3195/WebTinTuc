@@ -1,15 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
-using ShopOnlineApp.Data.EF.ConfigSystem;
+using ShopOnlineApp.Utilities.Enum;
 
 namespace ShopOnlineApp.Data.EF.Common
 {
     public class ModelListResult<T> where T:class
     {
-        public IEnumerable<T> Items { get; set; }
+        public IList<T> Items { get; set; }
    
-        public int CurrentPage { get; set; }
+        public int PageIndex { get; set; }
 
         public int PageCount
         {
@@ -18,27 +17,21 @@ namespace ShopOnlineApp.Data.EF.Common
                 var pageCount = (double)RowCount / PageSize;
                 return (int)Math.Ceiling(pageCount);
             }
-            set { PageCount = value; }
+            set
+            {
+                if (value <= 0) throw new ArgumentOutOfRangeException(nameof(value));
+                PageCount = value;
+            }
         }
+
         public int PageSize { get; set; }
 
         public int RowCount { get; set; }
 
-        public int FirstRowOnPage
-        {
-            get
-            {
-                return (CurrentPage - 1) * PageSize + 1;
-            }
-        }
-        public int LastRowOnPage
-        {
-            get
-            {
-                return Math.Min(CurrentPage * PageSize, RowCount);
-            }
-        }
-         
+        public int FirstRowOnPage => (PageIndex - 1) * PageSize + 1;
+
+        public int LastRowOnPage => Math.Min(PageIndex * PageSize, RowCount);
+
         public string Message { get; set; }
         public QueryStatus Status { get; set; }
     }
