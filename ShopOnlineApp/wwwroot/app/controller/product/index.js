@@ -108,7 +108,7 @@
     };
 
     function test() {
-        alert("test merge code11233 develope");
-        alert("test merge code admin sua nhe12121");
+        alert("test merge code master change");
+
     }
 }
