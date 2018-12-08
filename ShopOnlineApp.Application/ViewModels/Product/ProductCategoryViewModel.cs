@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using ShopOnlineApp.Application.Common;
+using ShopOnlineApp.Data.Entities;
 using ShopOnlineApp.Data.Enums;
 
 namespace ShopOnlineApp.Application.ViewModels.Product
 {
-    public class ProductCategoryViewModel
+    public class ProductCategoryViewModel:ViewModelBase<ProductCategory,ProductCategoryViewModel>
     {
         public int Id { get; set; }
 

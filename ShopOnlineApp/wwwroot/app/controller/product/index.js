@@ -1,5 +1,6 @@
 ﻿var productController = function () {
     this.initialize = function () {
+        loadDataCategory();
         loadData();
         registerEvent();
     }
@@ -10,6 +11,12 @@
             shoponline.configs.pageIndex = 1;
             loadData(true);
         });
+        $('#btnSearch').on('click',
+            function() {
+                loadData(true);
+            });
+
+
     }
     function loadDataCategory() {
         $.ajax({
@@ -18,10 +25,14 @@
             dataType: 'json',
             success: (response) => {
                 var result = "<option value=''>---Chọn danh mục---</option>";
-                $.each(response.data.items,
+                $.each(response,
                     function (i, item) {
-                        result = "<option value='" + item.id + "'>'" + item.name + "'</option>";
+                        var temp = Object.assign({}, item);
+                        result += "<option value='" + temp.id + "'>" + temp.name + "</option>";
                     });
+                $('#ddlCategorySearch').html(result);
+
+                console.log(result);
             },
             error: function (status) {
                 console.log(status);
@@ -42,7 +53,6 @@
             },
             dataType: 'json',
             success: (response) => {
-                debugger;
                     $.each(response.data.items,
                         function (i, item) {
                             render += Mustache.render(template,
@@ -97,4 +107,8 @@
 
     };
 
+    function test() {
+        alert("test merge code11233");
+
+    }
 }

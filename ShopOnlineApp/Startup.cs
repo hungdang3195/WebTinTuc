@@ -20,6 +20,7 @@ using ShopOnlineApp.Services;
 using Microsoft.Extensions.Logging;
 using ShopOnlineApp.Data.EF.Repositories;
 using ShopOnlineApp.Helper;
+using ShopOnlineApp.Infrastructure.Interfaces;
 using ShopOnlineApp.Models;
 
 namespace TeduCoreApp
@@ -67,12 +68,18 @@ namespace TeduCoreApp
             services.AddScoped<UserManager<AppUser>, UserManager<AppUser>>();
             services.AddScoped<RoleManager<AppRole>, RoleManager<AppRole>>();
 
+
+
             services.AddSingleton(Mapper.Configuration);
             services.AddScoped<IMapper>(sp => new Mapper(sp.GetRequiredService<AutoMapper.IConfigurationProvider>(), sp.GetService));
 
             services.AddTransient<IEmailSender, EmailSender>();
 
             services.AddTransient<DbInitializer>();
+            //add config system
+            services.AddTransient(typeof(IUnitOfWork),typeof(EFUnitOfWork));
+            services.AddTransient(typeof(IRepository<,>), typeof(EFRepository<,>));
+            //end config
 
             //repository
             services.AddTransient<IProductCategoryRepository,ProductCategoryRepository>();

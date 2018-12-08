@@ -46,6 +46,10 @@ namespace ShopOnlineApp.Application.Implementation
             {
                 response = response.Where(x => x.Name.Contains(request.Name));
             }
+            else if (request?.CategoryId > 0)
+            {
+                response = response.Where(x => x.CategoryId == request.CategoryId);
+            }
 
             var totalCount = await response.CountAsync();
 
@@ -69,7 +73,7 @@ namespace ShopOnlineApp.Application.Implementation
                     PageIndex = request.PageIndex
                 },
                 Message = Message.Success,
-                Status= (int)QueryStatus.Success
+                Status = (int)QueryStatus.Success
             };
         }
 

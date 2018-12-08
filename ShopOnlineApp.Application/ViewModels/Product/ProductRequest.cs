@@ -9,6 +9,7 @@ namespace ShopOnlineApp.Application.ViewModels.Product
     public class ProductRequest: BaseRequest
     {
         public string Name { get; set; }
+        public int CategoryId { get; set; }
 
     }
 }
