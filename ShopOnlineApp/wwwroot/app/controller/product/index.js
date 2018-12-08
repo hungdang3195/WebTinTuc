@@ -108,7 +108,7 @@
     };
 
     function test() {
-        alert("test merge code admin sua nhe");
+        alert("test merge code master change");
 
     }
 }
