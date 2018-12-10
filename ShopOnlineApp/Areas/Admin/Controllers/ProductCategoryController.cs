@@ -130,10 +130,7 @@ namespace ShopOnlineApp.Areas.Admin.Controllers
             }
             
         }
-
-       
-
-
+        
         public IActionResult GetAll()
         {
             var items = _productCategoryService.GetAll();
