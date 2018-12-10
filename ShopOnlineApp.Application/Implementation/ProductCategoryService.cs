@@ -27,10 +27,9 @@ namespace ShopOnlineApp.Application.Implementation
 
         public ProductCategoryViewModel Add(ProductCategoryViewModel productCategoryVm)
         {
-            var productCategory = Mapper.Map<ProductCategoryViewModel, ProductCategory>(productCategoryVm);
+            var productCategory =new ProductCategoryViewModel().Map(productCategoryVm);
             _productCategoryRepository.Add(productCategory);
             return productCategoryVm;
-
         }
 
         public void Delete(int id)
@@ -40,16 +39,7 @@ namespace ShopOnlineApp.Application.Implementation
 
         public List<ProductCategoryViewModel> GetAll()
         {
-            try
-            {
-                return  new ProductCategoryViewModel().Map(_productCategoryRepository.FindAll().OrderBy(x => x.ParentId).AsNoTracking()).ToList();
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e);
-                throw;
-            }
-           
+            return new ProductCategoryViewModel().Map(_productCategoryRepository.FindAll(x=>x.Name !="test").OrderBy(x => x.ParentId).AsNoTracking()).ToList();
         }
 
         public List<ProductCategoryViewModel> GetAll(string keyword)
@@ -74,7 +64,7 @@ namespace ShopOnlineApp.Application.Implementation
 
         public ProductCategoryViewModel GetById(int id)
         {
-            return Mapper.Map<ProductCategory, ProductCategoryViewModel>(_productCategoryRepository.FindById(id));
+            return new ProductCategoryViewModel().Map(_productCategoryRepository.FindById(id));
         }
 
         public List<ProductCategoryViewModel> GetHomeCategories(int top)
@@ -87,8 +77,7 @@ namespace ShopOnlineApp.Application.Implementation
             var categories = query.ToList();
             foreach (var category in categories)
             {
-                //category.Products = _productRepository
-                //    .FindAll(x => x.HotFlag == true && x.CategoryId == category.Id)
+                //category.Products = _productCategoryRepository.FindAll(x => x.HotFlag == true && x.CategoryId == category.Id)
                 //    .OrderByDescending(x => x.DateCreated)
                 //    .Take(5)
                 //    .ProjectTo<ProductViewModel>().ToList();
@@ -98,7 +87,18 @@ namespace ShopOnlineApp.Application.Implementation
 
         public void ReOrder(int sourceId, int targetId)
         {
-            throw new NotImplementedException();
+            var source = _productCategoryRepository.FindById(sourceId);
+            var target = _productCategoryRepository.FindById(targetId);
+
+            var temp = 0;
+            if (source != null && target != null)
+            {
+                temp = source.SortOrder;
+                source.SortOrder = target.SortOrder;
+                target.SortOrder = temp;
+            }
+            _productCategoryRepository.Update(source);
+            _productCategoryRepository.Update(target);
         }
 
         public void Save()
@@ -106,14 +106,52 @@ namespace ShopOnlineApp.Application.Implementation
             _unitOfWork.Commit();
         }
 
+        public List<ProductCategoryViewModel> Unflatern()
+        {
+            var listCategory = new ProductCategoryViewModel().Map(_productCategoryRepository.FindAll());
+            List<ProductCategoryViewModel> lstProductCategoryViewModels= new List<ProductCategoryViewModel>();
+
+            var productCategoryViewModels = listCategory as ProductCategoryViewModel[] ?? listCategory.ToArray();
+            foreach (var item in productCategoryViewModels)
+            {
+                if (item.ParentId == null)
+                {
+                    item.Children = productCategoryViewModels.Where(x => x.ParentId == item.Id).ToList();
+                    
+                }
+                else
+                {
+                    
+                }
+
+            }
+
+            return lstProductCategoryViewModels;
+
+        }
+
         public void Update(ProductCategoryViewModel productCategoryVm)
         {
-            throw new NotImplementedException();
+            var productCategory = new ProductCategoryViewModel().Map(productCategoryVm);
+
+             _productCategoryRepository.Update(productCategory);
         }
 
         public void UpdateParentId(int sourceId, int targetId, Dictionary<int, int> items)
         {
-            throw new NotImplementedException();
+            var sourceCategory = _productCategoryRepository.FindById(sourceId);
+            sourceCategory.ParentId = targetId;
+
+            _productCategoryRepository.Update(sourceCategory);
+
+            var sibling = _productCategoryRepository.FindAll(x => items.ContainsKey(x.Id));
+
+            foreach (var child in sibling)
+            {
+                child.SortOrder = items[child.Id];
+
+                _productCategoryRepository.Update(child);
+            }
         }
     }
 }

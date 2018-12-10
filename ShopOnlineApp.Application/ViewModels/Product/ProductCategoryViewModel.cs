@@ -11,7 +11,7 @@ namespace ShopOnlineApp.Application.ViewModels.Product
         public int Id { get; set; }
 
         public string Name { get; set; }
-
+        
         public string Description { get; set; }
 
         public int? ParentId { get; set; }
@@ -21,6 +21,8 @@ namespace ShopOnlineApp.Application.ViewModels.Product
         public string Image { get; set; }
 
         public bool? HomeFlag { get; set; }
+
+        public List<ProductCategoryViewModel> Children { get; set; }= new  List<ProductCategoryViewModel>();
 
         public DateTime DateCreated { set; get; }
         public DateTime DateModified { set; get; }

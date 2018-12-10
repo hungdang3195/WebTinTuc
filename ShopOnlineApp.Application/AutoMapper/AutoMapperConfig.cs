@@ -28,8 +28,8 @@ namespace ShopOnlineApp.Application.AutoMapper
                 #endregion
 
                 #region ProductCategory
-                cfg.CreateMap<ProductCategory, ProductCategoryViewModel>();
-                cfg.CreateMap<ProductCategoryViewModel, ProductCategory>();
+                cfg.CreateMap<ProductCategory, ProductCategoryViewModel>().ForMember(x=>x.Children,opt=>opt.Ignore());
+                cfg.CreateMap<ProductCategoryViewModel, ProductCategory>(); ;
 
                 #endregion
             }

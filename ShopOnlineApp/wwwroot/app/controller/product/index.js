@@ -107,8 +107,4 @@
 
     };
 
-    function test() {
-        alert("test merge code master change");
-
-    }
 }

@@ -21,6 +21,8 @@ namespace ShopOnlineApp.Application.Interfaces
         void UpdateParentId(int sourceId, int targetId, Dictionary<int, int> items);
         void ReOrder(int sourceId, int targetId);
         List<ProductCategoryViewModel> GetHomeCategories(int top);
+
+        List<ProductCategoryViewModel> Unflatern();
         void Save();
     }
 }
