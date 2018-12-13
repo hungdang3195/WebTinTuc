@@ -6891,3 +6891,808 @@ OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY" (0723d8ff)
 2018-12-13T14:38:36.0390718+07:00 0HLJ0PKEUVHFG:00000015 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
 2018-12-13T14:38:36.0483062+07:00 0HLJ0PKEUVHFG:00000015 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.ProductController.GetAllPaging (ShopOnlineApp)" in 51.3729ms (afa2e885)
 2018-12-13T14:38:36.0630610+07:00 0HLJ0PKEUVHFG:00000015 [INF] Request finished in 90.606ms 200 application/json; charset=utf-8 (791a596a)
+2018-12-13T17:05:26.2397592+07:00 0HLJ0SA0CU2P4:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/   (ca22a1cb)
+2018-12-13T17:05:26.8833187+07:00 0HLJ0SA0CU2P4:00000001 [INF] Request finished in 704.7779ms 404  (791a596a)
+2018-12-13T17:06:03.2139511+07:00 0HLJ0SA0CU2P4:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/Login/Index   (ca22a1cb)
+2018-12-13T17:06:03.6505667+07:00 0HLJ0SA0CU2P4:00000002 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.LoginController.index (ShopOnlineApp)" with arguments ([""]) - ModelState is Valid (ba7f4ac2)
+2018-12-13T17:06:03.6788994+07:00 0HLJ0SA0CU2P4:00000002 [INF] AuthenticationScheme: "Identity.External" signed out. (d3f50c8d)
+2018-12-13T17:06:07.2428292+07:00 0HLJ0SA0CU2P6:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/Login/Index   (ca22a1cb)
+2018-12-13T17:06:07.2895972+07:00 0HLJ0SA0CU2P6:00000001 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.LoginController.index (ShopOnlineApp)" with arguments ([""]) - ModelState is Valid (ba7f4ac2)
+2018-12-13T17:06:07.3018093+07:00 0HLJ0SA0CU2P6:00000001 [INF] AuthenticationScheme: "Identity.External" signed out. (d3f50c8d)
+2018-12-13T17:06:08.0219429+07:00 0HLJ0SA0CU2P4:00000002 [INF] Executing ViewResult, running view at path "/Areas/Admin/Views/Login/index.cshtml". (9707eebe)
+2018-12-13T17:06:08.0256044+07:00 0HLJ0SA0CU2P6:00000001 [INF] Executing ViewResult, running view at path "/Areas/Admin/Views/Login/index.cshtml". (9707eebe)
+2018-12-13T17:06:08.2738006+07:00 0HLJ0SA0CU2P6:00000001 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.LoginController.index (ShopOnlineApp)" in 937.7536ms (afa2e885)
+2018-12-13T17:06:08.2785970+07:00 0HLJ0SA0CU2P4:00000002 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.LoginController.index (ShopOnlineApp)" in 4815.3403ms (afa2e885)
+2018-12-13T17:06:08.3440205+07:00 0HLJ0SA0CU2P6:00000001 [INF] Request finished in 1074.9268ms 200 text/html; charset=utf-8 (791a596a)
+2018-12-13T17:06:08.3555856+07:00 0HLJ0SA0CU2P4:00000002 [INF] Request finished in 5083.4509ms 200 text/html; charset=utf-8 (791a596a)
+2018-12-13T17:06:09.0268242+07:00 0HLJ0SA0CU2P6:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin   (ca22a1cb)
+2018-12-13T17:06:09.0748141+07:00 0HLJ0SA0CU2P6:00000002 [INF] Authorization failed for user: null. (a4ab1676)
+2018-12-13T17:06:09.0899987+07:00 0HLJ0SA0CU2P6:00000002 [INF] Authorization failed for the request at filter '"Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter"'. (8b6446cb)
+2018-12-13T17:06:09.1027035+07:00 0HLJ0SA0CU2P6:00000002 [INF] Executing ChallengeResult with authentication schemes ([]). (f3dca807)
+2018-12-13T17:06:09.1303719+07:00 0HLJ0SA0CU2P6:00000002 [INF] AuthenticationScheme: "Identity.Application" was challenged. (d45f1f38)
+2018-12-13T17:06:09.1398222+07:00 0HLJ0SA0CU2P6:00000002 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.HomeController.Index (ShopOnlineApp)" in 89.7096ms (afa2e885)
+2018-12-13T17:06:09.1757845+07:00 0HLJ0SA0CU2P6:00000002 [INF] Request finished in 168.0481ms 302  (791a596a)
+2018-12-13T17:06:09.2023254+07:00 0HLJ0SA0CU2P6:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:44344/Account/Login?ReturnUrl=%2FAdmin   (ca22a1cb)
+2018-12-13T17:06:09.3582044+07:00 0HLJ0SA0CU2P6:00000003 [INF] Executing action method "TeduCoreApp.Controllers.AccountController.Login (ShopOnlineApp)" with arguments (["/Admin"]) - ModelState is Valid (ba7f4ac2)
+2018-12-13T17:06:09.3731894+07:00 0HLJ0SA0CU2P6:00000003 [INF] AuthenticationScheme: "Identity.External" signed out. (d3f50c8d)
+2018-12-13T17:06:10.7565047+07:00 0HLJ0SA0CU2P6:00000003 [INF] Executed action "TeduCoreApp.Controllers.AccountController.Login (ShopOnlineApp)" in 1515.3032ms (afa2e885)
+2018-12-13T17:06:10.9215506+07:00 0HLJ0SA0CU2P6:00000003 [ERR] An unhandled exception has occurred while executing the request (cf926119)
+Microsoft.AspNetCore.Mvc.Razor.Compilation.CompilationFailedException: One or more compilation failures occurred:
+G:\KhoaLuan\teducoreapp\ShopOnlineApp\Views\Account\Login.cshtml(22,135): error CS1061: 'LoginViewModel' does not contain a definition for 'Email' and no extension method 'Email' accepting a first argument of type 'LoginViewModel' could be found (are you missing a using directive or an assembly reference?)
+G:\KhoaLuan\teducoreapp\ShopOnlineApp\Views\Account\Login.cshtml(23,135): error CS1061: 'LoginViewModel' does not contain a definition for 'Email' and no extension method 'Email' accepting a first argument of type 'LoginViewModel' could be found (are you missing a using directive or an assembly reference?)
+G:\KhoaLuan\teducoreapp\ShopOnlineApp\Views\Account\Login.cshtml(24,147): error CS1061: 'LoginViewModel' does not contain a definition for 'Email' and no extension method 'Email' accepting a first argument of type 'LoginViewModel' could be found (are you missing a using directive or an assembly reference?)
+   at Microsoft.AspNetCore.Mvc.Razor.Internal.RazorViewCompiler.CompileAndEmit(RazorCodeDocument codeDocument, String generatedCode)
+   at Microsoft.AspNetCore.Mvc.Razor.Internal.RazorViewCompiler.CompileAndEmit(String relativePath)
+   at Microsoft.AspNetCore.Mvc.Razor.Internal.RazorViewCompiler.CreateCacheEntry(String normalizedPath)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Microsoft.AspNetCore.Mvc.Razor.Internal.DefaultRazorPageFactoryProvider.CreateFactory(String relativePath)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorViewEngine.CreateCacheResult(HashSet`1 expirationTokens, String relativePath, Boolean isMainPage)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorViewEngine.OnCacheMiss(ViewLocationExpanderContext expanderContext, ViewLocationCacheKey cacheKey)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorViewEngine.LocatePageFromViewLocations(ActionContext actionContext, String pageName, Boolean isMainPage)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorViewEngine.FindView(ActionContext context, String viewName, Boolean isMainPage)
+   at Microsoft.AspNetCore.Mvc.ViewEngines.CompositeViewEngine.FindView(ActionContext context, String viewName, Boolean isMainPage)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.ViewResultExecutor.FindView(ActionContext actionContext, ViewResult viewResult)
+   at Microsoft.AspNetCore.Mvc.ViewResult.<ExecuteResultAsync>d__26.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.<InvokeResultAsync>d__19.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.<InvokeNextResultFilterAsync>d__24.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResultExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.<InvokeNextResourceFilter>d__22.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.<InvokeFilterPipelineAsync>d__17.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.<InvokeAsync>d__15.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.<Invoke>d__4.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.<Invoke>d__6.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.MigrationsEndPointMiddleware.<Invoke>d__4.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.DatabaseErrorPageMiddleware.<Invoke>d__6.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.DatabaseErrorPageMiddleware.<Invoke>d__6.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.<Invoke>d__7.MoveNext()
+2018-12-13T17:06:11.0133429+07:00 0HLJ0SA0CU2P6:00000003 [INF] Request finished in 1809.2513ms 500 text/html; charset=utf-8 (791a596a)
+2018-12-13T17:06:19.2412923+07:00 0HLJ0SA0CU2P6:00000004 [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/Login/Index   (ca22a1cb)
+2018-12-13T17:06:19.2492044+07:00 0HLJ0SA0CU2P6:00000004 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.LoginController.index (ShopOnlineApp)" with arguments ([""]) - ModelState is Valid (ba7f4ac2)
+2018-12-13T17:06:19.2573850+07:00 0HLJ0SA0CU2P6:00000004 [INF] AuthenticationScheme: "Identity.External" signed out. (d3f50c8d)
+2018-12-13T17:06:19.2621698+07:00 0HLJ0SA0CU2P6:00000004 [INF] Executing ViewResult, running view at path "/Areas/Admin/Views/Login/index.cshtml". (9707eebe)
+2018-12-13T17:06:19.3263645+07:00 0HLJ0SA0CU2P6:00000004 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.LoginController.index (ShopOnlineApp)" in 22.6142ms (afa2e885)
+2018-12-13T17:06:19.3696151+07:00 0HLJ0SA0CU2P6:00000004 [INF] Request finished in 94.99ms 200 text/html; charset=utf-8 (791a596a)
+2018-12-13T17:06:25.6210254+07:00 0HLJ0SA0CU2P6:00000005 [INF] Request starting HTTP/1.1 POST http://localhost:44344/Admin/Login/authen application/x-www-form-urlencoded; charset=UTF-8 33 (ca22a1cb)
+2018-12-13T17:06:25.6793129+07:00 0HLJ0SA0CU2P6:00000005 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.LoginController.Authen (ShopOnlineApp)" with arguments (["ShopOnlineApp.Models.AccountViewModels.LoginViewModel", ""]) - ModelState is Valid (ba7f4ac2)
+2018-12-13T17:06:26.1300726+07:00 0HLJ0SA0CU2P6:00000005 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2018-12-13T17:06:26.7811661+07:00 0HLJ0SA0CU2P6:00000005 [INF] Executed DbCommand ("181"ms) [Parameters=["@__normalizedUserName_0='?' (Size = 4000)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[Avatar], [u].[Balance], [u].[BirthDay], [u].[ConcurrencyStamp], [u].[DateCreated], [u].[DateModified], [u].[Email], [u].[EmailConfirmed], [u].[FullName], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[Status], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [AppUsers] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0" (0723d8ff)
+2018-12-13T17:06:27.0169213+07:00 0HLJ0SA0CU2P6:00000005 [INF] Executed DbCommand ("3"ms) [Parameters=["@__user_Id_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT [uc].[Id], [uc].[ClaimType], [uc].[ClaimValue], [uc].[UserId]
+FROM [AppUserClaims] AS [uc]
+WHERE [uc].[UserId] = @__user_Id_0" (0723d8ff)
+2018-12-13T17:06:27.1378892+07:00 0HLJ0SA0CU2P6:00000005 [INF] Executed DbCommand ("37"ms) [Parameters=["@__userId_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT [role].[Name]
+FROM [AppUserRoles] AS [userRole]
+INNER JOIN [AppRoles] AS [role] ON [userRole].[RoleId] = [role].[Id]
+WHERE [userRole].[UserId] = @__userId_0" (0723d8ff)
+2018-12-13T17:06:27.1758605+07:00 0HLJ0SA0CU2P6:00000005 [INF] Executed DbCommand ("2"ms) [Parameters=["@__normalizedName_0='?' (Size = 4000)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [r].[Id], [r].[ConcurrencyStamp], [r].[Description], [r].[Name], [r].[NormalizedName]
+FROM [AppRoles] AS [r]
+WHERE [r].[NormalizedName] = @__normalizedName_0" (0723d8ff)
+2018-12-13T17:06:27.2414107+07:00 0HLJ0SA0CU2P6:00000005 [INF] Executed DbCommand ("5"ms) [Parameters=["@__role_Id_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT [rc].[ClaimType], [rc].[ClaimValue]
+FROM [AppRoleClaims] AS [rc]
+WHERE [rc].[RoleId] = @__role_Id_0" (0723d8ff)
+2018-12-13T17:06:27.2555582+07:00 0HLJ0SA0CU2P6:00000005 [INF] Executed DbCommand ("3"ms) [Parameters=["@__userId_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT [role].[Name]
+FROM [AppUserRoles] AS [userRole]
+INNER JOIN [AppRoles] AS [role] ON [userRole].[RoleId] = [role].[Id]
+WHERE [userRole].[UserId] = @__userId_0" (0723d8ff)
+2018-12-13T17:06:27.2759882+07:00 0HLJ0SA0CU2P6:00000005 [INF] AuthenticationScheme: "Identity.Application" signed in. (c66dd7e7)
+2018-12-13T17:06:27.2917749+07:00 0HLJ0SA0CU2P6:00000005 [INF] Đăng nhập thành công (ba4d6ffb)
+2018-12-13T17:06:27.3422292+07:00 0HLJ0SA0CU2P6:00000005 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2018-12-13T17:06:27.4903812+07:00 0HLJ0SA0CU2P6:00000005 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.LoginController.Authen (ShopOnlineApp)" in 1847.7908ms (afa2e885)
+2018-12-13T17:06:27.5136382+07:00 0HLJ0SA0CU2P6:00000005 [INF] Request finished in 1884.7874ms 200 application/json; charset=utf-8 (791a596a)
+2018-12-13T17:06:27.5582733+07:00 0HLJ0SA0CU2P6:00000006 [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/Home/Index   (ca22a1cb)
+2018-12-13T17:06:27.5879787+07:00 0HLJ0SA0CU2P6:00000006 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-12-13T17:06:27.5947241+07:00 0HLJ0SA0CU2P6:00000006 [INF] Authorization was successful for user: "admin". (d7eb274a)
+2018-12-13T17:06:27.6047174+07:00 0HLJ0SA0CU2P6:00000006 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.HomeController.Index (ShopOnlineApp)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2018-12-13T17:06:27.9411372+07:00 0HLJ0SA0CU2P6:00000006 [INF] Executing ViewResult, running view at path "/Areas/Admin/Views/Home/Index.cshtml". (9707eebe)
+2018-12-13T17:06:28.4984097+07:00 0HLJ0SA0CU2P6:00000006 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2018-12-13T17:06:28.5590266+07:00 0HLJ0SA0CU2P6:00000006 [INF] Executed DbCommand ("37"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [f].[Id], [f].[IconCss], [f].[Name], [f].[ParentId], [f].[SortOrder], [f].[Status], [f].[URL]
+FROM [Functions] AS [f]" (0723d8ff)
+2018-12-13T17:06:29.8419018+07:00 0HLJ0SA0CU2P6:00000006 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.HomeController.Index (ShopOnlineApp)" in 2244.0896ms (afa2e885)
+2018-12-13T17:06:29.9312227+07:00 0HLJ0SA0CU2P6:00000006 [INF] Request finished in 2296.7653ms 200 text/html; charset=utf-8 (791a596a)
+2018-12-13T17:06:29.9911431+07:00 0HLJ0SA0CU2P6:00000007 [INF] Request starting HTTP/1.1 GET http://localhost:44344/lib/ckeditor/skins/moono/editor.css   (ca22a1cb)
+2018-12-13T17:06:30.0075577+07:00 0HLJ0SA0CU2P6:00000007 [INF] The file "/lib/ckeditor/skins/moono/editor.css" was not modified (f1f8d725)
+2018-12-13T17:06:30.0678156+07:00 0HLJ0SA0CU2P6:00000007 [INF] Request finished in 39.7006ms 304 text/css (791a596a)
+2018-12-13T17:06:34.8601572+07:00 0HLJ0SA0CU2P6:00000008 [INF] Request starting HTTP/1.1 GET http://localhost:44344/admin/product/index   (ca22a1cb)
+2018-12-13T17:06:34.9013228+07:00 0HLJ0SA0CU2P6:00000008 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-12-13T17:06:34.9122438+07:00 0HLJ0SA0CU2P6:00000008 [INF] Authorization was successful for user: "admin". (d7eb274a)
+2018-12-13T17:06:34.9213352+07:00 0HLJ0SA0CU2P6:00000008 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.ProductController.Index (ShopOnlineApp)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2018-12-13T17:06:35.9953145+07:00 0HLJ0SA0CU2P6:00000008 [INF] Executing ViewResult, running view at path "/Areas/Admin/Views/Product/Index.cshtml". (9707eebe)
+2018-12-13T17:06:36.5060314+07:00 0HLJ0SA0CU2P6:00000008 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2018-12-13T17:06:36.5535248+07:00 0HLJ0SA0CU2P6:00000008 [INF] Executed DbCommand ("28"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [f].[Id], [f].[IconCss], [f].[Name], [f].[ParentId], [f].[SortOrder], [f].[Status], [f].[URL]
+FROM [Functions] AS [f]" (0723d8ff)
+2018-12-13T17:06:36.7109914+07:00 0HLJ0SA0CU2P6:00000008 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.ProductController.Index (ShopOnlineApp)" in 1676.5291ms (afa2e885)
+2018-12-13T17:06:36.7666649+07:00 0HLJ0SA0CU2P6:00000008 [INF] Request finished in 1880.472ms 200 text/html; charset=utf-8 (791a596a)
+2018-12-13T17:06:36.8127230+07:00 0HLJ0SA0CU2P6:00000009 [INF] Request starting HTTP/1.1 GET http://localhost:44344/app/controller/product/index.js?v=R-hyQ17z2p1CmtuJzQ783PcXs7OaesxvsxzwNEQV3y0   (ca22a1cb)
+2018-12-13T17:06:36.8375076+07:00 0HLJ0SA0CU2P6:00000009 [INF] Sending file. Request path: '"/app/controller/product/index.js"'. Physical path: '"G:\KhoaLuan\teducoreapp\ShopOnlineApp\wwwroot\app\controller\product\index.js"' (27b0a520)
+2018-12-13T17:06:36.9062428+07:00 0HLJ0SA0CU2P6:00000009 [INF] Request finished in 72.0289ms 200 application/javascript (791a596a)
+2018-12-13T17:06:37.1625833+07:00 0HLJ0SA0CU2P6:0000000A [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/ProductCategory/GetAll   (ca22a1cb)
+2018-12-13T17:06:37.1848973+07:00 0HLJ0SA0CU2P6:0000000A [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-12-13T17:06:37.2185271+07:00 0HLJ0SA0CU2P7:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/Product/GetAllPaging?categoryId=--Ch%E1%BB%8Dn+lo%E1%BA%A1i--&searchText=&pageIndex=1&pageSize=10   (ca22a1cb)
+2018-12-13T17:06:37.3428342+07:00 0HLJ0SA0CU2P7:00000001 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-12-13T17:06:37.6107901+07:00 0HLJ0SA0CU2P8:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/lib/ckeditor/config.js?t=H8DC   (ca22a1cb)
+2018-12-13T17:06:37.6632333+07:00 0HLJ0SA0CU2P7:00000001 [INF] Authorization was successful for user: "admin". (d7eb274a)
+2018-12-13T17:06:37.6869005+07:00 0HLJ0SA0CU2P6:0000000A [INF] Authorization was successful for user: "admin". (d7eb274a)
+2018-12-13T17:06:37.7389466+07:00 0HLJ0SA0CU2P8:00000001 [INF] Sending file. Request path: '"/lib/ckeditor/config.js"'. Physical path: '"G:\KhoaLuan\teducoreapp\ShopOnlineApp\wwwroot\lib\ckeditor\config.js"' (27b0a520)
+2018-12-13T17:06:37.8049877+07:00 0HLJ0SA0CU2P6:0000000A [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.ProductCategoryController.GetAll (ShopOnlineApp)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2018-12-13T17:06:38.0426083+07:00 0HLJ0SA0CU2P7:00000001 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.ProductController.GetAllPaging (ShopOnlineApp)" with arguments (["ShopOnlineApp.Application.ViewModels.Product.ProductRequest"]) - ModelState is Invalid (ba7f4ac2)
+2018-12-13T17:06:38.0744994+07:00 0HLJ0SA0CU2P9:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/lib/ckeditor/skins/moono-lisa/editor.css?t=H8DC   (ca22a1cb)
+2018-12-13T17:06:38.0924775+07:00 0HLJ0SA0CU2P8:00000001 [INF] Request finished in 504.5118ms 200 application/javascript (791a596a)
+2018-12-13T17:06:38.1115487+07:00 0HLJ0SA0CU2P9:00000001 [INF] Sending file. Request path: '"/lib/ckeditor/skins/moono-lisa/editor.css"'. Physical path: '"G:\KhoaLuan\teducoreapp\ShopOnlineApp\wwwroot\lib\ckeditor\skins\moono-lisa\editor.css"' (27b0a520)
+2018-12-13T17:06:38.1270494+07:00 0HLJ0SA0CU2P8:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44344/lib/ckeditor/lang/en.js?t=H8DC   (ca22a1cb)
+2018-12-13T17:06:38.1328345+07:00 0HLJ0SA0CU2P6:0000000A [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2018-12-13T17:06:38.1404529+07:00 0HLJ0SA0CU2P7:00000001 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2018-12-13T17:06:38.1452139+07:00 0HLJ0SA0CU2P8:00000002 [INF] Sending file. Request path: '"/lib/ckeditor/lang/en.js"'. Physical path: '"G:\KhoaLuan\teducoreapp\ShopOnlineApp\wwwroot\lib\ckeditor\lang\en.js"' (27b0a520)
+2018-12-13T17:06:38.4340356+07:00 0HLJ0SA0CU2P6:0000000A [INF] Executed DbCommand ("69"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[DateCreated], [x].[DateModified], [x].[Description], [x].[HomeFlag], [x].[HomeOrder], [x].[Image], [x].[Name], [x].[ParentId], [x].[SeoAlias], [x].[SeoDescription], [x].[SeoKeywords], [x].[SeoPageTitle], [x].[SortOrder], [x].[Status]
+FROM [ProductCategories] AS [x]
+ORDER BY [x].[ParentId]" (0723d8ff)
+2018-12-13T17:06:38.5859651+07:00 0HLJ0SA0CU2P9:00000001 [INF] Request finished in 383.6909ms 200 text/css (791a596a)
+2018-12-13T17:06:38.6579633+07:00 0HLJ0SA0CU2P6:0000000A [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2018-12-13T17:06:38.8408543+07:00 0HLJ0SA0CU2P7:00000001 [INF] Executed DbCommand ("21"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Products] AS [x]
+WHERE [x].[Status] = 1" (0723d8ff)
+2018-12-13T17:06:39.2013535+07:00 0HLJ0SA0CU2P6:0000000A [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.ProductCategoryController.GetAll (ShopOnlineApp)" in 1541.9303ms (afa2e885)
+2018-12-13T17:06:39.2440280+07:00 0HLJ0SA0CU2P8:00000002 [INF] Request finished in 329.3314ms 200 application/javascript (791a596a)
+2018-12-13T17:06:39.2584310+07:00 0HLJ0SA0CU2P9:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44344/lib/ckeditor/styles.js?t=H8DC   (ca22a1cb)
+2018-12-13T17:06:39.3628218+07:00 0HLJ0SA0CU2P9:00000002 [INF] Sending file. Request path: '"/lib/ckeditor/styles.js"'. Physical path: '"G:\KhoaLuan\teducoreapp\ShopOnlineApp\wwwroot\lib\ckeditor\styles.js"' (27b0a520)
+2018-12-13T17:06:39.3711296+07:00 0HLJ0SA0CU2P6:0000000A [INF] Request finished in 2064.7429ms 200 application/json; charset=utf-8 (791a596a)
+2018-12-13T17:06:39.3985585+07:00 0HLJ0SA0CU2P7:00000001 [INF] Executed DbCommand ("7"ms) [Parameters=["@__p_0='?', @__p_1='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[CategoryId], [x].[Content], [x].[DateCreated], [x].[DateModified], [x].[Description], [x].[HomeFlag], [x].[HotFlag], [x].[Image], [x].[Name], [x].[OriginalPrice], [x].[Price], [x].[PromotionPrice], [x].[SeoAlias], [x].[SeoDescription], [x].[SeoKeywords], [x].[SeoPageTitle], [x].[Status], [x].[Tags], [x].[Unit], [x].[ViewCount]
+FROM [Products] AS [x]
+WHERE [x].[Status] = 1
+ORDER BY [x].[DateCreated] DESC
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY" (0723d8ff)
+2018-12-13T17:06:39.4864163+07:00 0HLJ0SA0CU2P9:00000002 [INF] Request finished in 774.9955ms 200 application/javascript (791a596a)
+2018-12-13T17:06:39.5107408+07:00 0HLJ0SA0CU2P8:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:44344/lib/ckeditor/plugins/colorbutton/plugin.js?t=H8DC   (ca22a1cb)
+2018-12-13T17:06:39.5323155+07:00 0HLJ0SA0CU2P8:00000003 [INF] Sending file. Request path: '"/lib/ckeditor/plugins/colorbutton/plugin.js"'. Physical path: '"G:\KhoaLuan\teducoreapp\ShopOnlineApp\wwwroot\lib\ckeditor\plugins\colorbutton\plugin.js"' (27b0a520)
+2018-12-13T17:06:39.6840394+07:00 0HLJ0SA0CU2P7:00000001 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2018-12-13T17:06:39.7609445+07:00 0HLJ0SA0CU2P6:0000000B [INF] Request starting HTTP/1.1 GET http://localhost:44344/lib/ckeditor/plugins/panelbutton/plugin.js?t=H8DC   (ca22a1cb)
+2018-12-13T17:06:39.7722906+07:00 0HLJ0SA0CU2P6:0000000B [INF] Sending file. Request path: '"/lib/ckeditor/plugins/panelbutton/plugin.js"'. Physical path: '"G:\KhoaLuan\teducoreapp\ShopOnlineApp\wwwroot\lib\ckeditor\plugins\panelbutton\plugin.js"' (27b0a520)
+2018-12-13T17:06:39.7767002+07:00 0HLJ0SA0CU2P8:00000003 [INF] Request finished in 165.5749ms 200 application/javascript (791a596a)
+2018-12-13T17:06:39.8074702+07:00 0HLJ0SA0CU2P7:00000001 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.ProductController.GetAllPaging (ShopOnlineApp)" in 2390.1971ms (afa2e885)
+2018-12-13T17:06:39.8199610+07:00 0HLJ0SA0CU2P7:00000001 [INF] Request finished in 2659.0134ms 200 application/json; charset=utf-8 (791a596a)
+2018-12-13T17:06:39.8802408+07:00 0HLJ0SA0CU2P9:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/Product/GetAllPaging?categoryId=&searchText=&pageIndex=1&pageSize=10   (ca22a1cb)
+2018-12-13T17:06:39.9627004+07:00 0HLJ0SA0CU2P9:00000003 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-12-13T17:06:39.9919471+07:00 0HLJ0SA0CU2PA:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/lib/ckeditor/plugins/wsc/skins/moono-lisa/wsc.css   (ca22a1cb)
+2018-12-13T17:06:40.0042273+07:00 0HLJ0SA0CU2P7:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44344/lib/ckeditor/plugins/scayt/skins/moono-lisa/scayt.css   (ca22a1cb)
+2018-12-13T17:06:40.0085441+07:00 0HLJ0SA0CU2P8:00000004 [INF] Request starting HTTP/1.1 GET http://localhost:44344/lib/ckeditor/plugins/scayt/dialogs/dialog.css   (ca22a1cb)
+2018-12-13T17:06:40.0113283+07:00 0HLJ0SA0CU2P6:0000000B [INF] Request finished in 174.959ms 200 application/javascript (791a596a)
+2018-12-13T17:06:40.0177268+07:00 0HLJ0SA0CU2P9:00000003 [INF] Authorization was successful for user: "admin". (d7eb274a)
+2018-12-13T17:06:40.0260151+07:00 0HLJ0SA0CU2PB:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/lib/ckeditor/plugins/colorbutton/lang/en.js?t=H8DC   (ca22a1cb)
+2018-12-13T17:06:40.0390722+07:00 0HLJ0SA0CU2P7:00000002 [INF] Sending file. Request path: '"/lib/ckeditor/plugins/scayt/skins/moono-lisa/scayt.css"'. Physical path: '"G:\KhoaLuan\teducoreapp\ShopOnlineApp\wwwroot\lib\ckeditor\plugins\scayt\skins\moono-lisa\scayt.css"' (27b0a520)
+2018-12-13T17:06:40.0413446+07:00 0HLJ0SA0CU2PA:00000001 [INF] Sending file. Request path: '"/lib/ckeditor/plugins/wsc/skins/moono-lisa/wsc.css"'. Physical path: '"G:\KhoaLuan\teducoreapp\ShopOnlineApp\wwwroot\lib\ckeditor\plugins\wsc\skins\moono-lisa\wsc.css"' (27b0a520)
+2018-12-13T17:06:40.0918287+07:00 0HLJ0SA0CU2P9:00000003 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.ProductController.GetAllPaging (ShopOnlineApp)" with arguments (["ShopOnlineApp.Application.ViewModels.Product.ProductRequest"]) - ModelState is Invalid (ba7f4ac2)
+2018-12-13T17:06:40.1377102+07:00 0HLJ0SA0CU2P8:00000004 [INF] Sending file. Request path: '"/lib/ckeditor/plugins/scayt/dialogs/dialog.css"'. Physical path: '"G:\KhoaLuan\teducoreapp\ShopOnlineApp\wwwroot\lib\ckeditor\plugins\scayt\dialogs\dialog.css"' (27b0a520)
+2018-12-13T17:06:40.1599655+07:00 0HLJ0SA0CU2P7:00000002 [INF] Request finished in 95.1694ms 200 text/css (791a596a)
+2018-12-13T17:06:40.2015936+07:00 0HLJ0SA0CU2P9:00000003 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2018-12-13T17:06:40.2143674+07:00 0HLJ0SA0CU2PA:00000001 [INF] Request finished in 167.7922ms 200 text/css (791a596a)
+2018-12-13T17:06:40.2181906+07:00 0HLJ0SA0CU2P6:0000000C [INF] Request starting HTTP/1.1 GET http://localhost:44344/lib/ckeditor/plugins/tableselection/styles/tableselection.css   (ca22a1cb)
+2018-12-13T17:06:40.2679213+07:00 0HLJ0SA0CU2PB:00000001 [INF] Sending file. Request path: '"/lib/ckeditor/plugins/colorbutton/lang/en.js"'. Physical path: '"G:\KhoaLuan\teducoreapp\ShopOnlineApp\wwwroot\lib\ckeditor\plugins\colorbutton\lang\en.js"' (27b0a520)
+2018-12-13T17:06:40.3203771+07:00 0HLJ0SA0CU2P8:00000004 [INF] Request finished in 243.4841ms 200 text/css (791a596a)
+2018-12-13T17:06:40.3446745+07:00 0HLJ0SA0CU2P9:00000003 [INF] Executed DbCommand ("5"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Products] AS [x]
+WHERE [x].[Status] = 1" (0723d8ff)
+2018-12-13T17:06:40.4412736+07:00 0HLJ0SA0CU2P6:0000000C [INF] Sending file. Request path: '"/lib/ckeditor/plugins/tableselection/styles/tableselection.css"'. Physical path: '"G:\KhoaLuan\teducoreapp\ShopOnlineApp\wwwroot\lib\ckeditor\plugins\tableselection\styles\tableselection.css"' (27b0a520)
+2018-12-13T17:06:40.5294712+07:00 0HLJ0SA0CU2P9:00000003 [INF] Executed DbCommand ("39"ms) [Parameters=["@__p_0='?', @__p_1='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[CategoryId], [x].[Content], [x].[DateCreated], [x].[DateModified], [x].[Description], [x].[HomeFlag], [x].[HotFlag], [x].[Image], [x].[Name], [x].[OriginalPrice], [x].[Price], [x].[PromotionPrice], [x].[SeoAlias], [x].[SeoDescription], [x].[SeoKeywords], [x].[SeoPageTitle], [x].[Status], [x].[Tags], [x].[Unit], [x].[ViewCount]
+FROM [Products] AS [x]
+WHERE [x].[Status] = 1
+ORDER BY [x].[DateCreated] DESC
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY" (0723d8ff)
+2018-12-13T17:06:40.5470120+07:00 0HLJ0SA0CU2P7:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:44344/lib/ckeditor/skins/moono-lisa/icons.png?t=H8DC   (ca22a1cb)
+2018-12-13T17:06:40.5719099+07:00 0HLJ0SA0CU2P9:00000003 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2018-12-13T17:06:40.5780082+07:00 0HLJ0SA0CU2PB:00000001 [INF] Request finished in 378.5126ms 200 application/javascript (791a596a)
+2018-12-13T17:06:40.5861995+07:00 0HLJ0SA0CU2P6:0000000C [INF] Request finished in 479.0109ms 200 text/css (791a596a)
+2018-12-13T17:06:40.5912961+07:00 0HLJ0SA0CU2PA:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44344/lib/ckeditor/contents.css?t=H8DC   (ca22a1cb)
+2018-12-13T17:06:40.6108479+07:00 0HLJ0SA0CU2P9:00000003 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.ProductController.GetAllPaging (ShopOnlineApp)" in 609.4127ms (afa2e885)
+2018-12-13T17:06:40.6518611+07:00 0HLJ0SA0CU2P7:00000003 [INF] Sending file. Request path: '"/lib/ckeditor/skins/moono-lisa/icons.png"'. Physical path: '"G:\KhoaLuan\teducoreapp\ShopOnlineApp\wwwroot\lib\ckeditor\skins\moono-lisa\icons.png"' (27b0a520)
+2018-12-13T17:06:40.6637884+07:00 0HLJ0SA0CU2PA:00000002 [INF] Sending file. Request path: '"/lib/ckeditor/contents.css"'. Physical path: '"G:\KhoaLuan\teducoreapp\ShopOnlineApp\wwwroot\lib\ckeditor\contents.css"' (27b0a520)
+2018-12-13T17:06:40.7001725+07:00 0HLJ0SA0CU2P9:00000003 [INF] Request finished in 773.8115ms 200 application/json; charset=utf-8 (791a596a)
+2018-12-13T17:06:40.7537126+07:00 0HLJ0SA0CU2PA:00000002 [INF] Request finished in 171.855ms 200 text/css (791a596a)
+2018-12-13T17:06:40.7774138+07:00 0HLJ0SA0CU2P7:00000003 [INF] Request finished in 210.5241ms 200 image/png (791a596a)
+2018-12-13T17:06:41.1557647+07:00 0HLJ0SA0CU2P8:00000005 [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/ProductCategory/GetAll   (ca22a1cb)
+2018-12-13T17:06:41.1612660+07:00 0HLJ0SA0CU2P8:00000005 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-12-13T17:06:41.1678846+07:00 0HLJ0SA0CU2P8:00000005 [INF] Authorization was successful for user: "admin". (d7eb274a)
+2018-12-13T17:06:41.1739018+07:00 0HLJ0SA0CU2P8:00000005 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.ProductCategoryController.GetAll (ShopOnlineApp)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2018-12-13T17:06:41.1819914+07:00 0HLJ0SA0CU2P8:00000005 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2018-12-13T17:06:41.1915121+07:00 0HLJ0SA0CU2P8:00000005 [INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[DateCreated], [x].[DateModified], [x].[Description], [x].[HomeFlag], [x].[HomeOrder], [x].[Image], [x].[Name], [x].[ParentId], [x].[SeoAlias], [x].[SeoDescription], [x].[SeoKeywords], [x].[SeoPageTitle], [x].[SortOrder], [x].[Status]
+FROM [ProductCategories] AS [x]
+ORDER BY [x].[ParentId]" (0723d8ff)
+2018-12-13T17:06:41.2010809+07:00 0HLJ0SA0CU2P8:00000005 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2018-12-13T17:06:41.2263273+07:00 0HLJ0SA0CU2P8:00000005 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.ProductCategoryController.GetAll (ShopOnlineApp)" in 39.9141ms (afa2e885)
+2018-12-13T17:06:41.2356652+07:00 0HLJ0SA0CU2P8:00000005 [INF] Request finished in 75.9924ms 200 application/json; charset=utf-8 (791a596a)
+2018-12-13T17:06:41.2789606+07:00 0HLJ0SA0CU2PB:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/ProductCategory/GetAll   (ca22a1cb)
+2018-12-13T17:06:41.2847555+07:00 0HLJ0SA0CU2PB:00000002 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-12-13T17:06:41.2896938+07:00 0HLJ0SA0CU2PB:00000002 [INF] Authorization was successful for user: "admin". (d7eb274a)
+2018-12-13T17:06:41.2943471+07:00 0HLJ0SA0CU2PB:00000002 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.ProductCategoryController.GetAll (ShopOnlineApp)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2018-12-13T17:06:41.3017166+07:00 0HLJ0SA0CU2PB:00000002 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2018-12-13T17:06:41.3090069+07:00 0HLJ0SA0CU2PB:00000002 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[DateCreated], [x].[DateModified], [x].[Description], [x].[HomeFlag], [x].[HomeOrder], [x].[Image], [x].[Name], [x].[ParentId], [x].[SeoAlias], [x].[SeoDescription], [x].[SeoKeywords], [x].[SeoPageTitle], [x].[SortOrder], [x].[Status]
+FROM [ProductCategories] AS [x]
+ORDER BY [x].[ParentId]" (0723d8ff)
+2018-12-13T17:06:41.3141431+07:00 0HLJ0SA0CU2PB:00000002 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2018-12-13T17:06:41.3197627+07:00 0HLJ0SA0CU2PB:00000002 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.ProductCategoryController.GetAll (ShopOnlineApp)" in 30.0051ms (afa2e885)
+2018-12-13T17:06:41.3274441+07:00 0HLJ0SA0CU2PB:00000002 [INF] Request finished in 45.4023ms 200 application/json; charset=utf-8 (791a596a)
+2018-12-13T17:07:09.9521966+07:00 0HLJ0SA0CU2P6:0000000D [INF] Request starting HTTP/1.1 GET http://localhost:44344/templates/ProductImportTemplate.xlsx   (ca22a1cb)
+2018-12-13T17:07:09.9638685+07:00 0HLJ0SA0CU2P6:0000000D [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-12-13T17:07:09.9834878+07:00 0HLJ0SA0CU2P6:0000000D [INF] Request finished in 19.0674ms 404  (791a596a)
+2018-12-13T17:12:17.9332624+07:00 0HLJ0SA0CU2PC:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/ProductCategory/GetAll   (ca22a1cb)
+2018-12-13T17:12:17.9402781+07:00 0HLJ0SA0CU2PC:00000001 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-12-13T17:12:17.9486396+07:00 0HLJ0SA0CU2PC:00000001 [INF] Authorization was successful for user: "admin". (d7eb274a)
+2018-12-13T17:12:17.9549496+07:00 0HLJ0SA0CU2PC:00000001 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.ProductCategoryController.GetAll (ShopOnlineApp)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2018-12-13T17:12:17.9636420+07:00 0HLJ0SA0CU2PC:00000001 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2018-12-13T17:12:17.9762955+07:00 0HLJ0SA0CU2PC:00000001 [INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[DateCreated], [x].[DateModified], [x].[Description], [x].[HomeFlag], [x].[HomeOrder], [x].[Image], [x].[Name], [x].[ParentId], [x].[SeoAlias], [x].[SeoDescription], [x].[SeoKeywords], [x].[SeoPageTitle], [x].[SortOrder], [x].[Status]
+FROM [ProductCategories] AS [x]
+ORDER BY [x].[ParentId]" (0723d8ff)
+2018-12-13T17:12:17.9840071+07:00 0HLJ0SA0CU2PC:00000001 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2018-12-13T17:12:17.9939128+07:00 0HLJ0SA0CU2PC:00000001 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.ProductCategoryController.GetAll (ShopOnlineApp)" in 43.6086ms (afa2e885)
+2018-12-13T17:12:18.0206448+07:00 0HLJ0SA0CU2PC:00000001 [INF] Request finished in 73.1803ms 200 application/json; charset=utf-8 (791a596a)
+2018-12-13T17:12:18.0953372+07:00 0HLJ0SA0CU2PC:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/ProductCategory/GetAll   (ca22a1cb)
+2018-12-13T17:12:18.1042775+07:00 0HLJ0SA0CU2PC:00000002 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-12-13T17:12:18.1539048+07:00 0HLJ0SA0CU2PC:00000002 [INF] Authorization was successful for user: "admin". (d7eb274a)
+2018-12-13T17:12:18.1812760+07:00 0HLJ0SA0CU2PC:00000002 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.ProductCategoryController.GetAll (ShopOnlineApp)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2018-12-13T17:12:18.2003285+07:00 0HLJ0SA0CU2PC:00000002 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2018-12-13T17:12:18.2372021+07:00 0HLJ0SA0CU2PC:00000002 [INF] Executed DbCommand ("18"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[DateCreated], [x].[DateModified], [x].[Description], [x].[HomeFlag], [x].[HomeOrder], [x].[Image], [x].[Name], [x].[ParentId], [x].[SeoAlias], [x].[SeoDescription], [x].[SeoKeywords], [x].[SeoPageTitle], [x].[SortOrder], [x].[Status]
+FROM [ProductCategories] AS [x]
+ORDER BY [x].[ParentId]" (0723d8ff)
+2018-12-13T17:12:18.2505627+07:00 0HLJ0SA0CU2PC:00000002 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2018-12-13T17:12:18.2679875+07:00 0HLJ0SA0CU2PC:00000002 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.ProductCategoryController.GetAll (ShopOnlineApp)" in 146.3937ms (afa2e885)
+2018-12-13T17:12:18.3493241+07:00 0HLJ0SA0CU2PC:00000002 [INF] Request finished in 200.9839ms 200 application/json; charset=utf-8 (791a596a)
+2018-12-13T17:14:46.9041476+07:00 0HLJ0SA0CU2PD:00000001 [INF] Request starting HTTP/1.1 POST http://localhost:44344/Admin/Product/SaveEntity application/x-www-form-urlencoded; charset=UTF-8 234 (ca22a1cb)
+2018-12-13T17:14:46.9196100+07:00 0HLJ0SA0CU2PD:00000001 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-12-13T17:14:46.9593740+07:00 0HLJ0SA0CU2PD:00000001 [INF] Authorization was successful for user: "admin". (d7eb274a)
+2018-12-13T17:14:46.9909734+07:00 0HLJ0SA0CU2PD:00000001 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.ProductController.SaveEntity (ShopOnlineApp)" with arguments (["ShopOnlineApp.Application.ViewModels.Product.ProductViewModel"]) - ModelState is Valid (ba7f4ac2)
+2018-12-13T17:14:47.0213677+07:00 0HLJ0SA0CU2PD:00000001 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2018-12-13T17:14:47.0870014+07:00 0HLJ0SA0CU2PD:00000001 [INF] Executed DbCommand ("26"ms) [Parameters=["@__tagId_0='?' (Size = 50)"], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Tags] AS [x]
+        WHERE [x].[Id] = @__tagId_0)
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END" (0723d8ff)
+2018-12-13T17:14:47.6280438+07:00 0HLJ0SA0CU2PD:00000001 [INF] Executed DbCommand ("26"ms) [Parameters=["@p0='?', @p1='?' (Size = 4000), @p2='?', @p3='?', @p4='?' (Size = 255), @p5='?', @p6='?', @p7='?' (Size = 255), @p8='?' (Size = 255), @p9='?', @p10='?', @p11='?', @p12='?' (Size = 255), @p13='?' (Size = 255), @p14='?' (Size = 255), @p15='?' (Size = 4000), @p16='?', @p17='?' (Size = 255), @p18='?' (Size = 255), @p19='?', @p20='?' (Size = 50), @p21='?' (Size = 50), @p22='?' (Size = 50)"], CommandType='Text', CommandTimeout='30']"
+""SET NOCOUNT ON;
+INSERT INTO [Products] ([CategoryId], [Content], [DateCreated], [DateModified], [Description], [HomeFlag], [HotFlag], [Image], [Name], [OriginalPrice], [Price], [PromotionPrice], [SeoAlias], [SeoDescription], [SeoKeywords], [SeoPageTitle], [Status], [Tags], [Unit], [ViewCount])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15, @p16, @p17, @p18, @p19);
+SELECT [Id]
+FROM [Products]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();
+
+INSERT INTO [Tags] ([Id], [Name], [Type])
+VALUES (@p20, @p21, @p22);" (0723d8ff)
+2018-12-13T17:14:47.7256898+07:00 0HLJ0SA0CU2PD:00000001 [INF] Executed DbCommand ("43"ms) [Parameters=["@p23='?', @p24='?' (Size = 50)"], CommandType='Text', CommandTimeout='30']"
+""SET NOCOUNT ON;
+INSERT INTO [ProductTags] ([ProductId], [TagId])
+VALUES (@p23, @p24);
+SELECT [Id]
+FROM [ProductTags]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();" (0723d8ff)
+2018-12-13T17:14:47.7377197+07:00 0HLJ0SA0CU2PD:00000001 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2018-12-13T17:14:47.7449144+07:00 0HLJ0SA0CU2PD:00000001 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.ProductController.SaveEntity (ShopOnlineApp)" in 790.0244ms (afa2e885)
+2018-12-13T17:14:47.7639949+07:00 0HLJ0SA0CU2PD:00000001 [INF] Request finished in 853.9059ms 200 application/json; charset=utf-8 (791a596a)
+2018-12-13T17:14:47.7770157+07:00 0HLJ0SA0CU2PD:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/ProductCategory/GetAll   (ca22a1cb)
+2018-12-13T17:14:47.7856554+07:00 0HLJ0SA0CU2PD:00000002 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-12-13T17:14:47.7903125+07:00 0HLJ0SA0CU2PD:00000002 [INF] Authorization was successful for user: "admin". (d7eb274a)
+2018-12-13T17:14:47.7950166+07:00 0HLJ0SA0CU2PD:00000002 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.ProductCategoryController.GetAll (ShopOnlineApp)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2018-12-13T17:14:47.8041924+07:00 0HLJ0SA0CU2PD:00000002 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2018-12-13T17:14:47.8167998+07:00 0HLJ0SA0CU2PD:00000002 [INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[DateCreated], [x].[DateModified], [x].[Description], [x].[HomeFlag], [x].[HomeOrder], [x].[Image], [x].[Name], [x].[ParentId], [x].[SeoAlias], [x].[SeoDescription], [x].[SeoKeywords], [x].[SeoPageTitle], [x].[SortOrder], [x].[Status]
+FROM [ProductCategories] AS [x]
+ORDER BY [x].[ParentId]" (0723d8ff)
+2018-12-13T17:14:47.8245496+07:00 0HLJ0SA0CU2PD:00000002 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2018-12-13T17:14:47.8299955+07:00 0HLJ0SA0CU2PD:00000002 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.ProductCategoryController.GetAll (ShopOnlineApp)" in 38.9902ms (afa2e885)
+2018-12-13T17:14:47.8417754+07:00 0HLJ0SA0CU2PD:00000002 [INF] Request finished in 59.0496ms 200 application/json; charset=utf-8 (791a596a)
+2018-12-13T17:14:47.9056886+07:00 0HLJ0SA0CU2PD:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/Product/GetAllPaging?categoryId=&searchText=&pageIndex=1&pageSize=10   (ca22a1cb)
+2018-12-13T17:14:47.9269436+07:00 0HLJ0SA0CU2PD:00000003 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-12-13T17:14:47.9526175+07:00 0HLJ0SA0CU2PD:00000003 [INF] Authorization was successful for user: "admin". (d7eb274a)
+2018-12-13T17:14:48.0009150+07:00 0HLJ0SA0CU2PD:00000003 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.ProductController.GetAllPaging (ShopOnlineApp)" with arguments (["ShopOnlineApp.Application.ViewModels.Product.ProductRequest"]) - ModelState is Invalid (ba7f4ac2)
+2018-12-13T17:14:48.0240200+07:00 0HLJ0SA0CU2PD:00000003 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2018-12-13T17:14:48.0543109+07:00 0HLJ0SA0CU2PD:00000003 [INF] Executed DbCommand ("14"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Products] AS [x]
+WHERE [x].[Status] = 1" (0723d8ff)
+2018-12-13T17:14:48.0755659+07:00 0HLJ0SA0CU2PD:00000003 [INF] Executed DbCommand ("3"ms) [Parameters=["@__p_0='?', @__p_1='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[CategoryId], [x].[Content], [x].[DateCreated], [x].[DateModified], [x].[Description], [x].[HomeFlag], [x].[HotFlag], [x].[Image], [x].[Name], [x].[OriginalPrice], [x].[Price], [x].[PromotionPrice], [x].[SeoAlias], [x].[SeoDescription], [x].[SeoKeywords], [x].[SeoPageTitle], [x].[Status], [x].[Tags], [x].[Unit], [x].[ViewCount]
+FROM [Products] AS [x]
+WHERE [x].[Status] = 1
+ORDER BY [x].[DateCreated] DESC
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY" (0723d8ff)
+2018-12-13T17:14:48.0901408+07:00 0HLJ0SA0CU2PD:00000003 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2018-12-13T17:14:48.1064795+07:00 0HLJ0SA0CU2PD:00000003 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.ProductController.GetAllPaging (ShopOnlineApp)" in 163.853ms (afa2e885)
+2018-12-13T17:14:48.2052564+07:00 0HLJ0SA0CU2PD:00000003 [INF] Request finished in 247.5459ms 200 application/json; charset=utf-8 (791a596a)
+2018-12-13T17:14:48.2568242+07:00 0HLJ0SA0CU2PD:00000004 [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/Product/GetAllPaging?categoryId=&searchText=&pageIndex=1&pageSize=10   (ca22a1cb)
+2018-12-13T17:14:48.2816879+07:00 0HLJ0SA0CU2PD:00000004 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-12-13T17:14:48.2887517+07:00 0HLJ0SA0CU2PD:00000004 [INF] Authorization was successful for user: "admin". (d7eb274a)
+2018-12-13T17:14:48.2975219+07:00 0HLJ0SA0CU2PD:00000004 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.ProductController.GetAllPaging (ShopOnlineApp)" with arguments (["ShopOnlineApp.Application.ViewModels.Product.ProductRequest"]) - ModelState is Invalid (ba7f4ac2)
+2018-12-13T17:14:48.3076644+07:00 0HLJ0SA0CU2PD:00000004 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2018-12-13T17:14:48.3237710+07:00 0HLJ0SA0CU2PD:00000004 [INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Products] AS [x]
+WHERE [x].[Status] = 1" (0723d8ff)
+2018-12-13T17:14:48.3567048+07:00 0HLJ0SA0CU2PD:00000004 [INF] Executed DbCommand ("3"ms) [Parameters=["@__p_0='?', @__p_1='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[CategoryId], [x].[Content], [x].[DateCreated], [x].[DateModified], [x].[Description], [x].[HomeFlag], [x].[HotFlag], [x].[Image], [x].[Name], [x].[OriginalPrice], [x].[Price], [x].[PromotionPrice], [x].[SeoAlias], [x].[SeoDescription], [x].[SeoKeywords], [x].[SeoPageTitle], [x].[Status], [x].[Tags], [x].[Unit], [x].[ViewCount]
+FROM [Products] AS [x]
+WHERE [x].[Status] = 1
+ORDER BY [x].[DateCreated] DESC
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY" (0723d8ff)
+2018-12-13T17:14:48.3650672+07:00 0HLJ0SA0CU2PD:00000004 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2018-12-13T17:14:48.3847848+07:00 0HLJ0SA0CU2PD:00000004 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.ProductController.GetAllPaging (ShopOnlineApp)" in 85.3318ms (afa2e885)
+2018-12-13T17:14:48.3947213+07:00 0HLJ0SA0CU2PE:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/Product/GetAllPaging?categoryId=&searchText=&pageIndex=1&pageSize=10   (ca22a1cb)
+2018-12-13T17:14:48.5182962+07:00 0HLJ0SA0CU2PD:00000004 [INF] Request finished in 181.7416ms 200 application/json; charset=utf-8 (791a596a)
+2018-12-13T17:14:48.5427339+07:00 0HLJ0SA0CU2PE:00000001 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-12-13T17:14:48.5589170+07:00 0HLJ0SA0CU2PE:00000001 [INF] Authorization was successful for user: "admin". (d7eb274a)
+2018-12-13T17:14:48.5766891+07:00 0HLJ0SA0CU2PE:00000001 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.ProductController.GetAllPaging (ShopOnlineApp)" with arguments (["ShopOnlineApp.Application.ViewModels.Product.ProductRequest"]) - ModelState is Invalid (ba7f4ac2)
+2018-12-13T17:14:48.5885348+07:00 0HLJ0SA0CU2PE:00000001 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2018-12-13T17:14:48.5988576+07:00 0HLJ0SA0CU2PE:00000001 [INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Products] AS [x]
+WHERE [x].[Status] = 1" (0723d8ff)
+2018-12-13T17:14:48.6121951+07:00 0HLJ0SA0CU2PE:00000001 [INF] Executed DbCommand ("4"ms) [Parameters=["@__p_0='?', @__p_1='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[CategoryId], [x].[Content], [x].[DateCreated], [x].[DateModified], [x].[Description], [x].[HomeFlag], [x].[HotFlag], [x].[Image], [x].[Name], [x].[OriginalPrice], [x].[Price], [x].[PromotionPrice], [x].[SeoAlias], [x].[SeoDescription], [x].[SeoKeywords], [x].[SeoPageTitle], [x].[Status], [x].[Tags], [x].[Unit], [x].[ViewCount]
+FROM [Products] AS [x]
+WHERE [x].[Status] = 1
+ORDER BY [x].[DateCreated] DESC
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY" (0723d8ff)
+2018-12-13T17:14:48.6210626+07:00 0HLJ0SA0CU2PE:00000001 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2018-12-13T17:14:48.6341273+07:00 0HLJ0SA0CU2PE:00000001 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.ProductController.GetAllPaging (ShopOnlineApp)" in 77.9814ms (afa2e885)
+2018-12-13T17:14:48.6491534+07:00 0HLJ0SA0CU2PD:00000005 [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/Product/GetAllPaging?categoryId=&searchText=&pageIndex=1&pageSize=10   (ca22a1cb)
+2018-12-13T17:14:48.6705678+07:00 0HLJ0SA0CU2PD:00000005 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-12-13T17:14:48.7437230+07:00 0HLJ0SA0CU2PE:00000001 [INF] Request finished in 261.2897ms 200 application/json; charset=utf-8 (791a596a)
+2018-12-13T17:14:48.7538402+07:00 0HLJ0SA0CU2PD:00000005 [INF] Authorization was successful for user: "admin". (d7eb274a)
+2018-12-13T17:14:48.7632835+07:00 0HLJ0SA0CU2PD:00000005 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.ProductController.GetAllPaging (ShopOnlineApp)" with arguments (["ShopOnlineApp.Application.ViewModels.Product.ProductRequest"]) - ModelState is Invalid (ba7f4ac2)
+2018-12-13T17:14:48.7751255+07:00 0HLJ0SA0CU2PD:00000005 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2018-12-13T17:14:48.7909059+07:00 0HLJ0SA0CU2PD:00000005 [INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Products] AS [x]
+WHERE [x].[Status] = 1" (0723d8ff)
+2018-12-13T17:14:48.8041579+07:00 0HLJ0SA0CU2PD:00000005 [INF] Executed DbCommand ("2"ms) [Parameters=["@__p_0='?', @__p_1='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[CategoryId], [x].[Content], [x].[DateCreated], [x].[DateModified], [x].[Description], [x].[HomeFlag], [x].[HotFlag], [x].[Image], [x].[Name], [x].[OriginalPrice], [x].[Price], [x].[PromotionPrice], [x].[SeoAlias], [x].[SeoDescription], [x].[SeoKeywords], [x].[SeoPageTitle], [x].[Status], [x].[Tags], [x].[Unit], [x].[ViewCount]
+FROM [Products] AS [x]
+WHERE [x].[Status] = 1
+ORDER BY [x].[DateCreated] DESC
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY" (0723d8ff)
+2018-12-13T17:14:48.8104036+07:00 0HLJ0SA0CU2PD:00000005 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2018-12-13T17:14:48.8237032+07:00 0HLJ0SA0CU2PD:00000005 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.ProductController.GetAllPaging (ShopOnlineApp)" in 139.9504ms (afa2e885)
+2018-12-13T17:14:48.8399212+07:00 0HLJ0SA0CU2PE:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/Product/GetAllPaging?categoryId=&searchText=&pageIndex=1&pageSize=10   (ca22a1cb)
+2018-12-13T17:14:48.9107471+07:00 0HLJ0SA0CU2PE:00000002 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-12-13T17:14:48.9266933+07:00 0HLJ0SA0CU2PD:00000005 [INF] Request finished in 193.4554ms 200 application/json; charset=utf-8 (791a596a)
+2018-12-13T17:14:49.0054159+07:00 0HLJ0SA0CU2PE:00000002 [INF] Authorization was successful for user: "admin". (d7eb274a)
+2018-12-13T17:14:49.0251909+07:00 0HLJ0SA0CU2PE:00000002 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.ProductController.GetAllPaging (ShopOnlineApp)" with arguments (["ShopOnlineApp.Application.ViewModels.Product.ProductRequest"]) - ModelState is Invalid (ba7f4ac2)
+2018-12-13T17:14:49.0372707+07:00 0HLJ0SA0CU2PE:00000002 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2018-12-13T17:14:49.0475404+07:00 0HLJ0SA0CU2PE:00000002 [INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Products] AS [x]
+WHERE [x].[Status] = 1" (0723d8ff)
+2018-12-13T17:14:49.0603118+07:00 0HLJ0SA0CU2PE:00000002 [INF] Executed DbCommand ("3"ms) [Parameters=["@__p_0='?', @__p_1='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[CategoryId], [x].[Content], [x].[DateCreated], [x].[DateModified], [x].[Description], [x].[HomeFlag], [x].[HotFlag], [x].[Image], [x].[Name], [x].[OriginalPrice], [x].[Price], [x].[PromotionPrice], [x].[SeoAlias], [x].[SeoDescription], [x].[SeoKeywords], [x].[SeoPageTitle], [x].[Status], [x].[Tags], [x].[Unit], [x].[ViewCount]
+FROM [Products] AS [x]
+WHERE [x].[Status] = 1
+ORDER BY [x].[DateCreated] DESC
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY" (0723d8ff)
+2018-12-13T17:14:49.0702521+07:00 0HLJ0SA0CU2PE:00000002 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2018-12-13T17:14:49.0840900+07:00 0HLJ0SA0CU2PE:00000002 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.ProductController.GetAllPaging (ShopOnlineApp)" in 159.7758ms (afa2e885)
+2018-12-13T17:14:49.0994694+07:00 0HLJ0SA0CU2PD:00000006 [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/Product/GetAllPaging?categoryId=&searchText=&pageIndex=1&pageSize=10   (ca22a1cb)
+2018-12-13T17:14:49.1143506+07:00 0HLJ0SA0CU2PD:00000006 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-12-13T17:14:49.1588790+07:00 0HLJ0SA0CU2PE:00000002 [INF] Request finished in 268.0691ms 200 application/json; charset=utf-8 (791a596a)
+2018-12-13T17:14:49.1883485+07:00 0HLJ0SA0CU2PD:00000006 [INF] Authorization was successful for user: "admin". (d7eb274a)
+2018-12-13T17:14:49.1988909+07:00 0HLJ0SA0CU2PD:00000006 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.ProductController.GetAllPaging (ShopOnlineApp)" with arguments (["ShopOnlineApp.Application.ViewModels.Product.ProductRequest"]) - ModelState is Invalid (ba7f4ac2)
+2018-12-13T17:14:49.2172066+07:00 0HLJ0SA0CU2PD:00000006 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2018-12-13T17:14:49.2275168+07:00 0HLJ0SA0CU2PD:00000006 [INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Products] AS [x]
+WHERE [x].[Status] = 1" (0723d8ff)
+2018-12-13T17:14:49.2446047+07:00 0HLJ0SA0CU2PD:00000006 [INF] Executed DbCommand ("4"ms) [Parameters=["@__p_0='?', @__p_1='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[CategoryId], [x].[Content], [x].[DateCreated], [x].[DateModified], [x].[Description], [x].[HomeFlag], [x].[HotFlag], [x].[Image], [x].[Name], [x].[OriginalPrice], [x].[Price], [x].[PromotionPrice], [x].[SeoAlias], [x].[SeoDescription], [x].[SeoKeywords], [x].[SeoPageTitle], [x].[Status], [x].[Tags], [x].[Unit], [x].[ViewCount]
+FROM [Products] AS [x]
+WHERE [x].[Status] = 1
+ORDER BY [x].[DateCreated] DESC
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY" (0723d8ff)
+2018-12-13T17:14:49.2565991+07:00 0HLJ0SA0CU2PD:00000006 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2018-12-13T17:14:49.2712724+07:00 0HLJ0SA0CU2PD:00000006 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.ProductController.GetAllPaging (ShopOnlineApp)" in 142.7243ms (afa2e885)
+2018-12-13T17:14:49.3064655+07:00 0HLJ0SA0CU2PE:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/Product/GetAllPaging?categoryId=&searchText=&pageIndex=1&pageSize=10   (ca22a1cb)
+2018-12-13T17:14:49.4184575+07:00 0HLJ0SA0CU2PD:00000006 [INF] Request finished in 196.6834ms 200 application/json; charset=utf-8 (791a596a)
+2018-12-13T17:14:49.4507136+07:00 0HLJ0SA0CU2PE:00000003 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-12-13T17:14:49.4780647+07:00 0HLJ0SA0CU2PE:00000003 [INF] Authorization was successful for user: "admin". (d7eb274a)
+2018-12-13T17:14:49.4993145+07:00 0HLJ0SA0CU2PE:00000003 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.ProductController.GetAllPaging (ShopOnlineApp)" with arguments (["ShopOnlineApp.Application.ViewModels.Product.ProductRequest"]) - ModelState is Invalid (ba7f4ac2)
+2018-12-13T17:14:49.5076969+07:00 0HLJ0SA0CU2PE:00000003 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2018-12-13T17:14:49.5178222+07:00 0HLJ0SA0CU2PE:00000003 [INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Products] AS [x]
+WHERE [x].[Status] = 1" (0723d8ff)
+2018-12-13T17:14:49.5285296+07:00 0HLJ0SA0CU2PE:00000003 [INF] Executed DbCommand ("2"ms) [Parameters=["@__p_0='?', @__p_1='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[CategoryId], [x].[Content], [x].[DateCreated], [x].[DateModified], [x].[Description], [x].[HomeFlag], [x].[HotFlag], [x].[Image], [x].[Name], [x].[OriginalPrice], [x].[Price], [x].[PromotionPrice], [x].[SeoAlias], [x].[SeoDescription], [x].[SeoKeywords], [x].[SeoPageTitle], [x].[Status], [x].[Tags], [x].[Unit], [x].[ViewCount]
+FROM [Products] AS [x]
+WHERE [x].[Status] = 1
+ORDER BY [x].[DateCreated] DESC
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY" (0723d8ff)
+2018-12-13T17:14:49.5375660+07:00 0HLJ0SA0CU2PE:00000003 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2018-12-13T17:14:49.5479429+07:00 0HLJ0SA0CU2PE:00000003 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.ProductController.GetAllPaging (ShopOnlineApp)" in 87.1222ms (afa2e885)
+2018-12-13T17:14:49.6005600+07:00 0HLJ0SA0CU2PD:00000007 [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/Product/GetAllPaging?categoryId=&searchText=&pageIndex=1&pageSize=10   (ca22a1cb)
+2018-12-13T17:14:49.6055909+07:00 0HLJ0SA0CU2PE:00000003 [INF] Request finished in 278.6306ms 200 application/json; charset=utf-8 (791a596a)
+2018-12-13T17:14:49.6172506+07:00 0HLJ0SA0CU2PD:00000007 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-12-13T17:14:49.6231793+07:00 0HLJ0SA0CU2PD:00000007 [INF] Authorization was successful for user: "admin". (d7eb274a)
+2018-12-13T17:14:49.6314088+07:00 0HLJ0SA0CU2PD:00000007 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.ProductController.GetAllPaging (ShopOnlineApp)" with arguments (["ShopOnlineApp.Application.ViewModels.Product.ProductRequest"]) - ModelState is Invalid (ba7f4ac2)
+2018-12-13T17:14:49.6389522+07:00 0HLJ0SA0CU2PD:00000007 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2018-12-13T17:14:49.6547586+07:00 0HLJ0SA0CU2PD:00000007 [INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Products] AS [x]
+WHERE [x].[Status] = 1" (0723d8ff)
+2018-12-13T17:14:49.6719242+07:00 0HLJ0SA0CU2PD:00000007 [INF] Executed DbCommand ("2"ms) [Parameters=["@__p_0='?', @__p_1='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[CategoryId], [x].[Content], [x].[DateCreated], [x].[DateModified], [x].[Description], [x].[HomeFlag], [x].[HotFlag], [x].[Image], [x].[Name], [x].[OriginalPrice], [x].[Price], [x].[PromotionPrice], [x].[SeoAlias], [x].[SeoDescription], [x].[SeoKeywords], [x].[SeoPageTitle], [x].[Status], [x].[Tags], [x].[Unit], [x].[ViewCount]
+FROM [Products] AS [x]
+WHERE [x].[Status] = 1
+ORDER BY [x].[DateCreated] DESC
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY" (0723d8ff)
+2018-12-13T17:14:49.6829193+07:00 0HLJ0SA0CU2PD:00000007 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2018-12-13T17:14:49.7010298+07:00 0HLJ0SA0CU2PE:00000004 [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/Product/GetAllPaging?categoryId=&searchText=&pageIndex=1&pageSize=10   (ca22a1cb)
+2018-12-13T17:14:49.7060495+07:00 0HLJ0SA0CU2PD:00000007 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.ProductController.GetAllPaging (ShopOnlineApp)" in 65.1684ms (afa2e885)
+2018-12-13T17:14:49.7747205+07:00 0HLJ0SA0CU2PD:00000007 [INF] Request finished in 159.6863ms 200 application/json; charset=utf-8 (791a596a)
+2018-12-13T17:14:49.7865719+07:00 0HLJ0SA0CU2PE:00000004 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-12-13T17:14:49.7928202+07:00 0HLJ0SA0CU2PE:00000004 [INF] Authorization was successful for user: "admin". (d7eb274a)
+2018-12-13T17:14:49.8029465+07:00 0HLJ0SA0CU2PE:00000004 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.ProductController.GetAllPaging (ShopOnlineApp)" with arguments (["ShopOnlineApp.Application.ViewModels.Product.ProductRequest"]) - ModelState is Invalid (ba7f4ac2)
+2018-12-13T17:14:49.8091679+07:00 0HLJ0SA0CU2PE:00000004 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2018-12-13T17:14:49.8204640+07:00 0HLJ0SA0CU2PE:00000004 [INF] Executed DbCommand ("4"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Products] AS [x]
+WHERE [x].[Status] = 1" (0723d8ff)
+2018-12-13T17:14:49.8421125+07:00 0HLJ0SA0CU2PE:00000004 [INF] Executed DbCommand ("3"ms) [Parameters=["@__p_0='?', @__p_1='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[CategoryId], [x].[Content], [x].[DateCreated], [x].[DateModified], [x].[Description], [x].[HomeFlag], [x].[HotFlag], [x].[Image], [x].[Name], [x].[OriginalPrice], [x].[Price], [x].[PromotionPrice], [x].[SeoAlias], [x].[SeoDescription], [x].[SeoKeywords], [x].[SeoPageTitle], [x].[Status], [x].[Tags], [x].[Unit], [x].[ViewCount]
+FROM [Products] AS [x]
+WHERE [x].[Status] = 1
+ORDER BY [x].[DateCreated] DESC
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY" (0723d8ff)
+2018-12-13T17:14:49.8544010+07:00 0HLJ0SA0CU2PE:00000004 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2018-12-13T17:14:49.8709388+07:00 0HLJ0SA0CU2PE:00000004 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.ProductController.GetAllPaging (ShopOnlineApp)" in 68.663ms (afa2e885)
+2018-12-13T17:14:50.0066917+07:00 0HLJ0SA0CU2PD:00000008 [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/Product/GetAllPaging?categoryId=&searchText=&pageIndex=1&pageSize=10   (ca22a1cb)
+2018-12-13T17:14:50.0208858+07:00 0HLJ0SA0CU2PE:00000004 [INF] Request finished in 181.5393ms 200 application/json; charset=utf-8 (791a596a)
+2018-12-13T17:14:50.0278973+07:00 0HLJ0SA0CU2PD:00000008 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-12-13T17:14:50.0396820+07:00 0HLJ0SA0CU2PD:00000008 [INF] Authorization was successful for user: "admin". (d7eb274a)
+2018-12-13T17:14:50.0490717+07:00 0HLJ0SA0CU2PD:00000008 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.ProductController.GetAllPaging (ShopOnlineApp)" with arguments (["ShopOnlineApp.Application.ViewModels.Product.ProductRequest"]) - ModelState is Invalid (ba7f4ac2)
+2018-12-13T17:14:50.0556380+07:00 0HLJ0SA0CU2PD:00000008 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2018-12-13T17:14:50.0638009+07:00 0HLJ0SA0CU2PD:00000008 [INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Products] AS [x]
+WHERE [x].[Status] = 1" (0723d8ff)
+2018-12-13T17:14:50.0754056+07:00 0HLJ0SA0CU2PD:00000008 [INF] Executed DbCommand ("4"ms) [Parameters=["@__p_0='?', @__p_1='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[CategoryId], [x].[Content], [x].[DateCreated], [x].[DateModified], [x].[Description], [x].[HomeFlag], [x].[HotFlag], [x].[Image], [x].[Name], [x].[OriginalPrice], [x].[Price], [x].[PromotionPrice], [x].[SeoAlias], [x].[SeoDescription], [x].[SeoKeywords], [x].[SeoPageTitle], [x].[Status], [x].[Tags], [x].[Unit], [x].[ViewCount]
+FROM [Products] AS [x]
+WHERE [x].[Status] = 1
+ORDER BY [x].[DateCreated] DESC
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY" (0723d8ff)
+2018-12-13T17:14:50.0831633+07:00 0HLJ0SA0CU2PD:00000008 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2018-12-13T17:14:50.1198118+07:00 0HLJ0SA0CU2PE:00000005 [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/Product/GetAllPaging?categoryId=&searchText=&pageIndex=1&pageSize=10   (ca22a1cb)
+2018-12-13T17:14:50.1230248+07:00 0HLJ0SA0CU2PD:00000008 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.ProductController.GetAllPaging (ShopOnlineApp)" in 54.8479ms (afa2e885)
+2018-12-13T17:14:50.1388979+07:00 0HLJ0SA0CU2PD:00000008 [INF] Request finished in 262.1022ms 200 application/json; charset=utf-8 (791a596a)
+2018-12-13T17:14:50.1521704+07:00 0HLJ0SA0CU2PE:00000005 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-12-13T17:14:50.1615051+07:00 0HLJ0SA0CU2PE:00000005 [INF] Authorization was successful for user: "admin". (d7eb274a)
+2018-12-13T17:14:50.1717246+07:00 0HLJ0SA0CU2PE:00000005 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.ProductController.GetAllPaging (ShopOnlineApp)" with arguments (["ShopOnlineApp.Application.ViewModels.Product.ProductRequest"]) - ModelState is Invalid (ba7f4ac2)
+2018-12-13T17:14:50.1833926+07:00 0HLJ0SA0CU2PE:00000005 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2018-12-13T17:14:50.2005890+07:00 0HLJ0SA0CU2PE:00000005 [INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Products] AS [x]
+WHERE [x].[Status] = 1" (0723d8ff)
+2018-12-13T17:14:50.2153257+07:00 0HLJ0SA0CU2PE:00000005 [INF] Executed DbCommand ("3"ms) [Parameters=["@__p_0='?', @__p_1='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[CategoryId], [x].[Content], [x].[DateCreated], [x].[DateModified], [x].[Description], [x].[HomeFlag], [x].[HotFlag], [x].[Image], [x].[Name], [x].[OriginalPrice], [x].[Price], [x].[PromotionPrice], [x].[SeoAlias], [x].[SeoDescription], [x].[SeoKeywords], [x].[SeoPageTitle], [x].[Status], [x].[Tags], [x].[Unit], [x].[ViewCount]
+FROM [Products] AS [x]
+WHERE [x].[Status] = 1
+ORDER BY [x].[DateCreated] DESC
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY" (0723d8ff)
+2018-12-13T17:14:50.2245336+07:00 0HLJ0SA0CU2PE:00000005 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2018-12-13T17:14:50.2398739+07:00 0HLJ0SA0CU2PE:00000005 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.ProductController.GetAllPaging (ShopOnlineApp)" in 72.5193ms (afa2e885)
+2018-12-13T17:14:50.2540088+07:00 0HLJ0SA0CU2PE:00000005 [INF] Request finished in 152.3228ms 200 application/json; charset=utf-8 (791a596a)
+2018-12-13T17:14:53.5552481+07:00 0HLJ0SA0CU2PD:00000009 [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/Product/GetById?id=23   (ca22a1cb)
+2018-12-13T17:14:53.5646130+07:00 0HLJ0SA0CU2PD:00000009 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-12-13T17:14:53.5748222+07:00 0HLJ0SA0CU2PD:00000009 [INF] Authorization was successful for user: "admin". (d7eb274a)
+2018-12-13T17:14:53.5801725+07:00 0HLJ0SA0CU2PD:00000009 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.ProductController.GetById (ShopOnlineApp)" with arguments (["23"]) - ModelState is Valid (ba7f4ac2)
+2018-12-13T17:14:53.6012214+07:00 0HLJ0SA0CU2PD:00000009 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2018-12-13T17:14:53.6176580+07:00 0HLJ0SA0CU2PD:00000009 [INF] Executed DbCommand ("1"ms) [Parameters=["@__id_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(2) [x].[Id], [x].[CategoryId], [x].[Content], [x].[DateCreated], [x].[DateModified], [x].[Description], [x].[HomeFlag], [x].[HotFlag], [x].[Image], [x].[Name], [x].[OriginalPrice], [x].[Price], [x].[PromotionPrice], [x].[SeoAlias], [x].[SeoDescription], [x].[SeoKeywords], [x].[SeoPageTitle], [x].[Status], [x].[Tags], [x].[Unit], [x].[ViewCount]
+FROM [Products] AS [x]
+WHERE [x].[Id] = @__id_0" (0723d8ff)
+2018-12-13T17:14:53.6513307+07:00 0HLJ0SA0CU2PD:00000009 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2018-12-13T17:14:53.6576229+07:00 0HLJ0SA0CU2PD:00000009 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.ProductController.GetById (ShopOnlineApp)" in 81.9677ms (afa2e885)
+2018-12-13T17:14:53.6713103+07:00 0HLJ0SA0CU2PD:00000009 [INF] Request finished in 115.8166ms 200 application/json; charset=utf-8 (791a596a)
+2018-12-13T17:14:53.7008182+07:00 0HLJ0SA0CU2PE:00000006 [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/ProductCategory/GetAll   (ca22a1cb)
+2018-12-13T17:14:53.7057219+07:00 0HLJ0SA0CU2PE:00000006 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-12-13T17:14:53.7098145+07:00 0HLJ0SA0CU2PE:00000006 [INF] Authorization was successful for user: "admin". (d7eb274a)
+2018-12-13T17:14:53.7152295+07:00 0HLJ0SA0CU2PE:00000006 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.ProductCategoryController.GetAll (ShopOnlineApp)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2018-12-13T17:14:53.7201555+07:00 0HLJ0SA0CU2PE:00000006 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2018-12-13T17:14:53.7274873+07:00 0HLJ0SA0CU2PE:00000006 [INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[DateCreated], [x].[DateModified], [x].[Description], [x].[HomeFlag], [x].[HomeOrder], [x].[Image], [x].[Name], [x].[ParentId], [x].[SeoAlias], [x].[SeoDescription], [x].[SeoKeywords], [x].[SeoPageTitle], [x].[SortOrder], [x].[Status]
+FROM [ProductCategories] AS [x]
+ORDER BY [x].[ParentId]" (0723d8ff)
+2018-12-13T17:14:53.7341007+07:00 0HLJ0SA0CU2PE:00000006 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2018-12-13T17:14:53.7396084+07:00 0HLJ0SA0CU2PE:00000006 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.ProductCategoryController.GetAll (ShopOnlineApp)" in 28.4995ms (afa2e885)
+2018-12-13T17:14:53.7521413+07:00 0HLJ0SA0CU2PE:00000006 [INF] Request finished in 68.5367ms 200 application/json; charset=utf-8 (791a596a)
+2018-12-13T17:15:09.3671857+07:00 0HLJ0SA0CU2PD:0000000A [INF] Request starting HTTP/1.1 POST http://localhost:44344/Admin/Product/SaveEntity application/x-www-form-urlencoded; charset=UTF-8 246 (ca22a1cb)
+2018-12-13T17:15:09.3719277+07:00 0HLJ0SA0CU2PD:0000000A [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-12-13T17:15:09.3766668+07:00 0HLJ0SA0CU2PD:0000000A [INF] Authorization was successful for user: "admin". (d7eb274a)
+2018-12-13T17:15:09.3829101+07:00 0HLJ0SA0CU2PD:0000000A [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.ProductController.SaveEntity (ShopOnlineApp)" with arguments (["ShopOnlineApp.Application.ViewModels.Product.ProductViewModel"]) - ModelState is Valid (ba7f4ac2)
+2018-12-13T17:15:09.3916505+07:00 0HLJ0SA0CU2PD:0000000A [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2018-12-13T17:15:09.4040420+07:00 0HLJ0SA0CU2PD:0000000A [INF] Executed DbCommand ("1"ms) [Parameters=["@__tagId_0='?' (Size = 50)"], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Tags] AS [x]
+        WHERE [x].[Id] = @__tagId_0)
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END" (0723d8ff)
+2018-12-13T17:15:09.4321524+07:00 0HLJ0SA0CU2PD:0000000A [INF] Executed DbCommand ("1"ms) [Parameters=["@__productVm_Id_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[ProductId], [x].[TagId]
+FROM [ProductTags] AS [x]
+WHERE [x].[Id] = @__productVm_Id_0" (0723d8ff)
+2018-12-13T17:15:09.5076839+07:00 0HLJ0SA0CU2PD:0000000A [INF] Executed DbCommand ("46"ms) [Parameters=["@p0='?', @p1='?' (Size = 50), @p22='?', @p2='?', @p3='?' (Size = 4000), @p4='?', @p5='?', @p6='?' (Size = 255), @p7='?', @p8='?', @p9='?' (Size = 255), @p10='?' (Size = 255), @p11='?', @p12='?', @p13='?', @p14='?' (Size = 255), @p15='?' (Size = 255), @p16='?' (Size = 255), @p17='?' (Size = 4000), @p18='?', @p19='?' (Size = 255), @p20='?' (Size = 255), @p21='?'"], CommandType='Text', CommandTimeout='30']"
+""SET NOCOUNT ON;
+INSERT INTO [ProductTags] ([ProductId], [TagId])
+VALUES (@p0, @p1);
+SELECT [Id]
+FROM [ProductTags]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();
+
+UPDATE [Products] SET [CategoryId] = @p2, [Content] = @p3, [DateCreated] = @p4, [DateModified] = @p5, [Description] = @p6, [HomeFlag] = @p7, [HotFlag] = @p8, [Image] = @p9, [Name] = @p10, [OriginalPrice] = @p11, [Price] = @p12, [PromotionPrice] = @p13, [SeoAlias] = @p14, [SeoDescription] = @p15, [SeoKeywords] = @p16, [SeoPageTitle] = @p17, [Status] = @p18, [Tags] = @p19, [Unit] = @p20, [ViewCount] = @p21
+WHERE [Id] = @p22;
+SELECT @@ROWCOUNT;" (0723d8ff)
+2018-12-13T17:15:09.5160635+07:00 0HLJ0SA0CU2PD:0000000A [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2018-12-13T17:15:09.5238725+07:00 0HLJ0SA0CU2PD:0000000A [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.ProductController.SaveEntity (ShopOnlineApp)" in 144.2928ms (afa2e885)
+2018-12-13T17:15:09.5402928+07:00 0HLJ0SA0CU2PD:0000000A [INF] Request finished in 163.2605ms 200 application/json; charset=utf-8 (791a596a)
+2018-12-13T17:15:09.5508260+07:00 0HLJ0SA0CU2PE:00000007 [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/ProductCategory/GetAll   (ca22a1cb)
+2018-12-13T17:15:09.5597709+07:00 0HLJ0SA0CU2PE:00000007 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-12-13T17:15:09.5698505+07:00 0HLJ0SA0CU2PE:00000007 [INF] Authorization was successful for user: "admin". (d7eb274a)
+2018-12-13T17:15:09.5752487+07:00 0HLJ0SA0CU2PE:00000007 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.ProductCategoryController.GetAll (ShopOnlineApp)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2018-12-13T17:15:09.5817936+07:00 0HLJ0SA0CU2PE:00000007 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2018-12-13T17:15:09.5902231+07:00 0HLJ0SA0CU2PE:00000007 [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[DateCreated], [x].[DateModified], [x].[Description], [x].[HomeFlag], [x].[HomeOrder], [x].[Image], [x].[Name], [x].[ParentId], [x].[SeoAlias], [x].[SeoDescription], [x].[SeoKeywords], [x].[SeoPageTitle], [x].[SortOrder], [x].[Status]
+FROM [ProductCategories] AS [x]
+ORDER BY [x].[ParentId]" (0723d8ff)
+2018-12-13T17:15:09.5985509+07:00 0HLJ0SA0CU2PE:00000007 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2018-12-13T17:15:09.6062822+07:00 0HLJ0SA0CU2PE:00000007 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.ProductCategoryController.GetAll (ShopOnlineApp)" in 39.3953ms (afa2e885)
+2018-12-13T17:15:09.6530945+07:00 0HLJ0SA0CU2PE:00000007 [INF] Request finished in 66.0942ms 200 application/json; charset=utf-8 (791a596a)
+2018-12-13T17:15:09.6838576+07:00 0HLJ0SA0CU2PD:0000000B [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/Product/GetAllPaging?categoryId=&searchText=&pageIndex=1&pageSize=10   (ca22a1cb)
+2018-12-13T17:15:09.6914177+07:00 0HLJ0SA0CU2PD:0000000B [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-12-13T17:15:09.7027274+07:00 0HLJ0SA0CU2PD:0000000B [INF] Authorization was successful for user: "admin". (d7eb274a)
+2018-12-13T17:15:09.7090109+07:00 0HLJ0SA0CU2PD:0000000B [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.ProductController.GetAllPaging (ShopOnlineApp)" with arguments (["ShopOnlineApp.Application.ViewModels.Product.ProductRequest"]) - ModelState is Invalid (ba7f4ac2)
+2018-12-13T17:15:09.7205569+07:00 0HLJ0SA0CU2PD:0000000B [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2018-12-13T17:15:09.7348436+07:00 0HLJ0SA0CU2PD:0000000B [INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Products] AS [x]
+WHERE [x].[Status] = 1" (0723d8ff)
+2018-12-13T17:15:09.7569359+07:00 0HLJ0SA0CU2PD:0000000B [INF] Executed DbCommand ("2"ms) [Parameters=["@__p_0='?', @__p_1='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[CategoryId], [x].[Content], [x].[DateCreated], [x].[DateModified], [x].[Description], [x].[HomeFlag], [x].[HotFlag], [x].[Image], [x].[Name], [x].[OriginalPrice], [x].[Price], [x].[PromotionPrice], [x].[SeoAlias], [x].[SeoDescription], [x].[SeoKeywords], [x].[SeoPageTitle], [x].[Status], [x].[Tags], [x].[Unit], [x].[ViewCount]
+FROM [Products] AS [x]
+WHERE [x].[Status] = 1
+ORDER BY [x].[DateCreated] DESC
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY" (0723d8ff)
+2018-12-13T17:15:09.7884932+07:00 0HLJ0SA0CU2PD:0000000B [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2018-12-13T17:15:09.9184950+07:00 0HLJ0SA0CU2PD:0000000B [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.ProductController.GetAllPaging (ShopOnlineApp)" in 98.3396ms (afa2e885)
+2018-12-13T17:15:10.1564756+07:00 0HLJ0SA0CU2PD:0000000B [INF] Request finished in 276.2025ms 200 application/json; charset=utf-8 (791a596a)
+2018-12-13T17:15:10.1831973+07:00 0HLJ0SA0CU2PE:00000008 [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/Product/GetAllPaging?categoryId=&searchText=&pageIndex=1&pageSize=10   (ca22a1cb)
+2018-12-13T17:15:10.1907136+07:00 0HLJ0SA0CU2PE:00000008 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-12-13T17:15:10.2244833+07:00 0HLJ0SA0CU2PE:00000008 [INF] Authorization was successful for user: "admin". (d7eb274a)
+2018-12-13T17:15:10.2398642+07:00 0HLJ0SA0CU2PE:00000008 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.ProductController.GetAllPaging (ShopOnlineApp)" with arguments (["ShopOnlineApp.Application.ViewModels.Product.ProductRequest"]) - ModelState is Invalid (ba7f4ac2)
+2018-12-13T17:15:10.2847807+07:00 0HLJ0SA0CU2PE:00000008 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2018-12-13T17:15:10.3013488+07:00 0HLJ0SA0CU2PE:00000008 [INF] Executed DbCommand ("3"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Products] AS [x]
+WHERE [x].[Status] = 1" (0723d8ff)
+2018-12-13T17:15:10.3199063+07:00 0HLJ0SA0CU2PE:00000008 [INF] Executed DbCommand ("3"ms) [Parameters=["@__p_0='?', @__p_1='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[CategoryId], [x].[Content], [x].[DateCreated], [x].[DateModified], [x].[Description], [x].[HomeFlag], [x].[HotFlag], [x].[Image], [x].[Name], [x].[OriginalPrice], [x].[Price], [x].[PromotionPrice], [x].[SeoAlias], [x].[SeoDescription], [x].[SeoKeywords], [x].[SeoPageTitle], [x].[Status], [x].[Tags], [x].[Unit], [x].[ViewCount]
+FROM [Products] AS [x]
+WHERE [x].[Status] = 1
+ORDER BY [x].[DateCreated] DESC
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY" (0723d8ff)
+2018-12-13T17:15:10.3376159+07:00 0HLJ0SA0CU2PE:00000008 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2018-12-13T17:15:10.3685165+07:00 0HLJ0SA0CU2PD:0000000C [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/Product/GetAllPaging?categoryId=&searchText=&pageIndex=1&pageSize=10   (ca22a1cb)
+2018-12-13T17:15:10.3714695+07:00 0HLJ0SA0CU2PE:00000008 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.ProductController.GetAllPaging (ShopOnlineApp)" in 147.0915ms (afa2e885)
+2018-12-13T17:15:10.4172116+07:00 0HLJ0SA0CU2PE:00000008 [INF] Request finished in 212.8212ms 200 application/json; charset=utf-8 (791a596a)
+2018-12-13T17:15:10.4564321+07:00 0HLJ0SA0CU2PD:0000000C [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-12-13T17:15:10.4684265+07:00 0HLJ0SA0CU2PD:0000000C [INF] Authorization was successful for user: "admin". (d7eb274a)
+2018-12-13T17:15:10.4750936+07:00 0HLJ0SA0CU2PD:0000000C [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.ProductController.GetAllPaging (ShopOnlineApp)" with arguments (["ShopOnlineApp.Application.ViewModels.Product.ProductRequest"]) - ModelState is Invalid (ba7f4ac2)
+2018-12-13T17:15:10.4827436+07:00 0HLJ0SA0CU2PD:0000000C [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2018-12-13T17:15:10.4925012+07:00 0HLJ0SA0CU2PD:0000000C [INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Products] AS [x]
+WHERE [x].[Status] = 1" (0723d8ff)
+2018-12-13T17:15:10.5087159+07:00 0HLJ0SA0CU2PD:0000000C [INF] Executed DbCommand ("3"ms) [Parameters=["@__p_0='?', @__p_1='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[CategoryId], [x].[Content], [x].[DateCreated], [x].[DateModified], [x].[Description], [x].[HomeFlag], [x].[HotFlag], [x].[Image], [x].[Name], [x].[OriginalPrice], [x].[Price], [x].[PromotionPrice], [x].[SeoAlias], [x].[SeoDescription], [x].[SeoKeywords], [x].[SeoPageTitle], [x].[Status], [x].[Tags], [x].[Unit], [x].[ViewCount]
+FROM [Products] AS [x]
+WHERE [x].[Status] = 1
+ORDER BY [x].[DateCreated] DESC
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY" (0723d8ff)
+2018-12-13T17:15:10.5175407+07:00 0HLJ0SA0CU2PD:0000000C [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2018-12-13T17:15:10.5348373+07:00 0HLJ0SA0CU2PD:0000000C [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.ProductController.GetAllPaging (ShopOnlineApp)" in 62.0435ms (afa2e885)
+2018-12-13T17:15:10.5720389+07:00 0HLJ0SA0CU2PE:00000009 [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/Product/GetAllPaging?categoryId=&searchText=&pageIndex=1&pageSize=10   (ca22a1cb)
+2018-12-13T17:15:10.5994837+07:00 0HLJ0SA0CU2PE:00000009 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-12-13T17:15:10.6555934+07:00 0HLJ0SA0CU2PD:0000000C [INF] Request finished in 189.6565ms 200 application/json; charset=utf-8 (791a596a)
+2018-12-13T17:15:10.6854242+07:00 0HLJ0SA0CU2PE:00000009 [INF] Authorization was successful for user: "admin". (d7eb274a)
+2018-12-13T17:15:10.6982135+07:00 0HLJ0SA0CU2PE:00000009 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.ProductController.GetAllPaging (ShopOnlineApp)" with arguments (["ShopOnlineApp.Application.ViewModels.Product.ProductRequest"]) - ModelState is Invalid (ba7f4ac2)
+2018-12-13T17:15:10.7063683+07:00 0HLJ0SA0CU2PE:00000009 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2018-12-13T17:15:10.7166745+07:00 0HLJ0SA0CU2PE:00000009 [INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Products] AS [x]
+WHERE [x].[Status] = 1" (0723d8ff)
+2018-12-13T17:15:10.7308359+07:00 0HLJ0SA0CU2PE:00000009 [INF] Executed DbCommand ("2"ms) [Parameters=["@__p_0='?', @__p_1='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[CategoryId], [x].[Content], [x].[DateCreated], [x].[DateModified], [x].[Description], [x].[HomeFlag], [x].[HotFlag], [x].[Image], [x].[Name], [x].[OriginalPrice], [x].[Price], [x].[PromotionPrice], [x].[SeoAlias], [x].[SeoDescription], [x].[SeoKeywords], [x].[SeoPageTitle], [x].[Status], [x].[Tags], [x].[Unit], [x].[ViewCount]
+FROM [Products] AS [x]
+WHERE [x].[Status] = 1
+ORDER BY [x].[DateCreated] DESC
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY" (0723d8ff)
+2018-12-13T17:15:10.7381010+07:00 0HLJ0SA0CU2PE:00000009 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2018-12-13T17:15:10.7595639+07:00 0HLJ0SA0CU2PE:00000009 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.ProductController.GetAllPaging (ShopOnlineApp)" in 142.5299ms (afa2e885)
+2018-12-13T17:15:10.7656431+07:00 0HLJ0SA0CU2PD:0000000D [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/Product/GetAllPaging?categoryId=&searchText=&pageIndex=1&pageSize=10   (ca22a1cb)
+2018-12-13T17:15:10.7846826+07:00 0HLJ0SA0CU2PD:0000000D [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-12-13T17:15:10.8154271+07:00 0HLJ0SA0CU2PE:00000009 [INF] Request finished in 228.3391ms 200 application/json; charset=utf-8 (791a596a)
+2018-12-13T17:15:10.8221859+07:00 0HLJ0SA0CU2PD:0000000D [INF] Authorization was successful for user: "admin". (d7eb274a)
+2018-12-13T17:15:10.8360076+07:00 0HLJ0SA0CU2PD:0000000D [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.ProductController.GetAllPaging (ShopOnlineApp)" with arguments (["ShopOnlineApp.Application.ViewModels.Product.ProductRequest"]) - ModelState is Invalid (ba7f4ac2)
+2018-12-13T17:15:10.8429789+07:00 0HLJ0SA0CU2PD:0000000D [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2018-12-13T17:15:10.8575245+07:00 0HLJ0SA0CU2PD:0000000D [INF] Executed DbCommand ("4"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Products] AS [x]
+WHERE [x].[Status] = 1" (0723d8ff)
+2018-12-13T17:15:10.8853808+07:00 0HLJ0SA0CU2PD:0000000D [INF] Executed DbCommand ("4"ms) [Parameters=["@__p_0='?', @__p_1='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[CategoryId], [x].[Content], [x].[DateCreated], [x].[DateModified], [x].[Description], [x].[HomeFlag], [x].[HotFlag], [x].[Image], [x].[Name], [x].[OriginalPrice], [x].[Price], [x].[PromotionPrice], [x].[SeoAlias], [x].[SeoDescription], [x].[SeoKeywords], [x].[SeoPageTitle], [x].[Status], [x].[Tags], [x].[Unit], [x].[ViewCount]
+FROM [Products] AS [x]
+WHERE [x].[Status] = 1
+ORDER BY [x].[DateCreated] DESC
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY" (0723d8ff)
+2018-12-13T17:15:10.9020724+07:00 0HLJ0SA0CU2PD:0000000D [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2018-12-13T17:15:10.9401407+07:00 0HLJ0SA0CU2PD:0000000D [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.ProductController.GetAllPaging (ShopOnlineApp)" in 116.7279ms (afa2e885)
+2018-12-13T17:15:11.1055510+07:00 0HLJ0SA0CU2PD:0000000D [INF] Request finished in 199.2592ms 200 application/json; charset=utf-8 (791a596a)
+2018-12-13T17:15:11.1133503+07:00 0HLJ0SA0CU2PE:0000000A [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/Product/GetAllPaging?categoryId=&searchText=&pageIndex=1&pageSize=10   (ca22a1cb)
+2018-12-13T17:15:11.1661767+07:00 0HLJ0SA0CU2PE:0000000A [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-12-13T17:15:11.1819304+07:00 0HLJ0SA0CU2PE:0000000A [INF] Authorization was successful for user: "admin". (d7eb274a)
+2018-12-13T17:15:11.1888673+07:00 0HLJ0SA0CU2PE:0000000A [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.ProductController.GetAllPaging (ShopOnlineApp)" with arguments (["ShopOnlineApp.Application.ViewModels.Product.ProductRequest"]) - ModelState is Invalid (ba7f4ac2)
+2018-12-13T17:15:11.1987674+07:00 0HLJ0SA0CU2PE:0000000A [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2018-12-13T17:15:11.2084694+07:00 0HLJ0SA0CU2PE:0000000A [INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Products] AS [x]
+WHERE [x].[Status] = 1" (0723d8ff)
+2018-12-13T17:15:11.2364460+07:00 0HLJ0SA0CU2PE:0000000A [INF] Executed DbCommand ("6"ms) [Parameters=["@__p_0='?', @__p_1='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[CategoryId], [x].[Content], [x].[DateCreated], [x].[DateModified], [x].[Description], [x].[HomeFlag], [x].[HotFlag], [x].[Image], [x].[Name], [x].[OriginalPrice], [x].[Price], [x].[PromotionPrice], [x].[SeoAlias], [x].[SeoDescription], [x].[SeoKeywords], [x].[SeoPageTitle], [x].[Status], [x].[Tags], [x].[Unit], [x].[ViewCount]
+FROM [Products] AS [x]
+WHERE [x].[Status] = 1
+ORDER BY [x].[DateCreated] DESC
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY" (0723d8ff)
+2018-12-13T17:15:11.3057342+07:00 0HLJ0SA0CU2PE:0000000A [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2018-12-13T17:15:11.4542008+07:00 0HLJ0SA0CU2PE:0000000A [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.ProductController.GetAllPaging (ShopOnlineApp)" in 139.9905ms (afa2e885)
+2018-12-13T17:15:11.5532777+07:00 0HLJ0SA0CU2PD:0000000E [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/Product/GetAllPaging?categoryId=&searchText=&pageIndex=1&pageSize=10   (ca22a1cb)
+2018-12-13T17:15:11.5605279+07:00 0HLJ0SA0CU2PE:0000000A [INF] Request finished in 545.3573ms 200 application/json; charset=utf-8 (791a596a)
+2018-12-13T17:15:11.5930931+07:00 0HLJ0SA0CU2PD:0000000E [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-12-13T17:15:11.6174809+07:00 0HLJ0SA0CU2PD:0000000E [INF] Authorization was successful for user: "admin". (d7eb274a)
+2018-12-13T17:15:11.6300146+07:00 0HLJ0SA0CU2PD:0000000E [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.ProductController.GetAllPaging (ShopOnlineApp)" with arguments (["ShopOnlineApp.Application.ViewModels.Product.ProductRequest"]) - ModelState is Invalid (ba7f4ac2)
+2018-12-13T17:15:11.6399259+07:00 0HLJ0SA0CU2PD:0000000E [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2018-12-13T17:15:11.6547293+07:00 0HLJ0SA0CU2PD:0000000E [INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Products] AS [x]
+WHERE [x].[Status] = 1" (0723d8ff)
+2018-12-13T17:15:11.6902044+07:00 0HLJ0SA0CU2PD:0000000E [INF] Executed DbCommand ("12"ms) [Parameters=["@__p_0='?', @__p_1='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[CategoryId], [x].[Content], [x].[DateCreated], [x].[DateModified], [x].[Description], [x].[HomeFlag], [x].[HotFlag], [x].[Image], [x].[Name], [x].[OriginalPrice], [x].[Price], [x].[PromotionPrice], [x].[SeoAlias], [x].[SeoDescription], [x].[SeoKeywords], [x].[SeoPageTitle], [x].[Status], [x].[Tags], [x].[Unit], [x].[ViewCount]
+FROM [Products] AS [x]
+WHERE [x].[Status] = 1
+ORDER BY [x].[DateCreated] DESC
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY" (0723d8ff)
+2018-12-13T17:15:11.7015127+07:00 0HLJ0SA0CU2PD:0000000E [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2018-12-13T17:15:11.7170917+07:00 0HLJ0SA0CU2PD:0000000E [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.ProductController.GetAllPaging (ShopOnlineApp)" in 109.3201ms (afa2e885)
+2018-12-13T17:15:11.7407705+07:00 0HLJ0SA0CU2PE:0000000B [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/Product/GetAllPaging?categoryId=&searchText=&pageIndex=1&pageSize=10   (ca22a1cb)
+2018-12-13T17:15:11.8069537+07:00 0HLJ0SA0CU2PE:0000000B [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-12-13T17:15:11.8195859+07:00 0HLJ0SA0CU2PD:0000000E [INF] Request finished in 270.8211ms 200 application/json; charset=utf-8 (791a596a)
+2018-12-13T17:15:11.8431057+07:00 0HLJ0SA0CU2PE:0000000B [INF] Authorization was successful for user: "admin". (d7eb274a)
+2018-12-13T17:15:11.8593764+07:00 0HLJ0SA0CU2PE:0000000B [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.ProductController.GetAllPaging (ShopOnlineApp)" with arguments (["ShopOnlineApp.Application.ViewModels.Product.ProductRequest"]) - ModelState is Invalid (ba7f4ac2)
+2018-12-13T17:15:11.8709500+07:00 0HLJ0SA0CU2PE:0000000B [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2018-12-13T17:15:11.8906980+07:00 0HLJ0SA0CU2PE:0000000B [INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Products] AS [x]
+WHERE [x].[Status] = 1" (0723d8ff)
+2018-12-13T17:15:11.9128615+07:00 0HLJ0SA0CU2PE:0000000B [INF] Executed DbCommand ("7"ms) [Parameters=["@__p_0='?', @__p_1='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[CategoryId], [x].[Content], [x].[DateCreated], [x].[DateModified], [x].[Description], [x].[HomeFlag], [x].[HotFlag], [x].[Image], [x].[Name], [x].[OriginalPrice], [x].[Price], [x].[PromotionPrice], [x].[SeoAlias], [x].[SeoDescription], [x].[SeoKeywords], [x].[SeoPageTitle], [x].[Status], [x].[Tags], [x].[Unit], [x].[ViewCount]
+FROM [Products] AS [x]
+WHERE [x].[Status] = 1
+ORDER BY [x].[DateCreated] DESC
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY" (0723d8ff)
+2018-12-13T17:15:11.9232025+07:00 0HLJ0SA0CU2PE:0000000B [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2018-12-13T17:15:11.9434040+07:00 0HLJ0SA0CU2PE:0000000B [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.ProductController.GetAllPaging (ShopOnlineApp)" in 116.3908ms (afa2e885)
+2018-12-13T17:15:11.9521635+07:00 0HLJ0SA0CU2PD:0000000F [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/Product/GetAllPaging?categoryId=&searchText=&pageIndex=1&pageSize=10   (ca22a1cb)
+2018-12-13T17:15:12.0074291+07:00 0HLJ0SA0CU2PD:0000000F [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-12-13T17:15:12.0608759+07:00 0HLJ0SA0CU2PD:0000000F [INF] Authorization was successful for user: "admin". (d7eb274a)
+2018-12-13T17:15:12.1009974+07:00 0HLJ0SA0CU2PE:0000000B [INF] Request finished in 231.7413ms 200 application/json; charset=utf-8 (791a596a)
+2018-12-13T17:15:12.1092353+07:00 0HLJ0SA0CU2PD:0000000F [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.ProductController.GetAllPaging (ShopOnlineApp)" with arguments (["ShopOnlineApp.Application.ViewModels.Product.ProductRequest"]) - ModelState is Invalid (ba7f4ac2)
+2018-12-13T17:15:12.1179603+07:00 0HLJ0SA0CU2PD:0000000F [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2018-12-13T17:15:12.1273160+07:00 0HLJ0SA0CU2PD:0000000F [INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Products] AS [x]
+WHERE [x].[Status] = 1" (0723d8ff)
+2018-12-13T17:15:12.1401098+07:00 0HLJ0SA0CU2PD:0000000F [INF] Executed DbCommand ("3"ms) [Parameters=["@__p_0='?', @__p_1='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[CategoryId], [x].[Content], [x].[DateCreated], [x].[DateModified], [x].[Description], [x].[HomeFlag], [x].[HotFlag], [x].[Image], [x].[Name], [x].[OriginalPrice], [x].[Price], [x].[PromotionPrice], [x].[SeoAlias], [x].[SeoDescription], [x].[SeoKeywords], [x].[SeoPageTitle], [x].[Status], [x].[Tags], [x].[Unit], [x].[ViewCount]
+FROM [Products] AS [x]
+WHERE [x].[Status] = 1
+ORDER BY [x].[DateCreated] DESC
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY" (0723d8ff)
+2018-12-13T17:15:12.1489062+07:00 0HLJ0SA0CU2PD:0000000F [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2018-12-13T17:15:12.1594579+07:00 0HLJ0SA0CU2PD:0000000F [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.ProductController.GetAllPaging (ShopOnlineApp)" in 141.8974ms (afa2e885)
+2018-12-13T17:15:12.1733010+07:00 0HLJ0SA0CU2PE:0000000C [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/Product/GetAllPaging?categoryId=&searchText=&pageIndex=1&pageSize=10   (ca22a1cb)
+2018-12-13T17:15:12.1844605+07:00 0HLJ0SA0CU2PD:0000000F [INF] Request finished in 228.4668ms 200 application/json; charset=utf-8 (791a596a)
+2018-12-13T17:15:12.2177645+07:00 0HLJ0SA0CU2PE:0000000C [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-12-13T17:15:12.2236102+07:00 0HLJ0SA0CU2PE:0000000C [INF] Authorization was successful for user: "admin". (d7eb274a)
+2018-12-13T17:15:12.2361710+07:00 0HLJ0SA0CU2PE:0000000C [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.ProductController.GetAllPaging (ShopOnlineApp)" with arguments (["ShopOnlineApp.Application.ViewModels.Product.ProductRequest"]) - ModelState is Invalid (ba7f4ac2)
+2018-12-13T17:15:12.2413287+07:00 0HLJ0SA0CU2PE:0000000C [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2018-12-13T17:15:12.2525806+07:00 0HLJ0SA0CU2PE:0000000C [INF] Executed DbCommand ("3"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Products] AS [x]
+WHERE [x].[Status] = 1" (0723d8ff)
+2018-12-13T17:15:12.2621823+07:00 0HLJ0SA0CU2PE:0000000C [INF] Executed DbCommand ("2"ms) [Parameters=["@__p_0='?', @__p_1='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[CategoryId], [x].[Content], [x].[DateCreated], [x].[DateModified], [x].[Description], [x].[HomeFlag], [x].[HotFlag], [x].[Image], [x].[Name], [x].[OriginalPrice], [x].[Price], [x].[PromotionPrice], [x].[SeoAlias], [x].[SeoDescription], [x].[SeoKeywords], [x].[SeoPageTitle], [x].[Status], [x].[Tags], [x].[Unit], [x].[ViewCount]
+FROM [Products] AS [x]
+WHERE [x].[Status] = 1
+ORDER BY [x].[DateCreated] DESC
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY" (0723d8ff)
+2018-12-13T17:15:12.2750698+07:00 0HLJ0SA0CU2PE:0000000C [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2018-12-13T17:15:12.3059570+07:00 0HLJ0SA0CU2PD:00000010 [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/Product/GetAllPaging?categoryId=&searchText=&pageIndex=1&pageSize=10   (ca22a1cb)
+2018-12-13T17:15:12.3072332+07:00 0HLJ0SA0CU2PE:0000000C [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.ProductController.GetAllPaging (ShopOnlineApp)" in 58.2982ms (afa2e885)
+2018-12-13T17:15:12.3866457+07:00 0HLJ0SA0CU2PD:00000010 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-12-13T17:15:12.4004743+07:00 0HLJ0SA0CU2PD:00000010 [INF] Authorization was successful for user: "admin". (d7eb274a)
+2018-12-13T17:15:12.4030808+07:00 0HLJ0SA0CU2PE:0000000C [INF] Request finished in 168.3935ms 200 application/json; charset=utf-8 (791a596a)
+2018-12-13T17:15:12.4159586+07:00 0HLJ0SA0CU2PD:00000010 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.ProductController.GetAllPaging (ShopOnlineApp)" with arguments (["ShopOnlineApp.Application.ViewModels.Product.ProductRequest"]) - ModelState is Invalid (ba7f4ac2)
+2018-12-13T17:15:12.4227613+07:00 0HLJ0SA0CU2PD:00000010 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2018-12-13T17:15:12.4336105+07:00 0HLJ0SA0CU2PD:00000010 [INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Products] AS [x]
+WHERE [x].[Status] = 1" (0723d8ff)
+2018-12-13T17:15:12.4466573+07:00 0HLJ0SA0CU2PD:00000010 [INF] Executed DbCommand ("2"ms) [Parameters=["@__p_0='?', @__p_1='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[CategoryId], [x].[Content], [x].[DateCreated], [x].[DateModified], [x].[Description], [x].[HomeFlag], [x].[HotFlag], [x].[Image], [x].[Name], [x].[OriginalPrice], [x].[Price], [x].[PromotionPrice], [x].[SeoAlias], [x].[SeoDescription], [x].[SeoKeywords], [x].[SeoPageTitle], [x].[Status], [x].[Tags], [x].[Unit], [x].[ViewCount]
+FROM [Products] AS [x]
+WHERE [x].[Status] = 1
+ORDER BY [x].[DateCreated] DESC
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY" (0723d8ff)
+2018-12-13T17:15:12.4532601+07:00 0HLJ0SA0CU2PD:00000010 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2018-12-13T17:15:12.4820366+07:00 0HLJ0SA0CU2PD:00000010 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.ProductController.GetAllPaging (ShopOnlineApp)" in 66.7095ms (afa2e885)
+2018-12-13T17:15:12.5527752+07:00 0HLJ0SA0CU2PD:00000010 [INF] Request finished in 190.4596ms 200 application/json; charset=utf-8 (791a596a)

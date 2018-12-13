@@ -3,6 +3,25 @@
         loadDataCategory();
         loadData();
         registerEvent();
+        registerControl();
+    }
+
+    function registerControl() {
+        CKEDITOR.replace('txtContent', {});
+        $.fn.modal.Constructor.prototype.enforceFocus = function () {
+            $(document)
+                .off('focusin.bs.modal') // guard against infinite focus loop
+                .on('focusin.bs.modal', $.proxy(function (e) {
+                    if (
+                        this.$element[0] !== e.target && !this.$element.has(e.target).length
+                            // CKEditor compatibility fix start.
+                            && !$(e.target).closest('.cke_dialog, .cke').length
+                        // CKEditor compatibility fix end.
+                    ) {
+                        this.$element.trigger('focus');
+                    }
+                }, this));
+        };
     }
 
     function registerEvent() {
@@ -80,7 +99,7 @@
             var seoPageTitle = $('#txtSeoPageTitleM').val();
             var seoAlias = $('#txtSeoAliasM').val();
 
-           // var content = CKEDITOR.instances.txtContent.getData();
+            var content = CKEDITOR.instances.txtContent.getData();
             var status = $('#ckStatusM').prop('checked') == true ? 1 : 0;
             var hot = $('#ckHotM').prop('checked');
             var showHome = $('#ckShowHomeM').prop('checked');
@@ -180,8 +199,8 @@
                 $('#txtMetaDescriptionM').val(data.seoDescription);
                 $('#txtSeoPageTitleM').val(data.seoPageTitle);
                 $('#txtSeoAliasM').val(data.seoAlias);
-
-                //CKEDITOR.instances.txtContent.setData(data.Content);
+                // get instance by id 
+                CKEDITOR.instances.txtContent.setData(data.Content);
                 $('#ckStatusM').prop('checked', data.status === 1);
                 $('#ckHotM').prop('checked', data.hotFlag);
                 $('#ckShowHomeM').prop('checked', data.homeFlag);
