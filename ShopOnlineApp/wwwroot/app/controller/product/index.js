@@ -6,6 +6,21 @@
     }
 
     function registerEvent() {
+
+        $('#frmMaintainance').validate({
+            errorClass: 'red',
+            ignore: [],
+            lang: 'vi',
+            rules: {
+                txtNameM: { required: true },
+                ddlCategoryIdM: { required: true },
+                txtPriceM: {
+                    required: true,
+                    number: true
+                }
+            }
+        });
+
         $('#ddlShowPage').on('change', function () {
             shoponline.configs.pageSize = $(this).val();
             shoponline.configs.pageIndex = 1;
@@ -15,9 +30,233 @@
             function() {
                 loadData(true);
             });
+        $('#txtKeyword').on('keypress', function (e) {
+            if (e.which === 13) {
+                loadData();
+            }
+        });
 
+        $("#btnCreate").on('click', function () {
+            resetFormMaintainance();
+            initTreeDropDownCategory();
+            $('#modal-add-edit').modal('show');
+
+        });
+
+        $('body').on('click', '.btn-edit', function (e) {
+            e.preventDefault();
+            var that = $(this).data('id');
+            loadDetails(that);
+        });
+        $('body').on('click', '.btn-delete', function (e) {
+            e.preventDefault();
+            var that = $(this).data('id');
+            deleteProduct(that);
+        });
+
+        $('#btnSave').on('click', function (e) {
+            saveProduct();
+        });
+    }
+    function saveProduct() {
+        if ($('#frmMaintainance').valid()) {
+           // e.preventDefault();
+            var id = $('#hidIdM').val();
+            var name = $('#txtNameM').val();
+            var categoryId = $('#ddlCategoryIdM').combotree('getValue');
+
+            var description = $('#txtDescM').val();
+            var unit = $('#txtUnitM').val();
+
+            var price = $('#txtPriceM').val();
+            var originalPrice = $('#txtOriginalPriceM').val();
+            var promotionPrice = $('#txtPromotionPriceM').val();
+
+            //var image = $('#txtImageM').val();
+
+            var tags = $('#txtTagM').val();
+            var seoKeyword = $('#txtMetakeywordM').val();
+            var seoMetaDescription = $('#txtMetaDescriptionM').val();
+            var seoPageTitle = $('#txtSeoPageTitleM').val();
+            var seoAlias = $('#txtSeoAliasM').val();
+
+           // var content = CKEDITOR.instances.txtContent.getData();
+            var status = $('#ckStatusM').prop('checked') == true ? 1 : 0;
+            var hot = $('#ckHotM').prop('checked');
+            var showHome = $('#ckShowHomeM').prop('checked');
+
+            $.ajax({
+                type: "POST",
+                url: "/Admin/Product/SaveEntity",
+                data: {
+                    Id: id,
+                    Name: name,
+                    CategoryId: categoryId,
+                    Image: '',
+                    Price: price,
+                    OriginalPrice: originalPrice,
+                    PromotionPrice: promotionPrice,
+                    Description: description,
+                    //Content: content,
+                    HomeFlag: showHome,
+                    HotFlag: hot,
+                    Tags: tags,
+                    Unit: unit,
+                    Status: status,
+                    SeoPageTitle: seoPageTitle,
+                    SeoAlias: seoAlias,
+                    SeoKeywords: seoKeyword,
+                    SeoDescription: seoMetaDescription
+                },
+                dataType: "json",
+                beforeSend: function () {
+                    shoponline.startLoading();
+                },
+                success: function (response) {
+                    shoponline.notify('Update product successful', 'success');
+                    $('#modal-add-edit').modal('hide');
+                    resetFormMaintainance();
+
+                    shoponline.stopLoading();
+                    loadData(true);
+                },
+                error: function () {
+                    shoponline.notify('Has an error in save product progress', 'error');
+                    shoponline.stopLoading();
+                }
+            });
+            return false;
+        }
+    }
+
+    function deleteProduct(id) {
+        shoponline.confirm('Are you sure to delete?', function () {
+            $.ajax({
+                type: "POST",
+                url: "/Admin/Product/Delete",
+                data: { id: id },
+                dataType: "json",
+                beforeSend: function () {
+                    shoponline.startLoading();
+                },
+                success: function (response) {
+                    shoponline.notify('Delete successful', 'success');
+                    shoponline.stopLoading();
+                    loadData();
+                },
+                error: function (status) {
+                    shoponline.notify('Has an error in delete progress', 'error');
+                    shoponline.stopLoading();
+                }
+            });
+        });
+    }
+    function loadDetails(id) {
+        $.ajax({
+            type: "GET",
+            url: "/Admin/Product/GetById",
+            data: { id: id },
+            dataType: "json",
+            beforeSend: function () {
+                shoponline.startLoading();
+            },
+            success: function (response) {
+                var data = response;
+                $('#hidIdM').val(data.id);
+                $('#txtNameM').val(data.name);
+                initTreeDropDownCategory(data.categoryId);
+
+                $('#txtDescM').val(data.description);
+                $('#txtUnitM').val(data.unit);
+
+                $('#txtPriceM').val(data.price);
+                $('#txtOriginalPriceM').val(data.originalPrice);
+                $('#txtPromotionPriceM').val(data.promotionPrice);
+
+                // $('#txtImageM').val(data.ThumbnailImage);
+
+                $('#txtTagM').val(data.tags);
+                $('#txtMetakeywordM').val(data.seoKeywords);
+                $('#txtMetaDescriptionM').val(data.seoDescription);
+                $('#txtSeoPageTitleM').val(data.seoPageTitle);
+                $('#txtSeoAliasM').val(data.seoAlias);
+
+                //CKEDITOR.instances.txtContent.setData(data.Content);
+                $('#ckStatusM').prop('checked', data.status === 1);
+                $('#ckHotM').prop('checked', data.hotFlag);
+                $('#ckShowHomeM').prop('checked', data.homeFlag);
+
+                $('#modal-add-edit').modal('show');
+
+                shoponline.stopLoading();
+
+            },
+            error: function (status) {
+                shoponline.notify('Có lỗi xảy ra', 'error');
+                shoponline.stopLoading();
+            }
+        });
+    }
+
+    function initTreeDropDownCategory(selectedId) {
+        $.ajax({
+            url: "/Admin/ProductCategory/GetAll",
+            type: 'GET',
+            dataType: 'json',
+            async: false,
+            success: function (response) {
+                var data = [];
+                $.each(response, function (i, item) {
+                    data.push({
+                        id: item.id,
+                        text: item.name,
+                        parentId: item.parentId,
+                        sortOrder: item.sortOrder
+                    });
+                });
+                var arr = shoponline.unflattern(data);
+                $('#ddlCategoryIdM').combotree({
+                    data: arr
+                });
+
+                $('#ddlCategoryIdImportExcel').combotree({
+                    data: arr
+                });
+                if (selectedId !== undefined) {
+                    $('#ddlCategoryIdM').combotree('setValue', selectedId);
+                }
+            }
+        });
+    }
+
+    function resetFormMaintainance() {
+        $('#hidIdM').val(0);
+        $('#txtNameM').val('');
+        initTreeDropDownCategory('');
+
+        $('#txtDescM').val('');
+        $('#txtUnitM').val('');
+
+        $('#txtPriceM').val('0');
+        $('#txtOriginalPriceM').val('');
+        $('#txtPromotionPriceM').val('');
+
+        //$('#txtImageM').val('');
+
+        $('#txtTagM').val('');
+        $('#txtMetakeywordM').val('');
+        $('#txtMetaDescriptionM').val('');
+        $('#txtSeoPageTitleM').val('');
+        $('#txtSeoAliasM').val('');
+
+        //CKEDITOR.instances.txtContentM.setData('');
+        $('#ckStatusM').prop('checked', true);
+        $('#ckHotM').prop('checked', false);
+        $('#ckShowHomeM').prop('checked', false);
 
     }
+
+
     function loadDataCategory() {
         $.ajax({
             type: 'GET',
@@ -48,6 +287,7 @@
             url: '/Admin/Product/GetAllPaging',
             data: {
                 categoryId: $('#ddlCategorySearch').val(),
+                searchText: $('#txtKeyword').val(),
                 pageIndex: shoponline.configs.pageIndex,
                 pageSize: shoponline.configs.pageSize
             },
@@ -57,6 +297,7 @@
                         function (i, item) {
                             render += Mustache.render(template,
                                 {
+                                    Id: item.id,
                                     Name: item.name,
                                     Image: item.image === null
                                         ? '<img src="/admin-side/images/user.png" width=25'

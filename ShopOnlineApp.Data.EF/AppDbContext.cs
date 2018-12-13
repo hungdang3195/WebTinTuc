@@ -1,20 +1,18 @@
-﻿using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using Microsoft.EntityFrameworkCore;
-using TeduCoreApp.Data.EF.Extensions;
-using TeduCoreApp.Data.EF.Configurations;
+﻿using System;
+using System.IO;
 using System.Linq;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Microsoft.EntityFrameworkCore.Design;
 using Microsoft.Extensions.Configuration;
-using System.IO;
 using ShopOnlineApp.Data.Entities;
 using ShopOnlineApp.Data.Interfaces;
+using TeduCoreApp.Data.EF.Configurations;
+using TeduCoreApp.Data.EF.Extensions;
 
-namespace TeduCoreApp.Data.EF
+namespace ShopOnlineApp.Data.EF
 {
     public class AppDbContext : IdentityDbContext<AppUser, AppRole, Guid>
     {
@@ -96,8 +94,7 @@ namespace TeduCoreApp.Data.EF
 
             foreach (EntityEntry item in modified)
             {
-                var changedOrAddedItem = item.Entity as IDateTracking;
-                if (changedOrAddedItem != null)
+                if (item.Entity is IDateTracking changedOrAddedItem)
                 {
                     if (item.State == EntityState.Added)
                     {

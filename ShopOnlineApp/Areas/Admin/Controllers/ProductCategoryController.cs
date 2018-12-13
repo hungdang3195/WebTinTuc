@@ -1,9 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.InteropServices.ComTypes;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
-using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using ShopOnlineApp.Application.Interfaces;
 using ShopOnlineApp.Application.ViewModels.Product;
 using ShopOnlineApp.Utilities.Helpers;
@@ -32,6 +31,7 @@ namespace ShopOnlineApp.Areas.Admin.Controllers
         {
             return View();
         }
+
         [HttpGet]
         public IActionResult GetById(int id)
         {
@@ -40,10 +40,8 @@ namespace ShopOnlineApp.Areas.Admin.Controllers
             {
                 return new OkObjectResult(items);
             }
-            else
-            {
-                return new OkResult();
-            }
+
+            return new OkResult();
 
         }
 
@@ -54,12 +52,10 @@ namespace ShopOnlineApp.Areas.Admin.Controllers
             {
                 return new BadRequestResult();
             }
-            else
-            {
-                _productCategoryService.Delete(id);
-                _productCategoryService.Save();
-                return new OkObjectResult(id);
-            }
+
+            _productCategoryService.Delete(id);
+            _productCategoryService.Save();
+            return new OkObjectResult(id);
         }
 
 
@@ -71,21 +67,18 @@ namespace ShopOnlineApp.Areas.Admin.Controllers
                 IEnumerable<ModelError> allErrors = ModelState.Values.SelectMany(v => v.Errors);
                 return new BadRequestObjectResult(allErrors);
             }
+
+            productVm.SeoAlias = TextHelper.ToUnsignString(productVm.Name);
+            if (productVm.Id == 0)
+            {
+                _productCategoryService.Add(productVm);
+            }
             else
             {
-                productVm.SeoAlias = TextHelper.ToUnsignString(productVm.Name);
-                if (productVm.Id == 0)
-                {
-                    _productCategoryService.Add(productVm);
-                }
-                else
-                {
-                    _productCategoryService.Update(productVm);
-                }
-                _productCategoryService.Save();
-                return new OkObjectResult(productVm);
-
+                _productCategoryService.Update(productVm);
             }
+            _productCategoryService.Save();
+            return new OkObjectResult(productVm);
         }
         public IActionResult UpdateParentId(int sourceId, int targetId, Dictionary<int, int> items)
         {
@@ -94,19 +87,15 @@ namespace ShopOnlineApp.Areas.Admin.Controllers
             {
                 return new BadRequestObjectResult(ModelState);
             }
-            else
+
+            if (sourceId == targetId)
             {
-                if (sourceId == targetId)
-                {
-                    return new BadRequestObjectResult(ModelState);
-                }
-                else
-                {
-                    _productCategoryService.UpdateParentId(sourceId, targetId,items);
-                    _productCategoryService.Save();
-                    return new OkResult();
-                }
+                return new BadRequestObjectResult(ModelState);
             }
+
+            _productCategoryService.UpdateParentId(sourceId, targetId,items);
+            _productCategoryService.Save();
+            return new OkResult();
         }
 
         public IActionResult ReOrder(int sourceId,int targetId)
@@ -115,25 +104,22 @@ namespace ShopOnlineApp.Areas.Admin.Controllers
             {
                 return new BadRequestObjectResult(ModelState);
             }
-            else 
+
+            if (sourceId == targetId)
             {
-                if (sourceId == targetId)
-                {
-                    return new BadRequestObjectResult(ModelState);
-                }
-                else
-                {
-                   _productCategoryService.ReOrder(sourceId,targetId);
-                    _productCategoryService.Save();
-                    return new OkResult();
-                }
+                return new BadRequestObjectResult(ModelState);
             }
-            
+
+            _productCategoryService.ReOrder(sourceId,targetId);
+            _productCategoryService.Save();
+            return new OkResult();
+
         }
-        
-        public IActionResult GetAll()
+
+        [HttpGet]
+        public async Task<IActionResult>  GetAll()
         {
-            var items = _productCategoryService.GetAll();
+            var items = await _productCategoryService.GetAll();
             return new OkObjectResult(items);
         }
 

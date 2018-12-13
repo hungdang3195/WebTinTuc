@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using ShopOnlineApp.Infrastructure.Interfaces;
+﻿using ShopOnlineApp.Infrastructure.Interfaces;
 
-namespace TeduCoreApp.Data.EF
+namespace ShopOnlineApp.Data.EF
 {
     public class EFUnitOfWork : IUnitOfWork
     {
