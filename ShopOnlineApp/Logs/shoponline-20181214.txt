@@ -1,0 +1,1273 @@
+2018-12-14T19:55:05.3741139+07:00 0HLJ1ODF8KEOA:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/   (ca22a1cb)
+2018-12-14T19:55:05.7944832+07:00 0HLJ1ODF8KEOA:00000001 [INF] Request finished in 410.5478ms 404  (791a596a)
+2018-12-14T19:55:08.8848785+07:00 0HLJ1ODF8KEOA:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/Login/Index   (ca22a1cb)
+2018-12-14T19:55:09.6194835+07:00 0HLJ1ODF8KEOA:00000002 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.LoginController.index (ShopOnlineApp)" with arguments ([""]) - ModelState is Valid (ba7f4ac2)
+2018-12-14T19:55:09.6646085+07:00 0HLJ1ODF8KEOA:00000002 [INF] AuthenticationScheme: "Identity.External" signed out. (d3f50c8d)
+2018-12-14T19:55:13.1778916+07:00 0HLJ1ODF8KEOC:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/Login/Index   (ca22a1cb)
+2018-12-14T19:55:13.2487645+07:00 0HLJ1ODF8KEOC:00000001 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.LoginController.index (ShopOnlineApp)" with arguments ([""]) - ModelState is Valid (ba7f4ac2)
+2018-12-14T19:55:13.2575679+07:00 0HLJ1ODF8KEOC:00000001 [INF] AuthenticationScheme: "Identity.External" signed out. (d3f50c8d)
+2018-12-14T19:55:16.5843692+07:00 0HLJ1ODF8KEOC:00000001 [INF] Executing ViewResult, running view at path "/Areas/Admin/Views/Login/index.cshtml". (9707eebe)
+2018-12-14T19:55:16.5858790+07:00 0HLJ1ODF8KEOA:00000002 [INF] Executing ViewResult, running view at path "/Areas/Admin/Views/Login/index.cshtml". (9707eebe)
+2018-12-14T19:55:17.0305488+07:00 0HLJ1ODF8KEOD:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/app/controller/Login/index.js   (ca22a1cb)
+2018-12-14T19:55:17.1021462+07:00 0HLJ1ODF8KEOA:00000002 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.LoginController.index (ShopOnlineApp)" in 7663.1675ms (afa2e885)
+2018-12-14T19:55:17.1048586+07:00 0HLJ1ODF8KEOD:00000001 [INF] The file "/app/controller/Login/index.js" was not modified (f1f8d725)
+2018-12-14T19:55:17.1413918+07:00 0HLJ1ODF8KEOC:00000001 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.LoginController.index (ShopOnlineApp)" in 3599.9778ms (afa2e885)
+2018-12-14T19:55:17.2240099+07:00 0HLJ1ODF8KEOE:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/app/shared/shoponline.js   (ca22a1cb)
+2018-12-14T19:55:17.2380716+07:00 0HLJ1ODF8KEOD:00000001 [INF] Request finished in 222.8378ms 304 application/javascript (791a596a)
+2018-12-14T19:55:17.2767070+07:00 0HLJ1ODF8KEOA:00000002 [INF] Request finished in 8344.5328ms 200 text/html; charset=utf-8 (791a596a)
+2018-12-14T19:55:17.3139862+07:00 0HLJ1ODF8KEOC:00000001 [INF] Request finished in 4249.9096ms 200 text/html; charset=utf-8 (791a596a)
+2018-12-14T19:55:17.3248260+07:00 0HLJ1ODF8KEOE:00000001 [INF] The file "/app/shared/shoponline.js" was not modified (f1f8d725)
+2018-12-14T19:55:17.3819827+07:00 0HLJ1ODF8KEOE:00000001 [INF] Request finished in 436.0338ms 304 application/javascript (791a596a)
+2018-12-14T19:55:23.2677174+07:00 0HLJ1ODF8KEOD:00000002 [INF] Request starting HTTP/1.1 POST http://localhost:44344/Admin/Login/authen application/x-www-form-urlencoded; charset=UTF-8 33 (ca22a1cb)
+2018-12-14T19:55:23.3967944+07:00 0HLJ1ODF8KEOD:00000002 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.LoginController.Authen (ShopOnlineApp)" with arguments (["ShopOnlineApp.Models.AccountViewModels.LoginViewModel", ""]) - ModelState is Valid (ba7f4ac2)
+2018-12-14T19:55:24.0278914+07:00 0HLJ1ODF8KEOD:00000002 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2018-12-14T19:55:24.7144731+07:00 0HLJ1ODF8KEOD:00000002 [INF] Executed DbCommand ("191"ms) [Parameters=["@__normalizedUserName_0='?' (Size = 4000)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[Avatar], [u].[Balance], [u].[BirthDay], [u].[ConcurrencyStamp], [u].[DateCreated], [u].[DateModified], [u].[Email], [u].[EmailConfirmed], [u].[FullName], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[Status], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [AppUsers] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0" (0723d8ff)
+2018-12-14T19:55:25.0036890+07:00 0HLJ1ODF8KEOD:00000002 [INF] Executed DbCommand ("7"ms) [Parameters=["@__user_Id_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT [uc].[Id], [uc].[ClaimType], [uc].[ClaimValue], [uc].[UserId]
+FROM [AppUserClaims] AS [uc]
+WHERE [uc].[UserId] = @__user_Id_0" (0723d8ff)
+2018-12-14T19:55:25.0879497+07:00 0HLJ1ODF8KEOD:00000002 [INF] Executed DbCommand ("4"ms) [Parameters=["@__userId_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT [role].[Name]
+FROM [AppUserRoles] AS [userRole]
+INNER JOIN [AppRoles] AS [role] ON [userRole].[RoleId] = [role].[Id]
+WHERE [userRole].[UserId] = @__userId_0" (0723d8ff)
+2018-12-14T19:55:25.1165481+07:00 0HLJ1ODF8KEOD:00000002 [INF] Executed DbCommand ("3"ms) [Parameters=["@__normalizedName_0='?' (Size = 4000)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [r].[Id], [r].[ConcurrencyStamp], [r].[Description], [r].[Name], [r].[NormalizedName]
+FROM [AppRoles] AS [r]
+WHERE [r].[NormalizedName] = @__normalizedName_0" (0723d8ff)
+2018-12-14T19:55:25.1648073+07:00 0HLJ1ODF8KEOD:00000002 [INF] Executed DbCommand ("2"ms) [Parameters=["@__role_Id_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT [rc].[ClaimType], [rc].[ClaimValue]
+FROM [AppRoleClaims] AS [rc]
+WHERE [rc].[RoleId] = @__role_Id_0" (0723d8ff)
+2018-12-14T19:55:25.1755408+07:00 0HLJ1ODF8KEOD:00000002 [INF] Executed DbCommand ("0"ms) [Parameters=["@__userId_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT [role].[Name]
+FROM [AppUserRoles] AS [userRole]
+INNER JOIN [AppRoles] AS [role] ON [userRole].[RoleId] = [role].[Id]
+WHERE [userRole].[UserId] = @__userId_0" (0723d8ff)
+2018-12-14T19:55:25.1900542+07:00 0HLJ1ODF8KEOD:00000002 [INF] AuthenticationScheme: "Identity.Application" signed in. (c66dd7e7)
+2018-12-14T19:55:25.1999968+07:00 0HLJ1ODF8KEOD:00000002 [INF] Đăng nhập thành công (ba4d6ffb)
+2018-12-14T19:55:25.2171144+07:00 0HLJ1ODF8KEOD:00000002 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2018-12-14T19:55:25.3119720+07:00 0HLJ1ODF8KEOD:00000002 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.LoginController.Authen (ShopOnlineApp)" in 1983.4822ms (afa2e885)
+2018-12-14T19:55:25.3259102+07:00 0HLJ1ODF8KEOD:00000002 [INF] Request finished in 2058.5396ms 200 application/json; charset=utf-8 (791a596a)
+2018-12-14T19:55:25.3617037+07:00 0HLJ1ODF8KEOC:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/Home/Index   (ca22a1cb)
+2018-12-14T19:55:25.3798707+07:00 0HLJ1ODF8KEOC:00000002 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-12-14T19:55:25.4024406+07:00 0HLJ1ODF8KEOC:00000002 [INF] Authorization was successful for user: "admin". (d7eb274a)
+2018-12-14T19:55:25.4136753+07:00 0HLJ1ODF8KEOC:00000002 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.HomeController.Index (ShopOnlineApp)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2018-12-14T19:55:25.8988172+07:00 0HLJ1ODF8KEOC:00000002 [INF] Executing ViewResult, running view at path "/Areas/Admin/Views/Home/Index.cshtml". (9707eebe)
+2018-12-14T19:55:26.6615480+07:00 0HLJ1ODF8KEOC:00000002 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2018-12-14T19:55:26.7661556+07:00 0HLJ1ODF8KEOC:00000002 [INF] Executed DbCommand ("56"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [f].[Id], [f].[IconCss], [f].[Name], [f].[ParentId], [f].[SortOrder], [f].[Status], [f].[URL]
+FROM [Functions] AS [f]" (0723d8ff)
+2018-12-14T19:55:28.3751964+07:00 0HLJ1ODF8KEOC:00000002 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.HomeController.Index (ShopOnlineApp)" in 2936.7207ms (afa2e885)
+2018-12-14T19:55:28.4361198+07:00 0HLJ1ODF8KEOC:00000002 [INF] Request finished in 3026.8457ms 200 text/html; charset=utf-8 (791a596a)
+2018-12-14T19:55:31.0780104+07:00 0HLJ1ODF8KEOE:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44344/admin/product/index   (ca22a1cb)
+2018-12-14T19:55:31.0857533+07:00 0HLJ1ODF8KEOE:00000002 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-12-14T19:55:31.0983356+07:00 0HLJ1ODF8KEOE:00000002 [INF] Authorization was successful for user: "admin". (d7eb274a)
+2018-12-14T19:55:31.1068824+07:00 0HLJ1ODF8KEOE:00000002 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.ProductController.Index (ShopOnlineApp)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2018-12-14T19:55:31.5020210+07:00 0HLJ1ODF8KEOE:00000002 [INF] Executing ViewResult, running view at path "/Areas/Admin/Views/Product/Index.cshtml". (9707eebe)
+2018-12-14T19:55:31.8456225+07:00 0HLJ1ODF8KEOE:00000002 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2018-12-14T19:55:31.8559906+07:00 0HLJ1ODF8KEOE:00000002 [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [f].[Id], [f].[IconCss], [f].[Name], [f].[ParentId], [f].[SortOrder], [f].[Status], [f].[URL]
+FROM [Functions] AS [f]" (0723d8ff)
+2018-12-14T19:55:31.8899249+07:00 0HLJ1ODF8KEOE:00000002 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.ProductController.Index (ShopOnlineApp)" in 794.7221ms (afa2e885)
+2018-12-14T19:55:31.9744889+07:00 0HLJ1ODF8KEOE:00000002 [INF] Request finished in 826.2296ms 200 text/html; charset=utf-8 (791a596a)
+2018-12-14T19:55:31.9973152+07:00 0HLJ1ODF8KEOD:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:44344/client-side/custome.css   (ca22a1cb)
+2018-12-14T19:55:32.0154392+07:00 0HLJ1ODF8KEOD:00000003 [INF] The file "/client-side/custome.css" was not modified (f1f8d725)
+2018-12-14T19:55:32.0677817+07:00 0HLJ1ODF8KEOD:00000003 [INF] Request finished in 51.9971ms 304 text/css (791a596a)
+2018-12-14T19:55:32.0773099+07:00 0HLJ1ODF8KEOC:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:44344/app/controller/product/index.js?v=cY4SPxB71FwcoF8zxHHzEOFwojCayNrEz2_D_of0Bw0   (ca22a1cb)
+2018-12-14T19:55:32.1476874+07:00 0HLJ1ODF8KEOC:00000003 [INF] Sending file. Request path: '"/app/controller/product/index.js"'. Physical path: '"G:\KhoaLuan\teducoreapp\ShopOnlineApp\wwwroot\app\controller\product\index.js"' (27b0a520)
+2018-12-14T19:55:32.1708153+07:00 0HLJ1ODF8KEOC:00000003 [INF] Request finished in 174.2444ms 200 application/javascript (791a596a)
+2018-12-14T19:55:32.4777600+07:00 0HLJ1ODF8KEOE:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/ProductCategory/GetAll   (ca22a1cb)
+2018-12-14T19:55:32.5384112+07:00 0HLJ1ODF8KEOD:00000004 [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/Product/GetAllPaging?categoryId=--Ch%E1%BB%8Dn+lo%E1%BA%A1i--&searchText=&pageIndex=1&pageSize=10   (ca22a1cb)
+2018-12-14T19:55:32.5889139+07:00 0HLJ1ODF8KEOE:00000003 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-12-14T19:55:32.7374024+07:00 0HLJ1ODF8KEOE:00000003 [INF] Authorization was successful for user: "admin". (d7eb274a)
+2018-12-14T19:55:32.9322083+07:00 0HLJ1ODF8KEOD:00000004 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-12-14T19:55:32.9679160+07:00 0HLJ1ODF8KEOE:00000003 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.ProductCategoryController.GetAll (ShopOnlineApp)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2018-12-14T19:55:32.9882173+07:00 0HLJ1ODF8KEOE:00000003 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2018-12-14T19:55:33.0114888+07:00 0HLJ1ODF8KEOD:00000004 [INF] Authorization was successful for user: "admin". (d7eb274a)
+2018-12-14T19:55:33.0527641+07:00 0HLJ1ODF8KEOE:00000003 [INF] Executed DbCommand ("16"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[DateCreated], [x].[DateModified], [x].[Description], [x].[HomeFlag], [x].[HomeOrder], [x].[Image], [x].[Name], [x].[ParentId], [x].[SeoAlias], [x].[SeoDescription], [x].[SeoKeywords], [x].[SeoPageTitle], [x].[SortOrder], [x].[Status]
+FROM [ProductCategories] AS [x]
+ORDER BY [x].[ParentId]" (0723d8ff)
+2018-12-14T19:55:33.0822523+07:00 0HLJ1ODF8KEOD:00000004 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.ProductController.GetAllPaging (ShopOnlineApp)" with arguments (["ShopOnlineApp.Application.ViewModels.Product.ProductRequest"]) - ModelState is Invalid (ba7f4ac2)
+2018-12-14T19:55:33.1281748+07:00 0HLJ1ODF8KEOD:00000004 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2018-12-14T19:55:33.1376815+07:00 0HLJ1ODF8KEOE:00000003 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2018-12-14T19:55:33.1863905+07:00 0HLJ1ODF8KEOE:00000003 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.ProductCategoryController.GetAll (ShopOnlineApp)" in 576.3329ms (afa2e885)
+2018-12-14T19:55:33.2165867+07:00 0HLJ1ODF8KEOE:00000003 [INF] Request finished in 732.1271ms 200 application/json; charset=utf-8 (791a596a)
+2018-12-14T19:55:33.2324771+07:00 0HLJ1ODF8KEOD:00000004 [INF] Executed DbCommand ("27"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Products] AS [x]
+WHERE [x].[Status] = 1" (0723d8ff)
+2018-12-14T19:55:33.3286739+07:00 0HLJ1ODF8KEOD:00000004 [INF] Executed DbCommand ("5"ms) [Parameters=["@__p_0='?', @__p_1='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[CategoryId], [x].[Content], [x].[DateCreated], [x].[DateModified], [x].[Description], [x].[HomeFlag], [x].[HotFlag], [x].[Image], [x].[Name], [x].[OriginalPrice], [x].[Price], [x].[PromotionPrice], [x].[SeoAlias], [x].[SeoDescription], [x].[SeoKeywords], [x].[SeoPageTitle], [x].[Status], [x].[Tags], [x].[Unit], [x].[ViewCount]
+FROM [Products] AS [x]
+WHERE [x].[Status] = 1
+ORDER BY [x].[DateCreated] DESC
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY" (0723d8ff)
+2018-12-14T19:55:33.3651899+07:00 0HLJ1ODF8KEOD:00000004 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2018-12-14T19:55:33.4171018+07:00 0HLJ1ODF8KEOD:00000004 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.ProductController.GetAllPaging (ShopOnlineApp)" in 445.0166ms (afa2e885)
+2018-12-14T19:55:33.4878913+07:00 0HLJ1ODF8KEOD:00000004 [INF] Request finished in 949.329ms 200 application/json; charset=utf-8 (791a596a)
+2018-12-14T19:55:33.5396334+07:00 0HLJ1ODF8KEOC:00000004 [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/Product/GetAllPaging?categoryId=&searchText=&pageIndex=1&pageSize=10   (ca22a1cb)
+2018-12-14T19:55:33.5499414+07:00 0HLJ1ODF8KEOC:00000004 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-12-14T19:55:33.5571557+07:00 0HLJ1ODF8KEOC:00000004 [INF] Authorization was successful for user: "admin". (d7eb274a)
+2018-12-14T19:55:33.5643033+07:00 0HLJ1ODF8KEOC:00000004 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.ProductController.GetAllPaging (ShopOnlineApp)" with arguments (["ShopOnlineApp.Application.ViewModels.Product.ProductRequest"]) - ModelState is Invalid (ba7f4ac2)
+2018-12-14T19:55:33.5708053+07:00 0HLJ1ODF8KEOC:00000004 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2018-12-14T19:55:33.5830444+07:00 0HLJ1ODF8KEOC:00000004 [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Products] AS [x]
+WHERE [x].[Status] = 1" (0723d8ff)
+2018-12-14T19:55:33.5978267+07:00 0HLJ1ODF8KEOC:00000004 [INF] Executed DbCommand ("0"ms) [Parameters=["@__p_0='?', @__p_1='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[CategoryId], [x].[Content], [x].[DateCreated], [x].[DateModified], [x].[Description], [x].[HomeFlag], [x].[HotFlag], [x].[Image], [x].[Name], [x].[OriginalPrice], [x].[Price], [x].[PromotionPrice], [x].[SeoAlias], [x].[SeoDescription], [x].[SeoKeywords], [x].[SeoPageTitle], [x].[Status], [x].[Tags], [x].[Unit], [x].[ViewCount]
+FROM [Products] AS [x]
+WHERE [x].[Status] = 1
+ORDER BY [x].[DateCreated] DESC
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY" (0723d8ff)
+2018-12-14T19:55:33.6045255+07:00 0HLJ1ODF8KEOC:00000004 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2018-12-14T19:55:33.6159629+07:00 0HLJ1ODF8KEOC:00000004 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.ProductController.GetAllPaging (ShopOnlineApp)" in 55.0441ms (afa2e885)
+2018-12-14T19:55:33.6539635+07:00 0HLJ1ODF8KEOC:00000004 [INF] Request finished in 141.8587ms 200 application/json; charset=utf-8 (791a596a)
+2018-12-14T19:55:39.1822018+07:00 0HLJ1ODF8KEOE:00000004 [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/ProductCategory/GetAll   (ca22a1cb)
+2018-12-14T19:55:39.1882252+07:00 0HLJ1ODF8KEOE:00000004 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-12-14T19:55:39.1940383+07:00 0HLJ1ODF8KEOE:00000004 [INF] Authorization was successful for user: "admin". (d7eb274a)
+2018-12-14T19:55:39.1999213+07:00 0HLJ1ODF8KEOE:00000004 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.ProductCategoryController.GetAll (ShopOnlineApp)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2018-12-14T19:55:39.2058276+07:00 0HLJ1ODF8KEOE:00000004 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2018-12-14T19:55:39.2147572+07:00 0HLJ1ODF8KEOE:00000004 [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[DateCreated], [x].[DateModified], [x].[Description], [x].[HomeFlag], [x].[HomeOrder], [x].[Image], [x].[Name], [x].[ParentId], [x].[SeoAlias], [x].[SeoDescription], [x].[SeoKeywords], [x].[SeoPageTitle], [x].[SortOrder], [x].[Status]
+FROM [ProductCategories] AS [x]
+ORDER BY [x].[ParentId]" (0723d8ff)
+2018-12-14T19:55:39.2207190+07:00 0HLJ1ODF8KEOE:00000004 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2018-12-14T19:55:39.2270294+07:00 0HLJ1ODF8KEOE:00000004 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.ProductCategoryController.GetAll (ShopOnlineApp)" in 32.6322ms (afa2e885)
+2018-12-14T19:55:39.2391716+07:00 0HLJ1ODF8KEOE:00000004 [INF] Request finished in 50.4868ms 200 application/json; charset=utf-8 (791a596a)
+2018-12-14T19:55:39.3059249+07:00 0HLJ1ODF8KEOD:00000005 [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/ProductCategory/GetAll   (ca22a1cb)
+2018-12-14T19:55:39.3135513+07:00 0HLJ1ODF8KEOD:00000005 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-12-14T19:55:39.3193775+07:00 0HLJ1ODF8KEOD:00000005 [INF] Authorization was successful for user: "admin". (d7eb274a)
+2018-12-14T19:55:39.3254492+07:00 0HLJ1ODF8KEOD:00000005 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.ProductCategoryController.GetAll (ShopOnlineApp)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2018-12-14T19:55:39.3314785+07:00 0HLJ1ODF8KEOD:00000005 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2018-12-14T19:55:39.3407345+07:00 0HLJ1ODF8KEOD:00000005 [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[DateCreated], [x].[DateModified], [x].[Description], [x].[HomeFlag], [x].[HomeOrder], [x].[Image], [x].[Name], [x].[ParentId], [x].[SeoAlias], [x].[SeoDescription], [x].[SeoKeywords], [x].[SeoPageTitle], [x].[SortOrder], [x].[Status]
+FROM [ProductCategories] AS [x]
+ORDER BY [x].[ParentId]" (0723d8ff)
+2018-12-14T19:55:39.3472663+07:00 0HLJ1ODF8KEOD:00000005 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2018-12-14T19:55:39.3546083+07:00 0HLJ1ODF8KEOD:00000005 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.ProductCategoryController.GetAll (ShopOnlineApp)" in 33.8861ms (afa2e885)
+2018-12-14T19:55:39.3699892+07:00 0HLJ1ODF8KEOD:00000005 [INF] Request finished in 58.2222ms 200 application/json; charset=utf-8 (791a596a)
+2018-12-14T19:55:52.9773044+07:00 0HLJ1ODF8KEOC:00000005 [INF] Request starting HTTP/1.1 GET http://localhost:44344/admin/productcategory/index   (ca22a1cb)
+2018-12-14T19:55:52.9840842+07:00 0HLJ1ODF8KEOC:00000005 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-12-14T19:55:52.9919273+07:00 0HLJ1ODF8KEOC:00000005 [INF] Authorization was successful for user: "admin". (d7eb274a)
+2018-12-14T19:55:52.9974462+07:00 0HLJ1ODF8KEOC:00000005 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.ProductCategoryController.Index (ShopOnlineApp)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2018-12-14T19:55:53.1768987+07:00 0HLJ1ODF8KEOC:00000005 [INF] Executing ViewResult, running view at path "/Areas/Admin/Views/ProductCategory/Index.cshtml". (9707eebe)
+2018-12-14T19:55:53.4090410+07:00 0HLJ1ODF8KEOC:00000005 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2018-12-14T19:55:53.4158856+07:00 0HLJ1ODF8KEOC:00000005 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [f].[Id], [f].[IconCss], [f].[Name], [f].[ParentId], [f].[SortOrder], [f].[Status], [f].[URL]
+FROM [Functions] AS [f]" (0723d8ff)
+2018-12-14T19:55:53.4366563+07:00 0HLJ1ODF8KEOC:00000005 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.ProductCategoryController.Index (ShopOnlineApp)" in 439.9689ms (afa2e885)
+2018-12-14T19:55:53.4606819+07:00 0HLJ1ODF8KEOC:00000005 [INF] Request finished in 466.9428ms 200 text/html; charset=utf-8 (791a596a)
+2018-12-14T19:55:53.5343117+07:00 0HLJ1ODF8KEOE:00000005 [INF] Request starting HTTP/1.1 GET http://localhost:44344/app/controller/product-category/index.js?v=TN-JONANtmbqXR4Sr82BjVYo2oDYYZ2g0ADPBnrME7c   (ca22a1cb)
+2018-12-14T19:55:53.5492921+07:00 0HLJ1ODF8KEOE:00000005 [INF] Sending file. Request path: '"/app/controller/product-category/index.js"'. Physical path: '"G:\KhoaLuan\teducoreapp\ShopOnlineApp\wwwroot\app\controller\product-category\index.js"' (27b0a520)
+2018-12-14T19:55:53.5780983+07:00 0HLJ1ODF8KEOE:00000005 [INF] Request finished in 46.3956ms 200 application/javascript (791a596a)
+2018-12-14T19:55:53.9058757+07:00 0HLJ1ODF8KEOD:00000006 [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/ProductCategory/GetAll   (ca22a1cb)
+2018-12-14T19:55:53.9172012+07:00 0HLJ1ODF8KEOD:00000006 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-12-14T19:55:53.9252508+07:00 0HLJ1ODF8KEOD:00000006 [INF] Authorization was successful for user: "admin". (d7eb274a)
+2018-12-14T19:55:53.9349425+07:00 0HLJ1ODF8KEOD:00000006 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.ProductCategoryController.GetAll (ShopOnlineApp)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2018-12-14T19:55:53.9554690+07:00 0HLJ1ODF8KEOD:00000006 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2018-12-14T19:55:54.0343170+07:00 0HLJ1ODF8KEOD:00000006 [INF] Executed DbCommand ("35"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[DateCreated], [x].[DateModified], [x].[Description], [x].[HomeFlag], [x].[HomeOrder], [x].[Image], [x].[Name], [x].[ParentId], [x].[SeoAlias], [x].[SeoDescription], [x].[SeoKeywords], [x].[SeoPageTitle], [x].[SortOrder], [x].[Status]
+FROM [ProductCategories] AS [x]
+ORDER BY [x].[ParentId]" (0723d8ff)
+2018-12-14T19:55:54.0540841+07:00 0HLJ1ODF8KEOD:00000006 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2018-12-14T19:55:54.0663400+07:00 0HLJ1ODF8KEOD:00000006 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.ProductCategoryController.GetAll (ShopOnlineApp)" in 137.9922ms (afa2e885)
+2018-12-14T19:55:54.0813265+07:00 0HLJ1ODF8KEOD:00000006 [INF] Request finished in 185.8104ms 200 application/json; charset=utf-8 (791a596a)
+2018-12-14T19:55:57.2658234+07:00 0HLJ1ODF8KEOC:00000006 [INF] Request starting HTTP/1.1 GET http://localhost:44344/admin/product/index   (ca22a1cb)
+2018-12-14T19:55:57.2720062+07:00 0HLJ1ODF8KEOC:00000006 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-12-14T19:55:57.2780304+07:00 0HLJ1ODF8KEOC:00000006 [INF] Authorization was successful for user: "admin". (d7eb274a)
+2018-12-14T19:55:57.2830931+07:00 0HLJ1ODF8KEOC:00000006 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.ProductController.Index (ShopOnlineApp)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2018-12-14T19:55:57.2913906+07:00 0HLJ1ODF8KEOC:00000006 [INF] Executing ViewResult, running view at path "/Areas/Admin/Views/Product/Index.cshtml". (9707eebe)
+2018-12-14T19:55:57.2968168+07:00 0HLJ1ODF8KEOC:00000006 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2018-12-14T19:55:57.3048179+07:00 0HLJ1ODF8KEOC:00000006 [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [f].[Id], [f].[IconCss], [f].[Name], [f].[ParentId], [f].[SortOrder], [f].[Status], [f].[URL]
+FROM [Functions] AS [f]" (0723d8ff)
+2018-12-14T19:55:57.3151520+07:00 0HLJ1ODF8KEOC:00000006 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.ProductController.Index (ShopOnlineApp)" in 34.7051ms (afa2e885)
+2018-12-14T19:55:57.3527862+07:00 0HLJ1ODF8KEOC:00000006 [INF] Request finished in 56.2812ms 200 text/html; charset=utf-8 (791a596a)
+2018-12-14T19:55:57.6290420+07:00 0HLJ1ODF8KEOE:00000006 [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/ProductCategory/GetAll   (ca22a1cb)
+2018-12-14T19:55:57.6383306+07:00 0HLJ1ODF8KEOD:00000007 [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/Product/GetAllPaging?categoryId=--Ch%E1%BB%8Dn+lo%E1%BA%A1i--&searchText=&pageIndex=1&pageSize=10   (ca22a1cb)
+2018-12-14T19:55:57.6466700+07:00 0HLJ1ODF8KEOE:00000006 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-12-14T19:55:57.6534461+07:00 0HLJ1ODF8KEOD:00000007 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-12-14T19:55:57.6642235+07:00 0HLJ1ODF8KEOD:00000007 [INF] Authorization was successful for user: "admin". (d7eb274a)
+2018-12-14T19:55:57.6803026+07:00 0HLJ1ODF8KEOE:00000006 [INF] Authorization was successful for user: "admin". (d7eb274a)
+2018-12-14T19:55:57.6972716+07:00 0HLJ1ODF8KEOE:00000006 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.ProductCategoryController.GetAll (ShopOnlineApp)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2018-12-14T19:55:57.7054936+07:00 0HLJ1ODF8KEOD:00000007 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.ProductController.GetAllPaging (ShopOnlineApp)" with arguments (["ShopOnlineApp.Application.ViewModels.Product.ProductRequest"]) - ModelState is Invalid (ba7f4ac2)
+2018-12-14T19:55:57.7203081+07:00 0HLJ1ODF8KEOD:00000007 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2018-12-14T19:55:57.7317096+07:00 0HLJ1ODF8KEOE:00000006 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2018-12-14T19:55:57.7407786+07:00 0HLJ1ODF8KEOD:00000007 [INF] Executed DbCommand ("4"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Products] AS [x]
+WHERE [x].[Status] = 1" (0723d8ff)
+2018-12-14T19:55:57.7782842+07:00 0HLJ1ODF8KEOD:00000007 [INF] Executed DbCommand ("6"ms) [Parameters=["@__p_0='?', @__p_1='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[CategoryId], [x].[Content], [x].[DateCreated], [x].[DateModified], [x].[Description], [x].[HomeFlag], [x].[HotFlag], [x].[Image], [x].[Name], [x].[OriginalPrice], [x].[Price], [x].[PromotionPrice], [x].[SeoAlias], [x].[SeoDescription], [x].[SeoKeywords], [x].[SeoPageTitle], [x].[Status], [x].[Tags], [x].[Unit], [x].[ViewCount]
+FROM [Products] AS [x]
+WHERE [x].[Status] = 1
+ORDER BY [x].[DateCreated] DESC
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY" (0723d8ff)
+2018-12-14T19:55:57.7975937+07:00 0HLJ1ODF8KEOE:00000006 [INF] Executed DbCommand ("7"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[DateCreated], [x].[DateModified], [x].[Description], [x].[HomeFlag], [x].[HomeOrder], [x].[Image], [x].[Name], [x].[ParentId], [x].[SeoAlias], [x].[SeoDescription], [x].[SeoKeywords], [x].[SeoPageTitle], [x].[SortOrder], [x].[Status]
+FROM [ProductCategories] AS [x]
+ORDER BY [x].[ParentId]" (0723d8ff)
+2018-12-14T19:55:57.8302184+07:00 0HLJ1ODF8KEOD:00000007 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2018-12-14T19:55:57.9584061+07:00 0HLJ1ODF8KEOE:00000006 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2018-12-14T19:55:58.0035590+07:00 0HLJ1ODF8KEOE:00000006 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.ProductCategoryController.GetAll (ShopOnlineApp)" in 320.8292ms (afa2e885)
+2018-12-14T19:55:58.0540780+07:00 0HLJ1ODF8KEOD:00000007 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.ProductController.GetAllPaging (ShopOnlineApp)" in 179.0889ms (afa2e885)
+2018-12-14T19:55:58.2465448+07:00 0HLJ1ODF8KEOD:00000007 [INF] Request finished in 428.133ms 200 application/json; charset=utf-8 (791a596a)
+2018-12-14T19:55:58.2847883+07:00 0HLJ1ODF8KEOE:00000006 [INF] Request finished in 387.1411ms 200 application/json; charset=utf-8 (791a596a)
+2018-12-14T19:55:58.2934742+07:00 0HLJ1ODF8KEOC:00000007 [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/Product/GetAllPaging?categoryId=&searchText=&pageIndex=1&pageSize=10   (ca22a1cb)
+2018-12-14T19:55:58.3022346+07:00 0HLJ1ODF8KEOC:00000007 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-12-14T19:55:58.3196822+07:00 0HLJ1ODF8KEOC:00000007 [INF] Authorization was successful for user: "admin". (d7eb274a)
+2018-12-14T19:55:58.3302965+07:00 0HLJ1ODF8KEOC:00000007 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.ProductController.GetAllPaging (ShopOnlineApp)" with arguments (["ShopOnlineApp.Application.ViewModels.Product.ProductRequest"]) - ModelState is Invalid (ba7f4ac2)
+2018-12-14T19:55:58.3367649+07:00 0HLJ1ODF8KEOC:00000007 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2018-12-14T19:55:58.3476849+07:00 0HLJ1ODF8KEOC:00000007 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Products] AS [x]
+WHERE [x].[Status] = 1" (0723d8ff)
+2018-12-14T19:55:58.3554832+07:00 0HLJ1ODF8KEOC:00000007 [INF] Executed DbCommand ("0"ms) [Parameters=["@__p_0='?', @__p_1='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[CategoryId], [x].[Content], [x].[DateCreated], [x].[DateModified], [x].[Description], [x].[HomeFlag], [x].[HotFlag], [x].[Image], [x].[Name], [x].[OriginalPrice], [x].[Price], [x].[PromotionPrice], [x].[SeoAlias], [x].[SeoDescription], [x].[SeoKeywords], [x].[SeoPageTitle], [x].[Status], [x].[Tags], [x].[Unit], [x].[ViewCount]
+FROM [Products] AS [x]
+WHERE [x].[Status] = 1
+ORDER BY [x].[DateCreated] DESC
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY" (0723d8ff)
+2018-12-14T19:55:58.3661389+07:00 0HLJ1ODF8KEOC:00000007 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2018-12-14T19:55:58.3883235+07:00 0HLJ1ODF8KEOC:00000007 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.ProductController.GetAllPaging (ShopOnlineApp)" in 64.7876ms (afa2e885)
+2018-12-14T19:55:58.4303179+07:00 0HLJ1ODF8KEOC:00000007 [INF] Request finished in 167.1168ms 200 application/json; charset=utf-8 (791a596a)
+2018-12-14T19:55:59.4014398+07:00 0HLJ1ODF8KEOE:00000007 [INF] Request starting HTTP/1.1 GET http://localhost:44344/admin/productcategory/index   (ca22a1cb)
+2018-12-14T19:55:59.4063085+07:00 0HLJ1ODF8KEOE:00000007 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-12-14T19:55:59.4159224+07:00 0HLJ1ODF8KEOE:00000007 [INF] Authorization was successful for user: "admin". (d7eb274a)
+2018-12-14T19:55:59.4215798+07:00 0HLJ1ODF8KEOE:00000007 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.ProductCategoryController.Index (ShopOnlineApp)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2018-12-14T19:55:59.4352015+07:00 0HLJ1ODF8KEOE:00000007 [INF] Executing ViewResult, running view at path "/Areas/Admin/Views/ProductCategory/Index.cshtml". (9707eebe)
+2018-12-14T19:55:59.4413470+07:00 0HLJ1ODF8KEOE:00000007 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2018-12-14T19:55:59.4507198+07:00 0HLJ1ODF8KEOE:00000007 [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [f].[Id], [f].[IconCss], [f].[Name], [f].[ParentId], [f].[SortOrder], [f].[Status], [f].[URL]
+FROM [Functions] AS [f]" (0723d8ff)
+2018-12-14T19:55:59.4635775+07:00 0HLJ1ODF8KEOE:00000007 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.ProductCategoryController.Index (ShopOnlineApp)" in 46.8198ms (afa2e885)
+2018-12-14T19:55:59.4960928+07:00 0HLJ1ODF8KEOE:00000007 [INF] Request finished in 67.7792ms 200 text/html; charset=utf-8 (791a596a)
+2018-12-14T19:55:59.7529338+07:00 0HLJ1ODF8KEOD:00000008 [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/ProductCategory/GetAll   (ca22a1cb)
+2018-12-14T19:55:59.7598526+07:00 0HLJ1ODF8KEOD:00000008 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-12-14T19:55:59.7666567+07:00 0HLJ1ODF8KEOD:00000008 [INF] Authorization was successful for user: "admin". (d7eb274a)
+2018-12-14T19:55:59.7776172+07:00 0HLJ1ODF8KEOD:00000008 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.ProductCategoryController.GetAll (ShopOnlineApp)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2018-12-14T19:55:59.7997401+07:00 0HLJ1ODF8KEOD:00000008 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2018-12-14T19:55:59.8198918+07:00 0HLJ1ODF8KEOD:00000008 [INF] Executed DbCommand ("10"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[DateCreated], [x].[DateModified], [x].[Description], [x].[HomeFlag], [x].[HomeOrder], [x].[Image], [x].[Name], [x].[ParentId], [x].[SeoAlias], [x].[SeoDescription], [x].[SeoKeywords], [x].[SeoPageTitle], [x].[SortOrder], [x].[Status]
+FROM [ProductCategories] AS [x]
+ORDER BY [x].[ParentId]" (0723d8ff)
+2018-12-14T19:55:59.8422786+07:00 0HLJ1ODF8KEOD:00000008 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2018-12-14T19:55:59.8497329+07:00 0HLJ1ODF8KEOD:00000008 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.ProductCategoryController.GetAll (ShopOnlineApp)" in 82.2166ms (afa2e885)
+2018-12-14T19:55:59.8795423+07:00 0HLJ1ODF8KEOD:00000008 [INF] Request finished in 102.9962ms 200 application/json; charset=utf-8 (791a596a)
+2018-12-14T19:56:01.0781498+07:00 0HLJ1ODF8KEOC:00000008 [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/ProductCategory/GetAll   (ca22a1cb)
+2018-12-14T19:56:01.0896977+07:00 0HLJ1ODF8KEOC:00000008 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-12-14T19:56:01.0972583+07:00 0HLJ1ODF8KEOC:00000008 [INF] Authorization was successful for user: "admin". (d7eb274a)
+2018-12-14T19:56:01.1034885+07:00 0HLJ1ODF8KEOC:00000008 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.ProductCategoryController.GetAll (ShopOnlineApp)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2018-12-14T19:56:01.1108735+07:00 0HLJ1ODF8KEOC:00000008 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2018-12-14T19:56:01.1375458+07:00 0HLJ1ODF8KEOC:00000008 [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[DateCreated], [x].[DateModified], [x].[Description], [x].[HomeFlag], [x].[HomeOrder], [x].[Image], [x].[Name], [x].[ParentId], [x].[SeoAlias], [x].[SeoDescription], [x].[SeoKeywords], [x].[SeoPageTitle], [x].[SortOrder], [x].[Status]
+FROM [ProductCategories] AS [x]
+ORDER BY [x].[ParentId]" (0723d8ff)
+2018-12-14T19:56:01.1748198+07:00 0HLJ1ODF8KEOC:00000008 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2018-12-14T19:56:01.1954861+07:00 0HLJ1ODF8KEOC:00000008 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.ProductCategoryController.GetAll (ShopOnlineApp)" in 85.0293ms (afa2e885)
+2018-12-14T19:56:01.2362350+07:00 0HLJ1ODF8KEOC:00000008 [INF] Request finished in 136.4819ms 200 application/json; charset=utf-8 (791a596a)
+2018-12-14T19:56:07.5908521+07:00 0HLJ1ODF8KEOE:00000008 [INF] Request starting HTTP/1.1 GET http://localhost:44344/admin/product/index   (ca22a1cb)
+2018-12-14T19:56:07.5993473+07:00 0HLJ1ODF8KEOE:00000008 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-12-14T19:56:07.6065713+07:00 0HLJ1ODF8KEOE:00000008 [INF] Authorization was successful for user: "admin". (d7eb274a)
+2018-12-14T19:56:07.6131941+07:00 0HLJ1ODF8KEOE:00000008 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.ProductController.Index (ShopOnlineApp)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2018-12-14T19:56:07.6204927+07:00 0HLJ1ODF8KEOE:00000008 [INF] Executing ViewResult, running view at path "/Areas/Admin/Views/Product/Index.cshtml". (9707eebe)
+2018-12-14T19:56:07.6271383+07:00 0HLJ1ODF8KEOE:00000008 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2018-12-14T19:56:07.6360997+07:00 0HLJ1ODF8KEOE:00000008 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [f].[Id], [f].[IconCss], [f].[Name], [f].[ParentId], [f].[SortOrder], [f].[Status], [f].[URL]
+FROM [Functions] AS [f]" (0723d8ff)
+2018-12-14T19:56:07.6468555+07:00 0HLJ1ODF8KEOE:00000008 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.ProductController.Index (ShopOnlineApp)" in 38.6229ms (afa2e885)
+2018-12-14T19:56:07.7015777+07:00 0HLJ1ODF8KEOE:00000008 [INF] Request finished in 61.0903ms 200 text/html; charset=utf-8 (791a596a)
+2018-12-14T19:56:07.9505593+07:00 0HLJ1ODF8KEOD:00000009 [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/ProductCategory/GetAll   (ca22a1cb)
+2018-12-14T19:56:07.9578281+07:00 0HLJ1ODF8KEOC:00000009 [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/Product/GetAllPaging?categoryId=--Ch%E1%BB%8Dn+lo%E1%BA%A1i--&searchText=&pageIndex=1&pageSize=10   (ca22a1cb)
+2018-12-14T19:56:07.9650624+07:00 0HLJ1ODF8KEOD:00000009 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-12-14T19:56:08.0002649+07:00 0HLJ1ODF8KEOC:00000009 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-12-14T19:56:08.0101767+07:00 0HLJ1ODF8KEOC:00000009 [INF] Authorization was successful for user: "admin". (d7eb274a)
+2018-12-14T19:56:08.0138101+07:00 0HLJ1ODF8KEOD:00000009 [INF] Authorization was successful for user: "admin". (d7eb274a)
+2018-12-14T19:56:08.0598296+07:00 0HLJ1ODF8KEOD:00000009 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.ProductCategoryController.GetAll (ShopOnlineApp)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2018-12-14T19:56:08.1075048+07:00 0HLJ1ODF8KEOC:00000009 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.ProductController.GetAllPaging (ShopOnlineApp)" with arguments (["ShopOnlineApp.Application.ViewModels.Product.ProductRequest"]) - ModelState is Invalid (ba7f4ac2)
+2018-12-14T19:56:08.1152392+07:00 0HLJ1ODF8KEOC:00000009 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2018-12-14T19:56:08.1322235+07:00 0HLJ1ODF8KEOD:00000009 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2018-12-14T19:56:08.1682674+07:00 0HLJ1ODF8KEOD:00000009 [INF] Executed DbCommand ("6"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[DateCreated], [x].[DateModified], [x].[Description], [x].[HomeFlag], [x].[HomeOrder], [x].[Image], [x].[Name], [x].[ParentId], [x].[SeoAlias], [x].[SeoDescription], [x].[SeoKeywords], [x].[SeoPageTitle], [x].[SortOrder], [x].[Status]
+FROM [ProductCategories] AS [x]
+ORDER BY [x].[ParentId]" (0723d8ff)
+2018-12-14T19:56:08.1912075+07:00 0HLJ1ODF8KEOC:00000009 [INF] Executed DbCommand ("5"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Products] AS [x]
+WHERE [x].[Status] = 1" (0723d8ff)
+2018-12-14T19:56:08.2245259+07:00 0HLJ1ODF8KEOD:00000009 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2018-12-14T19:56:08.2775266+07:00 0HLJ1ODF8KEOD:00000009 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.ProductCategoryController.GetAll (ShopOnlineApp)" in 265.6694ms (afa2e885)
+2018-12-14T19:56:08.3760964+07:00 0HLJ1ODF8KEOD:00000009 [INF] Request finished in 335.6647ms 200 application/json; charset=utf-8 (791a596a)
+2018-12-14T19:56:08.3816261+07:00 0HLJ1ODF8KEOC:00000009 [INF] Executed DbCommand ("8"ms) [Parameters=["@__p_0='?', @__p_1='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[CategoryId], [x].[Content], [x].[DateCreated], [x].[DateModified], [x].[Description], [x].[HomeFlag], [x].[HotFlag], [x].[Image], [x].[Name], [x].[OriginalPrice], [x].[Price], [x].[PromotionPrice], [x].[SeoAlias], [x].[SeoDescription], [x].[SeoKeywords], [x].[SeoPageTitle], [x].[Status], [x].[Tags], [x].[Unit], [x].[ViewCount]
+FROM [Products] AS [x]
+WHERE [x].[Status] = 1
+ORDER BY [x].[DateCreated] DESC
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY" (0723d8ff)
+2018-12-14T19:56:08.4000158+07:00 0HLJ1ODF8KEOC:00000009 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2018-12-14T19:56:08.4153551+07:00 0HLJ1ODF8KEOC:00000009 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.ProductController.GetAllPaging (ShopOnlineApp)" in 400.0809ms (afa2e885)
+2018-12-14T19:56:08.4518563+07:00 0HLJ1ODF8KEOC:00000009 [INF] Request finished in 466.6767ms 200 application/json; charset=utf-8 (791a596a)
+2018-12-14T19:56:08.4674520+07:00 0HLJ1ODF8KEOE:00000009 [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/Product/GetAllPaging?categoryId=&searchText=&pageIndex=1&pageSize=10   (ca22a1cb)
+2018-12-14T19:56:08.4778714+07:00 0HLJ1ODF8KEOE:00000009 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-12-14T19:56:08.4927586+07:00 0HLJ1ODF8KEOE:00000009 [INF] Authorization was successful for user: "admin". (d7eb274a)
+2018-12-14T19:56:08.5019525+07:00 0HLJ1ODF8KEOE:00000009 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.ProductController.GetAllPaging (ShopOnlineApp)" with arguments (["ShopOnlineApp.Application.ViewModels.Product.ProductRequest"]) - ModelState is Invalid (ba7f4ac2)
+2018-12-14T19:56:08.5215276+07:00 0HLJ1ODF8KEOE:00000009 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2018-12-14T19:56:08.6043404+07:00 0HLJ1ODF8KEOE:00000009 [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Products] AS [x]
+WHERE [x].[Status] = 1" (0723d8ff)
+2018-12-14T19:56:08.6269667+07:00 0HLJ1ODF8KEOE:00000009 [INF] Executed DbCommand ("7"ms) [Parameters=["@__p_0='?', @__p_1='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[CategoryId], [x].[Content], [x].[DateCreated], [x].[DateModified], [x].[Description], [x].[HomeFlag], [x].[HotFlag], [x].[Image], [x].[Name], [x].[OriginalPrice], [x].[Price], [x].[PromotionPrice], [x].[SeoAlias], [x].[SeoDescription], [x].[SeoKeywords], [x].[SeoPageTitle], [x].[Status], [x].[Tags], [x].[Unit], [x].[ViewCount]
+FROM [Products] AS [x]
+WHERE [x].[Status] = 1
+ORDER BY [x].[DateCreated] DESC
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY" (0723d8ff)
+2018-12-14T19:56:08.6347740+07:00 0HLJ1ODF8KEOE:00000009 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2018-12-14T19:56:08.6504979+07:00 0HLJ1ODF8KEOE:00000009 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.ProductController.GetAllPaging (ShopOnlineApp)" in 157.4787ms (afa2e885)
+2018-12-14T19:56:08.7620681+07:00 0HLJ1ODF8KEOE:00000009 [INF] Request finished in 189.9641ms 200 application/json; charset=utf-8 (791a596a)
+2018-12-14T19:56:09.4831009+07:00 0HLJ1ODF8KEOD:0000000A [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/ProductCategory/GetAll   (ca22a1cb)
+2018-12-14T19:56:09.4902467+07:00 0HLJ1ODF8KEOD:0000000A [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-12-14T19:56:09.4953740+07:00 0HLJ1ODF8KEOD:0000000A [INF] Authorization was successful for user: "admin". (d7eb274a)
+2018-12-14T19:56:09.4997836+07:00 0HLJ1ODF8KEOD:0000000A [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.ProductCategoryController.GetAll (ShopOnlineApp)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2018-12-14T19:56:09.5047991+07:00 0HLJ1ODF8KEOD:0000000A [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2018-12-14T19:56:09.5136961+07:00 0HLJ1ODF8KEOD:0000000A [INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[DateCreated], [x].[DateModified], [x].[Description], [x].[HomeFlag], [x].[HomeOrder], [x].[Image], [x].[Name], [x].[ParentId], [x].[SeoAlias], [x].[SeoDescription], [x].[SeoKeywords], [x].[SeoPageTitle], [x].[SortOrder], [x].[Status]
+FROM [ProductCategories] AS [x]
+ORDER BY [x].[ParentId]" (0723d8ff)
+2018-12-14T19:56:09.5185378+07:00 0HLJ1ODF8KEOD:0000000A [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2018-12-14T19:56:09.5243942+07:00 0HLJ1ODF8KEOD:0000000A [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.ProductCategoryController.GetAll (ShopOnlineApp)" in 28.3396ms (afa2e885)
+2018-12-14T19:56:09.5306278+07:00 0HLJ1ODF8KEOD:0000000A [INF] Request finished in 46.1737ms 200 application/json; charset=utf-8 (791a596a)
+2018-12-14T19:56:09.5670507+07:00 0HLJ1ODF8KEOC:0000000A [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/ProductCategory/GetAll   (ca22a1cb)
+2018-12-14T19:56:09.5723239+07:00 0HLJ1ODF8KEOC:0000000A [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-12-14T19:56:09.5776201+07:00 0HLJ1ODF8KEOC:0000000A [INF] Authorization was successful for user: "admin". (d7eb274a)
+2018-12-14T19:56:09.5827018+07:00 0HLJ1ODF8KEOC:0000000A [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.ProductCategoryController.GetAll (ShopOnlineApp)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2018-12-14T19:56:09.5881910+07:00 0HLJ1ODF8KEOC:0000000A [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2018-12-14T19:56:09.5966456+07:00 0HLJ1ODF8KEOC:0000000A [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[DateCreated], [x].[DateModified], [x].[Description], [x].[HomeFlag], [x].[HomeOrder], [x].[Image], [x].[Name], [x].[ParentId], [x].[SeoAlias], [x].[SeoDescription], [x].[SeoKeywords], [x].[SeoPageTitle], [x].[SortOrder], [x].[Status]
+FROM [ProductCategories] AS [x]
+ORDER BY [x].[ParentId]" (0723d8ff)
+2018-12-14T19:56:09.6012682+07:00 0HLJ1ODF8KEOC:0000000A [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2018-12-14T19:56:09.6066156+07:00 0HLJ1ODF8KEOC:0000000A [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.ProductCategoryController.GetAll (ShopOnlineApp)" in 28.9698ms (afa2e885)
+2018-12-14T19:56:09.6147924+07:00 0HLJ1ODF8KEOC:0000000A [INF] Request finished in 44.6802ms 200 application/json; charset=utf-8 (791a596a)
+2018-12-14T20:00:31.8491521+07:00 0HLJ1ODF8KEOF:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/Product/GetById?id=21   (ca22a1cb)
+2018-12-14T20:00:31.8541476+07:00 0HLJ1ODF8KEOF:00000001 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-12-14T20:00:31.8608006+07:00 0HLJ1ODF8KEOF:00000001 [INF] Authorization was successful for user: "admin". (d7eb274a)
+2018-12-14T20:00:31.8653044+07:00 0HLJ1ODF8KEOF:00000001 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.ProductController.GetById (ShopOnlineApp)" with arguments (["21"]) - ModelState is Valid (ba7f4ac2)
+2018-12-14T20:00:31.9138876+07:00 0HLJ1ODF8KEOF:00000001 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2018-12-14T20:00:31.9317729+07:00 0HLJ1ODF8KEOF:00000001 [INF] Executed DbCommand ("1"ms) [Parameters=["@__id_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(2) [x].[Id], [x].[CategoryId], [x].[Content], [x].[DateCreated], [x].[DateModified], [x].[Description], [x].[HomeFlag], [x].[HotFlag], [x].[Image], [x].[Name], [x].[OriginalPrice], [x].[Price], [x].[PromotionPrice], [x].[SeoAlias], [x].[SeoDescription], [x].[SeoKeywords], [x].[SeoPageTitle], [x].[Status], [x].[Tags], [x].[Unit], [x].[ViewCount]
+FROM [Products] AS [x]
+WHERE [x].[Id] = @__id_0" (0723d8ff)
+2018-12-14T20:00:31.9974518+07:00 0HLJ1ODF8KEOF:00000001 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2018-12-14T20:00:32.0035963+07:00 0HLJ1ODF8KEOF:00000001 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.ProductController.GetById (ShopOnlineApp)" in 141.1451ms (afa2e885)
+2018-12-14T20:00:32.0124504+07:00 0HLJ1ODF8KEOF:00000001 [INF] Request finished in 158.9941ms 200 application/json; charset=utf-8 (791a596a)
+2018-12-14T20:00:32.0310550+07:00 0HLJ1ODF8KEOF:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/ProductCategory/GetAll   (ca22a1cb)
+2018-12-14T20:00:32.0392453+07:00 0HLJ1ODF8KEOF:00000002 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-12-14T20:00:32.0461637+07:00 0HLJ1ODF8KEOF:00000002 [INF] Authorization was successful for user: "admin". (d7eb274a)
+2018-12-14T20:00:32.0539233+07:00 0HLJ1ODF8KEOF:00000002 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.ProductCategoryController.GetAll (ShopOnlineApp)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2018-12-14T20:00:32.0596101+07:00 0HLJ1ODF8KEOF:00000002 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2018-12-14T20:00:32.0675781+07:00 0HLJ1ODF8KEOF:00000002 [INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[DateCreated], [x].[DateModified], [x].[Description], [x].[HomeFlag], [x].[HomeOrder], [x].[Image], [x].[Name], [x].[ParentId], [x].[SeoAlias], [x].[SeoDescription], [x].[SeoKeywords], [x].[SeoPageTitle], [x].[SortOrder], [x].[Status]
+FROM [ProductCategories] AS [x]
+ORDER BY [x].[ParentId]" (0723d8ff)
+2018-12-14T20:00:32.0733067+07:00 0HLJ1ODF8KEOF:00000002 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2018-12-14T20:00:32.0784799+07:00 0HLJ1ODF8KEOF:00000002 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.ProductCategoryController.GetAll (ShopOnlineApp)" in 33.681ms (afa2e885)
+2018-12-14T20:00:32.0847945+07:00 0HLJ1ODF8KEOF:00000002 [INF] Request finished in 52.3471ms 200 application/json; charset=utf-8 (791a596a)
+2018-12-14T23:42:38.2617449+07:00 0HLJ1SCK49E2I:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/   (ca22a1cb)
+2018-12-14T23:42:38.6855796+07:00 0HLJ1SCK49E2I:00000001 [INF] Request finished in 450.5421ms 404  (791a596a)
+2018-12-14T23:42:52.8729507+07:00 0HLJ1SCK49E2I:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/Login/Index   (ca22a1cb)
+2018-12-14T23:42:53.3448379+07:00 0HLJ1SCK49E2I:00000002 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.LoginController.index (ShopOnlineApp)" with arguments ([""]) - ModelState is Valid (ba7f4ac2)
+2018-12-14T23:42:53.3819174+07:00 0HLJ1SCK49E2I:00000002 [INF] AuthenticationScheme: "Identity.External" signed out. (d3f50c8d)
+2018-12-14T23:42:56.8733847+07:00 0HLJ1SCK49E2K:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/Login/Index   (ca22a1cb)
+2018-12-14T23:42:56.9093414+07:00 0HLJ1SCK49E2K:00000001 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.LoginController.index (ShopOnlineApp)" with arguments ([""]) - ModelState is Valid (ba7f4ac2)
+2018-12-14T23:42:56.9345221+07:00 0HLJ1SCK49E2K:00000001 [INF] AuthenticationScheme: "Identity.External" signed out. (d3f50c8d)
+2018-12-14T23:42:58.3999072+07:00 0HLJ1SCK49E2I:00000002 [INF] Executing ViewResult, running view at path "/Areas/Admin/Views/Login/index.cshtml". (9707eebe)
+2018-12-14T23:42:58.4028666+07:00 0HLJ1SCK49E2K:00000001 [INF] Executing ViewResult, running view at path "/Areas/Admin/Views/Login/index.cshtml". (9707eebe)
+2018-12-14T23:42:58.6745543+07:00 0HLJ1SCK49E2I:00000002 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.LoginController.index (ShopOnlineApp)" in 5510.5888ms (afa2e885)
+2018-12-14T23:42:58.6784479+07:00 0HLJ1SCK49E2K:00000001 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.LoginController.index (ShopOnlineApp)" in 1668.8916ms (afa2e885)
+2018-12-14T23:42:58.7019715+07:00 0HLJ1SCK49E2I:00000002 [INF] Request finished in 5817.6603ms 200 text/html; charset=utf-8 (791a596a)
+2018-12-14T23:42:58.7186417+07:00 0HLJ1SCK49E2K:00000001 [INF] Request finished in 1832.4715ms 200 text/html; charset=utf-8 (791a596a)
+2018-12-14T23:43:23.9681584+07:00 0HLJ1SCK49E2K:00000002 [INF] Request starting HTTP/1.1 POST http://localhost:44344/Admin/Login/authen application/x-www-form-urlencoded; charset=UTF-8 33 (ca22a1cb)
+2018-12-14T23:43:24.0653681+07:00 0HLJ1SCK49E2K:00000002 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.LoginController.Authen (ShopOnlineApp)" with arguments (["ShopOnlineApp.Models.AccountViewModels.LoginViewModel", ""]) - ModelState is Valid (ba7f4ac2)
+2018-12-14T23:43:24.5179603+07:00 0HLJ1SCK49E2K:00000002 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2018-12-14T23:43:25.0611044+07:00 0HLJ1SCK49E2K:00000002 [INF] Executed DbCommand ("83"ms) [Parameters=["@__normalizedUserName_0='?' (Size = 4000)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[Avatar], [u].[Balance], [u].[BirthDay], [u].[ConcurrencyStamp], [u].[DateCreated], [u].[DateModified], [u].[Email], [u].[EmailConfirmed], [u].[FullName], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[Status], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [AppUsers] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0" (0723d8ff)
+2018-12-14T23:43:25.2888791+07:00 0HLJ1SCK49E2K:00000002 [INF] Executed DbCommand ("3"ms) [Parameters=["@__user_Id_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT [uc].[Id], [uc].[ClaimType], [uc].[ClaimValue], [uc].[UserId]
+FROM [AppUserClaims] AS [uc]
+WHERE [uc].[UserId] = @__user_Id_0" (0723d8ff)
+2018-12-14T23:43:25.3814793+07:00 0HLJ1SCK49E2K:00000002 [INF] Executed DbCommand ("7"ms) [Parameters=["@__userId_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT [role].[Name]
+FROM [AppUserRoles] AS [userRole]
+INNER JOIN [AppRoles] AS [role] ON [userRole].[RoleId] = [role].[Id]
+WHERE [userRole].[UserId] = @__userId_0" (0723d8ff)
+2018-12-14T23:43:25.4112252+07:00 0HLJ1SCK49E2K:00000002 [INF] Executed DbCommand ("3"ms) [Parameters=["@__normalizedName_0='?' (Size = 4000)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [r].[Id], [r].[ConcurrencyStamp], [r].[Description], [r].[Name], [r].[NormalizedName]
+FROM [AppRoles] AS [r]
+WHERE [r].[NormalizedName] = @__normalizedName_0" (0723d8ff)
+2018-12-14T23:43:25.4916771+07:00 0HLJ1SCK49E2K:00000002 [INF] Executed DbCommand ("5"ms) [Parameters=["@__role_Id_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT [rc].[ClaimType], [rc].[ClaimValue]
+FROM [AppRoleClaims] AS [rc]
+WHERE [rc].[RoleId] = @__role_Id_0" (0723d8ff)
+2018-12-14T23:43:25.5550231+07:00 0HLJ1SCK49E2K:00000002 [INF] Executed DbCommand ("10"ms) [Parameters=["@__userId_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT [role].[Name]
+FROM [AppUserRoles] AS [userRole]
+INNER JOIN [AppRoles] AS [role] ON [userRole].[RoleId] = [role].[Id]
+WHERE [userRole].[UserId] = @__userId_0" (0723d8ff)
+2018-12-14T23:43:25.5706380+07:00 0HLJ1SCK49E2K:00000002 [INF] AuthenticationScheme: "Identity.Application" signed in. (c66dd7e7)
+2018-12-14T23:43:25.5820301+07:00 0HLJ1SCK49E2K:00000002 [INF] Đăng nhập thành công (ba4d6ffb)
+2018-12-14T23:43:25.6001285+07:00 0HLJ1SCK49E2K:00000002 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2018-12-14T23:43:25.8669358+07:00 0HLJ1SCK49E2K:00000002 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.LoginController.Authen (ShopOnlineApp)" in 1855.3626ms (afa2e885)
+2018-12-14T23:43:25.9147475+07:00 0HLJ1SCK49E2K:00000002 [INF] Request finished in 1911.9166ms 200 application/json; charset=utf-8 (791a596a)
+2018-12-14T23:43:25.9395833+07:00 0HLJ1SCK49E2K:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/Home/Index   (ca22a1cb)
+2018-12-14T23:43:25.9598376+07:00 0HLJ1SCK49E2K:00000003 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-12-14T23:43:25.9989439+07:00 0HLJ1SCK49E2K:00000003 [INF] Authorization was successful for user: "admin". (d7eb274a)
+2018-12-14T23:43:26.0133827+07:00 0HLJ1SCK49E2K:00000003 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.HomeController.Index (ShopOnlineApp)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2018-12-14T23:43:26.7079915+07:00 0HLJ1SCK49E2K:00000003 [INF] Executing ViewResult, running view at path "/Areas/Admin/Views/Home/Index.cshtml". (9707eebe)
+2018-12-14T23:43:27.6268974+07:00 0HLJ1SCK49E2K:00000003 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2018-12-14T23:43:27.7074504+07:00 0HLJ1SCK49E2K:00000003 [INF] Executed DbCommand ("7"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [f].[Id], [f].[IconCss], [f].[Name], [f].[ParentId], [f].[SortOrder], [f].[Status], [f].[URL]
+FROM [Functions] AS [f]" (0723d8ff)
+2018-12-14T23:43:29.4620561+07:00 0HLJ1SCK49E2K:00000003 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.HomeController.Index (ShopOnlineApp)" in 3489.0005ms (afa2e885)
+2018-12-14T23:43:29.4759075+07:00 0HLJ1SCK49E2K:00000003 [INF] Request finished in 3536.6337ms 200 text/html; charset=utf-8 (791a596a)
+2018-12-14T23:43:38.8167454+07:00 0HLJ1SCK49E2K:00000004 [INF] Request starting HTTP/1.1 GET http://localhost:44344/admin/product/index   (ca22a1cb)
+2018-12-14T23:43:38.8299322+07:00 0HLJ1SCK49E2K:00000004 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-12-14T23:43:38.8398840+07:00 0HLJ1SCK49E2K:00000004 [INF] Authorization was successful for user: "admin". (d7eb274a)
+2018-12-14T23:43:38.9088086+07:00 0HLJ1SCK49E2K:00000004 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.ProductController.Index (ShopOnlineApp)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2018-12-14T23:43:39.2005114+07:00 0HLJ1SCK49E2K:00000004 [INF] Executing ViewResult, running view at path "/Areas/Admin/Views/Product/Index.cshtml". (9707eebe)
+2018-12-14T23:43:39.4522427+07:00 0HLJ1SCK49E2K:00000004 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2018-12-14T23:43:39.4645475+07:00 0HLJ1SCK49E2K:00000004 [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [f].[Id], [f].[IconCss], [f].[Name], [f].[ParentId], [f].[SortOrder], [f].[Status], [f].[URL]
+FROM [Functions] AS [f]" (0723d8ff)
+2018-12-14T23:43:39.5635509+07:00 0HLJ1SCK49E2K:00000004 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.ProductController.Index (ShopOnlineApp)" in 708.9474ms (afa2e885)
+2018-12-14T23:43:39.6606259+07:00 0HLJ1SCK49E2K:00000004 [INF] Request finished in 793.6831ms 200 text/html; charset=utf-8 (791a596a)
+2018-12-14T23:43:39.7165595+07:00 0HLJ1SCK49E2K:00000005 [INF] Request starting HTTP/1.1 GET http://localhost:44344/app/controller/product/index.js?v=PEV7Uj25DDLo-X__mve7QLGuf52VuI1LgNexCP9ekwM   (ca22a1cb)
+2018-12-14T23:43:39.7419882+07:00 0HLJ1SCK49E2K:00000005 [INF] Sending file. Request path: '"/app/controller/product/index.js"'. Physical path: '"G:\KhoaLuan\teducoreapp\ShopOnlineApp\wwwroot\app\controller\product\index.js"' (27b0a520)
+2018-12-14T23:43:39.7928512+07:00 0HLJ1SCK49E2K:00000005 [INF] Request finished in 39.5719ms 200 application/javascript (791a596a)
+2018-12-14T23:43:40.2145069+07:00 0HLJ1SCK49E2K:00000006 [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/Product/GetAllPaging?categoryId=--Ch%E1%BB%8Dn+lo%E1%BA%A1i--&searchText=&pageIndex=1&pageSize=10   (ca22a1cb)
+2018-12-14T23:43:40.2611547+07:00 0HLJ1SCK49E2K:00000006 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-12-14T23:43:40.4108756+07:00 0HLJ1SCK49E2L:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/ProductCategory/GetAll   (ca22a1cb)
+2018-12-14T23:43:40.5405545+07:00 0HLJ1SCK49E2L:00000001 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-12-14T23:43:40.6323968+07:00 0HLJ1SCK49E2K:00000006 [INF] Authorization was successful for user: "admin". (d7eb274a)
+2018-12-14T23:43:40.6918016+07:00 0HLJ1SCK49E2L:00000001 [INF] Authorization was successful for user: "admin". (d7eb274a)
+2018-12-14T23:43:40.7587409+07:00 0HLJ1SCK49E2L:00000001 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.ProductCategoryController.GetAll (ShopOnlineApp)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2018-12-14T23:43:40.7940655+07:00 0HLJ1SCK49E2K:00000006 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.ProductController.GetAllPaging (ShopOnlineApp)" with arguments (["ShopOnlineApp.Application.ViewModels.Product.ProductRequest"]) - ModelState is Invalid (ba7f4ac2)
+2018-12-14T23:43:40.8144078+07:00 0HLJ1SCK49E2L:00000001 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2018-12-14T23:43:40.8900596+07:00 0HLJ1SCK49E2K:00000006 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2018-12-14T23:43:40.9324460+07:00 0HLJ1SCK49E2L:00000001 [INF] Executed DbCommand ("19"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[DateCreated], [x].[DateModified], [x].[Description], [x].[HomeFlag], [x].[HomeOrder], [x].[Image], [x].[Name], [x].[ParentId], [x].[SeoAlias], [x].[SeoDescription], [x].[SeoKeywords], [x].[SeoPageTitle], [x].[SortOrder], [x].[Status]
+FROM [ProductCategories] AS [x]
+ORDER BY [x].[ParentId]" (0723d8ff)
+2018-12-14T23:43:41.0678750+07:00 0HLJ1SCK49E2K:00000006 [INF] Executed DbCommand ("7"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Products] AS [x]
+WHERE [x].[Status] = 1" (0723d8ff)
+2018-12-14T23:43:41.1043681+07:00 0HLJ1SCK49E2L:00000001 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2018-12-14T23:43:41.2184303+07:00 0HLJ1SCK49E2K:00000006 [INF] Executed DbCommand ("3"ms) [Parameters=["@__p_0='?', @__p_1='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[CategoryId], [x].[Content], [x].[DateCreated], [x].[DateModified], [x].[Description], [x].[HomeFlag], [x].[HotFlag], [x].[Image], [x].[Name], [x].[OriginalPrice], [x].[Price], [x].[PromotionPrice], [x].[SeoAlias], [x].[SeoDescription], [x].[SeoKeywords], [x].[SeoPageTitle], [x].[Status], [x].[Tags], [x].[Unit], [x].[ViewCount]
+FROM [Products] AS [x]
+WHERE [x].[Status] = 1
+ORDER BY [x].[DateCreated] DESC
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY" (0723d8ff)
+2018-12-14T23:43:41.2635772+07:00 0HLJ1SCK49E2L:00000001 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.ProductCategoryController.GetAll (ShopOnlineApp)" in 657.0818ms (afa2e885)
+2018-12-14T23:43:41.3470897+07:00 0HLJ1SCK49E2L:00000001 [INF] Request finished in 1051.6568ms 200 application/json; charset=utf-8 (791a596a)
+2018-12-14T23:43:41.4252133+07:00 0HLJ1SCK49E2K:00000006 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2018-12-14T23:43:41.5317218+07:00 0HLJ1SCK49E2K:00000006 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.ProductController.GetAllPaging (ShopOnlineApp)" in 1209.0553ms (afa2e885)
+2018-12-14T23:43:41.7762864+07:00 0HLJ1SCK49E2K:00000006 [INF] Request finished in 1334.9599ms 200 application/json; charset=utf-8 (791a596a)
+2018-12-14T23:43:41.8812632+07:00 0HLJ1SCK49E2L:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/Product/GetAllPaging?categoryId=&searchText=&pageIndex=1&pageSize=10   (ca22a1cb)
+2018-12-14T23:43:41.8914849+07:00 0HLJ1SCK49E2L:00000002 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-12-14T23:43:41.8991784+07:00 0HLJ1SCK49E2L:00000002 [INF] Authorization was successful for user: "admin". (d7eb274a)
+2018-12-14T23:43:41.9087704+07:00 0HLJ1SCK49E2L:00000002 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.ProductController.GetAllPaging (ShopOnlineApp)" with arguments (["ShopOnlineApp.Application.ViewModels.Product.ProductRequest"]) - ModelState is Invalid (ba7f4ac2)
+2018-12-14T23:43:41.9215144+07:00 0HLJ1SCK49E2L:00000002 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2018-12-14T23:43:41.9435529+07:00 0HLJ1SCK49E2L:00000002 [INF] Executed DbCommand ("3"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Products] AS [x]
+WHERE [x].[Status] = 1" (0723d8ff)
+2018-12-14T23:43:41.9550052+07:00 0HLJ1SCK49E2L:00000002 [INF] Executed DbCommand ("0"ms) [Parameters=["@__p_0='?', @__p_1='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[CategoryId], [x].[Content], [x].[DateCreated], [x].[DateModified], [x].[Description], [x].[HomeFlag], [x].[HotFlag], [x].[Image], [x].[Name], [x].[OriginalPrice], [x].[Price], [x].[PromotionPrice], [x].[SeoAlias], [x].[SeoDescription], [x].[SeoKeywords], [x].[SeoPageTitle], [x].[Status], [x].[Tags], [x].[Unit], [x].[ViewCount]
+FROM [Products] AS [x]
+WHERE [x].[Status] = 1
+ORDER BY [x].[DateCreated] DESC
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY" (0723d8ff)
+2018-12-14T23:43:41.9678214+07:00 0HLJ1SCK49E2L:00000002 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2018-12-14T23:43:42.0062388+07:00 0HLJ1SCK49E2L:00000002 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.ProductController.GetAllPaging (ShopOnlineApp)" in 76.6581ms (afa2e885)
+2018-12-14T23:43:42.0234790+07:00 0HLJ1SCK49E2L:00000002 [INF] Request finished in 241.9416ms 200 application/json; charset=utf-8 (791a596a)
+2018-12-14T23:43:43.5561493+07:00 0HLJ1SCK49E2K:00000007 [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/ProductCategory/GetAll   (ca22a1cb)
+2018-12-14T23:43:43.5619624+07:00 0HLJ1SCK49E2K:00000007 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-12-14T23:43:43.5698758+07:00 0HLJ1SCK49E2K:00000007 [INF] Authorization was successful for user: "admin". (d7eb274a)
+2018-12-14T23:43:43.5810825+07:00 0HLJ1SCK49E2K:00000007 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.ProductCategoryController.GetAll (ShopOnlineApp)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2018-12-14T23:43:43.5985413+07:00 0HLJ1SCK49E2K:00000007 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2018-12-14T23:43:43.6131988+07:00 0HLJ1SCK49E2K:00000007 [INF] Executed DbCommand ("3"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[DateCreated], [x].[DateModified], [x].[Description], [x].[HomeFlag], [x].[HomeOrder], [x].[Image], [x].[Name], [x].[ParentId], [x].[SeoAlias], [x].[SeoDescription], [x].[SeoKeywords], [x].[SeoPageTitle], [x].[SortOrder], [x].[Status]
+FROM [ProductCategories] AS [x]
+ORDER BY [x].[ParentId]" (0723d8ff)
+2018-12-14T23:43:43.6228452+07:00 0HLJ1SCK49E2K:00000007 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2018-12-14T23:43:43.6289082+07:00 0HLJ1SCK49E2K:00000007 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.ProductCategoryController.GetAll (ShopOnlineApp)" in 60.5398ms (afa2e885)
+2018-12-14T23:43:43.6413268+07:00 0HLJ1SCK49E2K:00000007 [INF] Request finished in 79.968ms 200 application/json; charset=utf-8 (791a596a)
+2018-12-14T23:43:43.7236829+07:00 0HLJ1SCK49E2L:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/ProductCategory/GetAll   (ca22a1cb)
+2018-12-14T23:43:43.7283977+07:00 0HLJ1SCK49E2L:00000003 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-12-14T23:43:43.7407763+07:00 0HLJ1SCK49E2L:00000003 [INF] Authorization was successful for user: "admin". (d7eb274a)
+2018-12-14T23:43:43.7477925+07:00 0HLJ1SCK49E2L:00000003 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.ProductCategoryController.GetAll (ShopOnlineApp)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2018-12-14T23:43:43.7572465+07:00 0HLJ1SCK49E2L:00000003 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2018-12-14T23:43:43.7653114+07:00 0HLJ1SCK49E2L:00000003 [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[DateCreated], [x].[DateModified], [x].[Description], [x].[HomeFlag], [x].[HomeOrder], [x].[Image], [x].[Name], [x].[ParentId], [x].[SeoAlias], [x].[SeoDescription], [x].[SeoKeywords], [x].[SeoPageTitle], [x].[SortOrder], [x].[Status]
+FROM [ProductCategories] AS [x]
+ORDER BY [x].[ParentId]" (0723d8ff)
+2018-12-14T23:43:43.7706915+07:00 0HLJ1SCK49E2L:00000003 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2018-12-14T23:43:43.7922089+07:00 0HLJ1SCK49E2L:00000003 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.ProductCategoryController.GetAll (ShopOnlineApp)" in 42.4111ms (afa2e885)
+2018-12-14T23:43:43.8288727+07:00 0HLJ1SCK49E2L:00000003 [INF] Request finished in 79.2022ms 200 application/json; charset=utf-8 (791a596a)
+2018-12-14T23:44:43.4415124+07:00 0HLJ1SCK49E2K:00000008 [INF] Request starting HTTP/1.1 GET http://localhost:44344/admin/product/index   (ca22a1cb)
+2018-12-14T23:44:43.4550638+07:00 0HLJ1SCK49E2K:00000008 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-12-14T23:44:43.4669029+07:00 0HLJ1SCK49E2K:00000008 [INF] Authorization was successful for user: "admin". (d7eb274a)
+2018-12-14T23:44:43.4726102+07:00 0HLJ1SCK49E2K:00000008 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.ProductController.Index (ShopOnlineApp)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2018-12-14T23:44:43.4863829+07:00 0HLJ1SCK49E2K:00000008 [INF] Executing ViewResult, running view at path "/Areas/Admin/Views/Product/Index.cshtml". (9707eebe)
+2018-12-14T23:44:43.4945513+07:00 0HLJ1SCK49E2K:00000008 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2018-12-14T23:44:43.5180861+07:00 0HLJ1SCK49E2K:00000008 [INF] Executed DbCommand ("11"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [f].[Id], [f].[IconCss], [f].[Name], [f].[ParentId], [f].[SortOrder], [f].[Status], [f].[URL]
+FROM [Functions] AS [f]" (0723d8ff)
+2018-12-14T23:44:43.5396842+07:00 0HLJ1SCK49E2K:00000008 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.ProductController.Index (ShopOnlineApp)" in 70.2315ms (afa2e885)
+2018-12-14T23:44:43.7246357+07:00 0HLJ1SCK49E2K:00000008 [INF] Request finished in 125.5694ms 200 text/html; charset=utf-8 (791a596a)
+2018-12-14T23:44:43.7432938+07:00 0HLJ1SCK49E2M:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/lib/nprogress/nprogress.css   (ca22a1cb)
+2018-12-14T23:44:43.7877266+07:00 0HLJ1SCK49E2O:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/lib/ckeditor/skins/moono/editor.css   (ca22a1cb)
+2018-12-14T23:44:43.7921669+07:00 0HLJ1SCK49E2N:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/lib/bootstrap-daterangepicker/daterangepicker.css   (ca22a1cb)
+2018-12-14T23:44:43.7988274+07:00 0HLJ1SCK49E2P:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/lib/jQuery-EasyUI/themes/bootstrap/easyui.css   (ca22a1cb)
+2018-12-14T23:44:43.8033344+07:00 0HLJ1SCK49E2R:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/lib/jQuery-EasyUI/themes/icon.css   (ca22a1cb)
+2018-12-14T23:44:43.8160640+07:00 0HLJ1SCK49E2T:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/client-side/custome.css   (ca22a1cb)
+2018-12-14T23:44:43.8226727+07:00 0HLJ1SCK49E2L:00000004 [INF] Request starting HTTP/1.1 GET http://localhost:44344/lib/bootstrap/dist/css/bootstrap.min.css   (ca22a1cb)
+2018-12-14T23:44:43.8381100+07:00 0HLJ1SCK49E2M:00000001 [INF] Sending file. Request path: '"/lib/nprogress/nprogress.css"'. Physical path: '"G:\KhoaLuan\teducoreapp\ShopOnlineApp\wwwroot\lib\nprogress\nprogress.css"' (27b0a520)
+2018-12-14T23:44:43.8550351+07:00 0HLJ1SCK49E2N:00000001 [INF] Sending file. Request path: '"/lib/bootstrap-daterangepicker/daterangepicker.css"'. Physical path: '"G:\KhoaLuan\teducoreapp\ShopOnlineApp\wwwroot\lib\bootstrap-daterangepicker\daterangepicker.css"' (27b0a520)
+2018-12-14T23:44:43.8607964+07:00 0HLJ1SCK49E2O:00000001 [INF] Sending file. Request path: '"/lib/ckeditor/skins/moono/editor.css"'. Physical path: '"G:\KhoaLuan\teducoreapp\ShopOnlineApp\wwwroot\lib\ckeditor\skins\moono\editor.css"' (27b0a520)
+2018-12-14T23:44:43.8691858+07:00 0HLJ1SCK49E2P:00000001 [INF] Sending file. Request path: '"/lib/jQuery-EasyUI/themes/bootstrap/easyui.css"'. Physical path: '"G:\KhoaLuan\teducoreapp\ShopOnlineApp\wwwroot\lib\jQuery-EasyUI\themes\bootstrap\easyui.css"' (27b0a520)
+2018-12-14T23:44:43.8737599+07:00 0HLJ1SCK49E2R:00000001 [INF] Sending file. Request path: '"/lib/jQuery-EasyUI/themes/icon.css"'. Physical path: '"G:\KhoaLuan\teducoreapp\ShopOnlineApp\wwwroot\lib\jQuery-EasyUI\themes\icon.css"' (27b0a520)
+2018-12-14T23:44:43.8888695+07:00 0HLJ1SCK49E2T:00000001 [INF] Sending file. Request path: '"/client-side/custome.css"'. Physical path: '"G:\KhoaLuan\teducoreapp\ShopOnlineApp\wwwroot\client-side\custome.css"' (27b0a520)
+2018-12-14T23:44:44.0182365+07:00 0HLJ1SCK49E2V:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/lib/bootstrap/dist/js/bootstrap.min.js   (ca22a1cb)
+2018-12-14T23:44:44.0300551+07:00 0HLJ1SCK49E2N:00000001 [INF] Request finished in 319.601ms 200 text/css (791a596a)
+2018-12-14T23:44:44.0391101+07:00 0HLJ1SCK49E2R:00000001 [INF] Request finished in 240.4263ms 200 text/css (791a596a)
+2018-12-14T23:44:44.0448604+07:00 0HLJ1SCK49E2Q:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/lib/notifyjs/dist/styles/metro/notify-metro.css   (ca22a1cb)
+2018-12-14T23:44:44.0498587+07:00 0HLJ1SCK49E2O:00000001 [INF] Request finished in 274.3073ms 200 text/css (791a596a)
+2018-12-14T23:44:44.0587091+07:00 0HLJ1SCK49E2L:00000004 [INF] Sending file. Request path: '"/lib/bootstrap/dist/css/bootstrap.min.css"'. Physical path: '"G:\KhoaLuan\teducoreapp\ShopOnlineApp\wwwroot\lib\bootstrap\dist\css\bootstrap.min.css"' (27b0a520)
+2018-12-14T23:44:44.0640457+07:00 0HLJ1SCK49E2K:00000009 [INF] Request starting HTTP/1.1 GET http://localhost:44344/lib/font-awesome/css/font-awesome.min.css   (ca22a1cb)
+2018-12-14T23:44:44.0853828+07:00 0HLJ1SCK49E2V:00000001 [INF] Sending file. Request path: '"/lib/bootstrap/dist/js/bootstrap.min.js"'. Physical path: '"G:\KhoaLuan\teducoreapp\ShopOnlineApp\wwwroot\lib\bootstrap\dist\js\bootstrap.min.js"' (27b0a520)
+2018-12-14T23:44:44.1033772+07:00 0HLJ1SCK49E31:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/lib/fastclick/lib/fastclick.js   (ca22a1cb)
+2018-12-14T23:44:44.1252358+07:00 0HLJ1SCK49E33:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/lib/flot/jquery.flot.js   (ca22a1cb)
+2018-12-14T23:44:44.2051074+07:00 0HLJ1SCK49E2Q:00000001 [INF] Sending file. Request path: '"/lib/notifyjs/dist/styles/metro/notify-metro.css"'. Physical path: '"G:\KhoaLuan\teducoreapp\ShopOnlineApp\wwwroot\lib\notifyjs\dist\styles\metro\notify-metro.css"' (27b0a520)
+2018-12-14T23:44:44.2270747+07:00 0HLJ1SCK49E36:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/lib/flot/jquery.flot.pie.js   (ca22a1cb)
+2018-12-14T23:44:44.2335175+07:00 0HLJ1SCK49E37:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/lib/flot/jquery.flot.resize.js   (ca22a1cb)
+2018-12-14T23:44:44.2402330+07:00 0HLJ1SCK49E31:00000001 [INF] Sending file. Request path: '"/lib/fastclick/lib/fastclick.js"'. Physical path: '"G:\KhoaLuan\teducoreapp\ShopOnlineApp\wwwroot\lib\fastclick\lib\fastclick.js"' (27b0a520)
+2018-12-14T23:44:44.2477656+07:00 0HLJ1SCK49E33:00000001 [INF] Sending file. Request path: '"/lib/flot/jquery.flot.js"'. Physical path: '"G:\KhoaLuan\teducoreapp\ShopOnlineApp\wwwroot\lib\flot\jquery.flot.js"' (27b0a520)
+2018-12-14T23:44:44.2849007+07:00 0HLJ1SCK49E3A:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/lib/flot.orderbars/js/jquery.flot.orderBars.js   (ca22a1cb)
+2018-12-14T23:44:44.3850857+07:00 0HLJ1SCK49E3B:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/lib/DateJS/build/date.js   (ca22a1cb)
+2018-12-14T23:44:44.3919322+07:00 0HLJ1SCK49E2K:00000009 [INF] Sending file. Request path: '"/lib/font-awesome/css/font-awesome.min.css"'. Physical path: '"G:\KhoaLuan\teducoreapp\ShopOnlineApp\wwwroot\lib\font-awesome\css\font-awesome.min.css"' (27b0a520)
+2018-12-14T23:44:44.4089715+07:00 0HLJ1SCK49E36:00000001 [INF] Sending file. Request path: '"/lib/flot/jquery.flot.pie.js"'. Physical path: '"G:\KhoaLuan\teducoreapp\ShopOnlineApp\wwwroot\lib\flot\jquery.flot.pie.js"' (27b0a520)
+2018-12-14T23:44:44.4211780+07:00 0HLJ1SCK49E37:00000001 [INF] Sending file. Request path: '"/lib/flot/jquery.flot.resize.js"'. Physical path: '"G:\KhoaLuan\teducoreapp\ShopOnlineApp\wwwroot\lib\flot\jquery.flot.resize.js"' (27b0a520)
+2018-12-14T23:44:44.4642828+07:00 0HLJ1SCK49E31:00000001 [INF] Request finished in 335.8041ms 200 application/javascript (791a596a)
+2018-12-14T23:44:44.4782536+07:00 0HLJ1SCK49E3A:00000001 [INF] Sending file. Request path: '"/lib/flot.orderbars/js/jquery.flot.orderBars.js"'. Physical path: '"G:\KhoaLuan\teducoreapp\ShopOnlineApp\wwwroot\lib\flot.orderbars\js\jquery.flot.orderBars.js"' (27b0a520)
+2018-12-14T23:44:44.4887536+07:00 0HLJ1SCK49E3F:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/lib/notifyjs/dist/notify.js   (ca22a1cb)
+2018-12-14T23:44:44.5011917+07:00 0HLJ1SCK49E3B:00000001 [INF] Sending file. Request path: '"/lib/DateJS/build/date.js"'. Physical path: '"G:\KhoaLuan\teducoreapp\ShopOnlineApp\wwwroot\lib\DateJS\build\date.js"' (27b0a520)
+2018-12-14T23:44:44.5241798+07:00 0HLJ1SCK49E2Q:00000001 [INF] Request finished in 616.2084ms 200 text/css (791a596a)
+2018-12-14T23:44:44.5312361+07:00 0HLJ1SCK49E3D:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/lib/bootstrap-daterangepicker/daterangepicker.js   (ca22a1cb)
+2018-12-14T23:44:44.5443353+07:00 0HLJ1SCK49E36:00000001 [INF] Request finished in 362.8302ms 200 application/javascript (791a596a)
+2018-12-14T23:44:44.5732101+07:00 0HLJ1SCK49E3H:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/lib/notifyjs/dist/styles/metro/notify-metro.js   (ca22a1cb)
+2018-12-14T23:44:44.6035098+07:00 0HLJ1SCK49E3F:00000001 [INF] Sending file. Request path: '"/lib/notifyjs/dist/notify.js"'. Physical path: '"G:\KhoaLuan\teducoreapp\ShopOnlineApp\wwwroot\lib\notifyjs\dist\notify.js"' (27b0a520)
+2018-12-14T23:44:44.6366753+07:00 0HLJ1SCK49E3A:00000001 [INF] Request finished in 344.3468ms 200 application/javascript (791a596a)
+2018-12-14T23:44:44.6504010+07:00 0HLJ1SCK49E3I:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/lib/twbs-pagination/jquery.twbsPagination.js   (ca22a1cb)
+2018-12-14T23:44:44.6598825+07:00 0HLJ1SCK49E2K:00000009 [INF] Request finished in 587.5419ms 200 text/css (791a596a)
+2018-12-14T23:44:44.6631151+07:00 0HLJ1SCK49E3K:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/lib/jquery-validation/dist/jquery.validate.js   (ca22a1cb)
+2018-12-14T23:44:44.6804769+07:00 0HLJ1SCK49E3H:00000001 [INF] Sending file. Request path: '"/lib/notifyjs/dist/styles/metro/notify-metro.js"'. Physical path: '"G:\KhoaLuan\teducoreapp\ShopOnlineApp\wwwroot\lib\notifyjs\dist\styles\metro\notify-metro.js"' (27b0a520)
+2018-12-14T23:44:44.7234908+07:00 0HLJ1SCK49E2S:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/lib/jquery/dist/jquery.min.js   (ca22a1cb)
+2018-12-14T23:44:44.7435800+07:00 0HLJ1SCK49E3I:00000001 [INF] Sending file. Request path: '"/lib/twbs-pagination/jquery.twbsPagination.js"'. Physical path: '"G:\KhoaLuan\teducoreapp\ShopOnlineApp\wwwroot\lib\twbs-pagination\jquery.twbsPagination.js"' (27b0a520)
+2018-12-14T23:44:44.7588257+07:00 0HLJ1SCK49E3K:00000001 [INF] Sending file. Request path: '"/lib/jquery-validation/dist/jquery.validate.js"'. Physical path: '"G:\KhoaLuan\teducoreapp\ShopOnlineApp\wwwroot\lib\jquery-validation\dist\jquery.validate.js"' (27b0a520)
+2018-12-14T23:44:44.7723094+07:00 0HLJ1SCK49E3F:00000001 [INF] Request finished in 357.8072ms 200 application/javascript (791a596a)
+2018-12-14T23:44:44.7806596+07:00 0HLJ1SCK49E30:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/lib/nprogress/nprogress.js   (ca22a1cb)
+2018-12-14T23:44:44.7935882+07:00 0HLJ1SCK49E2U:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/admin-side/css/custom.min.css   (ca22a1cb)
+2018-12-14T23:44:44.8220113+07:00 0HLJ1SCK49E2S:00000001 [INF] Sending file. Request path: '"/lib/jquery/dist/jquery.min.js"'. Physical path: '"G:\KhoaLuan\teducoreapp\ShopOnlineApp\wwwroot\lib\jquery\dist\jquery.min.js"' (27b0a520)
+2018-12-14T23:44:44.8885735+07:00 0HLJ1SCK49E2U:00000001 [INF] Sending file. Request path: '"/admin-side/css/custom.min.css"'. Physical path: '"G:\KhoaLuan\teducoreapp\ShopOnlineApp\wwwroot\admin-side\css\custom.min.css"' (27b0a520)
+2018-12-14T23:44:44.8938556+07:00 0HLJ1SCK49E35:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/lib/flot/jquery.flot.stack.js   (ca22a1cb)
+2018-12-14T23:44:44.9004118+07:00 0HLJ1SCK49E3K:00000001 [INF] Request finished in 264.2897ms 200 application/javascript (791a596a)
+2018-12-14T23:44:44.9068849+07:00 0HLJ1SCK49E30:00000001 [INF] Sending file. Request path: '"/lib/nprogress/nprogress.js"'. Physical path: '"G:\KhoaLuan\teducoreapp\ShopOnlineApp\wwwroot\lib\nprogress\nprogress.js"' (27b0a520)
+2018-12-14T23:44:44.9197468+07:00 0HLJ1SCK49E38:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/lib/flot.curvedlines/curvedLines.js   (ca22a1cb)
+2018-12-14T23:44:44.9301998+07:00 0HLJ1SCK49E32:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/lib/Chart.js/dist/Chart.min.js   (ca22a1cb)
+2018-12-14T23:44:44.9573154+07:00 0HLJ1SCK49E3D:00000001 [INF] Sending file. Request path: '"/lib/bootstrap-daterangepicker/daterangepicker.js"'. Physical path: '"G:\KhoaLuan\teducoreapp\ShopOnlineApp\wwwroot\lib\bootstrap-daterangepicker\daterangepicker.js"' (27b0a520)
+2018-12-14T23:44:45.0136755+07:00 0HLJ1SCK49E35:00000001 [INF] Sending file. Request path: '"/lib/flot/jquery.flot.stack.js"'. Physical path: '"G:\KhoaLuan\teducoreapp\ShopOnlineApp\wwwroot\lib\flot\jquery.flot.stack.js"' (27b0a520)
+2018-12-14T23:44:45.0738274+07:00 0HLJ1SCK49E38:00000001 [INF] Sending file. Request path: '"/lib/flot.curvedlines/curvedLines.js"'. Physical path: '"G:\KhoaLuan\teducoreapp\ShopOnlineApp\wwwroot\lib\flot.curvedlines\curvedLines.js"' (27b0a520)
+2018-12-14T23:44:45.0792210+07:00 0HLJ1SCK49E34:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/lib/flot/jquery.flot.time.js   (ca22a1cb)
+2018-12-14T23:44:45.1422616+07:00 0HLJ1SCK49E39:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/lib/moment/min/moment.min.js   (ca22a1cb)
+2018-12-14T23:44:45.1723051+07:00 0HLJ1SCK49E30:00000001 [INF] Request finished in 277.1595ms 200 application/javascript (791a596a)
+2018-12-14T23:44:45.1821291+07:00 0HLJ1SCK49E2U:00000001 [INF] Request finished in 274.2849ms 200 text/css (791a596a)
+2018-12-14T23:44:45.1930007+07:00 0HLJ1SCK49E3C:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/lib/flot-spline/js/jquery.flot.spline.min.js   (ca22a1cb)
+2018-12-14T23:44:45.2086342+07:00 0HLJ1SCK49E38:00000001 [INF] Request finished in 236.8082ms 200 application/javascript (791a596a)
+2018-12-14T23:44:45.2449796+07:00 0HLJ1SCK49E39:00000001 [INF] Sending file. Request path: '"/lib/moment/min/moment.min.js"'. Physical path: '"G:\KhoaLuan\teducoreapp\ShopOnlineApp\wwwroot\lib\moment\min\moment.min.js"' (27b0a520)
+2018-12-14T23:44:45.2908927+07:00 0HLJ1SCK49E35:00000001 [INF] Request finished in 294.4655ms 200 application/javascript (791a596a)
+2018-12-14T23:44:45.2970746+07:00 0HLJ1SCK49E3C:00000001 [INF] Sending file. Request path: '"/lib/flot-spline/js/jquery.flot.spline.min.js"'. Physical path: '"G:\KhoaLuan\teducoreapp\ShopOnlineApp\wwwroot\lib\flot-spline\js\jquery.flot.spline.min.js"' (27b0a520)
+2018-12-14T23:44:45.3041779+07:00 0HLJ1SCK49E32:00000001 [INF] Sending file. Request path: '"/lib/Chart.js/dist/Chart.min.js"'. Physical path: '"G:\KhoaLuan\teducoreapp\ShopOnlineApp\wwwroot\lib\Chart.js\dist\Chart.min.js"' (27b0a520)
+2018-12-14T23:44:45.3174462+07:00 0HLJ1SCK49E34:00000001 [INF] Sending file. Request path: '"/lib/flot/jquery.flot.time.js"'. Physical path: '"G:\KhoaLuan\teducoreapp\ShopOnlineApp\wwwroot\lib\flot\jquery.flot.time.js"' (27b0a520)
+2018-12-14T23:44:45.3219630+07:00 0HLJ1SCK49E3G:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/lib/mustache/mustache.min.js   (ca22a1cb)
+2018-12-14T23:44:45.3521094+07:00 0HLJ1SCK49E3E:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/lib/bootbox/bootbox.js   (ca22a1cb)
+2018-12-14T23:44:45.3598345+07:00 0HLJ1SCK49E3J:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js   (ca22a1cb)
+2018-12-14T23:44:45.4375685+07:00 0HLJ1SCK49E3L:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/lib/ckeditor/ckeditor.js   (ca22a1cb)
+2018-12-14T23:44:45.4518427+07:00 0HLJ1SCK49E3M:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/app/shared/shoponline.js   (ca22a1cb)
+2018-12-14T23:44:45.4557149+07:00 0HLJ1SCK49E3O:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/lib/jQuery-EasyUI/jquery.easyui.min.js   (ca22a1cb)
+2018-12-14T23:44:45.4787794+07:00 0HLJ1SCK49E3G:00000001 [INF] Sending file. Request path: '"/lib/mustache/mustache.min.js"'. Physical path: '"G:\KhoaLuan\teducoreapp\ShopOnlineApp\wwwroot\lib\mustache\mustache.min.js"' (27b0a520)
+2018-12-14T23:44:45.4838146+07:00 0HLJ1SCK49E3C:00000001 [INF] Request finished in 302.9961ms 200 application/javascript (791a596a)
+2018-12-14T23:44:45.5177739+07:00 0HLJ1SCK49E3J:00000001 [INF] Sending file. Request path: '"/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"'. Physical path: '"G:\KhoaLuan\teducoreapp\ShopOnlineApp\wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.js"' (27b0a520)
+2018-12-14T23:44:45.5555414+07:00 0HLJ1SCK49E3O:00000001 [INF] Sending file. Request path: '"/lib/jQuery-EasyUI/jquery.easyui.min.js"'. Physical path: '"G:\KhoaLuan\teducoreapp\ShopOnlineApp\wwwroot\lib\jQuery-EasyUI\jquery.easyui.min.js"' (27b0a520)
+2018-12-14T23:44:45.5750746+07:00 0HLJ1SCK49E3L:00000001 [INF] Sending file. Request path: '"/lib/ckeditor/ckeditor.js"'. Physical path: '"G:\KhoaLuan\teducoreapp\ShopOnlineApp\wwwroot\lib\ckeditor\ckeditor.js"' (27b0a520)
+2018-12-14T23:44:45.5946478+07:00 0HLJ1SCK49E34:00000001 [INF] Request finished in 600.1623ms 200 application/javascript (791a596a)
+2018-12-14T23:44:45.6138164+07:00 0HLJ1SCK49E3M:00000001 [INF] Sending file. Request path: '"/app/shared/shoponline.js"'. Physical path: '"G:\KhoaLuan\teducoreapp\ShopOnlineApp\wwwroot\app\shared\shoponline.js"' (27b0a520)
+2018-12-14T23:44:45.8057504+07:00 0HLJ1SCK49E3P:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/app/controller/product/index.js?v=4oxaPAAWIziiXiNorFPXn-RlkgKu-mp44mHzCmYT488   (ca22a1cb)
+2018-12-14T23:44:45.8107715+07:00 0HLJ1SCK49E3E:00000001 [INF] Sending file. Request path: '"/lib/bootbox/bootbox.js"'. Physical path: '"G:\KhoaLuan\teducoreapp\ShopOnlineApp\wwwroot\lib\bootbox\bootbox.js"' (27b0a520)
+2018-12-14T23:44:45.8344765+07:00 0HLJ1SCK49E3J:00000001 [INF] Request finished in 279.5615ms 200 application/javascript (791a596a)
+2018-12-14T23:44:45.8706271+07:00 0HLJ1SCK49E3Q:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/lib/jquery-validation/dist/additional-methods.js   (ca22a1cb)
+2018-12-14T23:44:45.8744787+07:00 0HLJ1SCK49E2V:00000001 [INF] Request finished in 1792.9293ms 200 application/javascript (791a596a)
+2018-12-14T23:44:45.8819419+07:00 0HLJ1SCK49E3P:00000001 [INF] Sending file. Request path: '"/app/controller/product/index.js"'. Physical path: '"G:\KhoaLuan\teducoreapp\ShopOnlineApp\wwwroot\app\controller\product\index.js"' (27b0a520)
+2018-12-14T23:44:45.9239475+07:00 0HLJ1SCK49E2T:00000001 [INF] Request finished in 2022.1378ms 200 text/css (791a596a)
+2018-12-14T23:44:45.9884877+07:00 0HLJ1SCK49E3N:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/admin-side/js/custom.min.js   (ca22a1cb)
+2018-12-14T23:44:46.0332803+07:00 0HLJ1SCK49E3M:00000001 [INF] Request finished in 345.6711ms 200 application/javascript (791a596a)
+2018-12-14T23:44:46.0499328+07:00 0HLJ1SCK49E3Q:00000001 [INF] Sending file. Request path: '"/lib/jquery-validation/dist/additional-methods.js"'. Physical path: '"G:\KhoaLuan\teducoreapp\ShopOnlineApp\wwwroot\lib\jquery-validation\dist\additional-methods.js"' (27b0a520)
+2018-12-14T23:44:46.0706144+07:00 0HLJ1SCK49E37:00000001 [INF] Request finished in 1849.9336ms 200 application/javascript (791a596a)
+2018-12-14T23:44:46.0761660+07:00 0HLJ1SCK49E2M:00000001 [INF] Request finished in 2394.4757ms 200 text/css (791a596a)
+2018-12-14T23:44:46.0974066+07:00 0HLJ1SCK49E3P:00000001 [INF] Request finished in 441.3486ms 200 application/javascript (791a596a)
+2018-12-14T23:44:46.1849525+07:00 0HLJ1SCK49E33:00000001 [INF] Request finished in 1863.2826ms 200 application/javascript (791a596a)
+2018-12-14T23:44:46.2178607+07:00 0HLJ1SCK49E3H:00000001 [INF] Request finished in 1616.5235ms 200 application/javascript (791a596a)
+2018-12-14T23:44:46.2266169+07:00 0HLJ1SCK49E3E:00000001 [INF] Request finished in 790.4961ms 200 application/javascript (791a596a)
+2018-12-14T23:44:46.2418141+07:00 0HLJ1SCK49E3Q:00000001 [INF] Request finished in 410.5124ms 200 application/javascript (791a596a)
+2018-12-14T23:44:46.2478990+07:00 0HLJ1SCK49E3D:00000001 [INF] Request finished in 1920.154ms 200 application/javascript (791a596a)
+2018-12-14T23:44:46.2573450+07:00 0HLJ1SCK49E3I:00000001 [INF] Request finished in 1566.1545ms 200 application/javascript (791a596a)
+2018-12-14T23:44:46.2775643+07:00 0HLJ1SCK49E39:00000001 [INF] Request finished in 1227.7233ms 200 application/javascript (791a596a)
+2018-12-14T23:44:46.4186926+07:00 0HLJ1SCK49E2P:00000001 [INF] Request finished in 2622.6116ms 200 text/css (791a596a)
+2018-12-14T23:44:46.4432226+07:00 0HLJ1SCK49E3N:00000001 [INF] Sending file. Request path: '"/admin-side/js/custom.min.js"'. Physical path: '"G:\KhoaLuan\teducoreapp\ShopOnlineApp\wwwroot\admin-side\js\custom.min.js"' (27b0a520)
+2018-12-14T23:44:46.4925074+07:00 0HLJ1SCK49E2R:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44344/lib/font-awesome/fonts/fontawesome-webfont.woff2?v=4.7.0   (ca22a1cb)
+2018-12-14T23:44:46.4978892+07:00 0HLJ1SCK49E3G:00000001 [INF] Request finished in 1141.8252ms 200 application/javascript (791a596a)
+2018-12-14T23:44:46.5414606+07:00 0HLJ1SCK49E2L:00000004 [INF] Request finished in 2744.0567ms 200 text/css (791a596a)
+2018-12-14T23:44:46.5730563+07:00 0HLJ1SCK49E2N:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44344/lib/bootstrap/dist/fonts/glyphicons-halflings-regular.woff2   (ca22a1cb)
+2018-12-14T23:44:46.6227302+07:00 0HLJ1SCK49E2R:00000002 [INF] Sending file. Request path: '"/lib/font-awesome/fonts/fontawesome-webfont.woff2"'. Physical path: '"G:\KhoaLuan\teducoreapp\ShopOnlineApp\wwwroot\lib\font-awesome\fonts\fontawesome-webfont.woff2"' (27b0a520)
+2018-12-14T23:44:46.7236684+07:00 0HLJ1SCK49E2N:00000002 [INF] Sending file. Request path: '"/lib/bootstrap/dist/fonts/glyphicons-halflings-regular.woff2"'. Physical path: '"G:\KhoaLuan\teducoreapp\ShopOnlineApp\wwwroot\lib\bootstrap\dist\fonts\glyphicons-halflings-regular.woff2"' (27b0a520)
+2018-12-14T23:44:46.7627799+07:00 0HLJ1SCK49E2S:00000001 [INF] Request finished in 2030.1902ms 200 application/javascript (791a596a)
+2018-12-14T23:44:46.8409986+07:00 0HLJ1SCK49E32:00000001 [INF] Request finished in 1992.1112ms 200 application/javascript (791a596a)
+2018-12-14T23:44:46.8769562+07:00 0HLJ1SCK49E2N:00000002 [INF] Request finished in 247.5976ms 200 font/woff2 (791a596a)
+2018-12-14T23:44:46.9260372+07:00 0HLJ1SCK49E2R:00000002 [INF] Request finished in 369.4688ms 200 font/woff2 (791a596a)
+2018-12-14T23:44:47.0774097+07:00 0HLJ1SCK49E3O:00000001 [INF] Request finished in 1616.145ms 200 application/javascript (791a596a)
+2018-12-14T23:44:47.1057167+07:00 0HLJ1SCK49E3N:00000001 [INF] Request finished in 1364.292ms 200 application/javascript (791a596a)
+2018-12-14T23:44:47.1205037+07:00 0HLJ1SCK49E3B:00000001 [INF] Request finished in 2363.2786ms 200 application/javascript (791a596a)
+2018-12-14T23:44:47.1560106+07:00 0HLJ1SCK49E3L:00000001 [INF] Request finished in 1756.9232ms 200 application/javascript (791a596a)
+2018-12-14T23:44:47.3997539+07:00 0HLJ1SCK49E2O:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/ProductCategory/GetAll   (ca22a1cb)
+2018-12-14T23:44:47.4716798+07:00 0HLJ1SCK49E2Q:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/Product/GetAllPaging?categoryId=--Ch%E1%BB%8Dn+lo%E1%BA%A1i--&searchText=&pageIndex=1&pageSize=10   (ca22a1cb)
+2018-12-14T23:44:47.6180604+07:00 0HLJ1SCK49E2O:00000002 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-12-14T23:44:47.7589179+07:00 0HLJ1SCK49E2Q:00000002 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-12-14T23:44:47.7998072+07:00 0HLJ1SCK49E31:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44344/favicon.ico   (ca22a1cb)
+2018-12-14T23:44:47.8132471+07:00 0HLJ1SCK49E2O:00000002 [INF] Authorization was successful for user: "admin". (d7eb274a)
+2018-12-14T23:44:47.8523638+07:00 0HLJ1SCK49E31:00000002 [INF] Sending file. Request path: '"/favicon.ico"'. Physical path: '"G:\KhoaLuan\teducoreapp\ShopOnlineApp\wwwroot\favicon.ico"' (27b0a520)
+2018-12-14T23:44:47.8778968+07:00 0HLJ1SCK49E2Q:00000002 [INF] Authorization was successful for user: "admin". (d7eb274a)
+2018-12-14T23:44:47.8844557+07:00 0HLJ1SCK49E2O:00000002 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.ProductCategoryController.GetAll (ShopOnlineApp)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2018-12-14T23:44:47.9106186+07:00 0HLJ1SCK49E2Q:00000002 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.ProductController.GetAllPaging (ShopOnlineApp)" with arguments (["ShopOnlineApp.Application.ViewModels.Product.ProductRequest"]) - ModelState is Invalid (ba7f4ac2)
+2018-12-14T23:44:47.9390865+07:00 0HLJ1SCK49E2O:00000002 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2018-12-14T23:44:47.9601122+07:00 0HLJ1SCK49E2Q:00000002 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2018-12-14T23:44:47.9856294+07:00 0HLJ1SCK49E2O:00000002 [INF] Executed DbCommand ("14"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[DateCreated], [x].[DateModified], [x].[Description], [x].[HomeFlag], [x].[HomeOrder], [x].[Image], [x].[Name], [x].[ParentId], [x].[SeoAlias], [x].[SeoDescription], [x].[SeoKeywords], [x].[SeoPageTitle], [x].[SortOrder], [x].[Status]
+FROM [ProductCategories] AS [x]
+ORDER BY [x].[ParentId]" (0723d8ff)
+2018-12-14T23:44:48.0193976+07:00 0HLJ1SCK49E2O:00000002 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2018-12-14T23:44:48.0551948+07:00 0HLJ1SCK49E2Q:00000002 [INF] Executed DbCommand ("4"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Products] AS [x]
+WHERE [x].[Status] = 1" (0723d8ff)
+2018-12-14T23:44:48.0585850+07:00 0HLJ1SCK49E31:00000002 [INF] Request finished in 383.3324ms 200 image/x-icon (791a596a)
+2018-12-14T23:44:48.0777005+07:00 0HLJ1SCK49E2Q:00000002 [INF] Executed DbCommand ("4"ms) [Parameters=["@__p_0='?', @__p_1='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[CategoryId], [x].[Content], [x].[DateCreated], [x].[DateModified], [x].[Description], [x].[HomeFlag], [x].[HotFlag], [x].[Image], [x].[Name], [x].[OriginalPrice], [x].[Price], [x].[PromotionPrice], [x].[SeoAlias], [x].[SeoDescription], [x].[SeoKeywords], [x].[SeoPageTitle], [x].[Status], [x].[Tags], [x].[Unit], [x].[ViewCount]
+FROM [Products] AS [x]
+WHERE [x].[Status] = 1
+ORDER BY [x].[DateCreated] DESC
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY" (0723d8ff)
+2018-12-14T23:44:48.0956077+07:00 0HLJ1SCK49E2Q:00000002 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2018-12-14T23:44:48.1073542+07:00 0HLJ1SCK49E2O:00000002 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.ProductCategoryController.GetAll (ShopOnlineApp)" in 419.2849ms (afa2e885)
+2018-12-14T23:44:48.1214574+07:00 0HLJ1SCK49E2Q:00000002 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.ProductController.GetAllPaging (ShopOnlineApp)" in 332.4796ms (afa2e885)
+2018-12-14T23:44:48.2255443+07:00 0HLJ1SCK49E2K:0000000A [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/Product/GetAllPaging?categoryId=&searchText=&pageIndex=1&pageSize=10   (ca22a1cb)
+2018-12-14T23:44:48.2674102+07:00 0HLJ1SCK49E2K:0000000A [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-12-14T23:44:48.2751931+07:00 0HLJ1SCK49E2Q:00000002 [INF] Request finished in 766.6099ms 200 application/json; charset=utf-8 (791a596a)
+2018-12-14T23:44:48.2898188+07:00 0HLJ1SCK49E2O:00000002 [INF] Request finished in 764.4494ms 200 application/json; charset=utf-8 (791a596a)
+2018-12-14T23:44:48.2914908+07:00 0HLJ1SCK49E2K:0000000A [INF] Authorization was successful for user: "admin". (d7eb274a)
+2018-12-14T23:44:48.3037868+07:00 0HLJ1SCK49E2K:0000000A [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.ProductController.GetAllPaging (ShopOnlineApp)" with arguments (["ShopOnlineApp.Application.ViewModels.Product.ProductRequest"]) - ModelState is Invalid (ba7f4ac2)
+2018-12-14T23:44:48.3110021+07:00 0HLJ1SCK49E2K:0000000A [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2018-12-14T23:44:48.3249323+07:00 0HLJ1SCK49E2K:0000000A [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Products] AS [x]
+WHERE [x].[Status] = 1" (0723d8ff)
+2018-12-14T23:44:48.3350645+07:00 0HLJ1SCK49E2K:0000000A [INF] Executed DbCommand ("0"ms) [Parameters=["@__p_0='?', @__p_1='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[CategoryId], [x].[Content], [x].[DateCreated], [x].[DateModified], [x].[Description], [x].[HomeFlag], [x].[HotFlag], [x].[Image], [x].[Name], [x].[OriginalPrice], [x].[Price], [x].[PromotionPrice], [x].[SeoAlias], [x].[SeoDescription], [x].[SeoKeywords], [x].[SeoPageTitle], [x].[Status], [x].[Tags], [x].[Unit], [x].[ViewCount]
+FROM [Products] AS [x]
+WHERE [x].[Status] = 1
+ORDER BY [x].[DateCreated] DESC
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY" (0723d8ff)
+2018-12-14T23:44:48.3419585+07:00 0HLJ1SCK49E2K:0000000A [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2018-12-14T23:44:48.3509977+07:00 0HLJ1SCK49E2K:0000000A [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.ProductController.GetAllPaging (ShopOnlineApp)" in 75.1622ms (afa2e885)
+2018-12-14T23:44:48.3750541+07:00 0HLJ1SCK49E2K:0000000A [INF] Request finished in 149.6883ms 200 application/json; charset=utf-8 (791a596a)
+2018-12-14T23:44:50.4220385+07:00 0HLJ1SCK49E36:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/ProductCategory/GetAll   (ca22a1cb)
+2018-12-14T23:44:50.4291577+07:00 0HLJ1SCK49E36:00000002 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-12-14T23:44:50.4357147+07:00 0HLJ1SCK49E36:00000002 [INF] Authorization was successful for user: "admin". (d7eb274a)
+2018-12-14T23:44:50.4419511+07:00 0HLJ1SCK49E36:00000002 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.ProductCategoryController.GetAll (ShopOnlineApp)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2018-12-14T23:44:50.4504980+07:00 0HLJ1SCK49E36:00000002 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2018-12-14T23:44:50.4598122+07:00 0HLJ1SCK49E36:00000002 [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[DateCreated], [x].[DateModified], [x].[Description], [x].[HomeFlag], [x].[HomeOrder], [x].[Image], [x].[Name], [x].[ParentId], [x].[SeoAlias], [x].[SeoDescription], [x].[SeoKeywords], [x].[SeoPageTitle], [x].[SortOrder], [x].[Status]
+FROM [ProductCategories] AS [x]
+ORDER BY [x].[ParentId]" (0723d8ff)
+2018-12-14T23:44:50.4673028+07:00 0HLJ1SCK49E36:00000002 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2018-12-14T23:44:50.4751748+07:00 0HLJ1SCK49E36:00000002 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.ProductCategoryController.GetAll (ShopOnlineApp)" in 39.082ms (afa2e885)
+2018-12-14T23:44:50.4950379+07:00 0HLJ1SCK49E36:00000002 [INF] Request finished in 59.5521ms 200 application/json; charset=utf-8 (791a596a)
+2018-12-14T23:44:50.5749082+07:00 0HLJ1SCK49E3A:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/ProductCategory/GetAll   (ca22a1cb)
+2018-12-14T23:44:50.5906307+07:00 0HLJ1SCK49E3A:00000002 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-12-14T23:44:50.6021082+07:00 0HLJ1SCK49E3A:00000002 [INF] Authorization was successful for user: "admin". (d7eb274a)
+2018-12-14T23:44:50.6107385+07:00 0HLJ1SCK49E3A:00000002 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.ProductCategoryController.GetAll (ShopOnlineApp)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2018-12-14T23:44:50.6197899+07:00 0HLJ1SCK49E3A:00000002 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2018-12-14T23:44:50.6302059+07:00 0HLJ1SCK49E3A:00000002 [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[DateCreated], [x].[DateModified], [x].[Description], [x].[HomeFlag], [x].[HomeOrder], [x].[Image], [x].[Name], [x].[ParentId], [x].[SeoAlias], [x].[SeoDescription], [x].[SeoKeywords], [x].[SeoPageTitle], [x].[SortOrder], [x].[Status]
+FROM [ProductCategories] AS [x]
+ORDER BY [x].[ParentId]" (0723d8ff)
+2018-12-14T23:44:50.6378261+07:00 0HLJ1SCK49E3A:00000002 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2018-12-14T23:44:50.6457009+07:00 0HLJ1SCK49E3A:00000002 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.ProductCategoryController.GetAll (ShopOnlineApp)" in 46.4939ms (afa2e885)
+2018-12-14T23:44:50.6642869+07:00 0HLJ1SCK49E3A:00000002 [INF] Request finished in 77.7786ms 200 application/json; charset=utf-8 (791a596a)
+2018-12-14T23:44:57.8511443+07:00 0HLJ1SCK49E3F:00000002 [INF] Request starting HTTP/1.1 POST http://localhost:44344/Admin/Upload/UploadImage multipart/form-data; boundary=----WebKitFormBoundarywyTCEMnwBWB19HRN 494782 (ca22a1cb)
+2018-12-14T23:44:57.8703465+07:00 0HLJ1SCK49E3F:00000002 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-12-14T23:44:58.0570841+07:00 0HLJ1SCK49E3F:00000002 [INF] Request finished in 194.6818ms 404  (791a596a)
+2018-12-14T23:45:47.8770433+07:00 0HLJ1SCK49E31:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:44344/admin/product/index   (ca22a1cb)
+2018-12-14T23:45:47.8890499+07:00 0HLJ1SCK49E31:00000003 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-12-14T23:45:47.9058077+07:00 0HLJ1SCK49E31:00000003 [INF] Authorization was successful for user: "admin". (d7eb274a)
+2018-12-14T23:45:47.9171253+07:00 0HLJ1SCK49E31:00000003 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.ProductController.Index (ShopOnlineApp)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2018-12-14T23:45:47.9343599+07:00 0HLJ1SCK49E31:00000003 [INF] Executing ViewResult, running view at path "/Areas/Admin/Views/Product/Index.cshtml". (9707eebe)
+2018-12-14T23:45:47.9478977+07:00 0HLJ1SCK49E31:00000003 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2018-12-14T23:45:47.9999479+07:00 0HLJ1SCK49E31:00000003 [INF] Executed DbCommand ("11"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [f].[Id], [f].[IconCss], [f].[Name], [f].[ParentId], [f].[SortOrder], [f].[Status], [f].[URL]
+FROM [Functions] AS [f]" (0723d8ff)
+2018-12-14T23:45:48.2386197+07:00 0HLJ1SCK49E3A:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:44344/admin-side/css/custom.min.css   (ca22a1cb)
+2018-12-14T23:45:48.3037053+07:00 0HLJ1SCK49E31:00000003 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.ProductController.Index (ShopOnlineApp)" in 116.8313ms (afa2e885)
+2018-12-14T23:45:48.3636769+07:00 0HLJ1SCK49E36:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:44344/lib/notifyjs/dist/styles/metro/notify-metro.css   (ca22a1cb)
+2018-12-14T23:45:48.3790069+07:00 0HLJ1SCK49E3F:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:44344/lib/ckeditor/skins/moono/editor.css   (ca22a1cb)
+2018-12-14T23:45:48.4218712+07:00 0HLJ1SCK49E3A:00000003 [INF] Sending file. Request path: '"/admin-side/css/custom.min.css"'. Physical path: '"G:\KhoaLuan\teducoreapp\ShopOnlineApp\wwwroot\admin-side\css\custom.min.css"' (27b0a520)
+2018-12-14T23:45:48.4399439+07:00 0HLJ1SCK49E2O:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:44344/lib/font-awesome/css/font-awesome.min.css   (ca22a1cb)
+2018-12-14T23:45:48.4803479+07:00 0HLJ1SCK49E31:00000003 [INF] Request finished in 436.974ms 200 text/html; charset=utf-8 (791a596a)
+2018-12-14T23:45:48.4995813+07:00 0HLJ1SCK49E2Q:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:44344/lib/nprogress/nprogress.css   (ca22a1cb)
+2018-12-14T23:45:48.5183766+07:00 0HLJ1SCK49E36:00000003 [INF] Sending file. Request path: '"/lib/notifyjs/dist/styles/metro/notify-metro.css"'. Physical path: '"G:\KhoaLuan\teducoreapp\ShopOnlineApp\wwwroot\lib\notifyjs\dist\styles\metro\notify-metro.css"' (27b0a520)
+2018-12-14T23:45:48.5476937+07:00 0HLJ1SCK49E3T:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/lib/bootstrap-daterangepicker/daterangepicker.css   (ca22a1cb)
+2018-12-14T23:45:48.5544250+07:00 0HLJ1SCK49E2K:0000000B [INF] Request starting HTTP/1.1 GET http://localhost:44344/lib/bootstrap/dist/css/bootstrap.min.css   (ca22a1cb)
+2018-12-14T23:45:48.5643993+07:00 0HLJ1SCK49E3F:00000003 [INF] Sending file. Request path: '"/lib/ckeditor/skins/moono/editor.css"'. Physical path: '"G:\KhoaLuan\teducoreapp\ShopOnlineApp\wwwroot\lib\ckeditor\skins\moono\editor.css"' (27b0a520)
+2018-12-14T23:45:48.5732124+07:00 0HLJ1SCK49E2O:00000003 [INF] Sending file. Request path: '"/lib/font-awesome/css/font-awesome.min.css"'. Physical path: '"G:\KhoaLuan\teducoreapp\ShopOnlineApp\wwwroot\lib\font-awesome\css\font-awesome.min.css"' (27b0a520)
+2018-12-14T23:45:48.6594154+07:00 0HLJ1SCK49E3T:00000001 [INF] Sending file. Request path: '"/lib/bootstrap-daterangepicker/daterangepicker.css"'. Physical path: '"G:\KhoaLuan\teducoreapp\ShopOnlineApp\wwwroot\lib\bootstrap-daterangepicker\daterangepicker.css"' (27b0a520)
+2018-12-14T23:45:48.7001084+07:00 0HLJ1SCK49E3A:00000003 [INF] Request finished in 432.1323ms 200 text/css (791a596a)
+2018-12-14T23:45:48.7098100+07:00 0HLJ1SCK49E2Q:00000003 [INF] Sending file. Request path: '"/lib/nprogress/nprogress.css"'. Physical path: '"G:\KhoaLuan\teducoreapp\ShopOnlineApp\wwwroot\lib\nprogress\nprogress.css"' (27b0a520)
+2018-12-14T23:45:48.7544861+07:00 0HLJ1SCK49E3V:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/lib/jQuery-EasyUI/themes/icon.css   (ca22a1cb)
+2018-12-14T23:45:48.7648098+07:00 0HLJ1SCK49E36:00000003 [INF] Request finished in 518.4057ms 200 text/css (791a596a)
+2018-12-14T23:45:48.7755196+07:00 0HLJ1SCK49E2O:00000003 [INF] Request finished in 340.0454ms 200 text/css (791a596a)
+2018-12-14T23:45:48.7907234+07:00 0HLJ1SCK49E3F:00000003 [INF] Request finished in 504.6932ms 200 text/css (791a596a)
+2018-12-14T23:45:48.8547792+07:00 0HLJ1SCK49E3T:00000001 [INF] Request finished in 407.9216ms 200 text/css (791a596a)
+2018-12-14T23:45:48.8810353+07:00 0HLJ1SCK49E2K:0000000B [INF] Sending file. Request path: '"/lib/bootstrap/dist/css/bootstrap.min.css"'. Physical path: '"G:\KhoaLuan\teducoreapp\ShopOnlineApp\wwwroot\lib\bootstrap\dist\css\bootstrap.min.css"' (27b0a520)
+2018-12-14T23:45:48.8857720+07:00 0HLJ1SCK49E3V:00000001 [INF] Sending file. Request path: '"/lib/jQuery-EasyUI/themes/icon.css"'. Physical path: '"G:\KhoaLuan\teducoreapp\ShopOnlineApp\wwwroot\lib\jQuery-EasyUI\themes\icon.css"' (27b0a520)
+2018-12-14T23:45:48.8902404+07:00 0HLJ1SCK49E41:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/lib/nprogress/nprogress.js   (ca22a1cb)
+2018-12-14T23:45:48.9548281+07:00 0HLJ1SCK49E43:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/lib/jquery/dist/jquery.min.js   (ca22a1cb)
+2018-12-14T23:45:48.9819059+07:00 0HLJ1SCK49E45:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/lib/Chart.js/dist/Chart.min.js   (ca22a1cb)
+2018-12-14T23:45:49.0134582+07:00 0HLJ1SCK49E3R:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/lib/jQuery-EasyUI/themes/bootstrap/easyui.css   (ca22a1cb)
+2018-12-14T23:45:49.0203755+07:00 0HLJ1SCK49E41:00000001 [INF] Sending file. Request path: '"/lib/nprogress/nprogress.js"'. Physical path: '"G:\KhoaLuan\teducoreapp\ShopOnlineApp\wwwroot\lib\nprogress\nprogress.js"' (27b0a520)
+2018-12-14T23:45:49.0313422+07:00 0HLJ1SCK49E3S:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/client-side/custome.css   (ca22a1cb)
+2018-12-14T23:45:49.0417330+07:00 0HLJ1SCK49E3V:00000001 [INF] Request finished in 346.3889ms 200 text/css (791a596a)
+2018-12-14T23:45:49.0523483+07:00 0HLJ1SCK49E43:00000001 [INF] Sending file. Request path: '"/lib/jquery/dist/jquery.min.js"'. Physical path: '"G:\KhoaLuan\teducoreapp\ShopOnlineApp\wwwroot\lib\jquery\dist\jquery.min.js"' (27b0a520)
+2018-12-14T23:45:49.1531779+07:00 0HLJ1SCK49E2Q:00000003 [INF] Request finished in 498.0392ms 200 text/css (791a596a)
+2018-12-14T23:45:49.2097822+07:00 0HLJ1SCK49E45:00000001 [INF] Sending file. Request path: '"/lib/Chart.js/dist/Chart.min.js"'. Physical path: '"G:\KhoaLuan\teducoreapp\ShopOnlineApp\wwwroot\lib\Chart.js\dist\Chart.min.js"' (27b0a520)
+2018-12-14T23:45:49.2246237+07:00 0HLJ1SCK49E3R:00000001 [INF] Sending file. Request path: '"/lib/jQuery-EasyUI/themes/bootstrap/easyui.css"'. Physical path: '"G:\KhoaLuan\teducoreapp\ShopOnlineApp\wwwroot\lib\jQuery-EasyUI\themes\bootstrap\easyui.css"' (27b0a520)
+2018-12-14T23:45:49.2637030+07:00 0HLJ1SCK49E3S:00000001 [INF] Sending file. Request path: '"/client-side/custome.css"'. Physical path: '"G:\KhoaLuan\teducoreapp\ShopOnlineApp\wwwroot\client-side\custome.css"' (27b0a520)
+2018-12-14T23:45:49.2775471+07:00 0HLJ1SCK49E3U:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/lib/fastclick/lib/fastclick.js   (ca22a1cb)
+2018-12-14T23:45:49.3002223+07:00 0HLJ1SCK49E41:00000001 [INF] Request finished in 281.5807ms 200 application/javascript (791a596a)
+2018-12-14T23:45:49.3089739+07:00 0HLJ1SCK49E40:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/lib/bootstrap/dist/js/bootstrap.min.js   (ca22a1cb)
+2018-12-14T23:45:49.3515305+07:00 0HLJ1SCK49E42:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/lib/flot/jquery.flot.js   (ca22a1cb)
+2018-12-14T23:45:49.3621112+07:00 0HLJ1SCK49E46:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/lib/flot/jquery.flot.time.js   (ca22a1cb)
+2018-12-14T23:45:49.3739904+07:00 0HLJ1SCK49E3S:00000001 [INF] Request finished in 353.4834ms 200 text/css (791a596a)
+2018-12-14T23:45:49.4035593+07:00 0HLJ1SCK49E40:00000001 [INF] Sending file. Request path: '"/lib/bootstrap/dist/js/bootstrap.min.js"'. Physical path: '"G:\KhoaLuan\teducoreapp\ShopOnlineApp\wwwroot\lib\bootstrap\dist\js\bootstrap.min.js"' (27b0a520)
+2018-12-14T23:45:49.4138444+07:00 0HLJ1SCK49E49:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/lib/flot/jquery.flot.stack.js   (ca22a1cb)
+2018-12-14T23:45:49.4352272+07:00 0HLJ1SCK49E4B:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/lib/flot.orderbars/js/jquery.flot.orderBars.js   (ca22a1cb)
+2018-12-14T23:45:49.4544269+07:00 0HLJ1SCK49E44:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/lib/flot/jquery.flot.pie.js   (ca22a1cb)
+2018-12-14T23:45:49.4721897+07:00 0HLJ1SCK49E42:00000001 [INF] Sending file. Request path: '"/lib/flot/jquery.flot.js"'. Physical path: '"G:\KhoaLuan\teducoreapp\ShopOnlineApp\wwwroot\lib\flot\jquery.flot.js"' (27b0a520)
+2018-12-14T23:45:49.4900299+07:00 0HLJ1SCK49E46:00000001 [INF] Sending file. Request path: '"/lib/flot/jquery.flot.time.js"'. Physical path: '"G:\KhoaLuan\teducoreapp\ShopOnlineApp\wwwroot\lib\flot\jquery.flot.time.js"' (27b0a520)
+2018-12-14T23:45:49.5154726+07:00 0HLJ1SCK49E3U:00000001 [INF] Sending file. Request path: '"/lib/fastclick/lib/fastclick.js"'. Physical path: '"G:\KhoaLuan\teducoreapp\ShopOnlineApp\wwwroot\lib\fastclick\lib\fastclick.js"' (27b0a520)
+2018-12-14T23:45:49.7510069+07:00 0HLJ1SCK49E49:00000001 [INF] Sending file. Request path: '"/lib/flot/jquery.flot.stack.js"'. Physical path: '"G:\KhoaLuan\teducoreapp\ShopOnlineApp\wwwroot\lib\flot\jquery.flot.stack.js"' (27b0a520)
+2018-12-14T23:45:49.9668164+07:00 0HLJ1SCK49E4B:00000001 [INF] Sending file. Request path: '"/lib/flot.orderbars/js/jquery.flot.orderBars.js"'. Physical path: '"G:\KhoaLuan\teducoreapp\ShopOnlineApp\wwwroot\lib\flot.orderbars\js\jquery.flot.orderBars.js"' (27b0a520)
+2018-12-14T23:45:50.1078227+07:00 0HLJ1SCK49E40:00000001 [INF] Request finished in 368.2247ms 200 application/javascript (791a596a)
+2018-12-14T23:45:50.1251184+07:00 0HLJ1SCK49E49:00000001 [INF] Request finished in 442.5708ms 200 application/javascript (791a596a)
+2018-12-14T23:45:50.2588310+07:00 0HLJ1SCK49E4F:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/lib/moment/min/moment.min.js   (ca22a1cb)
+2018-12-14T23:45:50.2840118+07:00 0HLJ1SCK49E46:00000001 [INF] Request finished in 226.7389ms 200 application/javascript (791a596a)
+2018-12-14T23:45:50.3799010+07:00 0HLJ1SCK49E4D:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/lib/DateJS/build/date.js   (ca22a1cb)
+2018-12-14T23:45:50.4004228+07:00 0HLJ1SCK49E4F:00000001 [INF] Sending file. Request path: '"/lib/moment/min/moment.min.js"'. Physical path: '"G:\KhoaLuan\teducoreapp\ShopOnlineApp\wwwroot\lib\moment\min\moment.min.js"' (27b0a520)
+2018-12-14T23:45:50.4078850+07:00 0HLJ1SCK49E4B:00000001 [INF] Request finished in 849.9173ms 200 application/javascript (791a596a)
+2018-12-14T23:45:50.4387431+07:00 0HLJ1SCK49E4G:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/lib/notifyjs/dist/notify.js   (ca22a1cb)
+2018-12-14T23:45:50.4518012+07:00 0HLJ1SCK49E3U:00000001 [INF] Request finished in 604.9723ms 200 application/javascript (791a596a)
+2018-12-14T23:45:50.4561297+07:00 0HLJ1SCK49E4J:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/lib/twbs-pagination/jquery.twbsPagination.js   (ca22a1cb)
+2018-12-14T23:45:50.4883560+07:00 0HLJ1SCK49E4L:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/lib/jquery-validation/dist/additional-methods.js   (ca22a1cb)
+2018-12-14T23:45:50.5776337+07:00 0HLJ1SCK49E4N:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/lib/ckeditor/ckeditor.js   (ca22a1cb)
+2018-12-14T23:45:50.5947471+07:00 0HLJ1SCK49E4G:00000001 [INF] Sending file. Request path: '"/lib/notifyjs/dist/notify.js"'. Physical path: '"G:\KhoaLuan\teducoreapp\ShopOnlineApp\wwwroot\lib\notifyjs\dist\notify.js"' (27b0a520)
+2018-12-14T23:45:50.6186450+07:00 0HLJ1SCK49E4J:00000001 [INF] Sending file. Request path: '"/lib/twbs-pagination/jquery.twbsPagination.js"'. Physical path: '"G:\KhoaLuan\teducoreapp\ShopOnlineApp\wwwroot\lib\twbs-pagination\jquery.twbsPagination.js"' (27b0a520)
+2018-12-14T23:45:50.6227502+07:00 0HLJ1SCK49E4P:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/admin-side/js/custom.min.js   (ca22a1cb)
+2018-12-14T23:45:50.8027686+07:00 0HLJ1SCK49E4L:00000001 [INF] Sending file. Request path: '"/lib/jquery-validation/dist/additional-methods.js"'. Physical path: '"G:\KhoaLuan\teducoreapp\ShopOnlineApp\wwwroot\lib\jquery-validation\dist\additional-methods.js"' (27b0a520)
+2018-12-14T23:45:50.8525972+07:00 0HLJ1SCK49E4D:00000001 [INF] Sending file. Request path: '"/lib/DateJS/build/date.js"'. Physical path: '"G:\KhoaLuan\teducoreapp\ShopOnlineApp\wwwroot\lib\DateJS\build\date.js"' (27b0a520)
+2018-12-14T23:45:50.8590848+07:00 0HLJ1SCK49E4N:00000001 [INF] Sending file. Request path: '"/lib/ckeditor/ckeditor.js"'. Physical path: '"G:\KhoaLuan\teducoreapp\ShopOnlineApp\wwwroot\lib\ckeditor\ckeditor.js"' (27b0a520)
+2018-12-14T23:45:50.8710037+07:00 0HLJ1SCK49E44:00000001 [INF] Sending file. Request path: '"/lib/flot/jquery.flot.pie.js"'. Physical path: '"G:\KhoaLuan\teducoreapp\ShopOnlineApp\wwwroot\lib\flot\jquery.flot.pie.js"' (27b0a520)
+2018-12-14T23:45:50.8757438+07:00 0HLJ1SCK49E4G:00000001 [INF] Request finished in 306.2781ms 200 application/javascript (791a596a)
+2018-12-14T23:45:50.8807887+07:00 0HLJ1SCK49E4J:00000001 [INF] Request finished in 295.6704ms 200 application/javascript (791a596a)
+2018-12-14T23:45:50.8872348+07:00 0HLJ1SCK49E4P:00000001 [INF] Sending file. Request path: '"/admin-side/js/custom.min.js"'. Physical path: '"G:\KhoaLuan\teducoreapp\ShopOnlineApp\wwwroot\admin-side\js\custom.min.js"' (27b0a520)
+2018-12-14T23:45:50.9316437+07:00 0HLJ1SCK49E4L:00000001 [INF] Request finished in 447.117ms 200 application/javascript (791a596a)
+2018-12-14T23:45:51.0231537+07:00 0HLJ1SCK49E44:00000001 [INF] Request finished in 1623.6627ms 200 application/javascript (791a596a)
+2018-12-14T23:45:51.0528195+07:00 0HLJ1SCK49E48:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/lib/flot-spline/js/jquery.flot.spline.min.js   (ca22a1cb)
+2018-12-14T23:45:51.0669255+07:00 0HLJ1SCK49E4E:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/lib/notifyjs/dist/styles/metro/notify-metro.js   (ca22a1cb)
+2018-12-14T23:45:51.0714763+07:00 0HLJ1SCK49E4R:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/app/controller/product/index.js?v=Y68fFjAHZ_7SjpMDGbLLdA95YMjUrvQFhWlev-xupxI   (ca22a1cb)
+2018-12-14T23:45:51.0837653+07:00 0HLJ1SCK49E47:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/lib/flot/jquery.flot.resize.js   (ca22a1cb)
+2018-12-14T23:45:51.1012544+07:00 0HLJ1SCK49E4I:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/lib/jquery-validation/dist/jquery.validate.js   (ca22a1cb)
+2018-12-14T23:45:51.1061110+07:00 0HLJ1SCK49E4K:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js   (ca22a1cb)
+2018-12-14T23:45:51.1206701+07:00 0HLJ1SCK49E4M:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/app/shared/shoponline.js   (ca22a1cb)
+2018-12-14T23:45:51.1388790+07:00 0HLJ1SCK49E48:00000001 [INF] Sending file. Request path: '"/lib/flot-spline/js/jquery.flot.spline.min.js"'. Physical path: '"G:\KhoaLuan\teducoreapp\ShopOnlineApp\wwwroot\lib\flot-spline\js\jquery.flot.spline.min.js"' (27b0a520)
+2018-12-14T23:45:51.1549902+07:00 0HLJ1SCK49E4E:00000001 [INF] Sending file. Request path: '"/lib/notifyjs/dist/styles/metro/notify-metro.js"'. Physical path: '"G:\KhoaLuan\teducoreapp\ShopOnlineApp\wwwroot\lib\notifyjs\dist\styles\metro\notify-metro.js"' (27b0a520)
+2018-12-14T23:45:51.1998304+07:00 0HLJ1SCK49E47:00000001 [INF] Sending file. Request path: '"/lib/flot/jquery.flot.resize.js"'. Physical path: '"G:\KhoaLuan\teducoreapp\ShopOnlineApp\wwwroot\lib\flot\jquery.flot.resize.js"' (27b0a520)
+2018-12-14T23:45:51.2285135+07:00 0HLJ1SCK49E4I:00000001 [INF] Sending file. Request path: '"/lib/jquery-validation/dist/jquery.validate.js"'. Physical path: '"G:\KhoaLuan\teducoreapp\ShopOnlineApp\wwwroot\lib\jquery-validation\dist\jquery.validate.js"' (27b0a520)
+2018-12-14T23:45:51.2336825+07:00 0HLJ1SCK49E4K:00000001 [INF] Sending file. Request path: '"/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"'. Physical path: '"G:\KhoaLuan\teducoreapp\ShopOnlineApp\wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.js"' (27b0a520)
+2018-12-14T23:45:51.2494521+07:00 0HLJ1SCK49E4M:00000001 [INF] Sending file. Request path: '"/app/shared/shoponline.js"'. Physical path: '"G:\KhoaLuan\teducoreapp\ShopOnlineApp\wwwroot\app\shared\shoponline.js"' (27b0a520)
+2018-12-14T23:45:51.2582503+07:00 0HLJ1SCK49E4H:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/lib/bootbox/bootbox.js   (ca22a1cb)
+2018-12-14T23:45:51.2916833+07:00 0HLJ1SCK49E4R:00000001 [INF] Sending file. Request path: '"/app/controller/product/index.js"'. Physical path: '"G:\KhoaLuan\teducoreapp\ShopOnlineApp\wwwroot\app\controller\product\index.js"' (27b0a520)
+2018-12-14T23:45:51.3032335+07:00 0HLJ1SCK49E4E:00000001 [INF] Request finished in 204.7143ms 200 application/javascript (791a596a)
+2018-12-14T23:45:51.3225037+07:00 0HLJ1SCK49E48:00000001 [INF] Request finished in 309.8766ms 200 application/javascript (791a596a)
+2018-12-14T23:45:51.3714808+07:00 0HLJ1SCK49E4O:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/lib/jQuery-EasyUI/jquery.easyui.min.js   (ca22a1cb)
+2018-12-14T23:45:51.4251979+07:00 0HLJ1SCK49E4H:00000001 [INF] Sending file. Request path: '"/lib/bootbox/bootbox.js"'. Physical path: '"G:\KhoaLuan\teducoreapp\ShopOnlineApp\wwwroot\lib\bootbox\bootbox.js"' (27b0a520)
+2018-12-14T23:45:51.5065033+07:00 0HLJ1SCK49E4I:00000001 [INF] Request finished in 293.8753ms 200 application/javascript (791a596a)
+2018-12-14T23:45:51.5267893+07:00 0HLJ1SCK49E4Q:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/lib/mustache/mustache.min.js   (ca22a1cb)
+2018-12-14T23:45:51.5561521+07:00 0HLJ1SCK49E4M:00000001 [INF] Request finished in 286.8214ms 200 application/javascript (791a596a)
+2018-12-14T23:45:51.8628936+07:00 0HLJ1SCK49E2K:0000000B [INF] Request finished in 3308.8507ms 200 text/css (791a596a)
+2018-12-14T23:45:51.8849153+07:00 0HLJ1SCK49E47:00000001 [INF] Request finished in 405.8996ms 200 application/javascript (791a596a)
+2018-12-14T23:45:51.8929164+07:00 0HLJ1SCK49E31:00000004 [INF] Request starting HTTP/1.1 GET http://localhost:44344/lib/font-awesome/fonts/fontawesome-webfont.woff2?v=4.7.0   (ca22a1cb)
+2018-12-14T23:45:51.9313576+07:00 0HLJ1SCK49E4Q:00000001 [INF] Sending file. Request path: '"/lib/mustache/mustache.min.js"'. Physical path: '"G:\KhoaLuan\teducoreapp\ShopOnlineApp\wwwroot\lib\mustache\mustache.min.js"' (27b0a520)
+2018-12-14T23:45:52.0829197+07:00 0HLJ1SCK49E43:00000001 [INF] Request finished in 2903.6521ms 200 application/javascript (791a596a)
+2018-12-14T23:45:52.1772721+07:00 0HLJ1SCK49E31:00000004 [INF] Sending file. Request path: '"/lib/font-awesome/fonts/fontawesome-webfont.woff2"'. Physical path: '"G:\KhoaLuan\teducoreapp\ShopOnlineApp\wwwroot\lib\font-awesome\fonts\fontawesome-webfont.woff2"' (27b0a520)
+2018-12-14T23:45:52.2174295+07:00 0HLJ1SCK49E3R:00000001 [INF] Request finished in 3086.9991ms 200 text/css (791a596a)
+2018-12-14T23:45:52.2517720+07:00 0HLJ1SCK49E4F:00000001 [INF] Request finished in 2238.0178ms 200 application/javascript (791a596a)
+2018-12-14T23:45:52.3223196+07:00 0HLJ1SCK49E4R:00000001 [INF] Request finished in 577.2009ms 200 application/javascript (791a596a)
+2018-12-14T23:45:52.3719721+07:00 0HLJ1SCK49E4P:00000001 [INF] Request finished in 1505.9116ms 200 application/javascript (791a596a)
+2018-12-14T23:45:52.3809544+07:00 0HLJ1SCK49E4O:00000001 [INF] Sending file. Request path: '"/lib/jQuery-EasyUI/jquery.easyui.min.js"'. Physical path: '"G:\KhoaLuan\teducoreapp\ShopOnlineApp\wwwroot\lib\jQuery-EasyUI\jquery.easyui.min.js"' (27b0a520)
+2018-12-14T23:45:52.6498565+07:00 0HLJ1SCK49E4Q:00000001 [INF] Request finished in 772.0216ms 200 application/javascript (791a596a)
+2018-12-14T23:45:52.7254318+07:00 0HLJ1SCK49E45:00000001 [INF] Request finished in 3357.8263ms 200 application/javascript (791a596a)
+2018-12-14T23:45:52.7439930+07:00 0HLJ1SCK49E42:00000001 [INF] Request finished in 3137.3275ms 200 application/javascript (791a596a)
+2018-12-14T23:45:52.7655868+07:00 0HLJ1SCK49E4K:00000001 [INF] Request finished in 1610.4932ms 200 application/javascript (791a596a)
+2018-12-14T23:45:52.7710196+07:00 0HLJ1SCK49E4D:00000001 [INF] Request finished in 2950.5941ms 200 application/javascript (791a596a)
+2018-12-14T23:45:52.7965308+07:00 0HLJ1SCK49E4A:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/lib/flot.curvedlines/curvedLines.js   (ca22a1cb)
+2018-12-14T23:45:52.8305815+07:00 0HLJ1SCK49E31:00000004 [INF] Request finished in 1164.4934ms 200 font/woff2 (791a596a)
+2018-12-14T23:45:52.8561869+07:00 0HLJ1SCK49E4H:00000001 [INF] Request finished in 592.0904ms 200 application/javascript (791a596a)
+2018-12-14T23:45:52.8790537+07:00 0HLJ1SCK49E4C:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/lib/bootstrap-daterangepicker/daterangepicker.js   (ca22a1cb)
+2018-12-14T23:45:52.9510333+07:00 0HLJ1SCK49E4A:00000001 [INF] Sending file. Request path: '"/lib/flot.curvedlines/curvedLines.js"'. Physical path: '"G:\KhoaLuan\teducoreapp\ShopOnlineApp\wwwroot\lib\flot.curvedlines\curvedLines.js"' (27b0a520)
+2018-12-14T23:45:52.9898246+07:00 0HLJ1SCK49E4C:00000001 [INF] Sending file. Request path: '"/lib/bootstrap-daterangepicker/daterangepicker.js"'. Physical path: '"G:\KhoaLuan\teducoreapp\ShopOnlineApp\wwwroot\lib\bootstrap-daterangepicker\daterangepicker.js"' (27b0a520)
+2018-12-14T23:45:53.1682665+07:00 0HLJ1SCK49E4N:00000001 [INF] Request finished in 2450.6488ms 200 application/javascript (791a596a)
+2018-12-14T23:45:53.2701272+07:00 0HLJ1SCK49E4O:00000001 [INF] Request finished in 1769.0943ms 200 application/javascript (791a596a)
+2018-12-14T23:45:53.3186945+07:00 0HLJ1SCK49E4A:00000001 [INF] Request finished in 2233.6045ms 200 application/javascript (791a596a)
+2018-12-14T23:45:53.3271193+07:00 0HLJ1SCK49E4C:00000001 [INF] Request finished in 2296.1053ms 200 application/javascript (791a596a)
+2018-12-14T23:45:54.5547826+07:00 0HLJ1SCK49E3A:00000004 [INF] Request starting HTTP/1.1 GET http://localhost:44344/lib/bootstrap/dist/fonts/glyphicons-halflings-regular.woff2   (ca22a1cb)
+2018-12-14T23:45:54.5627678+07:00 0HLJ1SCK49E3A:00000004 [INF] Sending file. Request path: '"/lib/bootstrap/dist/fonts/glyphicons-halflings-regular.woff2"'. Physical path: '"G:\KhoaLuan\teducoreapp\ShopOnlineApp\wwwroot\lib\bootstrap\dist\fonts\glyphicons-halflings-regular.woff2"' (27b0a520)
+2018-12-14T23:45:54.5893899+07:00 0HLJ1SCK49E3A:00000004 [INF] Request finished in 15.7584ms 200 font/woff2 (791a596a)
+2018-12-14T23:45:54.6583820+07:00 0HLJ1SCK49E36:00000004 [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/ProductCategory/GetAll   (ca22a1cb)
+2018-12-14T23:45:54.6656027+07:00 0HLJ1SCK49E36:00000004 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-12-14T23:45:54.6775637+07:00 0HLJ1SCK49E36:00000004 [INF] Authorization was successful for user: "admin". (d7eb274a)
+2018-12-14T23:45:54.6818819+07:00 0HLJ1SCK49E2O:00000004 [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/Product/GetAllPaging?categoryId=--Ch%E1%BB%8Dn+lo%E1%BA%A1i--&searchText=&pageIndex=1&pageSize=10   (ca22a1cb)
+2018-12-14T23:45:54.6996591+07:00 0HLJ1SCK49E2O:00000004 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-12-14T23:45:54.7121835+07:00 0HLJ1SCK49E2O:00000004 [INF] Authorization was successful for user: "admin". (d7eb274a)
+2018-12-14T23:45:54.7174004+07:00 0HLJ1SCK49E36:00000004 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.ProductCategoryController.GetAll (ShopOnlineApp)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2018-12-14T23:45:54.7384079+07:00 0HLJ1SCK49E36:00000004 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2018-12-14T23:45:54.7454949+07:00 0HLJ1SCK49E2O:00000004 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.ProductController.GetAllPaging (ShopOnlineApp)" with arguments (["ShopOnlineApp.Application.ViewModels.Product.ProductRequest"]) - ModelState is Invalid (ba7f4ac2)
+2018-12-14T23:45:54.7617786+07:00 0HLJ1SCK49E36:00000004 [INF] Executed DbCommand ("5"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[DateCreated], [x].[DateModified], [x].[Description], [x].[HomeFlag], [x].[HomeOrder], [x].[Image], [x].[Name], [x].[ParentId], [x].[SeoAlias], [x].[SeoDescription], [x].[SeoKeywords], [x].[SeoPageTitle], [x].[SortOrder], [x].[Status]
+FROM [ProductCategories] AS [x]
+ORDER BY [x].[ParentId]" (0723d8ff)
+2018-12-14T23:45:54.7837319+07:00 0HLJ1SCK49E2O:00000004 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2018-12-14T23:45:54.8031107+07:00 0HLJ1SCK49E36:00000004 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2018-12-14T23:45:54.8230237+07:00 0HLJ1SCK49E36:00000004 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.ProductCategoryController.GetAll (ShopOnlineApp)" in 137.4114ms (afa2e885)
+2018-12-14T23:45:54.8817089+07:00 0HLJ1SCK49E36:00000004 [INF] Request finished in 173.7545ms 200 application/json; charset=utf-8 (791a596a)
+2018-12-14T23:45:54.8919865+07:00 0HLJ1SCK49E2O:00000004 [INF] Executed DbCommand ("5"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Products] AS [x]
+WHERE [x].[Status] = 1" (0723d8ff)
+2018-12-14T23:45:54.9046554+07:00 0HLJ1SCK49E2O:00000004 [INF] Executed DbCommand ("3"ms) [Parameters=["@__p_0='?', @__p_1='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[CategoryId], [x].[Content], [x].[DateCreated], [x].[DateModified], [x].[Description], [x].[HomeFlag], [x].[HotFlag], [x].[Image], [x].[Name], [x].[OriginalPrice], [x].[Price], [x].[PromotionPrice], [x].[SeoAlias], [x].[SeoDescription], [x].[SeoKeywords], [x].[SeoPageTitle], [x].[Status], [x].[Tags], [x].[Unit], [x].[ViewCount]
+FROM [Products] AS [x]
+WHERE [x].[Status] = 1
+ORDER BY [x].[DateCreated] DESC
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY" (0723d8ff)
+2018-12-14T23:45:54.9151703+07:00 0HLJ1SCK49E2O:00000004 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2018-12-14T23:45:54.9241261+07:00 0HLJ1SCK49E2O:00000004 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.ProductController.GetAllPaging (ShopOnlineApp)" in 214.6657ms (afa2e885)
+2018-12-14T23:45:54.9472926+07:00 0HLJ1SCK49E2O:00000004 [INF] Request finished in 257.1281ms 200 application/json; charset=utf-8 (791a596a)
+2018-12-14T23:45:55.1136021+07:00 0HLJ1SCK49E3F:00000004 [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/Product/GetAllPaging?categoryId=&searchText=&pageIndex=1&pageSize=10   (ca22a1cb)
+2018-12-14T23:45:55.1214970+07:00 0HLJ1SCK49E3F:00000004 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-12-14T23:45:55.1317094+07:00 0HLJ1SCK49E3F:00000004 [INF] Authorization was successful for user: "admin". (d7eb274a)
+2018-12-14T23:45:55.1403477+07:00 0HLJ1SCK49E3F:00000004 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.ProductController.GetAllPaging (ShopOnlineApp)" with arguments (["ShopOnlineApp.Application.ViewModels.Product.ProductRequest"]) - ModelState is Invalid (ba7f4ac2)
+2018-12-14T23:45:55.1673668+07:00 0HLJ1SCK49E3F:00000004 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2018-12-14T23:45:55.1980675+07:00 0HLJ1SCK49E3F:00000004 [INF] Executed DbCommand ("8"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Products] AS [x]
+WHERE [x].[Status] = 1" (0723d8ff)
+2018-12-14T23:45:55.2187766+07:00 0HLJ1SCK49E3F:00000004 [INF] Executed DbCommand ("4"ms) [Parameters=["@__p_0='?', @__p_1='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[CategoryId], [x].[Content], [x].[DateCreated], [x].[DateModified], [x].[Description], [x].[HomeFlag], [x].[HotFlag], [x].[Image], [x].[Name], [x].[OriginalPrice], [x].[Price], [x].[PromotionPrice], [x].[SeoAlias], [x].[SeoDescription], [x].[SeoKeywords], [x].[SeoPageTitle], [x].[Status], [x].[Tags], [x].[Unit], [x].[ViewCount]
+FROM [Products] AS [x]
+WHERE [x].[Status] = 1
+ORDER BY [x].[DateCreated] DESC
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY" (0723d8ff)
+2018-12-14T23:45:55.2362396+07:00 0HLJ1SCK49E3F:00000004 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2018-12-14T23:45:55.2674274+07:00 0HLJ1SCK49E3F:00000004 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.ProductController.GetAllPaging (ShopOnlineApp)" in 115.0722ms (afa2e885)
+2018-12-14T23:45:55.3161658+07:00 0HLJ1SCK49E3F:00000004 [INF] Request finished in 182.6976ms 200 application/json; charset=utf-8 (791a596a)
+2018-12-14T23:45:55.4064996+07:00 0HLJ1SCK49E2Q:00000004 [INF] Request starting HTTP/1.1 GET http://localhost:44344/client-side/images/products/product-1.jpg   (ca22a1cb)
+2018-12-14T23:45:55.4251187+07:00 0HLJ1SCK49E2Q:00000004 [INF] Sending file. Request path: '"/client-side/images/products/product-1.jpg"'. Physical path: '"G:\KhoaLuan\teducoreapp\ShopOnlineApp\wwwroot\client-side\images\products\product-1.jpg"' (27b0a520)
+2018-12-14T23:45:55.4387235+07:00 0HLJ1SCK49E3T:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44344/admin-side/images/user.png   (ca22a1cb)
+2018-12-14T23:45:55.4587219+07:00 0HLJ1SCK49E3T:00000002 [INF] Sending file. Request path: '"/admin-side/images/user.png"'. Physical path: '"G:\KhoaLuan\teducoreapp\ShopOnlineApp\wwwroot\admin-side\images\user.png"' (27b0a520)
+2018-12-14T23:45:55.5706934+07:00 0HLJ1SCK49E2Q:00000004 [INF] Request finished in 118.3733ms 200 image/jpeg (791a596a)
+2018-12-14T23:45:55.6552971+07:00 0HLJ1SCK49E3T:00000002 [INF] Request finished in 144.9711ms 200 image/png (791a596a)
+2018-12-14T23:45:56.3043961+07:00 0HLJ1SCK49E3V:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44344/lib/ckeditor/config.js?t=H8DC   (ca22a1cb)
+2018-12-14T23:45:56.3151040+07:00 0HLJ1SCK49E3V:00000002 [INF] Sending file. Request path: '"/lib/ckeditor/config.js"'. Physical path: '"G:\KhoaLuan\teducoreapp\ShopOnlineApp\wwwroot\lib\ckeditor\config.js"' (27b0a520)
+2018-12-14T23:45:56.4144695+07:00 0HLJ1SCK49E3V:00000002 [INF] Request finished in 54.3911ms 200 application/javascript (791a596a)
+2018-12-14T23:45:56.5456666+07:00 0HLJ1SCK49E41:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44344/favicon.ico   (ca22a1cb)
+2018-12-14T23:45:56.5598522+07:00 0HLJ1SCK49E41:00000002 [INF] Sending file. Request path: '"/favicon.ico"'. Physical path: '"G:\KhoaLuan\teducoreapp\ShopOnlineApp\wwwroot\favicon.ico"' (27b0a520)
+2018-12-14T23:45:56.6278968+07:00 0HLJ1SCK49E41:00000002 [INF] Request finished in 32.0859ms 200 image/x-icon (791a596a)
+2018-12-14T23:46:43.9134969+07:00 0HLJ1SCK49E3S:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/ProductCategory/GetAll   (ca22a1cb)
+2018-12-14T23:46:43.9240981+07:00 0HLJ1SCK49E3S:00000002 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-12-14T23:46:43.9294581+07:00 0HLJ1SCK49E3S:00000002 [INF] Authorization was successful for user: "admin". (d7eb274a)
+2018-12-14T23:46:43.9342369+07:00 0HLJ1SCK49E3S:00000002 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.ProductCategoryController.GetAll (ShopOnlineApp)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2018-12-14T23:46:43.9403524+07:00 0HLJ1SCK49E3S:00000002 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2018-12-14T23:46:43.9481074+07:00 0HLJ1SCK49E3S:00000002 [INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[DateCreated], [x].[DateModified], [x].[Description], [x].[HomeFlag], [x].[HomeOrder], [x].[Image], [x].[Name], [x].[ParentId], [x].[SeoAlias], [x].[SeoDescription], [x].[SeoKeywords], [x].[SeoPageTitle], [x].[SortOrder], [x].[Status]
+FROM [ProductCategories] AS [x]
+ORDER BY [x].[ParentId]" (0723d8ff)
+2018-12-14T23:46:43.9526591+07:00 0HLJ1SCK49E3S:00000002 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2018-12-14T23:46:43.9586107+07:00 0HLJ1SCK49E3S:00000002 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.ProductCategoryController.GetAll (ShopOnlineApp)" in 28.7536ms (afa2e885)
+2018-12-14T23:46:43.9652349+07:00 0HLJ1SCK49E3S:00000002 [INF] Request finished in 53.5204ms 200 application/json; charset=utf-8 (791a596a)
+2018-12-14T23:46:44.0061713+07:00 0HLJ1SCK49E46:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/ProductCategory/GetAll   (ca22a1cb)
+2018-12-14T23:46:44.0107760+07:00 0HLJ1SCK49E46:00000002 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-12-14T23:46:44.0156420+07:00 0HLJ1SCK49E46:00000002 [INF] Authorization was successful for user: "admin". (d7eb274a)
+2018-12-14T23:46:44.0205643+07:00 0HLJ1SCK49E46:00000002 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.ProductCategoryController.GetAll (ShopOnlineApp)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2018-12-14T23:46:44.0285957+07:00 0HLJ1SCK49E46:00000002 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2018-12-14T23:46:44.0358776+07:00 0HLJ1SCK49E46:00000002 [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[DateCreated], [x].[DateModified], [x].[Description], [x].[HomeFlag], [x].[HomeOrder], [x].[Image], [x].[Name], [x].[ParentId], [x].[SeoAlias], [x].[SeoDescription], [x].[SeoKeywords], [x].[SeoPageTitle], [x].[SortOrder], [x].[Status]
+FROM [ProductCategories] AS [x]
+ORDER BY [x].[ParentId]" (0723d8ff)
+2018-12-14T23:46:44.0439812+07:00 0HLJ1SCK49E46:00000002 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2018-12-14T23:46:44.0492289+07:00 0HLJ1SCK49E46:00000002 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.ProductCategoryController.GetAll (ShopOnlineApp)" in 33.2531ms (afa2e885)
+2018-12-14T23:46:44.0600370+07:00 0HLJ1SCK49E46:00000002 [INF] Request finished in 49.0423ms 200 application/json; charset=utf-8 (791a596a)
+2018-12-14T23:46:48.0987155+07:00 0HLJ1SCK49E40:00000002 [INF] Request starting HTTP/1.1 POST http://localhost:44344/Admin/Product/UploadImage multipart/form-data; boundary=----WebKitFormBoundaryia6SZPtBVXstbmdj 494782 (ca22a1cb)
+2018-12-14T23:46:48.1124434+07:00 0HLJ1SCK49E40:00000002 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-12-14T23:46:48.1276350+07:00 0HLJ1SCK49E40:00000002 [INF] Authorization was successful for user: "admin". (d7eb274a)
+2018-12-14T23:46:48.1341085+07:00 0HLJ1SCK49E40:00000002 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.ProductController.UploadImage (ShopOnlineApp)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2018-12-14T23:48:44.9048978+07:00 0HLJ1SG1CC12H:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/   (ca22a1cb)
+2018-12-14T23:48:45.2071304+07:00 0HLJ1SG1CC12H:00000001 [INF] Request finished in 373.1475ms 404  (791a596a)
+2018-12-14T23:49:09.5782344+07:00 0HLJ1SG1CC12H:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/Login/Index   (ca22a1cb)
+2018-12-14T23:49:09.9138671+07:00 0HLJ1SG1CC12H:00000002 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.LoginController.index (ShopOnlineApp)" with arguments ([""]) - ModelState is Valid (ba7f4ac2)
+2018-12-14T23:49:09.9424790+07:00 0HLJ1SG1CC12H:00000002 [INF] AuthenticationScheme: "Identity.External" signed out. (d3f50c8d)
+2018-12-14T23:49:13.4525522+07:00 0HLJ1SG1CC12H:00000002 [INF] Executing ViewResult, running view at path "/Areas/Admin/Views/Login/index.cshtml". (9707eebe)
+2018-12-14T23:49:13.5703252+07:00 0HLJ1SG1CC12J:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/Login/Index   (ca22a1cb)
+2018-12-14T23:49:13.5968927+07:00 0HLJ1SG1CC12J:00000001 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.LoginController.index (ShopOnlineApp)" with arguments ([""]) - ModelState is Valid (ba7f4ac2)
+2018-12-14T23:49:13.6232494+07:00 0HLJ1SG1CC12H:00000002 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.LoginController.index (ShopOnlineApp)" in 3858.9951ms (afa2e885)
+2018-12-14T23:49:13.6267985+07:00 0HLJ1SG1CC12J:00000001 [INF] AuthenticationScheme: "Identity.External" signed out. (d3f50c8d)
+2018-12-14T23:49:13.6343381+07:00 0HLJ1SG1CC12J:00000001 [INF] Executing ViewResult, running view at path "/Areas/Admin/Views/Login/index.cshtml". (9707eebe)
+2018-12-14T23:49:13.7038425+07:00 0HLJ1SG1CC12H:00000002 [INF] Request finished in 4064.507ms 200 text/html; charset=utf-8 (791a596a)
+2018-12-14T23:49:13.7197949+07:00 0HLJ1SG1CC12J:00000001 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.LoginController.index (ShopOnlineApp)" in 62.3283ms (afa2e885)
+2018-12-14T23:49:13.7462491+07:00 0HLJ1SG1CC12J:00000001 [INF] Request finished in 156.8354ms 200 text/html; charset=utf-8 (791a596a)
+2018-12-14T23:49:25.0715052+07:00 0HLJ1SG1CC12H:00000003 [INF] Request starting HTTP/1.1 POST http://localhost:44344/Admin/Login/authen application/x-www-form-urlencoded; charset=UTF-8 33 (ca22a1cb)
+2018-12-14T23:49:25.1475545+07:00 0HLJ1SG1CC12H:00000003 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.LoginController.Authen (ShopOnlineApp)" with arguments (["ShopOnlineApp.Models.AccountViewModels.LoginViewModel", ""]) - ModelState is Valid (ba7f4ac2)
+2018-12-14T23:49:25.5246805+07:00 0HLJ1SG1CC12H:00000003 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2018-12-14T23:49:25.9206828+07:00 0HLJ1SG1CC12H:00000003 [INF] Executed DbCommand ("54"ms) [Parameters=["@__normalizedUserName_0='?' (Size = 4000)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[Avatar], [u].[Balance], [u].[BirthDay], [u].[ConcurrencyStamp], [u].[DateCreated], [u].[DateModified], [u].[Email], [u].[EmailConfirmed], [u].[FullName], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[Status], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [AppUsers] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0" (0723d8ff)
+2018-12-14T23:49:26.0843880+07:00 0HLJ1SG1CC12H:00000003 [INF] Executed DbCommand ("8"ms) [Parameters=["@__user_Id_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT [uc].[Id], [uc].[ClaimType], [uc].[ClaimValue], [uc].[UserId]
+FROM [AppUserClaims] AS [uc]
+WHERE [uc].[UserId] = @__user_Id_0" (0723d8ff)
+2018-12-14T23:49:26.1623057+07:00 0HLJ1SG1CC12H:00000003 [INF] Executed DbCommand ("5"ms) [Parameters=["@__userId_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT [role].[Name]
+FROM [AppUserRoles] AS [userRole]
+INNER JOIN [AppRoles] AS [role] ON [userRole].[RoleId] = [role].[Id]
+WHERE [userRole].[UserId] = @__userId_0" (0723d8ff)
+2018-12-14T23:49:26.1878462+07:00 0HLJ1SG1CC12H:00000003 [INF] Executed DbCommand ("1"ms) [Parameters=["@__normalizedName_0='?' (Size = 4000)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [r].[Id], [r].[ConcurrencyStamp], [r].[Description], [r].[Name], [r].[NormalizedName]
+FROM [AppRoles] AS [r]
+WHERE [r].[NormalizedName] = @__normalizedName_0" (0723d8ff)
+2018-12-14T23:49:26.2318646+07:00 0HLJ1SG1CC12H:00000003 [INF] Executed DbCommand ("1"ms) [Parameters=["@__role_Id_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT [rc].[ClaimType], [rc].[ClaimValue]
+FROM [AppRoleClaims] AS [rc]
+WHERE [rc].[RoleId] = @__role_Id_0" (0723d8ff)
+2018-12-14T23:49:26.2425692+07:00 0HLJ1SG1CC12H:00000003 [INF] Executed DbCommand ("1"ms) [Parameters=["@__userId_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT [role].[Name]
+FROM [AppUserRoles] AS [userRole]
+INNER JOIN [AppRoles] AS [role] ON [userRole].[RoleId] = [role].[Id]
+WHERE [userRole].[UserId] = @__userId_0" (0723d8ff)
+2018-12-14T23:49:26.2580303+07:00 0HLJ1SG1CC12H:00000003 [INF] AuthenticationScheme: "Identity.Application" signed in. (c66dd7e7)
+2018-12-14T23:49:26.2696550+07:00 0HLJ1SG1CC12H:00000003 [INF] Đăng nhập thành công (ba4d6ffb)
+2018-12-14T23:49:26.2876946+07:00 0HLJ1SG1CC12H:00000003 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2018-12-14T23:49:26.5398786+07:00 0HLJ1SG1CC12H:00000003 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.LoginController.Authen (ShopOnlineApp)" in 1435.0825ms (afa2e885)
+2018-12-14T23:49:26.5537795+07:00 0HLJ1SG1CC12H:00000003 [INF] Request finished in 1480.1259ms 200 application/json; charset=utf-8 (791a596a)
+2018-12-14T23:49:26.5956938+07:00 0HLJ1SG1CC12J:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/Home/Index   (ca22a1cb)
+2018-12-14T23:49:26.6148531+07:00 0HLJ1SG1CC12J:00000002 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-12-14T23:49:26.6366450+07:00 0HLJ1SG1CC12J:00000002 [INF] Authorization was successful for user: "admin". (d7eb274a)
+2018-12-14T23:49:26.6437702+07:00 0HLJ1SG1CC12J:00000002 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.HomeController.Index (ShopOnlineApp)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2018-12-14T23:49:27.0833863+07:00 0HLJ1SG1CC12J:00000002 [INF] Executing ViewResult, running view at path "/Areas/Admin/Views/Home/Index.cshtml". (9707eebe)
+2018-12-14T23:49:27.5834658+07:00 0HLJ1SG1CC12J:00000002 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2018-12-14T23:49:27.6002586+07:00 0HLJ1SG1CC12J:00000002 [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [f].[Id], [f].[IconCss], [f].[Name], [f].[ParentId], [f].[SortOrder], [f].[Status], [f].[URL]
+FROM [Functions] AS [f]" (0723d8ff)
+2018-12-14T23:49:29.0563807+07:00 0HLJ1SG1CC12J:00000002 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.HomeController.Index (ShopOnlineApp)" in 2430.5405ms (afa2e885)
+2018-12-14T23:49:29.1384809+07:00 0HLJ1SG1CC12J:00000002 [INF] Request finished in 2469.1634ms 200 text/html; charset=utf-8 (791a596a)
+2018-12-14T23:49:34.0352996+07:00 0HLJ1SG1CC12H:00000004 [INF] Request starting HTTP/1.1 GET http://localhost:44344/admin/product/index   (ca22a1cb)
+2018-12-14T23:49:34.0436260+07:00 0HLJ1SG1CC12H:00000004 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-12-14T23:49:34.0563378+07:00 0HLJ1SG1CC12H:00000004 [INF] Authorization was successful for user: "admin". (d7eb274a)
+2018-12-14T23:49:34.1205573+07:00 0HLJ1SG1CC12H:00000004 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.ProductController.Index (ShopOnlineApp)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2018-12-14T23:49:34.4851146+07:00 0HLJ1SG1CC12H:00000004 [INF] Executing ViewResult, running view at path "/Areas/Admin/Views/Product/Index.cshtml". (9707eebe)
+2018-12-14T23:49:34.7714004+07:00 0HLJ1SG1CC12H:00000004 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2018-12-14T23:49:34.7798448+07:00 0HLJ1SG1CC12H:00000004 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [f].[Id], [f].[IconCss], [f].[Name], [f].[ParentId], [f].[SortOrder], [f].[Status], [f].[URL]
+FROM [Functions] AS [f]" (0723d8ff)
+2018-12-14T23:49:34.8151382+07:00 0HLJ1SG1CC12H:00000004 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.ProductController.Index (ShopOnlineApp)" in 755.0405ms (afa2e885)
+2018-12-14T23:49:34.9119988+07:00 0HLJ1SG1CC12H:00000004 [INF] Request finished in 791.9691ms 200 text/html; charset=utf-8 (791a596a)
+2018-12-14T23:49:34.9389289+07:00 0HLJ1SG1CC12J:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:44344/app/controller/product/index.js?v=Y68fFjAHZ_7SjpMDGbLLdA95YMjUrvQFhWlev-xupxI   (ca22a1cb)
+2018-12-14T23:49:34.9812324+07:00 0HLJ1SG1CC12J:00000003 [INF] The file "/app/controller/product/index.js" was not modified (f1f8d725)
+2018-12-14T23:49:35.0164750+07:00 0HLJ1SG1CC12J:00000003 [INF] Request finished in 93.6018ms 304 application/javascript (791a596a)
+2018-12-14T23:49:35.4307141+07:00 0HLJ1SG1CC12H:00000005 [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/Product/GetAllPaging?categoryId=--Ch%E1%BB%8Dn+lo%E1%BA%A1i--&searchText=&pageIndex=1&pageSize=10   (ca22a1cb)
+2018-12-14T23:49:35.4332815+07:00 0HLJ1SG1CC12J:00000004 [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/ProductCategory/GetAll   (ca22a1cb)
+2018-12-14T23:49:35.4798613+07:00 0HLJ1SG1CC12H:00000005 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-12-14T23:49:35.5801386+07:00 0HLJ1SG1CC12J:00000004 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-12-14T23:49:35.6879514+07:00 0HLJ1SG1CC12J:00000004 [INF] Authorization was successful for user: "admin". (d7eb274a)
+2018-12-14T23:49:35.7401107+07:00 0HLJ1SG1CC12H:00000005 [INF] Authorization was successful for user: "admin". (d7eb274a)
+2018-12-14T23:49:36.0276458+07:00 0HLJ1SG1CC12H:00000005 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.ProductController.GetAllPaging (ShopOnlineApp)" with arguments (["ShopOnlineApp.Application.ViewModels.Product.ProductRequest"]) - ModelState is Invalid (ba7f4ac2)
+2018-12-14T23:49:36.0667567+07:00 0HLJ1SG1CC12J:00000004 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.ProductCategoryController.GetAll (ShopOnlineApp)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2018-12-14T23:49:36.0726318+07:00 0HLJ1SG1CC12H:00000005 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2018-12-14T23:49:36.1192283+07:00 0HLJ1SG1CC12J:00000004 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2018-12-14T23:49:36.1875521+07:00 0HLJ1SG1CC12H:00000005 [INF] Executed DbCommand ("17"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Products] AS [x]
+WHERE [x].[Status] = 1" (0723d8ff)
+2018-12-14T23:49:36.2981429+07:00 0HLJ1SG1CC12J:00000004 [INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[DateCreated], [x].[DateModified], [x].[Description], [x].[HomeFlag], [x].[HomeOrder], [x].[Image], [x].[Name], [x].[ParentId], [x].[SeoAlias], [x].[SeoDescription], [x].[SeoKeywords], [x].[SeoPageTitle], [x].[SortOrder], [x].[Status]
+FROM [ProductCategories] AS [x]
+ORDER BY [x].[ParentId]" (0723d8ff)
+2018-12-14T23:49:36.5723291+07:00 0HLJ1SG1CC12J:00000004 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2018-12-14T23:49:36.7715724+07:00 0HLJ1SG1CC12H:00000005 [INF] Executed DbCommand ("159"ms) [Parameters=["@__p_0='?', @__p_1='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[CategoryId], [x].[Content], [x].[DateCreated], [x].[DateModified], [x].[Description], [x].[HomeFlag], [x].[HotFlag], [x].[Image], [x].[Name], [x].[OriginalPrice], [x].[Price], [x].[PromotionPrice], [x].[SeoAlias], [x].[SeoDescription], [x].[SeoKeywords], [x].[SeoPageTitle], [x].[Status], [x].[Tags], [x].[Unit], [x].[ViewCount]
+FROM [Products] AS [x]
+WHERE [x].[Status] = 1
+ORDER BY [x].[DateCreated] DESC
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY" (0723d8ff)
+2018-12-14T23:49:36.7973116+07:00 0HLJ1SG1CC12J:00000004 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.ProductCategoryController.GetAll (ShopOnlineApp)" in 1178.413ms (afa2e885)
+2018-12-14T23:49:36.8474302+07:00 0HLJ1SG1CC12J:00000004 [INF] Request finished in 1374.3301ms 200 application/json; charset=utf-8 (791a596a)
+2018-12-14T23:49:36.8639936+07:00 0HLJ1SG1CC12H:00000005 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2018-12-14T23:49:36.9632613+07:00 0HLJ1SG1CC12H:00000005 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.ProductController.GetAllPaging (ShopOnlineApp)" in 1287.0722ms (afa2e885)
+2018-12-14T23:49:37.0189622+07:00 0HLJ1SG1CC12H:00000005 [INF] Request finished in 1548.4752ms 200 application/json; charset=utf-8 (791a596a)
+2018-12-14T23:49:37.0712814+07:00 0HLJ1SG1CC12J:00000005 [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/Product/GetAllPaging?categoryId=&searchText=&pageIndex=1&pageSize=10   (ca22a1cb)
+2018-12-14T23:49:37.0857366+07:00 0HLJ1SG1CC12J:00000005 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-12-14T23:49:37.0928114+07:00 0HLJ1SG1CC12J:00000005 [INF] Authorization was successful for user: "admin". (d7eb274a)
+2018-12-14T23:49:37.0992347+07:00 0HLJ1SG1CC12J:00000005 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.ProductController.GetAllPaging (ShopOnlineApp)" with arguments (["ShopOnlineApp.Application.ViewModels.Product.ProductRequest"]) - ModelState is Invalid (ba7f4ac2)
+2018-12-14T23:49:37.1054598+07:00 0HLJ1SG1CC12J:00000005 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2018-12-14T23:49:37.1180337+07:00 0HLJ1SG1CC12J:00000005 [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Products] AS [x]
+WHERE [x].[Status] = 1" (0723d8ff)
+2018-12-14T23:49:37.1290925+07:00 0HLJ1SG1CC12J:00000005 [INF] Executed DbCommand ("0"ms) [Parameters=["@__p_0='?', @__p_1='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[CategoryId], [x].[Content], [x].[DateCreated], [x].[DateModified], [x].[Description], [x].[HomeFlag], [x].[HotFlag], [x].[Image], [x].[Name], [x].[OriginalPrice], [x].[Price], [x].[PromotionPrice], [x].[SeoAlias], [x].[SeoDescription], [x].[SeoKeywords], [x].[SeoPageTitle], [x].[Status], [x].[Tags], [x].[Unit], [x].[ViewCount]
+FROM [Products] AS [x]
+WHERE [x].[Status] = 1
+ORDER BY [x].[DateCreated] DESC
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY" (0723d8ff)
+2018-12-14T23:49:37.1351024+07:00 0HLJ1SG1CC12J:00000005 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2018-12-14T23:49:37.1427907+07:00 0HLJ1SG1CC12J:00000005 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.ProductController.GetAllPaging (ShopOnlineApp)" in 49.6795ms (afa2e885)
+2018-12-14T23:49:37.1797938+07:00 0HLJ1SG1CC12J:00000005 [INF] Request finished in 149.9092ms 200 application/json; charset=utf-8 (791a596a)
+2018-12-14T23:49:38.6183215+07:00 0HLJ1SG1CC12H:00000006 [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/ProductCategory/GetAll   (ca22a1cb)
+2018-12-14T23:49:38.6254179+07:00 0HLJ1SG1CC12H:00000006 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-12-14T23:49:38.6306259+07:00 0HLJ1SG1CC12H:00000006 [INF] Authorization was successful for user: "admin". (d7eb274a)
+2018-12-14T23:49:38.6361001+07:00 0HLJ1SG1CC12H:00000006 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.ProductCategoryController.GetAll (ShopOnlineApp)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2018-12-14T23:49:38.6435960+07:00 0HLJ1SG1CC12H:00000006 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2018-12-14T23:49:38.6503557+07:00 0HLJ1SG1CC12H:00000006 [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[DateCreated], [x].[DateModified], [x].[Description], [x].[HomeFlag], [x].[HomeOrder], [x].[Image], [x].[Name], [x].[ParentId], [x].[SeoAlias], [x].[SeoDescription], [x].[SeoKeywords], [x].[SeoPageTitle], [x].[SortOrder], [x].[Status]
+FROM [ProductCategories] AS [x]
+ORDER BY [x].[ParentId]" (0723d8ff)
+2018-12-14T23:49:38.6559194+07:00 0HLJ1SG1CC12H:00000006 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2018-12-14T23:49:38.6624770+07:00 0HLJ1SG1CC12H:00000006 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.ProductCategoryController.GetAll (ShopOnlineApp)" in 30.6106ms (afa2e885)
+2018-12-14T23:49:38.6699597+07:00 0HLJ1SG1CC12H:00000006 [INF] Request finished in 55.8044ms 200 application/json; charset=utf-8 (791a596a)
+2018-12-14T23:49:38.7405689+07:00 0HLJ1SG1CC12J:00000006 [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/ProductCategory/GetAll   (ca22a1cb)
+2018-12-14T23:49:38.7475136+07:00 0HLJ1SG1CC12J:00000006 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-12-14T23:49:38.7523679+07:00 0HLJ1SG1CC12J:00000006 [INF] Authorization was successful for user: "admin". (d7eb274a)
+2018-12-14T23:49:38.7611288+07:00 0HLJ1SG1CC12J:00000006 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.ProductCategoryController.GetAll (ShopOnlineApp)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2018-12-14T23:49:38.7679697+07:00 0HLJ1SG1CC12J:00000006 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2018-12-14T23:49:38.7763736+07:00 0HLJ1SG1CC12J:00000006 [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[DateCreated], [x].[DateModified], [x].[Description], [x].[HomeFlag], [x].[HomeOrder], [x].[Image], [x].[Name], [x].[ParentId], [x].[SeoAlias], [x].[SeoDescription], [x].[SeoKeywords], [x].[SeoPageTitle], [x].[SortOrder], [x].[Status]
+FROM [ProductCategories] AS [x]
+ORDER BY [x].[ParentId]" (0723d8ff)
+2018-12-14T23:49:38.7813336+07:00 0HLJ1SG1CC12J:00000006 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2018-12-14T23:49:38.7873951+07:00 0HLJ1SG1CC12J:00000006 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.ProductCategoryController.GetAll (ShopOnlineApp)" in 33.8991ms (afa2e885)
+2018-12-14T23:49:38.7993914+07:00 0HLJ1SG1CC12J:00000006 [INF] Request finished in 68.9222ms 200 application/json; charset=utf-8 (791a596a)
+2018-12-14T23:49:43.5210582+07:00 0HLJ1SG1CC12H:00000007 [INF] Request starting HTTP/1.1 POST http://localhost:44344/Admin/Product/UploadImage multipart/form-data; boundary=----WebKitFormBoundary36Lg1AF0lxWvCil9 494782 (ca22a1cb)
+2018-12-14T23:49:43.5398646+07:00 0HLJ1SG1CC12H:00000007 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-12-14T23:49:43.5722130+07:00 0HLJ1SG1CC12H:00000007 [INF] Authorization was successful for user: "admin". (d7eb274a)
+2018-12-14T23:49:43.5844797+07:00 0HLJ1SG1CC12H:00000007 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.ProductController.UploadImage (ShopOnlineApp)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2018-12-14T23:50:29.9441323+07:00 0HLJ1SG1CC12H:00000007 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2018-12-14T23:50:29.9520015+07:00 0HLJ1SG1CC12H:00000007 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.ProductController.UploadImage (ShopOnlineApp)" in 46398.6107ms (afa2e885)
+2018-12-14T23:50:29.9648331+07:00 0HLJ1SG1CC12H:00000007 [INF] Request finished in 46460.5783ms 200 text/plain; charset=utf-8 (791a596a)
+2018-12-14T23:54:35.2344474+07:00 0HLJ1SG1CC12K:00000001 [INF] Request starting HTTP/1.1 POST http://localhost:44344/Admin/Product/UploadImage multipart/form-data; boundary=----WebKitFormBoundaryaoCeFQTHBb8u9EA8 24543 (ca22a1cb)
+2018-12-14T23:54:35.2481749+07:00 0HLJ1SG1CC12K:00000001 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-12-14T23:54:35.2596561+07:00 0HLJ1SG1CC12K:00000001 [INF] Authorization was successful for user: "admin". (d7eb274a)
+2018-12-14T23:54:35.2760153+07:00 0HLJ1SG1CC12K:00000001 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.ProductController.UploadImage (ShopOnlineApp)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2018-12-14T23:54:54.2316152+07:00 0HLJ1SG1CC12L:00000001 [INF] Request starting HTTP/1.1 POST http://localhost:44344/Admin/Product/UploadImage multipart/form-data; boundary=----WebKitFormBoundaryL8VrwpmOLUsVRg82 21439 (ca22a1cb)
+2018-12-14T23:54:54.2594244+07:00 0HLJ1SG1CC12L:00000001 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-12-14T23:54:54.2657032+07:00 0HLJ1SG1CC12L:00000001 [INF] Authorization was successful for user: "admin". (d7eb274a)
+2018-12-14T23:54:54.2721982+07:00 0HLJ1SG1CC12L:00000001 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.ProductController.UploadImage (ShopOnlineApp)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2018-12-14T23:55:06.8035368+07:00 0HLJ1SG1CC12M:00000001 [INF] Request starting HTTP/1.1 POST http://localhost:44344/Admin/Product/UploadImage multipart/form-data; boundary=----WebKitFormBoundaryCLEnb9l5JkB7qpxE 24543 (ca22a1cb)
+2018-12-14T23:55:06.8194402+07:00 0HLJ1SG1CC12M:00000001 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-12-14T23:55:06.8326315+07:00 0HLJ1SG1CC12M:00000001 [INF] Authorization was successful for user: "admin". (d7eb274a)
+2018-12-14T23:55:06.8473748+07:00 0HLJ1SG1CC12M:00000001 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.ProductController.UploadImage (ShopOnlineApp)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2018-12-14T23:55:35.6964391+07:00 0HLJ1SJRPCJ44:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/   (ca22a1cb)
+2018-12-14T23:55:36.4920799+07:00 0HLJ1SJRPCJ44:00000001 [INF] Request finished in 755.1268ms 404  (791a596a)
+2018-12-14T23:57:00.6456706+07:00 0HLJ1SJRPCJ46:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/Login/Index   (ca22a1cb)
+2018-12-14T23:57:01.1327447+07:00 0HLJ1SJRPCJ46:00000001 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.LoginController.index (ShopOnlineApp)" with arguments ([""]) - ModelState is Valid (ba7f4ac2)
+2018-12-14T23:57:01.1595596+07:00 0HLJ1SJRPCJ46:00000001 [INF] AuthenticationScheme: "Identity.External" signed out. (d3f50c8d)
+2018-12-14T23:57:04.6355426+07:00 0HLJ1SJRPCJ47:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/Login/Index   (ca22a1cb)
+2018-12-14T23:57:04.6463526+07:00 0HLJ1SJRPCJ47:00000001 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.LoginController.index (ShopOnlineApp)" with arguments ([""]) - ModelState is Valid (ba7f4ac2)
+2018-12-14T23:57:04.6535328+07:00 0HLJ1SJRPCJ47:00000001 [INF] AuthenticationScheme: "Identity.External" signed out. (d3f50c8d)
+2018-12-14T23:57:06.3948716+07:00 0HLJ1SJRPCJ46:00000001 [INF] Executing ViewResult, running view at path "/Areas/Admin/Views/Login/index.cshtml". (9707eebe)
+2018-12-14T23:57:06.3972601+07:00 0HLJ1SJRPCJ47:00000001 [INF] Executing ViewResult, running view at path "/Areas/Admin/Views/Login/index.cshtml". (9707eebe)
+2018-12-14T23:57:06.6207948+07:00 0HLJ1SJRPCJ47:00000001 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.LoginController.index (ShopOnlineApp)" in 1926.8527ms (afa2e885)
+2018-12-14T23:57:06.6390320+07:00 0HLJ1SJRPCJ46:00000001 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.LoginController.index (ShopOnlineApp)" in 5708.1485ms (afa2e885)
+2018-12-14T23:57:06.6795992+07:00 0HLJ1SJRPCJ46:00000001 [INF] Request finished in 6001.2049ms 200 text/html; charset=utf-8 (791a596a)
+2018-12-14T23:57:06.6919684+07:00 0HLJ1SJRPCJ47:00000001 [INF] Request finished in 2021.488ms 200 text/html; charset=utf-8 (791a596a)
+2018-12-14T23:57:54.5354415+07:00 0HLJ1SJRPCJ47:00000002 [INF] Request starting HTTP/1.1 POST http://localhost:44344/Admin/Login/authen application/x-www-form-urlencoded; charset=UTF-8 33 (ca22a1cb)
+2018-12-14T23:57:54.6213648+07:00 0HLJ1SJRPCJ47:00000002 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.LoginController.Authen (ShopOnlineApp)" with arguments (["ShopOnlineApp.Models.AccountViewModels.LoginViewModel", ""]) - ModelState is Valid (ba7f4ac2)
+2018-12-14T23:57:55.0828862+07:00 0HLJ1SJRPCJ47:00000002 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2018-12-14T23:57:55.5679339+07:00 0HLJ1SJRPCJ47:00000002 [INF] Executed DbCommand ("63"ms) [Parameters=["@__normalizedUserName_0='?' (Size = 4000)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[Avatar], [u].[Balance], [u].[BirthDay], [u].[ConcurrencyStamp], [u].[DateCreated], [u].[DateModified], [u].[Email], [u].[EmailConfirmed], [u].[FullName], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[Status], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [AppUsers] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0" (0723d8ff)
+2018-12-14T23:57:55.8321244+07:00 0HLJ1SJRPCJ47:00000002 [INF] Executed DbCommand ("10"ms) [Parameters=["@__user_Id_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT [uc].[Id], [uc].[ClaimType], [uc].[ClaimValue], [uc].[UserId]
+FROM [AppUserClaims] AS [uc]
+WHERE [uc].[UserId] = @__user_Id_0" (0723d8ff)
+2018-12-14T23:57:55.9135753+07:00 0HLJ1SJRPCJ47:00000002 [INF] Executed DbCommand ("5"ms) [Parameters=["@__userId_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT [role].[Name]
+FROM [AppUserRoles] AS [userRole]
+INNER JOIN [AppRoles] AS [role] ON [userRole].[RoleId] = [role].[Id]
+WHERE [userRole].[UserId] = @__userId_0" (0723d8ff)
+2018-12-14T23:57:55.9532973+07:00 0HLJ1SJRPCJ47:00000002 [INF] Executed DbCommand ("1"ms) [Parameters=["@__normalizedName_0='?' (Size = 4000)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [r].[Id], [r].[ConcurrencyStamp], [r].[Description], [r].[Name], [r].[NormalizedName]
+FROM [AppRoles] AS [r]
+WHERE [r].[NormalizedName] = @__normalizedName_0" (0723d8ff)
+2018-12-14T23:57:56.0359605+07:00 0HLJ1SJRPCJ47:00000002 [INF] Executed DbCommand ("18"ms) [Parameters=["@__role_Id_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT [rc].[ClaimType], [rc].[ClaimValue]
+FROM [AppRoleClaims] AS [rc]
+WHERE [rc].[RoleId] = @__role_Id_0" (0723d8ff)
+2018-12-14T23:57:56.0583762+07:00 0HLJ1SJRPCJ47:00000002 [INF] Executed DbCommand ("12"ms) [Parameters=["@__userId_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT [role].[Name]
+FROM [AppUserRoles] AS [userRole]
+INNER JOIN [AppRoles] AS [role] ON [userRole].[RoleId] = [role].[Id]
+WHERE [userRole].[UserId] = @__userId_0" (0723d8ff)
+2018-12-14T23:57:56.0750595+07:00 0HLJ1SJRPCJ47:00000002 [INF] AuthenticationScheme: "Identity.Application" signed in. (c66dd7e7)
+2018-12-14T23:57:56.0855548+07:00 0HLJ1SJRPCJ47:00000002 [INF] Đăng nhập thành công (ba4d6ffb)
+2018-12-14T23:57:56.1033487+07:00 0HLJ1SJRPCJ47:00000002 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2018-12-14T23:57:56.3644782+07:00 0HLJ1SJRPCJ47:00000002 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.LoginController.Authen (ShopOnlineApp)" in 1788.5547ms (afa2e885)
+2018-12-14T23:57:56.3754392+07:00 0HLJ1SJRPCJ47:00000002 [INF] Request finished in 1840.2726ms 200 application/json; charset=utf-8 (791a596a)
+2018-12-14T23:57:56.4064339+07:00 0HLJ1SJRPCJ47:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/Home/Index   (ca22a1cb)
+2018-12-14T23:57:56.4363934+07:00 0HLJ1SJRPCJ47:00000003 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-12-14T23:57:56.4653293+07:00 0HLJ1SJRPCJ47:00000003 [INF] Authorization was successful for user: "admin". (d7eb274a)
+2018-12-14T23:57:56.4706748+07:00 0HLJ1SJRPCJ47:00000003 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.HomeController.Index (ShopOnlineApp)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2018-12-14T23:57:56.9680680+07:00 0HLJ1SJRPCJ47:00000003 [INF] Executing ViewResult, running view at path "/Areas/Admin/Views/Home/Index.cshtml". (9707eebe)
+2018-12-14T23:57:57.7321948+07:00 0HLJ1SJRPCJ47:00000003 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2018-12-14T23:57:57.7602530+07:00 0HLJ1SJRPCJ47:00000003 [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [f].[Id], [f].[IconCss], [f].[Name], [f].[ParentId], [f].[SortOrder], [f].[Status], [f].[URL]
+FROM [Functions] AS [f]" (0723d8ff)
+2018-12-14T23:57:59.7338887+07:00 0HLJ1SJRPCJ47:00000003 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.HomeController.Index (ShopOnlineApp)" in 3158.8472ms (afa2e885)
+2018-12-14T23:57:59.8438378+07:00 0HLJ1SJRPCJ47:00000003 [INF] Request finished in 3336.3448ms 200 text/html; charset=utf-8 (791a596a)
+2018-12-14T23:58:50.8183205+07:00 0HLJ1SJRPCJ47:00000004 [INF] Request starting HTTP/1.1 GET http://localhost:44344/admin/product/index   (ca22a1cb)
+2018-12-14T23:58:50.8357728+07:00 0HLJ1SJRPCJ47:00000004 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-12-14T23:58:50.8494840+07:00 0HLJ1SJRPCJ47:00000004 [INF] Authorization was successful for user: "admin". (d7eb274a)
+2018-12-14T23:58:50.9222834+07:00 0HLJ1SJRPCJ47:00000004 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.ProductController.Index (ShopOnlineApp)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2018-12-14T23:58:51.2765123+07:00 0HLJ1SJRPCJ47:00000004 [INF] Executing ViewResult, running view at path "/Areas/Admin/Views/Product/Index.cshtml". (9707eebe)
+2018-12-14T23:58:51.5857218+07:00 0HLJ1SJRPCJ47:00000004 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2018-12-14T23:58:51.5957422+07:00 0HLJ1SJRPCJ47:00000004 [INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [f].[Id], [f].[IconCss], [f].[Name], [f].[ParentId], [f].[SortOrder], [f].[Status], [f].[URL]
+FROM [Functions] AS [f]" (0723d8ff)
+2018-12-14T23:58:51.6291720+07:00 0HLJ1SJRPCJ47:00000004 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.ProductController.Index (ShopOnlineApp)" in 781.6341ms (afa2e885)
+2018-12-14T23:58:51.7217065+07:00 0HLJ1SJRPCJ47:00000004 [INF] Request finished in 820.3969ms 200 text/html; charset=utf-8 (791a596a)
+2018-12-14T23:58:51.7541378+07:00 0HLJ1SJRPCJ47:00000005 [INF] Request starting HTTP/1.1 GET http://localhost:44344/app/controller/product/index.js?v=Y68fFjAHZ_7SjpMDGbLLdA95YMjUrvQFhWlev-xupxI   (ca22a1cb)
+2018-12-14T23:58:51.7945889+07:00 0HLJ1SJRPCJ47:00000005 [INF] The file "/app/controller/product/index.js" was not modified (f1f8d725)
+2018-12-14T23:58:51.8162667+07:00 0HLJ1SJRPCJ47:00000005 [INF] Request finished in 71.9609ms 304 application/javascript (791a596a)
+2018-12-14T23:58:52.3106767+07:00 0HLJ1SJRPCJ47:00000006 [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/Product/GetAllPaging?categoryId=--Ch%E1%BB%8Dn+lo%E1%BA%A1i--&searchText=&pageIndex=1&pageSize=10   (ca22a1cb)
+2018-12-14T23:58:52.4254953+07:00 0HLJ1SJRPCJ48:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/ProductCategory/GetAll   (ca22a1cb)
+2018-12-14T23:58:52.6305066+07:00 0HLJ1SJRPCJ47:00000006 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-12-14T23:58:52.7595356+07:00 0HLJ1SJRPCJ48:00000001 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-12-14T23:58:52.9478604+07:00 0HLJ1SJRPCJ47:00000006 [INF] Authorization was successful for user: "admin". (d7eb274a)
+2018-12-14T23:58:53.1191290+07:00 0HLJ1SJRPCJ48:00000001 [INF] Authorization was successful for user: "admin". (d7eb274a)
+2018-12-14T23:58:53.2415083+07:00 0HLJ1SJRPCJ48:00000001 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.ProductCategoryController.GetAll (ShopOnlineApp)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2018-12-14T23:58:53.3132501+07:00 0HLJ1SJRPCJ47:00000006 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.ProductController.GetAllPaging (ShopOnlineApp)" with arguments (["ShopOnlineApp.Application.ViewModels.Product.ProductRequest"]) - ModelState is Invalid (ba7f4ac2)
+2018-12-14T23:58:53.3387861+07:00 0HLJ1SJRPCJ48:00000001 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2018-12-14T23:58:53.3483398+07:00 0HLJ1SJRPCJ47:00000006 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2018-12-14T23:58:53.3863844+07:00 0HLJ1SJRPCJ48:00000001 [INF] Executed DbCommand ("4"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[DateCreated], [x].[DateModified], [x].[Description], [x].[HomeFlag], [x].[HomeOrder], [x].[Image], [x].[Name], [x].[ParentId], [x].[SeoAlias], [x].[SeoDescription], [x].[SeoKeywords], [x].[SeoPageTitle], [x].[SortOrder], [x].[Status]
+FROM [ProductCategories] AS [x]
+ORDER BY [x].[ParentId]" (0723d8ff)
+2018-12-14T23:58:53.4629413+07:00 0HLJ1SJRPCJ47:00000006 [INF] Executed DbCommand ("6"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Products] AS [x]
+WHERE [x].[Status] = 1" (0723d8ff)
+2018-12-14T23:58:53.5055277+07:00 0HLJ1SJRPCJ48:00000001 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2018-12-14T23:58:53.6218929+07:00 0HLJ1SJRPCJ48:00000001 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.ProductCategoryController.GetAll (ShopOnlineApp)" in 837.336ms (afa2e885)
+2018-12-14T23:58:53.6402011+07:00 0HLJ1SJRPCJ49:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/ProductCategory/GetAll   (ca22a1cb)
+2018-12-14T23:58:53.6876246+07:00 0HLJ1SJRPCJ47:00000006 [INF] Executed DbCommand ("9"ms) [Parameters=["@__p_0='?', @__p_1='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[CategoryId], [x].[Content], [x].[DateCreated], [x].[DateModified], [x].[Description], [x].[HomeFlag], [x].[HotFlag], [x].[Image], [x].[Name], [x].[OriginalPrice], [x].[Price], [x].[PromotionPrice], [x].[SeoAlias], [x].[SeoDescription], [x].[SeoKeywords], [x].[SeoPageTitle], [x].[Status], [x].[Tags], [x].[Unit], [x].[ViewCount]
+FROM [Products] AS [x]
+WHERE [x].[Status] = 1
+ORDER BY [x].[DateCreated] DESC
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY" (0723d8ff)
+2018-12-14T23:58:53.7020578+07:00 0HLJ1SJRPCJ49:00000001 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-12-14T23:58:53.7020881+07:00 0HLJ1SJRPCJ48:00000001 [INF] Request finished in 1341.6703ms 200 application/json; charset=utf-8 (791a596a)
+2018-12-14T23:58:53.7251876+07:00 0HLJ1SJRPCJ49:00000001 [INF] Authorization was successful for user: "admin". (d7eb274a)
+2018-12-14T23:58:53.7589796+07:00 0HLJ1SJRPCJ49:00000001 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.ProductCategoryController.GetAll (ShopOnlineApp)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2018-12-14T23:58:53.7718839+07:00 0HLJ1SJRPCJ47:00000006 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2018-12-14T23:58:53.7748587+07:00 0HLJ1SJRPCJ49:00000001 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2018-12-14T23:58:53.8357215+07:00 0HLJ1SJRPCJ49:00000001 [INF] Executed DbCommand ("5"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[DateCreated], [x].[DateModified], [x].[Description], [x].[HomeFlag], [x].[HomeOrder], [x].[Image], [x].[Name], [x].[ParentId], [x].[SeoAlias], [x].[SeoDescription], [x].[SeoKeywords], [x].[SeoPageTitle], [x].[SortOrder], [x].[Status]
+FROM [ProductCategories] AS [x]
+ORDER BY [x].[ParentId]" (0723d8ff)
+2018-12-14T23:58:53.8493917+07:00 0HLJ1SJRPCJ49:00000001 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2018-12-14T23:58:53.8788864+07:00 0HLJ1SJRPCJ49:00000001 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.ProductCategoryController.GetAll (ShopOnlineApp)" in 140.1303ms (afa2e885)
+2018-12-14T23:58:53.9898464+07:00 0HLJ1SJRPCJ47:00000006 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.ProductController.GetAllPaging (ShopOnlineApp)" in 1209.6678ms (afa2e885)
+2018-12-14T23:58:53.9962757+07:00 0HLJ1SJRPCJ49:00000001 [INF] Request finished in 262.6666ms 200 application/json; charset=utf-8 (791a596a)
+2018-12-14T23:58:54.0183372+07:00 0HLJ1SJRPCJ47:00000006 [INF] Request finished in 1734.6101ms 200 application/json; charset=utf-8 (791a596a)
+2018-12-14T23:58:54.0311389+07:00 0HLJ1SJRPCJ48:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/ProductCategory/GetAll   (ca22a1cb)
+2018-12-14T23:58:54.0494120+07:00 0HLJ1SJRPCJ48:00000002 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-12-14T23:58:54.0616395+07:00 0HLJ1SJRPCJ48:00000002 [INF] Authorization was successful for user: "admin". (d7eb274a)
+2018-12-14T23:58:54.0754351+07:00 0HLJ1SJRPCJ48:00000002 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.ProductCategoryController.GetAll (ShopOnlineApp)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2018-12-14T23:58:54.0969394+07:00 0HLJ1SJRPCJ48:00000002 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2018-12-14T23:58:54.1403790+07:00 0HLJ1SJRPCJ48:00000002 [INF] Executed DbCommand ("10"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[DateCreated], [x].[DateModified], [x].[Description], [x].[HomeFlag], [x].[HomeOrder], [x].[Image], [x].[Name], [x].[ParentId], [x].[SeoAlias], [x].[SeoDescription], [x].[SeoKeywords], [x].[SeoPageTitle], [x].[SortOrder], [x].[Status]
+FROM [ProductCategories] AS [x]
+ORDER BY [x].[ParentId]" (0723d8ff)
+2018-12-14T23:58:54.1859211+07:00 0HLJ1SJRPCJ48:00000002 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2018-12-14T23:58:54.2396764+07:00 0HLJ1SJRPCJ48:00000002 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.ProductCategoryController.GetAll (ShopOnlineApp)" in 136.6376ms (afa2e885)
+2018-12-14T23:58:54.3153347+07:00 0HLJ1SJRPCJ48:00000002 [INF] Request finished in 253.9337ms 200 application/json; charset=utf-8 (791a596a)
+2018-12-14T23:58:54.4464110+07:00 0HLJ1SJRPCJ49:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/Product/GetAllPaging?categoryId=&searchText=&pageIndex=1&pageSize=10   (ca22a1cb)
+2018-12-14T23:58:54.4777469+07:00 0HLJ1SJRPCJ49:00000002 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-12-14T23:58:54.4931040+07:00 0HLJ1SJRPCJ49:00000002 [INF] Authorization was successful for user: "admin". (d7eb274a)
+2018-12-14T23:58:54.5055720+07:00 0HLJ1SJRPCJ49:00000002 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.ProductController.GetAllPaging (ShopOnlineApp)" with arguments (["ShopOnlineApp.Application.ViewModels.Product.ProductRequest"]) - ModelState is Invalid (ba7f4ac2)
+2018-12-14T23:58:54.5133843+07:00 0HLJ1SJRPCJ49:00000002 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2018-12-14T23:58:54.5267300+07:00 0HLJ1SJRPCJ49:00000002 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Products] AS [x]
+WHERE [x].[Status] = 1" (0723d8ff)
+2018-12-14T23:58:54.5374417+07:00 0HLJ1SJRPCJ49:00000002 [INF] Executed DbCommand ("0"ms) [Parameters=["@__p_0='?', @__p_1='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[CategoryId], [x].[Content], [x].[DateCreated], [x].[DateModified], [x].[Description], [x].[HomeFlag], [x].[HotFlag], [x].[Image], [x].[Name], [x].[OriginalPrice], [x].[Price], [x].[PromotionPrice], [x].[SeoAlias], [x].[SeoDescription], [x].[SeoKeywords], [x].[SeoPageTitle], [x].[Status], [x].[Tags], [x].[Unit], [x].[ViewCount]
+FROM [Products] AS [x]
+WHERE [x].[Status] = 1
+ORDER BY [x].[DateCreated] DESC
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY" (0723d8ff)
+2018-12-14T23:58:54.5474513+07:00 0HLJ1SJRPCJ49:00000002 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2018-12-14T23:58:54.5800831+07:00 0HLJ1SJRPCJ49:00000002 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.ProductController.GetAllPaging (ShopOnlineApp)" in 69.111ms (afa2e885)
+2018-12-14T23:58:54.6302544+07:00 0HLJ1SJRPCJ49:00000002 [INF] Request finished in 254.6022ms 200 application/json; charset=utf-8 (791a596a)
+2018-12-14T23:59:00.1815087+07:00 0HLJ1SJRPCJ47:00000007 [INF] Request starting HTTP/1.1 POST http://localhost:44344/Admin/Product/UploadImage multipart/form-data; boundary=----WebKitFormBoundaryyPq2UNVHl8tO8Wg0 1540 (ca22a1cb)
+2018-12-14T23:59:00.1952278+07:00 0HLJ1SJRPCJ47:00000007 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-12-14T23:59:00.2053791+07:00 0HLJ1SJRPCJ47:00000007 [INF] Authorization was successful for user: "admin". (d7eb274a)
+2018-12-14T23:59:00.2117203+07:00 0HLJ1SJRPCJ47:00000007 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.ProductController.UploadImage (ShopOnlineApp)" with arguments (null) - ModelState is Valid (ba7f4ac2)

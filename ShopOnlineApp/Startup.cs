@@ -44,6 +44,7 @@ namespace TeduCoreApp
             services.AddIdentity<AppUser, AppRole>()
                 .AddEntityFrameworkStores<AppDbContext>()
                 .AddDefaultTokenProviders();
+            services.Configure<CloudinaryImage>(Configuration.GetSection("CloudinarySettings"));
 
             // Configure Identity
             services.Configure<IdentityOptions>(options =>

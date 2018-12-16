@@ -61,6 +61,32 @@
             $('#modal-add-edit').modal('show');
 
         });
+        $("#btnSelectImg").on('click',
+            () => {
+                $('#fileInputImage').click();
+            });
+        $("#fileInputImage").on('change', function () {
+            var fileUpload = $(this).get(0);
+            var files = fileUpload.files;
+            var data = new FormData();
+            for (var i = 0; i < files.length; i++) {
+                data.append(files[i].name, files[i]);
+            }
+            $.ajax({
+                type: "POST",
+                url: "/Admin/Product/UploadImage",
+                contentType: false,
+                processData: false,
+                data: data,
+                success: function (path) {
+                    $('#imageId').attr('src',path);
+                    shoponline.notify('Upload image succesful!', 'success');
+                },
+                error: function () {
+                    shoponline.notify('There was error uploading files!', 'error');
+                }
+            });
+        });
 
         $('body').on('click', '.btn-edit', function (e) {
             e.preventDefault();
