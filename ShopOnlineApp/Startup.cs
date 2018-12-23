@@ -92,9 +92,10 @@ namespace TeduCoreApp
             //service
             services.AddTransient<IFunctionService, FunctionService>();
             services.AddTransient<IProductService, ProductService>();
-
+            services.AddTransient<IUserService, UserService>();
             services.AddTransient<IProductCategoryService, ProductCategoryService>();
             services.AddScoped<IUserClaimsPrincipalFactory<AppUser>, ShopOnlineClaimsPrincipalFactory>();
+            services.AddTransient<IRoleService, RoleService>();
 
             services.AddMvc();
         }

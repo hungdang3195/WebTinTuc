@@ -298,7 +298,6 @@
         $('#ckStatusM').prop('checked', true);
         $('#ckHotM').prop('checked', false);
         $('#ckShowHomeM').prop('checked', false);
-
     }
 
 
@@ -338,6 +337,7 @@
             },
             dataType: 'json',
             success: (response) => {
+
                     $.each(response.data.items,
                         function (i, item) {
                             render += Mustache.render(template,

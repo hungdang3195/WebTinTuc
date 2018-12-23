@@ -12,10 +12,8 @@ namespace ShopOnlineApp.Data.EF.Common
         public string Direction { get; set; } = "asc";
         public int PageIndex { get; set; }
         public int PageSize { get; set; }
-        public bool IsPaging
-        {
-            get { return PageSize > 0; }
-        }
+        public bool IsPaging => PageSize > 0;
+
         public IList<KeyValuePair<string, bool>> Order
         {
             get

@@ -3,6 +3,8 @@ using System.Runtime.CompilerServices;
 using AutoMapper;
 using ShopOnlineApp.Application.ViewModels.Function;
 using ShopOnlineApp.Application.ViewModels.Product;
+using ShopOnlineApp.Application.ViewModels.Role;
+using ShopOnlineApp.Application.ViewModels.User;
 using ShopOnlineApp.Data.Entities;
 
 namespace ShopOnlineApp.Application.AutoMapper
@@ -32,6 +34,16 @@ namespace ShopOnlineApp.Application.AutoMapper
                 cfg.CreateMap<ProductCategoryViewModel, ProductCategory>(); ;
 
                 #endregion
+
+                #region user
+                cfg.CreateMap<AppUser, AppUserViewModel>();
+                cfg.CreateMap<AppUserViewModel, AppUser>();
+
+                #endregion
+                #region approle
+                cfg.CreateMap<AppRole, AppRoleViewModel>();
+                cfg.CreateMap<AppRoleViewModel, AppRole>();
+                #endregion approle
             }
             catch (Exception e)
             {

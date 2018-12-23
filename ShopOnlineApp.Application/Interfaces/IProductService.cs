@@ -12,7 +12,7 @@ namespace ShopOnlineApp.Application.Interfaces
         Task<List<ProductViewModel>> GetAll();
         Task<BaseReponse<ModelListResult<ProductViewModel>>> GetAllPaging(ProductRequest request);
         Task<ProductViewModel> Add(ProductViewModel product);
-       ProductViewModel  GetById(int id);
+         ProductViewModel  GetById(int id);
         void Update(ProductViewModel product);
         void Save();
         void Delete(int id);
