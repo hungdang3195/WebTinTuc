@@ -10,5 +10,6 @@ namespace ShopOnlineApp.Application.Interfaces
     {
         Task< List<FunctionViewModel>> GetAll();
         Task<List<FunctionViewModel>>  GetAllByPermission(Guid userId);
+
     }
 }

@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using ShopOnlineApp.Application.Common;
 using ShopOnlineApp.Application.ViewModels.Function;
+using ShopOnlineApp.Data.Entities;
 
 namespace ShopOnlineApp.Application.ViewModels.Role
 {
-    public class PermissionViewModel
+    public class PermissionViewModel:ViewModelBase<PermissionViewModel,Permission>
     {
         public int Id { get; set; }
 

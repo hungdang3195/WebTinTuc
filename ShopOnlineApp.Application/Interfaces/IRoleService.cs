@@ -9,8 +9,6 @@ namespace ShopOnlineApp.Application.Interfaces
 {
     public interface IRoleService
     {
-
-
         Task<bool> AddAsync(AppRoleViewModel userVm);
 
         Task DeleteAsync(Guid id);

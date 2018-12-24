@@ -13,6 +13,7 @@ namespace ShopOnlineApp.Areas.Admin.Controllers
     {
         private readonly IRoleService _roleService;
 
+
         public RoleController(IRoleService roleService)
         {
             _roleService = roleService;
@@ -37,9 +38,9 @@ namespace ShopOnlineApp.Areas.Admin.Controllers
         }
 
         [HttpGet]
-        public IActionResult GetAllPaging(AppRoleRequest request)
+        public async Task<IActionResult> GetAllPaging(AppRoleRequest request)
         {
-            var model = _roleService.GetAllPagingAsync(request);
+            var model = await _roleService.GetAllPagingAsync(request);
             return new OkObjectResult(model);
         }
 
@@ -88,4 +89,5 @@ namespace ShopOnlineApp.Areas.Admin.Controllers
             return new OkResult();
         }
     }
+
 }

@@ -87,7 +87,9 @@ namespace TeduCoreApp
             services.AddTransient<IFunctionRepository, FunctionRepository>();
             services.AddTransient<IProductRepository, ProductRepository>();
             services.AddTransient<ITagRepository, TagRepository>();
+            
             services.AddTransient<IProductTagRepository, ProductTagRepository>();
+            services.AddTransient<IPermissionRepository,PermissionRepository>();
 
             //service
             services.AddTransient<IFunctionService, FunctionService>();
@@ -96,6 +98,8 @@ namespace TeduCoreApp
             services.AddTransient<IProductCategoryService, ProductCategoryService>();
             services.AddScoped<IUserClaimsPrincipalFactory<AppUser>, ShopOnlineClaimsPrincipalFactory>();
             services.AddTransient<IRoleService, RoleService>();
+
+
 
             services.AddMvc();
         }

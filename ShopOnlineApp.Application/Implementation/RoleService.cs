@@ -78,7 +78,7 @@ namespace ShopOnlineApp.Application.Implementation
 
             int totalRow = await query.CountAsync();
 
-            query = query.Skip((request.PageIndex - 1) * request.PageSize)
+            query = query.Skip((request.PageIndex) * request.PageSize)
                .Take(request.PageSize);
 
 
@@ -104,7 +104,7 @@ namespace ShopOnlineApp.Application.Implementation
         public async Task<AppRoleViewModel> GetById(Guid id)
         {
             var role = await _roleManager.FindByIdAsync(id.ToString());
-            return Mapper.Map<AppRole, AppRoleViewModel>(role);
+            return new AppRoleViewModel().Map(role);
         }
 
         public List<PermissionViewModel> GetListFunctionWithRole(Guid roleId)
