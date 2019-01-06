@@ -1,12 +1,13 @@
 ﻿var productController = function () {
     var quantityManagement = new QuantityManagement();
-
+    var imageManagement = new ImageManagement();
 
     this.initialize = function () {
         loadDataCategory();
         loadData();
         registerEvent();
         registerControl();
+        imageManagement.initialize();
         quantityManagement.initialize();
     }
 

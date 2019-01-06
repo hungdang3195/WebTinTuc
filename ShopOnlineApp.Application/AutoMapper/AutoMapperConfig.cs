@@ -101,6 +101,13 @@ namespace ShopOnlineApp.Application.AutoMapper
 
                 #endregion
 
+
+                #region ProductImage
+
+                cfg.CreateMap<ProductImage, ProductImageViewModel>();
+                cfg.CreateMap<ProductImageViewModel, ProductImage>();
+
+                #endregion
             }
             catch (Exception e)
             {

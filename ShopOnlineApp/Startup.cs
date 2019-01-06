@@ -91,7 +91,7 @@ namespace ShopOnlineApp
             services.AddTransient<IBillDetailRepository, BillDetailRepository>();
             services.AddTransient<IColorRepository, ColorRepository>();
             services.AddTransient<ISizeRepository, SizeRepository>();
-
+            services.AddTransient<IProductImageRepository, ProductImageRepository>();
 
             //service
             services.AddTransient<IFunctionService, FunctionService>();

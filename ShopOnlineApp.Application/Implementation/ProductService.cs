@@ -25,13 +25,15 @@ namespace ShopOnlineApp.Application.Implementation
         private readonly ITagRepository _tagRepository;
         private readonly IUnitOfWork _unitOfWork;
         private readonly IProductQuantityRepository _productQuantityRepository;
-        public ProductService(IProductRepository productionRepository, IProductTagRepository productTagRepository, ITagRepository tagRepository, IUnitOfWork unitOfWork, IProductQuantityRepository productQuantityRepository)
+        private readonly IProductImageRepository _productImageRepository;
+        public ProductService(IProductRepository productionRepository, IProductTagRepository productTagRepository, ITagRepository tagRepository, IUnitOfWork unitOfWork, IProductQuantityRepository productQuantityRepository, IProductImageRepository productImageRepository)
         {
             _productRepository = productionRepository;
             _productTagRepository = productTagRepository;
             _tagRepository = tagRepository;
             _unitOfWork = unitOfWork;
             _productQuantityRepository = productQuantityRepository;
+            _productImageRepository = productImageRepository;
         }
         public async Task<List<ProductViewModel>> GetAll()
         {
@@ -240,6 +242,26 @@ namespace ShopOnlineApp.Application.Implementation
         public List<ProductQuantityViewModel> GetQuantities(int productId)
         {
             return new ProductQuantityViewModel().Map(_productQuantityRepository.FindAll(x => x.ProductId == productId)).ToList();
+        }
+
+        public List<ProductImageViewModel> GetImages(int productId)
+        {
+            return new ProductImageViewModel().Map(_productImageRepository.FindAll(x => x.ProductId == productId)).ToList();
+        }
+
+        public void AddImages(int productId, string[] images)
+        {
+            _productImageRepository.RemoveMultiple(_productImageRepository.FindAll(x => x.ProductId == productId).ToList());
+            foreach (var image in images)
+            {
+                _productImageRepository.Add(new ProductImage()
+                {
+                    Path = image,
+                    ProductId = productId,
+                    Caption = string.Empty
+                });
+            }
+
         }
     }
 }
