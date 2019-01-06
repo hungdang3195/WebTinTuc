@@ -7,7 +7,7 @@ using ShopOnlineApp.Data.Enums;
 
 namespace ShopOnlineApp.Application.ViewModels.Bill
 {
-    public class BillViewModel:ViewModelBase<BillViewModel,Data.Entities.Bill>
+    public class BillViewModel:ViewModelBase<Data.Entities.Bill, BillViewModel>
     {
       
             public int Id { get; set; }
@@ -32,15 +32,15 @@ namespace ShopOnlineApp.Application.ViewModels.Bill
 
             public BillStatus BillStatus { set; get; }
 
-            public DateTime DateCreated { set; get; }
+            public DateTime? DateCreated { set; get; }
 
-            public DateTime DateModified { set; get; }
+            public DateTime? DateModified { set; get; }
 
             public Status Status { set; get; }
 
             public Guid? CustomerId { set; get; }
 
-            public List<BillDetailViewModel> BillDetails { set; get; }
-        
+         public List<BillDetailViewModel> BillDetails { set; get; }
+
     }
 }

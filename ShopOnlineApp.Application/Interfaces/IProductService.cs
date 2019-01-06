@@ -17,5 +17,9 @@ namespace ShopOnlineApp.Application.Interfaces
         void Save();
         void Delete(int id);
         void ImportExcel(string filePath, int categoryId);
+        void AddQuantity(int productId, List<ProductQuantityViewModel> quantities);
+
+        List<ProductQuantityViewModel> GetQuantities(int productId);
+
     }
 }

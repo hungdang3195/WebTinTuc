@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
+using ShopOnlineApp.Application.Common;
 
 namespace ShopOnlineApp.Application.ViewModels.Color
 {
-    public class ColorViewModel
+    public class ColorViewModel:ViewModelBase<ColorViewModel,Data.Entities.Color>
     {
         public int Id { get; set; }
 

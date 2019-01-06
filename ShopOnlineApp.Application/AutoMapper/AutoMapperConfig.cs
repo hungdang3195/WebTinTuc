@@ -4,6 +4,7 @@ using AutoMapper;
 using ShopOnlineApp.Application.ViewModels.Bill;
 using ShopOnlineApp.Application.ViewModels.Business;
 using ShopOnlineApp.Application.ViewModels.BusinessAction;
+using ShopOnlineApp.Application.ViewModels.Color;
 using ShopOnlineApp.Application.ViewModels.Function;
 using ShopOnlineApp.Application.ViewModels.Product;
 using ShopOnlineApp.Application.ViewModels.Role;
@@ -66,13 +67,21 @@ namespace ShopOnlineApp.Application.AutoMapper
 
                 #region BusinessAction
 
-
-
                 #endregion
 
+
+                cfg.CreateMap<BillViewModel, Bill>();
+
+                cfg.CreateMap<BillDetailViewModel, BillDetail>();
                 #region Bill
-                cfg.CreateMap<Bill, BillViewModel>().MaxDepth(2);
-                cfg.CreateMap<BillViewModel, Bill>().MaxDepth(2);
+
+                cfg.CreateMap<Bill, BillViewModel>().MaxDepth(1);
+            
+                #endregion
+
+                #region BillDetail
+                cfg.CreateMap<BillDetail, BillDetailViewModel>().MaxDepth(1);
+               
                 #endregion
 
                 #region Size
@@ -81,10 +90,16 @@ namespace ShopOnlineApp.Application.AutoMapper
                 #endregion
 
                 #region Size
-                cfg.CreateMap<Size, SizeViewModel>();
-                cfg.CreateMap<SizeViewModel, Size>();
+                cfg.CreateMap<Color, ColorViewModel>();
+                cfg.CreateMap<ColorViewModel, Color>();
                 #endregion
 
+                #region ProductQuantity
+
+                cfg.CreateMap<ProductQuantity, ProductQuantityViewModel>().MaxDepth(2);
+                cfg.CreateMap<ProductQuantityViewModel, ProductQuantity>();
+
+                #endregion
 
             }
             catch (Exception e)

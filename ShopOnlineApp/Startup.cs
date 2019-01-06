@@ -70,6 +70,7 @@ namespace ShopOnlineApp
             services.AddTransient<IEmailSender, EmailSender>();
 
             services.AddTransient<DbInitializer>();
+            services.AddMvc().AddJsonOptions(options => { options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore; });
             //add config system
             services.AddTransient(typeof(IUnitOfWork),typeof(EFUnitOfWork));
             services.AddTransient(typeof(IRepository<,>), typeof(EFRepository<,>));
@@ -80,12 +81,17 @@ namespace ShopOnlineApp
             services.AddTransient<IFunctionRepository, FunctionRepository>();
             services.AddTransient<IProductRepository, ProductRepository>();
             services.AddTransient<ITagRepository, TagRepository>();
+            services.AddTransient<IProductQuantityRepository, ProductQuantityRepository>();
             
             services.AddTransient<IProductTagRepository, ProductTagRepository>();
             services.AddTransient<IPermissionRepository,PermissionRepository>();
             services.AddTransient<IBusinessRepository, BusinessRepository>();
             services.AddTransient<IBusinessActionRepository, BusinessActionRepository>();
             services.AddTransient<IBillRepository, BillRepository>();
+            services.AddTransient<IBillDetailRepository, BillDetailRepository>();
+            services.AddTransient<IColorRepository, ColorRepository>();
+            services.AddTransient<ISizeRepository, SizeRepository>();
+
 
             //service
             services.AddTransient<IFunctionService, FunctionService>();

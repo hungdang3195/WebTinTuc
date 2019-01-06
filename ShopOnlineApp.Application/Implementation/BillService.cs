@@ -47,15 +47,31 @@ namespace ShopOnlineApp.Application.Implementation
 
         public void Create(BillViewModel billVm)
         {
-            var order = Mapper.Map<BillViewModel, Bill>(billVm);
-            var orderDetails = Mapper.Map<List<BillDetailViewModel>, List<BillDetail>>(billVm.BillDetails);
-            foreach (var detail in orderDetails)
+            try
             {
-                var product = _productRepository.FindById(detail.ProductId);
-                detail.Price = product.Price;
+                //var order = Mapper.Map<BillViewModel, Bill>(billVm);
+
+                var order= new BillViewModel().Map(billVm);
+
+                // var orderDetails = Mapper.Map<List<BillDetailViewModel>, List<BillDetail>>(billVm.BillDetails);
+
+                var orderDetails = new BillDetailViewModel().Map(billVm.BillDetails).ToList();
+
+                foreach (var detail in orderDetails)
+                {
+                    var product = _productRepository.FindById(detail.ProductId);
+                    detail.Price = product.Price;
+                }
+                order.BillDetails = orderDetails;
+                _orderRepository.Add(order);
+
             }
-            order.BillDetails = orderDetails;
-            _orderRepository.Add(order);
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+           
         }
 
         public void Update(BillViewModel billVm)
@@ -150,27 +166,26 @@ namespace ShopOnlineApp.Application.Implementation
         public BillViewModel GetDetail(int billId)
         {
             var bill = _orderRepository.FindSingle(x => x.Id == billId);
-            var billVm = Mapper.Map<Bill, BillViewModel>(bill);
-            var billDetailVm = _orderDetailRepository.FindAll(x => x.BillId == billId).ProjectTo<BillDetailViewModel>().ToList();
+            var billVm =new BillViewModel().Map(bill);
+            var billDetailVm = new BillDetailViewModel().Map(_orderDetailRepository.FindAll(x => x.BillId == billId)).ToList();
             billVm.BillDetails = billDetailVm;
             return billVm;
         }
 
         public List<BillDetailViewModel> GetBillDetails(int billId)
         {
-            return _orderDetailRepository
-                .FindAll(x => x.BillId == billId, c => c.Bill, c => c.Color, c => c.Size, c => c.Product)
-                .ProjectTo<BillDetailViewModel>().ToList();
+            return new BillDetailViewModel().Map(_orderDetailRepository
+                    .FindAll(x => x.BillId == billId, c => c.Bill, c => c.Color, c => c.Size, c => c.Product)).ToList();
         }
 
         public List<ColorViewModel> GetColors()
         {
-            return _colorRepository.FindAll().ProjectTo<ColorViewModel>().ToList();
+            return new ColorViewModel().Map(_colorRepository.FindAll()).ToList();
         }
 
         public BillDetailViewModel CreateDetail(BillDetailViewModel billDetailVm)
         {
-            var billDetail = Mapper.Map<BillDetailViewModel, BillDetail>(billDetailVm);
+            var billDetail = new BillDetailViewModel().Map(billDetailVm);
             _orderDetailRepository.Add(billDetail);
             return billDetailVm;
         }
@@ -211,7 +226,7 @@ namespace ShopOnlineApp.Application.Implementation
             }
             var totalRow = query.Count();
             var items = await query.OrderByDescending(x => x.DateCreated)
-                .Skip((request.PageIndex - 1) * request.PageSize)
+                .Skip((request.PageIndex ) * request.PageSize)
                 .Take(request.PageSize).ToListAsync();
 
               

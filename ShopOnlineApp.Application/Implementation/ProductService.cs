@@ -24,12 +24,14 @@ namespace ShopOnlineApp.Application.Implementation
         private readonly IProductTagRepository _productTagRepository;
         private readonly ITagRepository _tagRepository;
         private readonly IUnitOfWork _unitOfWork;
-        public ProductService(IProductRepository productionRepository, IProductTagRepository productTagRepository, ITagRepository tagRepository, IUnitOfWork unitOfWork)
+        private readonly IProductQuantityRepository _productQuantityRepository;
+        public ProductService(IProductRepository productionRepository, IProductTagRepository productTagRepository, ITagRepository tagRepository, IUnitOfWork unitOfWork, IProductQuantityRepository productQuantityRepository)
         {
             _productRepository = productionRepository;
             _productTagRepository = productTagRepository;
             _tagRepository = tagRepository;
             _unitOfWork = unitOfWork;
+            _productQuantityRepository = productQuantityRepository;
         }
         public async Task<List<ProductViewModel>> GetAll()
         {
@@ -220,5 +222,24 @@ namespace ShopOnlineApp.Application.Implementation
             }
         }
 
+        public void AddQuantity(int productId, List<ProductQuantityViewModel> quantities)
+        {
+            _productQuantityRepository.RemoveMultiple(_productQuantityRepository.FindAll(x => x.ProductId == productId).ToList());
+            foreach (var quantity in quantities)
+            {
+                _productQuantityRepository.Add(new ProductQuantity()
+                {
+                    ProductId = productId,
+                    ColorId = quantity.ColorId,
+                    SizeId = quantity.SizeId,
+                    Quantity = quantity.Quantity
+                });
+            }
+        }
+
+        public List<ProductQuantityViewModel> GetQuantities(int productId)
+        {
+            return new ProductQuantityViewModel().Map(_productQuantityRepository.FindAll(x => x.ProductId == productId)).ToList();
+        }
     }
 }
