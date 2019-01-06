@@ -98,15 +98,17 @@ namespace ShopOnlineApp.Application.AutoMapper
 
                 cfg.CreateMap<ProductQuantity, ProductQuantityViewModel>().MaxDepth(2);
                 cfg.CreateMap<ProductQuantityViewModel, ProductQuantity>();
-
                 #endregion
-
-
                 #region ProductImage
 
                 cfg.CreateMap<ProductImage, ProductImageViewModel>();
                 cfg.CreateMap<ProductImageViewModel, ProductImage>();
+                #endregion
 
+                #region WholePrice
+
+                cfg.CreateMap<WholePrice, WholePriceViewModel>();
+                cfg.CreateMap<WholePriceViewModel, WholePrice>();
                 #endregion
             }
             catch (Exception e)
