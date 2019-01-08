@@ -1,25 +1,19 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
-using ShopOnlineApp.Controllers;
 using ShopOnlineApp.Data.Entities;
 using ShopOnlineApp.Extensions;
 using ShopOnlineApp.Models.AccountViewModels;
 using ShopOnlineApp.Services;
 
-namespace TeduCoreApp.Controllers
+namespace ShopOnlineApp.Controllers
 {
     [Authorize]
-    [Route("[controller]/[action]")]
     public class AccountController : Controller
     {
         private readonly UserManager<AppUser> _userManager;
@@ -44,6 +38,7 @@ namespace TeduCoreApp.Controllers
 
         [HttpGet]
         [AllowAnonymous]
+        [Route("dang-nhap.html",Name = "Login")]
         public async Task<IActionResult> Login(string returnUrl = null)
         {
             // Clear the existing external cookie to ensure a clean login process
@@ -56,6 +51,7 @@ namespace TeduCoreApp.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
+        [Route("dang-nhap.html", Name = "Login")]
         public async Task<IActionResult> Login(LoginViewModel model, string returnUrl = null)
         {
             ViewData["ReturnUrl"] = returnUrl;

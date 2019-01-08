@@ -1,6 +1,6 @@
 using System;
 using Microsoft.AspNetCore.Mvc;
-using TeduCoreApp.Controllers;
+using ShopOnlineApp.Controllers;
 
 namespace ShopOnlineApp.Extensions
 {
