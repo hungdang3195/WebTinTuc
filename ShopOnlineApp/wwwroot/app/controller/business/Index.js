@@ -1,4 +1,5 @@
 ﻿var businessController = function () {
+    //var business = new businessActionController();
     this.initialize = function () {
         loadData();
         registerEvents();
@@ -41,7 +42,6 @@
             }
         });
 
-
         function wrapPaging(recordCount, callBack, changePageSize) {
             var totalsize = Math.ceil(recordCount / shoponline.configs.pageSize);
             //Unbind pagination if it existed or click change pagesize
@@ -70,9 +70,7 @@
     function registerEvents() {
 
         $('#txt-search-keyword').keypress(function (e) {
-            debugger;
-            if (e.which === 13) {
-                debugger;
+         if (e.which === 13) {
                 e.preventDefault();
                 loadData();
             }
