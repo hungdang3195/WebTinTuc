@@ -29,25 +29,23 @@ namespace ShopOnlineApp.Areas.Admin.Controllers
         {
             var businesss = await _businessService.GetAll();
 
-            var businessName = businesss.Select(x => x.Id).ToList();
-
-            List<string> data = new List<string>()
+            var businnesDiff = businesss.Select(x => x.Id).ToList().Except(new List<string>
             {
                 "HomeController",
                 "BaseController",
                 "LoginController",
-                "LogoutController"
-            };
+                "LogoutController",
+                "UploadController"
+            });
 
-            var businnesDiff = businessName.Except(data);
-            List<BusinessViewModel> businessVM = new List<BusinessViewModel>();
+            List<BusinessViewModel> businessVm = new List<BusinessViewModel>();
 
             foreach (var item in businnesDiff)
             {
-                businessVM.Add(businesss.SingleOrDefault(x=>x.Id==item));
+                businessVm.Add(businesss.SingleOrDefault(x=>x.Id==item));
             }
 
-            return View(businessVM);
+            return View(businessVm);
         }
 
         [HttpGet]
