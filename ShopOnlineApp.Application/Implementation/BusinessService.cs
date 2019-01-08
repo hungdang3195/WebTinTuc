@@ -95,7 +95,6 @@ namespace ShopOnlineApp.Application.Implementation
             currentBusiness.Name = businessVm.Name;
             _repository.Update(currentBusiness);
             _unitOfWork.Commit();
-
         }
 
         public void Delete(string id)

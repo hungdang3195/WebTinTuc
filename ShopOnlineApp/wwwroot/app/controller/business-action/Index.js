@@ -18,7 +18,6 @@
             },
             dataType: 'json',
             success: (response) => {
-
                 $.each(response.data.items,
                     function (i, item) {
                         render += Mustache.render(template,
@@ -40,7 +39,6 @@
                 shoponline.notify('Không thể load dữ liệu', 'lỗi');
             }
         });
-
 
         function wrapPaging(recordCount, callBack, changePageSize) {
             var totalsize = Math.ceil(recordCount / shoponline.configs.pageSize);
@@ -64,32 +62,31 @@
                 }
             });
         }
-
     };
 
     function registerEvents() {
 
         $('#txt-search-keyword').keypress(function (e) {
-            debugger;
             if (e.which === 13) {
-                debugger;
+
                 e.preventDefault();
                 loadData();
             }
         });
 
-        $('body').on('click', '.btn-edit', function (e) {
+        $('.btn-edit').on('click', function (e) {
             e.preventDefault();
             var that = $(this).data('id');
             $.ajax({
                 type: "GET",
-                url: "/Admin/Business/GetById",
+                url: "/Admin/BusinessAction/GetById",
                 data: { id: that },
                 dataType: "json",
                 beforeSend: function () {
                     shoponline.startLoading();
                 },
                 success: function (response) {
+                    debugger;
                     var data = response;
                     $('#hidId').val(data.id);
                     $('#txtId').val(data.id);
