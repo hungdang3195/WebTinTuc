@@ -1,0 +1,1209 @@
+2019-01-12T00:03:10.1665321+07:00 0HLJNSKPCMMQJ:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/BusinessAction/GetById?id=7   (ca22a1cb)
+2019-01-12T00:03:10.1854640+07:00 0HLJNSKPCMMQJ:00000001 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2019-01-12T00:03:10.2039352+07:00 0HLJNSKPCMMQJ:00000001 [INF] Authorization was successful for user: "danghung". (d7eb274a)
+2019-01-12T00:03:10.2127366+07:00 0HLJNSKPCMMQJ:00000001 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.BusinessActionController.GetById (ShopOnlineApp)" with arguments (["7"]) - ModelState is Valid (ba7f4ac2)
+2019-01-12T00:03:10.2217235+07:00 0HLJNSKPCMMQJ:00000001 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2019-01-12T00:03:10.2317132+07:00 0HLJNSKPCMMQJ:00000001 [INF] Executed DbCommand ("0"ms) [Parameters=["@__id_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(2) [x].[Id], [x].[BusinessId], [x].[Description], [x].[Name]
+FROM [BusinessAction] AS [x]
+WHERE [x].[Id] = @__id_0" (0723d8ff)
+2019-01-12T00:03:10.2412244+07:00 0HLJNSKPCMMQJ:00000001 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2019-01-12T00:03:10.2582945+07:00 0HLJNSKPCMMQJ:00000001 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.BusinessActionController.GetById (ShopOnlineApp)" in 55.7348ms (afa2e885)
+2019-01-12T00:03:10.2806924+07:00 0HLJNSKPCMMQJ:00000001 [INF] Request finished in 101.0033ms 200 application/json; charset=utf-8 (791a596a)
+2019-01-12T00:03:25.1331257+07:00 0HLJNSKPCMMQJ:00000002 [INF] Request starting HTTP/1.1 POST http://localhost:44344/Admin/BusinessAction/SaveEntity application/x-www-form-urlencoded; charset=UTF-8 75 (ca22a1cb)
+2019-01-12T00:03:25.1446931+07:00 0HLJNSKPCMMQJ:00000002 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2019-01-12T00:03:25.1527707+07:00 0HLJNSKPCMMQJ:00000002 [INF] Authorization was successful for user: "danghung". (d7eb274a)
+2019-01-12T00:03:25.1615162+07:00 0HLJNSKPCMMQJ:00000002 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.BusinessActionController.SaveEntity (ShopOnlineApp)" with arguments (["ShopOnlineApp.Application.ViewModels.BusinessAction.BusinessActionViewModel"]) - ModelState is Valid (ba7f4ac2)
+2019-01-12T00:03:25.1715393+07:00 0HLJNSKPCMMQJ:00000002 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2019-01-12T00:03:25.1817139+07:00 0HLJNSKPCMMQJ:00000002 [INF] Executed DbCommand ("0"ms) [Parameters=["@__id_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(2) [x].[Id], [x].[BusinessId], [x].[Description], [x].[Name]
+FROM [BusinessAction] AS [x]
+WHERE [x].[Id] = @__id_0" (0723d8ff)
+2019-01-12T00:03:25.1917254+07:00 0HLJNSKPCMMQJ:00000002 [INF] Executed DbCommand ("0"ms) [Parameters=["@p3='?', @p0='?' (Size = 450), @p1='?' (Size = 4000), @p2='?' (Size = 4000)"], CommandType='Text', CommandTimeout='30']"
+""SET NOCOUNT ON;
+UPDATE [BusinessAction] SET [BusinessId] = @p0, [Description] = @p1, [Name] = @p2
+WHERE [Id] = @p3;
+SELECT @@ROWCOUNT;" (0723d8ff)
+2019-01-12T00:03:25.2005543+07:00 0HLJNSKPCMMQJ:00000002 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2019-01-12T00:03:25.2176016+07:00 0HLJNSKPCMMQJ:00000002 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.BusinessActionController.SaveEntity (ShopOnlineApp)" in 55.8253ms (afa2e885)
+2019-01-12T00:03:25.2322240+07:00 0HLJNSKPCMMQJ:00000002 [INF] Request finished in 99.6268ms 200 application/json; charset=utf-8 (791a596a)
+2019-01-12T00:03:25.2677994+07:00 0HLJNSKPCMMQJ:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/BusinessAction/Index/?businessId=ProductController   (ca22a1cb)
+2019-01-12T00:03:25.2808038+07:00 0HLJNSKPCMMQJ:00000003 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2019-01-12T00:03:25.2933627+07:00 0HLJNSKPCMMQJ:00000003 [INF] Authorization was successful for user: "danghung". (d7eb274a)
+2019-01-12T00:03:25.3009195+07:00 0HLJNSKPCMMQJ:00000003 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.BusinessActionController.Index (ShopOnlineApp)" with arguments (["ProductController"]) - ModelState is Valid (ba7f4ac2)
+2019-01-12T00:03:25.3160543+07:00 0HLJNSKPCMMQJ:00000003 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2019-01-12T00:03:25.3465571+07:00 0HLJNSKPCMMQJ:00000003 [INF] Executed DbCommand ("8"ms) [Parameters=["@__businessId_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [x0].[Id], [x0].[BusinessId], [x0].[Description], [x0].[Name]
+FROM [BusinessAction] AS [x0]
+WHERE [x0].[BusinessId] = @__businessId_0
+ORDER BY [x0].[Name]" (0723d8ff)
+2019-01-12T00:03:25.3587450+07:00 0HLJNSKPCMMQJ:00000003 [INF] Executing ViewResult, running view at path "/Areas/Admin/Views/BusinessAction/Index.cshtml". (9707eebe)
+2019-01-12T00:03:25.3765674+07:00 0HLJNSKPCMMQJ:00000003 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.BusinessActionController.Index (ShopOnlineApp)" in 79.4598ms (afa2e885)
+2019-01-12T00:03:25.4396905+07:00 0HLJNSKPCMMQJ:00000003 [INF] Request finished in 118.1857ms 200 text/html; charset=utf-8 (791a596a)
+2019-01-12T00:03:47.0725847+07:00 0HLJNSKPCMMQJ:00000004 [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/PermissionGrant/Index   (ca22a1cb)
+2019-01-12T00:03:47.0800897+07:00 0HLJNSKPCMMQJ:00000004 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2019-01-12T00:03:47.0902798+07:00 0HLJNSKPCMMQJ:00000004 [INF] Authorization was successful for user: "danghung". (d7eb274a)
+2019-01-12T00:03:47.0978329+07:00 0HLJNSKPCMMQJ:00000004 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.PermissionGrantController.Index (ShopOnlineApp)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2019-01-12T00:03:50.7558579+07:00 0HLJNSKPCMMQJ:00000004 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2019-01-12T00:03:50.7935867+07:00 0HLJNSKPCMMQJ:00000004 [INF] Executed DbCommand ("20"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [b].[Id], [b].[Name]
+FROM [Business] AS [b]" (0723d8ff)
+2019-01-12T00:03:54.8855480+07:00 0HLJNSKPCMMQJ:00000004 [INF] Executing ViewResult, running view at path "/Areas/Admin/Views/PermissionGrant/Index.cshtml". (9707eebe)
+2019-01-12T00:03:54.9496365+07:00 0HLJNSKPCMMQJ:00000004 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.PermissionGrantController.Index (ShopOnlineApp)" in 7813.0753ms (afa2e885)
+2019-01-12T00:03:55.0259854+07:00 0HLJNSKPCMMQJ:00000004 [INF] Request finished in 7891.684ms 200 text/html; charset=utf-8 (791a596a)
+2019-01-12T00:03:57.3149094+07:00 0HLJNSKPCMMQJ:00000005 [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/PermissionGrant/GetPermissions?businessId=ProductController&userId=d60bffec-0c20-429a-9acc-08d677d5fc7a   (ca22a1cb)
+2019-01-12T00:03:57.3245499+07:00 0HLJNSKPCMMQJ:00000005 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2019-01-12T00:03:57.3346183+07:00 0HLJNSKPCMMQJ:00000005 [INF] Authorization was successful for user: "danghung". (d7eb274a)
+2019-01-12T00:03:57.3462920+07:00 0HLJNSKPCMMQJ:00000005 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.PermissionGrantController.GetPermissions (ShopOnlineApp)" with arguments (["ProductController", "d60bffec-0c20-429a-9acc-08d677d5fc7a"]) - ModelState is Valid (ba7f4ac2)
+2019-01-12T00:03:57.3600637+07:00 0HLJNSKPCMMQJ:00000005 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2019-01-12T00:03:57.4080684+07:00 0HLJNSKPCMMQJ:00000005 [INF] Executed DbCommand ("1"ms) [Parameters=["@__userId_0='?', @__businessId_1='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [p].[Description], [p].[Id] AS [PermissionID], [p].[Name] AS [PermissionName]
+FROM [GrantPermission] AS [g]
+INNER JOIN [BusinessAction] AS [p] ON [g].[BusinessActionId] = [p].[Id]
+WHERE ([g].[UserId] = @__userId_0) AND ([p].[BusinessId] = @__businessId_1)" (0723d8ff)
+2019-01-12T00:03:57.4220545+07:00 0HLJNSKPCMMQJ:00000005 [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [x0].[Id], [x0].[BusinessId], [x0].[Description], [x0].[Name]
+FROM [BusinessAction] AS [x0]
+ORDER BY [x0].[Name]" (0723d8ff)
+2019-01-12T00:03:57.4373616+07:00 0HLJNSKPCMMQJ:00000005 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2019-01-12T00:03:57.4515753+07:00 0HLJNSKPCMMQJ:00000005 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.PermissionGrantController.GetPermissions (ShopOnlineApp)" in 112.7996ms (afa2e885)
+2019-01-12T00:03:57.4914254+07:00 0HLJNSKPCMMQJ:00000005 [INF] Request finished in 154.2136ms 200 application/json; charset=utf-8 (791a596a)
+2019-01-12T00:04:01.6760498+07:00 0HLJNSKPCMMQJ:00000006 [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/PermissionGrant/UpdatePermission?id=19&userId=d60bffec-0c20-429a-9acc-08d677d5fc7a   (ca22a1cb)
+2019-01-12T00:04:01.6863242+07:00 0HLJNSKPCMMQJ:00000006 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2019-01-12T00:04:01.6963170+07:00 0HLJNSKPCMMQJ:00000006 [INF] Authorization was successful for user: "danghung". (d7eb274a)
+2019-01-12T00:04:01.7060148+07:00 0HLJNSKPCMMQJ:00000006 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.PermissionGrantController.UpdatePermission (ShopOnlineApp)" with arguments (["19", "d60bffec-0c20-429a-9acc-08d677d5fc7a"]) - ModelState is Valid (ba7f4ac2)
+2019-01-12T00:04:01.7166187+07:00 0HLJNSKPCMMQJ:00000006 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2019-01-12T00:04:01.7394543+07:00 0HLJNSKPCMMQJ:00000006 [INF] Executed DbCommand ("1"ms) [Parameters=["@__id_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(2) [x].[Id], [x].[BusinessActionId], [x].[UserId]
+FROM [GrantPermission] AS [x]
+WHERE [x].[BusinessActionId] = @__id_0" (0723d8ff)
+2019-01-12T00:04:01.8021718+07:00 0HLJNSKPCMMQJ:00000006 [INF] Executed DbCommand ("1"ms) [Parameters=["@p0='?', @p1='?'"], CommandType='Text', CommandTimeout='30']"
+""SET NOCOUNT ON;
+INSERT INTO [GrantPermission] ([BusinessActionId], [UserId])
+VALUES (@p0, @p1);
+SELECT [Id]
+FROM [GrantPermission]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();" (0723d8ff)
+2019-01-12T00:04:01.8246695+07:00 0HLJNSKPCMMQJ:00000006 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2019-01-12T00:04:01.8322874+07:00 0HLJNSKPCMMQJ:00000006 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.PermissionGrantController.UpdatePermission (ShopOnlineApp)" in 136.2486ms (afa2e885)
+2019-01-12T00:04:01.8453762+07:00 0HLJNSKPCMMQJ:00000006 [INF] Request finished in 166.7436ms 200 text/plain; charset=utf-8 (791a596a)
+2019-01-12T00:04:05.0587821+07:00 0HLJNSKPCMMQJ:00000007 [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/PermissionGrant/UpdatePermission?id=14&userId=d60bffec-0c20-429a-9acc-08d677d5fc7a   (ca22a1cb)
+2019-01-12T00:04:05.0672092+07:00 0HLJNSKPCMMQJ:00000007 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2019-01-12T00:04:05.0763640+07:00 0HLJNSKPCMMQJ:00000007 [INF] Authorization was successful for user: "danghung". (d7eb274a)
+2019-01-12T00:04:05.0853864+07:00 0HLJNSKPCMMQJ:00000007 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.PermissionGrantController.UpdatePermission (ShopOnlineApp)" with arguments (["14", "d60bffec-0c20-429a-9acc-08d677d5fc7a"]) - ModelState is Valid (ba7f4ac2)
+2019-01-12T00:04:05.0933362+07:00 0HLJNSKPCMMQJ:00000007 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2019-01-12T00:04:05.1055595+07:00 0HLJNSKPCMMQJ:00000007 [INF] Executed DbCommand ("0"ms) [Parameters=["@__id_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(2) [x].[Id], [x].[BusinessActionId], [x].[UserId]
+FROM [GrantPermission] AS [x]
+WHERE [x].[BusinessActionId] = @__id_0" (0723d8ff)
+2019-01-12T00:04:05.1172634+07:00 0HLJNSKPCMMQJ:00000007 [INF] Executed DbCommand ("0"ms) [Parameters=["@p0='?', @p1='?'"], CommandType='Text', CommandTimeout='30']"
+""SET NOCOUNT ON;
+INSERT INTO [GrantPermission] ([BusinessActionId], [UserId])
+VALUES (@p0, @p1);
+SELECT [Id]
+FROM [GrantPermission]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();" (0723d8ff)
+2019-01-12T00:04:05.1282850+07:00 0HLJNSKPCMMQJ:00000007 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2019-01-12T00:04:05.1366119+07:00 0HLJNSKPCMMQJ:00000007 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.PermissionGrantController.UpdatePermission (ShopOnlineApp)" in 60.3257ms (afa2e885)
+2019-01-12T00:04:05.1529744+07:00 0HLJNSKPCMMQJ:00000007 [INF] Request finished in 87.453ms 200 text/plain; charset=utf-8 (791a596a)
+2019-01-12T00:04:07.5317982+07:00 0HLJNSKPCMMQJ:00000008 [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/PermissionGrant/UpdatePermission?id=10&userId=d60bffec-0c20-429a-9acc-08d677d5fc7a   (ca22a1cb)
+2019-01-12T00:04:07.5416223+07:00 0HLJNSKPCMMQJ:00000008 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2019-01-12T00:04:07.5544935+07:00 0HLJNSKPCMMQJ:00000008 [INF] Authorization was successful for user: "danghung". (d7eb274a)
+2019-01-12T00:04:07.5644159+07:00 0HLJNSKPCMMQJ:00000008 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.PermissionGrantController.UpdatePermission (ShopOnlineApp)" with arguments (["10", "d60bffec-0c20-429a-9acc-08d677d5fc7a"]) - ModelState is Valid (ba7f4ac2)
+2019-01-12T00:04:07.5755564+07:00 0HLJNSKPCMMQJ:00000008 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2019-01-12T00:04:07.5853246+07:00 0HLJNSKPCMMQJ:00000008 [INF] Executed DbCommand ("0"ms) [Parameters=["@__id_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(2) [x].[Id], [x].[BusinessActionId], [x].[UserId]
+FROM [GrantPermission] AS [x]
+WHERE [x].[BusinessActionId] = @__id_0" (0723d8ff)
+2019-01-12T00:04:07.5953202+07:00 0HLJNSKPCMMQJ:00000008 [INF] Executed DbCommand ("0"ms) [Parameters=["@p0='?', @p1='?'"], CommandType='Text', CommandTimeout='30']"
+""SET NOCOUNT ON;
+INSERT INTO [GrantPermission] ([BusinessActionId], [UserId])
+VALUES (@p0, @p1);
+SELECT [Id]
+FROM [GrantPermission]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();" (0723d8ff)
+2019-01-12T00:04:07.6099435+07:00 0HLJNSKPCMMQJ:00000008 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2019-01-12T00:04:07.6191049+07:00 0HLJNSKPCMMQJ:00000008 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.PermissionGrantController.UpdatePermission (ShopOnlineApp)" in 68.2275ms (afa2e885)
+2019-01-12T00:04:07.6292986+07:00 0HLJNSKPCMMQJ:00000008 [INF] Request finished in 95.2998ms 200 text/plain; charset=utf-8 (791a596a)
+2019-01-12T00:04:23.2182742+07:00 0HLJNSKPCMMQJ:00000009 [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/Producy/Index   (ca22a1cb)
+2019-01-12T00:04:23.2273661+07:00 0HLJNSKPCMMQJ:00000009 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2019-01-12T00:04:23.2836211+07:00 0HLJNSKPCMMQJ:00000009 [INF] Request finished in 21.0312ms 404  (791a596a)
+2019-01-12T00:04:26.4572229+07:00 0HLJNSKPCMMQJ:0000000A [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/Product/Index   (ca22a1cb)
+2019-01-12T00:04:26.4667873+07:00 0HLJNSKPCMMQJ:0000000A [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2019-01-12T00:04:26.4787524+07:00 0HLJNSKPCMMQJ:0000000A [INF] Authorization was successful for user: "danghung". (d7eb274a)
+2019-01-12T00:04:26.5632446+07:00 0HLJNSKPCMMQJ:0000000A [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.ProductController.Index (ShopOnlineApp)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2019-01-12T00:04:26.9558313+07:00 0HLJNSKPCMMQJ:0000000A [INF] Executing ViewResult, running view at path "/Areas/Admin/Views/Product/Index.cshtml". (9707eebe)
+2019-01-12T00:04:28.5594601+07:00 0HLJNSKPCMMQJ:0000000A [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.ProductController.Index (ShopOnlineApp)" in 2037.444ms (afa2e885)
+2019-01-12T00:04:28.7289142+07:00 0HLJNSKPCMMQM:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/app/controller/product/index.js?v=a4y0PtdDnLReLDY7t4bK94uPa2-MKy7TMQ7YYMrx968   (ca22a1cb)
+2019-01-12T00:04:28.7412690+07:00 0HLJNSKPCMMQJ:0000000A [INF] Request finished in 2117.3746ms 200 text/html; charset=utf-8 (791a596a)
+2019-01-12T00:04:28.7452851+07:00 0HLJNSKPCMMQL:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/app/controller/product/image-management.js   (ca22a1cb)
+2019-01-12T00:04:28.7847014+07:00 0HLJNSKPCMMQK:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/lib/jQuery-EasyUI/themes/icon.css   (ca22a1cb)
+2019-01-12T00:04:28.8020614+07:00 0HLJNSKPCMMQL:00000001 [INF] The file "/app/controller/product/image-management.js" was not modified (f1f8d725)
+2019-01-12T00:04:28.8066010+07:00 0HLJNSKPCMMQJ:0000000B [INF] Request starting HTTP/1.1 GET http://localhost:44344/lib/jQuery-EasyUI/themes/bootstrap/easyui.css   (ca22a1cb)
+2019-01-12T00:04:28.8560743+07:00 0HLJNSKPCMMQM:00000001 [INF] The file "/app/controller/product/index.js" was not modified (f1f8d725)
+2019-01-12T00:04:28.9133577+07:00 0HLJNSKPCMMQM:00000001 [INF] Request finished in 183.9633ms 304 application/javascript (791a596a)
+2019-01-12T00:04:28.9275616+07:00 0HLJNSKPCMMQK:00000001 [INF] The file "/lib/jQuery-EasyUI/themes/icon.css" was not modified (f1f8d725)
+2019-01-12T00:04:28.9776982+07:00 0HLJNSKPCMMQJ:0000000B [INF] The file "/lib/jQuery-EasyUI/themes/bootstrap/easyui.css" was not modified (f1f8d725)
+2019-01-12T00:04:29.0101254+07:00 0HLJNSKPCMMQL:00000001 [INF] Request finished in 172.2588ms 304 application/javascript (791a596a)
+2019-01-12T00:04:29.0743848+07:00 0HLJNSKPCMMQK:00000001 [INF] Request finished in 304.6638ms 304 text/css (791a596a)
+2019-01-12T00:04:29.3889412+07:00 0HLJNSKPCMMQO:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/lib/jQuery-EasyUI/jquery.easyui.min.js   (ca22a1cb)
+2019-01-12T00:04:29.5709385+07:00 0HLJNSKPCMMQP:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/app/controller/product/whole-price-management.js   (ca22a1cb)
+2019-01-12T00:04:29.5943064+07:00 0HLJNSKPCMMQN:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/Product/Index   (ca22a1cb)
+2019-01-12T00:04:29.6039822+07:00 0HLJNSKPCMMQJ:0000000B [INF] Request finished in 225.2021ms 304 text/css (791a596a)
+2019-01-12T00:04:29.6122854+07:00 0HLJNSKPCMMQQ:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/app/controller/product/quantity-management.js   (ca22a1cb)
+2019-01-12T00:04:29.6605301+07:00 0HLJNSKPCMMQO:00000001 [INF] The file "/lib/jQuery-EasyUI/jquery.easyui.min.js" was not modified (f1f8d725)
+2019-01-12T00:04:29.7160165+07:00 0HLJNSKPCMMQP:00000001 [INF] The file "/app/controller/product/whole-price-management.js" was not modified (f1f8d725)
+2019-01-12T00:04:29.7528345+07:00 0HLJNSKPCMMQN:00000001 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2019-01-12T00:04:29.8031973+07:00 0HLJNSKPCMMQQ:00000001 [INF] The file "/app/controller/product/quantity-management.js" was not modified (f1f8d725)
+2019-01-12T00:04:30.1793941+07:00 0HLJNSKPCMMQO:00000001 [INF] Request finished in 653.2979ms 304 application/javascript (791a596a)
+2019-01-12T00:04:30.2765541+07:00 0HLJNSKPCMMQP:00000001 [INF] Request finished in 707.0527ms 304 application/javascript (791a596a)
+2019-01-12T00:04:30.2891340+07:00 0HLJNSKPCMMQN:00000001 [INF] Authorization was successful for user: "danghung". (d7eb274a)
+2019-01-12T00:04:30.3351002+07:00 0HLJNSKPCMMQQ:00000001 [INF] Request finished in 794.1095ms 304 application/javascript (791a596a)
+2019-01-12T00:04:30.5023538+07:00 0HLJNSKPCMMQK:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/Bill/GetSizes   (ca22a1cb)
+2019-01-12T00:04:30.5457102+07:00 0HLJNSKPCMMQL:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/Product/GetAllPaging?categoryId=--Ch%E1%BB%8Dn+lo%E1%BA%A1i--&searchText=&pageIndex=1&pageSize=10   (ca22a1cb)
+2019-01-12T00:04:30.5741957+07:00 0HLJNSKPCMMQN:00000001 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.ProductController.Index (ShopOnlineApp)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2019-01-12T00:04:30.6043892+07:00 0HLJNSKPCMMQO:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44344/lib/ckeditor/config.js?t=H8DC   (ca22a1cb)
+2019-01-12T00:04:30.6573786+07:00 0HLJNSKPCMMQK:00000002 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2019-01-12T00:04:30.7280748+07:00 0HLJNSKPCMMQL:00000002 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2019-01-12T00:04:30.7623836+07:00 0HLJNSKPCMMQM:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/ProductCategory/GetAll   (ca22a1cb)
+2019-01-12T00:04:30.7779966+07:00 0HLJNSKPCMMQJ:0000000C [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/Bill/GetColors   (ca22a1cb)
+2019-01-12T00:04:30.7918881+07:00 0HLJNSKPCMMQN:00000001 [INF] Executing ViewResult, running view at path "/Areas/Admin/Views/Product/Index.cshtml". (9707eebe)
+2019-01-12T00:04:30.8051630+07:00 0HLJNSKPCMMQO:00000002 [INF] The file "/lib/ckeditor/config.js" was not modified (f1f8d725)
+2019-01-12T00:04:30.9868506+07:00 0HLJNSKPCMMQK:00000002 [INF] Authorization was successful for user: "danghung". (d7eb274a)
+2019-01-12T00:04:31.0175172+07:00 0HLJNSKPCMMQL:00000002 [INF] Authorization was successful for user: "danghung". (d7eb274a)
+2019-01-12T00:04:31.0920217+07:00 0HLJNSKPCMMQM:00000002 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2019-01-12T00:04:31.1684666+07:00 0HLJNSKPCMMQN:00000001 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.ProductController.Index (ShopOnlineApp)" in 1052.1298ms (afa2e885)
+2019-01-12T00:04:31.4457450+07:00 0HLJNSKPCMMQO:00000002 [INF] Request finished in 435.7258ms 304 application/javascript (791a596a)
+2019-01-12T00:04:31.5871154+07:00 0HLJNSKPCMMQQ:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44344/lib/ckeditor/lang/en.js?t=H8DC   (ca22a1cb)
+2019-01-12T00:04:31.5922773+07:00 0HLJNSKPCMMQL:00000002 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.ProductController.GetAllPaging (ShopOnlineApp)" with arguments (["ShopOnlineApp.Application.ViewModels.Product.ProductRequest"]) - ModelState is Invalid (ba7f4ac2)
+2019-01-12T00:04:31.6117279+07:00 0HLJNSKPCMMQK:00000002 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.BillController.GetSizes (ShopOnlineApp)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2019-01-12T00:04:31.6749749+07:00 0HLJNSKPCMMQN:00000001 [INF] Request finished in 2159.5741ms 200 text/html; charset=utf-8 (791a596a)
+2019-01-12T00:04:31.6858320+07:00 0HLJNSKPCMMQM:00000002 [INF] Authorization was successful for user: "danghung". (d7eb274a)
+2019-01-12T00:04:31.7639777+07:00 0HLJNSKPCMMQL:00000002 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2019-01-12T00:04:31.7893244+07:00 0HLJNSKPCMMQQ:00000002 [INF] The file "/lib/ckeditor/lang/en.js" was not modified (f1f8d725)
+2019-01-12T00:04:31.8326962+07:00 0HLJNSKPCMMQK:00000002 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2019-01-12T00:04:31.8513600+07:00 0HLJNSKPCMMQM:00000002 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.ProductCategoryController.GetAll (ShopOnlineApp)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2019-01-12T00:04:31.8891927+07:00 0HLJNSKPCMMQJ:0000000C [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2019-01-12T00:04:31.9913553+07:00 0HLJNSKPCMMQQ:00000002 [INF] Request finished in 887.5275ms 304 application/javascript (791a596a)
+2019-01-12T00:04:32.0631189+07:00 0HLJNSKPCMMQP:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44344/lib/ckeditor/skins/moono-lisa/editor.css?t=H8DC   (ca22a1cb)
+2019-01-12T00:04:32.0761654+07:00 0HLJNSKPCMMQL:00000002 [INF] Executed DbCommand ("16"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Products] AS [x]
+WHERE [x].[Status] = 1" (0723d8ff)
+2019-01-12T00:04:32.0914185+07:00 0HLJNSKPCMMQO:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:44344/lib/ckeditor/styles.js?t=H8DC   (ca22a1cb)
+2019-01-12T00:04:32.1082666+07:00 0HLJNSKPCMMQM:00000002 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2019-01-12T00:04:32.2465080+07:00 0HLJNSKPCMMQJ:0000000C [INF] Authorization was successful for user: "danghung". (d7eb274a)
+2019-01-12T00:04:32.2787305+07:00 0HLJNSKPCMMQK:00000002 [INF] Executed DbCommand ("7"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [s].[Id], [s].[Name]
+FROM [Sizes] AS [s]" (0723d8ff)
+2019-01-12T00:04:32.3509448+07:00 0HLJNSKPCMMQO:00000003 [INF] The file "/lib/ckeditor/styles.js" was not modified (f1f8d725)
+2019-01-12T00:04:32.4041277+07:00 0HLJNSKPCMMQP:00000002 [INF] The file "/lib/ckeditor/skins/moono-lisa/editor.css" was not modified (f1f8d725)
+2019-01-12T00:04:32.4393222+07:00 0HLJNSKPCMMQM:00000002 [INF] Executed DbCommand ("18"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[DateCreated], [x].[DateModified], [x].[Description], [x].[HomeFlag], [x].[HomeOrder], [x].[Image], [x].[Name], [x].[ParentId], [x].[SeoAlias], [x].[SeoDescription], [x].[SeoKeywords], [x].[SeoPageTitle], [x].[SortOrder], [x].[Status]
+FROM [ProductCategories] AS [x]
+ORDER BY [x].[ParentId]" (0723d8ff)
+2019-01-12T00:04:32.4625876+07:00 0HLJNSKPCMMQJ:0000000C [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.BillController.GetColors (ShopOnlineApp)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2019-01-12T00:04:32.4841651+07:00 0HLJNSKPCMMQL:00000002 [INF] Executed DbCommand ("7"ms) [Parameters=["@__p_0='?', @__p_1='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[CategoryId], [x].[Content], [x].[DateCreated], [x].[DateModified], [x].[Description], [x].[HomeFlag], [x].[HotFlag], [x].[Image], [x].[Name], [x].[OriginalPrice], [x].[Price], [x].[PromotionPrice], [x].[SeoAlias], [x].[SeoDescription], [x].[SeoKeywords], [x].[SeoPageTitle], [x].[Status], [x].[Tags], [x].[Unit], [x].[ViewCount]
+FROM [Products] AS [x]
+WHERE [x].[Status] = 1
+ORDER BY [x].[DateCreated] DESC
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY" (0723d8ff)
+2019-01-12T00:04:32.4963623+07:00 0HLJNSKPCMMQK:00000002 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2019-01-12T00:04:32.5448162+07:00 0HLJNSKPCMMQO:00000003 [INF] Request finished in 502.142ms 304 application/javascript (791a596a)
+2019-01-12T00:04:32.5569211+07:00 0HLJNSKPCMMQQ:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:44344/lib/ckeditor/plugins/colorbutton/plugin.js?t=H8DC   (ca22a1cb)
+2019-01-12T00:04:32.6087913+07:00 0HLJNSKPCMMQJ:0000000C [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2019-01-12T00:04:32.6544882+07:00 0HLJNSKPCMMQP:00000002 [INF] Request finished in 1502.3024ms 304 text/css (791a596a)
+2019-01-12T00:04:32.6711587+07:00 0HLJNSKPCMMQQ:00000003 [INF] The file "/lib/ckeditor/plugins/colorbutton/plugin.js" was not modified (f1f8d725)
+2019-01-12T00:04:32.6844979+07:00 0HLJNSKPCMMQM:00000002 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2019-01-12T00:04:32.7193125+07:00 0HLJNSKPCMMQJ:0000000C [INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [c].[Id], [c].[Code], [c].[Name]
+FROM [Colors] AS [c]" (0723d8ff)
+2019-01-12T00:04:32.7249111+07:00 0HLJNSKPCMMQK:00000002 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.BillController.GetSizes (ShopOnlineApp)" in 1841.1259ms (afa2e885)
+2019-01-12T00:04:32.7770056+07:00 0HLJNSKPCMMQQ:00000003 [INF] Request finished in 268.5091ms 304 application/javascript (791a596a)
+2019-01-12T00:04:32.8117284+07:00 0HLJNSKPCMMQL:00000002 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2019-01-12T00:04:32.8507992+07:00 0HLJNSKPCMMQO:00000004 [INF] Request starting HTTP/1.1 GET http://localhost:44344/lib/ckeditor/plugins/panelbutton/plugin.js?t=H8DC   (ca22a1cb)
+2019-01-12T00:04:32.8838756+07:00 0HLJNSKPCMMQJ:0000000C [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2019-01-12T00:04:32.9104556+07:00 0HLJNSKPCMMQK:00000002 [INF] Request finished in 2744.6958ms 200 application/json; charset=utf-8 (791a596a)
+2019-01-12T00:04:32.9392530+07:00 0HLJNSKPCMMQM:00000002 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.ProductCategoryController.GetAll (ShopOnlineApp)" in 1671.0434ms (afa2e885)
+2019-01-12T00:04:33.1335326+07:00 0HLJNSKPCMMQJ:0000000C [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.BillController.GetColors (ShopOnlineApp)" in 997.2181ms (afa2e885)
+2019-01-12T00:04:33.1880076+07:00 0HLJNSKPCMMQO:00000004 [INF] The file "/lib/ckeditor/plugins/panelbutton/plugin.js" was not modified (f1f8d725)
+2019-01-12T00:04:33.3778316+07:00 0HLJNSKPCMMQM:00000002 [INF] Request finished in 2984.2528ms 200 application/json; charset=utf-8 (791a596a)
+2019-01-12T00:04:33.3848230+07:00 0HLJNSKPCMMQJ:0000000C [INF] Request finished in 2954.4425ms 200 application/json; charset=utf-8 (791a596a)
+2019-01-12T00:04:33.3913232+07:00 0HLJNSKPCMMQL:00000002 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.ProductController.GetAllPaging (ShopOnlineApp)" in 2202.4206ms (afa2e885)
+2019-01-12T00:04:33.4043584+07:00 0HLJNSKPCMMQO:00000004 [INF] Request finished in 479.2687ms 304 application/javascript (791a596a)
+2019-01-12T00:04:33.4104950+07:00 0HLJNSKPCMMQQ:00000004 [INF] Request starting HTTP/1.1 GET http://localhost:44344/lib/ckeditor/plugins/tableselection/styles/tableselection.css   (ca22a1cb)
+2019-01-12T00:04:33.4169038+07:00 0HLJNSKPCMMQK:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:44344/lib/ckeditor/plugins/scayt/dialogs/dialog.css   (ca22a1cb)
+2019-01-12T00:04:33.4398009+07:00 0HLJNSKPCMMQP:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:44344/lib/ckeditor/plugins/scayt/skins/moono-lisa/scayt.css   (ca22a1cb)
+2019-01-12T00:04:33.6622366+07:00 0HLJNSKPCMMQL:00000002 [INF] Request finished in 3438.621ms 200 application/json; charset=utf-8 (791a596a)
+2019-01-12T00:04:33.6724149+07:00 0HLJNSKPCMMQQ:00000004 [INF] The file "/lib/ckeditor/plugins/tableselection/styles/tableselection.css" was not modified (f1f8d725)
+2019-01-12T00:04:33.6937580+07:00 0HLJNSKPCMMQK:00000003 [INF] The file "/lib/ckeditor/plugins/scayt/dialogs/dialog.css" was not modified (f1f8d725)
+2019-01-12T00:04:33.7376812+07:00 0HLJNSKPCMMQO:00000005 [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/Product/GetAllPaging?categoryId=&searchText=&pageIndex=1&pageSize=10   (ca22a1cb)
+2019-01-12T00:04:33.7441785+07:00 0HLJNSKPCMMQM:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:44344/lib/ckeditor/plugins/colorbutton/lang/en.js?t=H8DC   (ca22a1cb)
+2019-01-12T00:04:33.7507840+07:00 0HLJNSKPCMMQP:00000003 [INF] The file "/lib/ckeditor/plugins/scayt/skins/moono-lisa/scayt.css" was not modified (f1f8d725)
+2019-01-12T00:04:33.8573175+07:00 0HLJNSKPCMMQJ:0000000D [INF] Request starting HTTP/1.1 GET http://localhost:44344/lib/ckeditor/plugins/wsc/skins/moono-lisa/wsc.css   (ca22a1cb)
+2019-01-12T00:04:33.8622235+07:00 0HLJNSKPCMMQQ:00000004 [INF] Request finished in 400.2237ms 304 text/css (791a596a)
+2019-01-12T00:04:33.8730018+07:00 0HLJNSKPCMMQK:00000003 [INF] Request finished in 371.7694ms 304 text/css (791a596a)
+2019-01-12T00:04:33.8760960+07:00 0HLJNSKPCMMQO:00000005 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2019-01-12T00:04:33.8874084+07:00 0HLJNSKPCMMQM:00000003 [INF] The file "/lib/ckeditor/plugins/colorbutton/lang/en.js" was not modified (f1f8d725)
+2019-01-12T00:04:33.9158053+07:00 0HLJNSKPCMMQP:00000003 [INF] Request finished in 492.8251ms 304 text/css (791a596a)
+2019-01-12T00:04:33.9885567+07:00 0HLJNSKPCMMQL:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:44344/admin-side/images/user.png   (ca22a1cb)
+2019-01-12T00:04:34.0882083+07:00 0HLJNSKPCMMQO:00000005 [INF] Authorization was successful for user: "danghung". (d7eb274a)
+2019-01-12T00:04:34.1072762+07:00 0HLJNSKPCMMQM:00000003 [INF] Request finished in 460.7891ms 304 application/javascript (791a596a)
+2019-01-12T00:04:34.1204149+07:00 0HLJNSKPCMMQJ:0000000D [INF] The file "/lib/ckeditor/plugins/wsc/skins/moono-lisa/wsc.css" was not modified (f1f8d725)
+2019-01-12T00:04:34.2059926+07:00 0HLJNSKPCMMQQ:00000005 [INF] Request starting HTTP/1.1 GET http://localhost:44344/lib/ckeditor/skins/moono-lisa/icons.png?t=H8DC   (ca22a1cb)
+2019-01-12T00:04:34.2152840+07:00 0HLJNSKPCMMQO:00000005 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.ProductController.GetAllPaging (ShopOnlineApp)" with arguments (["ShopOnlineApp.Application.ViewModels.Product.ProductRequest"]) - ModelState is Invalid (ba7f4ac2)
+2019-01-12T00:04:34.2201005+07:00 0HLJNSKPCMMQJ:0000000D [INF] Request finished in 673.8779ms 304 text/css (791a596a)
+2019-01-12T00:04:34.2499033+07:00 0HLJNSKPCMMQL:00000003 [INF] The file "/admin-side/images/user.png" was not modified (f1f8d725)
+2019-01-12T00:04:34.3163913+07:00 0HLJNSKPCMMQO:00000005 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2019-01-12T00:04:34.3252328+07:00 0HLJNSKPCMMQQ:00000005 [INF] The file "/lib/ckeditor/skins/moono-lisa/icons.png" was not modified (f1f8d725)
+2019-01-12T00:04:34.3453993+07:00 0HLJNSKPCMMQK:00000004 [INF] Request starting HTTP/1.1 GET http://localhost:44344/lib/ckeditor/contents.css?t=H8DC   (ca22a1cb)
+2019-01-12T00:04:34.3877121+07:00 0HLJNSKPCMMQO:00000005 [INF] Executed DbCommand ("4"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Products] AS [x]
+WHERE [x].[Status] = 1" (0723d8ff)
+2019-01-12T00:04:34.4024985+07:00 0HLJNSKPCMMQQ:00000005 [INF] Request finished in 237.7661ms 304 image/png (791a596a)
+2019-01-12T00:04:34.4099133+07:00 0HLJNSKPCMMQL:00000003 [INF] Request finished in 432.0677ms 304 image/png (791a596a)
+2019-01-12T00:04:34.4272327+07:00 0HLJNSKPCMMQO:00000005 [INF] Executed DbCommand ("2"ms) [Parameters=["@__p_0='?', @__p_1='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[CategoryId], [x].[Content], [x].[DateCreated], [x].[DateModified], [x].[Description], [x].[HomeFlag], [x].[HotFlag], [x].[Image], [x].[Name], [x].[OriginalPrice], [x].[Price], [x].[PromotionPrice], [x].[SeoAlias], [x].[SeoDescription], [x].[SeoKeywords], [x].[SeoPageTitle], [x].[Status], [x].[Tags], [x].[Unit], [x].[ViewCount]
+FROM [Products] AS [x]
+WHERE [x].[Status] = 1
+ORDER BY [x].[DateCreated] DESC
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY" (0723d8ff)
+2019-01-12T00:04:34.4377052+07:00 0HLJNSKPCMMQK:00000004 [INF] The file "/lib/ckeditor/contents.css" was not modified (f1f8d725)
+2019-01-12T00:04:34.5864735+07:00 0HLJNSKPCMMQO:00000005 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2019-01-12T00:04:34.6274775+07:00 0HLJNSKPCMMQO:00000005 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.ProductController.GetAllPaging (ShopOnlineApp)" in 709.5651ms (afa2e885)
+2019-01-12T00:04:34.6431300+07:00 0HLJNSKPCMMQK:00000004 [INF] Request finished in 255.8225ms 304 text/css (791a596a)
+2019-01-12T00:04:34.7175897+07:00 0HLJNSKPCMMQO:00000005 [INF] Request finished in 1065.7915ms 200 application/json; charset=utf-8 (791a596a)
+2019-01-12T00:04:37.0108222+07:00 0HLJNSKPCMMQP:00000004 [INF] Request starting HTTP/1.1 GET http://localhost:44344/admin/Product/GetImages?productId=21   (ca22a1cb)
+2019-01-12T00:04:37.0231401+07:00 0HLJNSKPCMMQP:00000004 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2019-01-12T00:04:37.0379648+07:00 0HLJNSKPCMMQP:00000004 [INF] Authorization was successful for user: "danghung". (d7eb274a)
+2019-01-12T00:04:37.0477325+07:00 0HLJNSKPCMMQP:00000004 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.ProductController.GetImages (ShopOnlineApp)" with arguments (["21"]) - ModelState is Valid (ba7f4ac2)
+2019-01-12T00:04:37.0608666+07:00 0HLJNSKPCMMQP:00000004 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2019-01-12T00:04:37.1562741+07:00 0HLJNSKPCMMQP:00000004 [INF] Executed DbCommand ("5"ms) [Parameters=["@__productId_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[Caption], [x].[Path], [x].[ProductId]
+FROM [ProductImages] AS [x]
+WHERE [x].[ProductId] = @__productId_0" (0723d8ff)
+2019-01-12T00:04:37.1992311+07:00 0HLJNSKPCMMQP:00000004 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2019-01-12T00:04:37.2383802+07:00 0HLJNSKPCMMQP:00000004 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.ProductController.GetImages (ShopOnlineApp)" in 189.7694ms (afa2e885)
+2019-01-12T00:04:37.2696261+07:00 0HLJNSKPCMMQP:00000004 [INF] Request finished in 238.1646ms 200 application/json; charset=utf-8 (791a596a)
+2019-01-12T00:04:37.2849640+07:00 0HLJNSKPCMMQM:00000004 [INF] Request starting HTTP/1.1 GET http://localhost:44344/uploaded/images/20190106/image_2019-01-03_21-02-26.png   (ca22a1cb)
+2019-01-12T00:04:37.2984565+07:00 0HLJNSKPCMMQM:00000004 [INF] Sending file. Request path: '"/uploaded/images/20190106/image_2019-01-03_21-02-26.png"'. Physical path: '"G:\KhoaLuan\teducoreapp\ShopOnlineApp\wwwroot\uploaded\images\20190106\image_2019-01-03_21-02-26.png"' (27b0a520)
+2019-01-12T00:04:37.3751015+07:00 0HLJNSKPCMMQM:00000004 [INF] Request finished in 84.6576ms 200 image/png (791a596a)
+2019-01-12T00:04:44.8464549+07:00 0HLJNSKPCMMQJ:0000000E [INF] Request starting HTTP/1.1 GET http://localhost:44344/admin/Product/GetQuantities?productId=21   (ca22a1cb)
+2019-01-12T00:04:44.8602975+07:00 0HLJNSKPCMMQJ:0000000E [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2019-01-12T00:04:44.8748854+07:00 0HLJNSKPCMMQJ:0000000E [INF] Authorization was successful for user: "danghung". (d7eb274a)
+2019-01-12T00:04:44.8889070+07:00 0HLJNSKPCMMQJ:0000000E [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.ProductController.GetQuantities (ShopOnlineApp)" with arguments (["21"]) - ModelState is Valid (ba7f4ac2)
+2019-01-12T00:04:44.9044426+07:00 0HLJNSKPCMMQJ:0000000E [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2019-01-12T00:04:45.1392241+07:00 0HLJNSKPCMMQJ:0000000E [INF] Executed DbCommand ("4"ms) [Parameters=["@__productId_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[ColorId], [x].[ProductId], [x].[Quantity], [x].[SizeId]
+FROM [ProductQuantities] AS [x]
+WHERE [x].[ProductId] = @__productId_0" (0723d8ff)
+2019-01-12T00:04:45.1893272+07:00 0HLJNSKPCMMQJ:0000000E [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2019-01-12T00:04:45.2168502+07:00 0HLJNSKPCMMQJ:0000000E [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.ProductController.GetQuantities (ShopOnlineApp)" in 337.8847ms (afa2e885)
+2019-01-12T00:04:45.2530161+07:00 0HLJNSKPCMMQJ:0000000E [INF] Request finished in 380.7852ms 200 application/json; charset=utf-8 (791a596a)
+2019-01-12T00:06:10.3770215+07:00 0HLJNSSAO51HQ:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/   (ca22a1cb)
+2019-01-12T00:06:10.8245450+07:00 0HLJNSSAO51HQ:00000001 [INF] Executing action method "ShopOnlineApp.Controllers.HomeController.Index (ShopOnlineApp)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2019-01-12T00:06:18.3995163+07:00 0HLJNSSAO51HQ:00000001 [INF] Executing ViewResult, running view at path "/Views/Home/Index.cshtml". (9707eebe)
+2019-01-12T00:06:20.5934133+07:00 0HLJNSSAO51HQ:00000001 [INF] Executed action "ShopOnlineApp.Controllers.HomeController.Index (ShopOnlineApp)" in 9703.3139ms (afa2e885)
+2019-01-12T00:06:20.6663646+07:00 0HLJNSSAO51HQ:00000001 [INF] Request finished in 10314.3877ms 200 text/html; charset=utf-8 (791a596a)
+2019-01-12T00:06:21.9944420+07:00 0HLJNSSAO51HQ:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44344/   (ca22a1cb)
+2019-01-12T00:06:22.0094019+07:00 0HLJNSSAO51HQ:00000002 [INF] Executing action method "ShopOnlineApp.Controllers.HomeController.Index (ShopOnlineApp)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2019-01-12T00:06:22.0182061+07:00 0HLJNSSAO51HQ:00000002 [INF] Executing ViewResult, running view at path "/Views/Home/Index.cshtml". (9707eebe)
+2019-01-12T00:06:22.0504971+07:00 0HLJNSSAO51HQ:00000002 [INF] Executed action "ShopOnlineApp.Controllers.HomeController.Index (ShopOnlineApp)" in 38.9202ms (afa2e885)
+2019-01-12T00:06:22.0656384+07:00 0HLJNSSAO51HQ:00000002 [INF] Request finished in 67.1475ms 200 text/html; charset=utf-8 (791a596a)
+2019-01-12T00:06:26.1338865+07:00 0HLJNSSAO51HQ:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/Login/Index   (ca22a1cb)
+2019-01-12T00:06:26.6040904+07:00 0HLJNSSAO51HQ:00000003 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.LoginController.index (ShopOnlineApp)" with arguments ([""]) - ModelState is Valid (ba7f4ac2)
+2019-01-12T00:06:26.6698340+07:00 0HLJNSSAO51HQ:00000003 [INF] AuthenticationScheme: "Identity.External" signed out. (d3f50c8d)
+2019-01-12T00:06:27.0678510+07:00 0HLJNSSAO51HQ:00000003 [INF] Executing ViewResult, running view at path "/Areas/Admin/Views/Login/index.cshtml". (9707eebe)
+2019-01-12T00:06:27.1555796+07:00 0HLJNSSAO51HQ:00000003 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.LoginController.index (ShopOnlineApp)" in 913.0802ms (afa2e885)
+2019-01-12T00:06:27.1669157+07:00 0HLJNSSAO51HR:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/Login/Index   (ca22a1cb)
+2019-01-12T00:06:27.2003022+07:00 0HLJNSSAO51HQ:00000003 [INF] Request finished in 1051.6744ms 200 text/html; charset=utf-8 (791a596a)
+2019-01-12T00:06:27.2196796+07:00 0HLJNSSAO51HR:00000001 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.LoginController.index (ShopOnlineApp)" with arguments ([""]) - ModelState is Valid (ba7f4ac2)
+2019-01-12T00:06:27.2511483+07:00 0HLJNSSAO51HR:00000001 [INF] AuthenticationScheme: "Identity.External" signed out. (d3f50c8d)
+2019-01-12T00:06:27.2643230+07:00 0HLJNSSAO51HR:00000001 [INF] Executing ViewResult, running view at path "/Areas/Admin/Views/Login/index.cshtml". (9707eebe)
+2019-01-12T00:06:27.2929623+07:00 0HLJNSSAO51HR:00000001 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.LoginController.index (ShopOnlineApp)" in 89.8423ms (afa2e885)
+2019-01-12T00:06:27.3539407+07:00 0HLJNSSAO51HR:00000001 [INF] Request finished in 138.1877ms 200 text/html; charset=utf-8 (791a596a)
+2019-01-12T00:06:29.3669242+07:00 0HLJNSSAO51HQ:00000004 [INF] Request starting HTTP/1.1 POST http://localhost:44344/Admin/Login/authen application/x-www-form-urlencoded; charset=UTF-8 38 (ca22a1cb)
+2019-01-12T00:06:29.6436768+07:00 0HLJNSSAO51HQ:00000004 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.LoginController.Authen (ShopOnlineApp)" with arguments (["ShopOnlineApp.Models.AccountViewModels.LoginViewModel", ""]) - ModelState is Valid (ba7f4ac2)
+2019-01-12T00:06:30.4834915+07:00 0HLJNSSAO51HQ:00000004 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2019-01-12T00:06:31.0416533+07:00 0HLJNSSAO51HQ:00000004 [INF] Executed DbCommand ("67"ms) [Parameters=["@__normalizedUserName_0='?' (Size = 4000)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[Avatar], [u].[Balance], [u].[BirthDay], [u].[ConcurrencyStamp], [u].[DateCreated], [u].[DateModified], [u].[Email], [u].[EmailConfirmed], [u].[FullName], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[Status], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [AppUsers] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0" (0723d8ff)
+2019-01-12T00:06:31.2636890+07:00 0HLJNSSAO51HQ:00000004 [INF] Executed DbCommand ("10"ms) [Parameters=["@__user_Id_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT [uc].[Id], [uc].[ClaimType], [uc].[ClaimValue], [uc].[UserId]
+FROM [AppUserClaims] AS [uc]
+WHERE [uc].[UserId] = @__user_Id_0" (0723d8ff)
+2019-01-12T00:06:31.3429629+07:00 0HLJNSSAO51HQ:00000004 [INF] Executed DbCommand ("0"ms) [Parameters=["@__userId_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT [role].[Name]
+FROM [AppUserRoles] AS [userRole]
+INNER JOIN [AppRoles] AS [role] ON [userRole].[RoleId] = [role].[Id]
+WHERE [userRole].[UserId] = @__userId_0" (0723d8ff)
+2019-01-12T00:06:31.3592331+07:00 0HLJNSSAO51HQ:00000004 [INF] Executed DbCommand ("1"ms) [Parameters=["@__userId_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT [role].[Name]
+FROM [AppUserRoles] AS [userRole]
+INNER JOIN [AppRoles] AS [role] ON [userRole].[RoleId] = [role].[Id]
+WHERE [userRole].[UserId] = @__userId_0" (0723d8ff)
+2019-01-12T00:06:31.3743920+07:00 0HLJNSSAO51HQ:00000004 [INF] AuthenticationScheme: "Identity.Application" signed in. (c66dd7e7)
+2019-01-12T00:06:31.3865463+07:00 0HLJNSSAO51HQ:00000004 [INF] Đăng nhập thành công (ba4d6ffb)
+2019-01-12T00:06:31.4032644+07:00 0HLJNSSAO51HQ:00000004 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2019-01-12T00:06:31.8694886+07:00 0HLJNSSAO51HQ:00000004 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.LoginController.Authen (ShopOnlineApp)" in 2420.3366ms (afa2e885)
+2019-01-12T00:06:31.8920995+07:00 0HLJNSSAO51HQ:00000004 [INF] Request finished in 2524.9184ms 200 application/json; charset=utf-8 (791a596a)
+2019-01-12T00:06:31.9379758+07:00 0HLJNSSAO51HR:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/Home/Index   (ca22a1cb)
+2019-01-12T00:06:31.9661234+07:00 0HLJNSSAO51HR:00000002 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2019-01-12T00:06:32.0029349+07:00 0HLJNSSAO51HR:00000002 [INF] Authorization was successful for user: "danghung". (d7eb274a)
+2019-01-12T00:06:32.0235997+07:00 0HLJNSSAO51HR:00000002 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.HomeController.Index (ShopOnlineApp)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2019-01-12T00:06:32.3639032+07:00 0HLJNSSAO51HR:00000002 [INF] Executing ViewResult, running view at path "/Areas/Admin/Views/Home/Index.cshtml". (9707eebe)
+2019-01-12T00:06:34.1641177+07:00 0HLJNSSAO51HR:00000002 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.HomeController.Index (ShopOnlineApp)" in 2129.4147ms (afa2e885)
+2019-01-12T00:06:34.2758750+07:00 0HLJNSSAO51HR:00000002 [INF] Request finished in 2242.1509ms 200 text/html; charset=utf-8 (791a596a)
+2019-01-12T00:06:43.8527029+07:00 0HLJNSSAO51HQ:00000005 [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/Product/Index   (ca22a1cb)
+2019-01-12T00:06:43.8734125+07:00 0HLJNSSAO51HQ:00000005 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2019-01-12T00:06:43.8916012+07:00 0HLJNSSAO51HQ:00000005 [INF] Authorization was successful for user: "danghung". (d7eb274a)
+2019-01-12T00:06:44.2504599+07:00 0HLJNSSAO51HQ:00000005 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2019-01-12T00:06:44.2912115+07:00 0HLJNSSAO51HQ:00000005 [INF] Executed DbCommand ("3"ms) [Parameters=["@__get_Item_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [e].[Id], [e].[AccessFailedCount], [e].[Avatar], [e].[Balance], [e].[BirthDay], [e].[ConcurrencyStamp], [e].[DateCreated], [e].[DateModified], [e].[Email], [e].[EmailConfirmed], [e].[FullName], [e].[LockoutEnabled], [e].[LockoutEnd], [e].[NormalizedEmail], [e].[NormalizedUserName], [e].[PasswordHash], [e].[PhoneNumber], [e].[PhoneNumberConfirmed], [e].[SecurityStamp], [e].[Status], [e].[TwoFactorEnabled], [e].[UserName]
+FROM [AppUsers] AS [e]
+WHERE [e].[Id] = @__get_Item_0" (0723d8ff)
+2019-01-12T00:06:49.4042732+07:00 0HLJNSSAO51HQ:00000005 [INF] Executed DbCommand ("69"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [b].[Id], [b].[BusinessId], [b].[Description], [b].[Name]
+FROM [BusinessAction] AS [b]" (0723d8ff)
+2019-01-12T00:06:49.8112688+07:00 0HLJNSSAO51HQ:00000005 [INF] Executed DbCommand ("5"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [g].[Id], [g].[BusinessActionId], [g].[UserId]
+FROM [GrantPermission] AS [g]" (0723d8ff)
+2019-01-12T00:06:59.9817335+07:00 0HLJNSSAO51HQ:00000005 [INF] Executing RedirectResult, redirecting to "/Admin/Authentication/NoAuthenication". (d98d540e)
+2019-01-12T00:06:59.9929910+07:00 0HLJNSSAO51HQ:00000005 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.ProductController.Index (ShopOnlineApp)" in 16104.1758ms (afa2e885)
+2019-01-12T00:07:00.0311472+07:00 0HLJNSSAO51HQ:00000005 [INF] Request finished in 16158.1412ms 302  (791a596a)
+2019-01-12T00:07:00.0452713+07:00 0HLJNSSAO51HR:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/Authentication/NoAuthenication   (ca22a1cb)
+2019-01-12T00:07:00.0552884+07:00 0HLJNSSAO51HR:00000003 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2019-01-12T00:07:00.0649639+07:00 0HLJNSSAO51HR:00000003 [INF] Authorization was successful for user: "danghung". (d7eb274a)
+2019-01-12T00:07:00.0743242+07:00 0HLJNSSAO51HR:00000003 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.AuthenticationController.NoAuthenication (ShopOnlineApp)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2019-01-12T00:07:00.3029155+07:00 0HLJNSSAO51HR:00000003 [INF] Executing ViewResult, running view at path "/Areas/Admin/Views/Authentication/NoAuthenication.cshtml". (9707eebe)
+2019-01-12T00:07:00.3412550+07:00 0HLJNSSAO51HR:00000003 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.AuthenticationController.NoAuthenication (ShopOnlineApp)" in 267.7679ms (afa2e885)
+2019-01-12T00:07:00.4943435+07:00 0HLJNSSAO51HR:00000003 [INF] Request finished in 314.3084ms 200 text/html; charset=utf-8 (791a596a)
+2019-01-12T00:07:14.4988070+07:00 0HLJNSSAO51HQ:00000006 [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/Business/Index   (ca22a1cb)
+2019-01-12T00:07:14.5102500+07:00 0HLJNSSAO51HQ:00000006 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2019-01-12T00:07:14.5258205+07:00 0HLJNSSAO51HQ:00000006 [INF] Authorization was successful for user: "danghung". (d7eb274a)
+2019-01-12T00:07:14.5348644+07:00 0HLJNSSAO51HQ:00000006 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.BusinessController.Index (ShopOnlineApp)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2019-01-12T00:07:14.5532242+07:00 0HLJNSSAO51HQ:00000006 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2019-01-12T00:07:14.5738700+07:00 0HLJNSSAO51HQ:00000006 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [b].[Id], [b].[Name]
+FROM [Business] AS [b]" (0723d8ff)
+2019-01-12T00:07:15.4052646+07:00 0HLJNSSAO51HQ:00000006 [INF] Executing ViewResult, running view at path "/Areas/Admin/Views/Business/Index.cshtml". (9707eebe)
+2019-01-12T00:07:15.7333639+07:00 0HLJNSSAO51HQ:00000006 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.BusinessController.Index (ShopOnlineApp)" in 1182.199ms (afa2e885)
+2019-01-12T00:07:15.8141927+07:00 0HLJNSSAO51HQ:00000006 [INF] Request finished in 1243.7843ms 200 text/html; charset=utf-8 (791a596a)
+2019-01-12T00:07:16.1111693+07:00 0HLJNSSAO51HR:00000004 [INF] Request starting HTTP/1.1 POST http://localhost:44344/Admin/Business/GetAllPaging application/x-www-form-urlencoded; charset=UTF-8 35 (ca22a1cb)
+2019-01-12T00:07:16.1266433+07:00 0HLJNSSAO51HR:00000004 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2019-01-12T00:07:16.1731708+07:00 0HLJNSSAO51HR:00000004 [INF] Authorization was successful for user: "danghung". (d7eb274a)
+2019-01-12T00:07:16.2618697+07:00 0HLJNSSAO51HR:00000004 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.BusinessController.GetAllPaging (ShopOnlineApp)" with arguments (["ShopOnlineApp.Application.ViewModels.Business.BusinessRequest"]) - ModelState is Valid (ba7f4ac2)
+2019-01-12T00:07:16.3446289+07:00 0HLJNSSAO51HR:00000004 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2019-01-12T00:07:16.6924183+07:00 0HLJNSSAO51HR:00000004 [INF] Executed DbCommand ("32"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Business] AS [b]" (0723d8ff)
+2019-01-12T00:07:16.8446710+07:00 0HLJNSSAO51HR:00000004 [WRN] Query: '"(from Business <generated>_2 in DbSet<Business> select [<generated>_2]).Skip(__p_0).Take(__p_1)"' uses a row limiting operation (Skip/Take) without OrderBy which may lead to unpredictable results. (32148ccc)
+2019-01-12T00:07:16.9398202+07:00 0HLJNSSAO51HR:00000004 [INF] Executed DbCommand ("0"ms) [Parameters=["@__p_0='?', @__p_1='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT [b].[Id], [b].[Name]
+FROM [Business] AS [b]
+ORDER BY (SELECT 1)
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY" (0723d8ff)
+2019-01-12T00:07:16.9942150+07:00 0HLJNSSAO51HR:00000004 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2019-01-12T00:07:17.3854243+07:00 0HLJNSSAO51HR:00000004 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.BusinessController.GetAllPaging (ShopOnlineApp)" in 986.3331ms (afa2e885)
+2019-01-12T00:07:17.6067702+07:00 0HLJNSSAO51HR:00000004 [INF] Request finished in 1292.3035ms 200 application/json; charset=utf-8 (791a596a)
+2019-01-12T00:07:17.6393431+07:00 0HLJNSSAO51HQ:00000007 [INF] Request starting HTTP/1.1 POST http://localhost:44344/Admin/Business/GetAllPaging application/x-www-form-urlencoded; charset=UTF-8 35 (ca22a1cb)
+2019-01-12T00:07:17.7166290+07:00 0HLJNSSAO51HQ:00000007 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2019-01-12T00:07:17.7469385+07:00 0HLJNSSAO51HQ:00000007 [INF] Authorization was successful for user: "danghung". (d7eb274a)
+2019-01-12T00:07:17.7763367+07:00 0HLJNSSAO51HQ:00000007 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.BusinessController.GetAllPaging (ShopOnlineApp)" with arguments (["ShopOnlineApp.Application.ViewModels.Business.BusinessRequest"]) - ModelState is Valid (ba7f4ac2)
+2019-01-12T00:07:17.8230954+07:00 0HLJNSSAO51HQ:00000007 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2019-01-12T00:07:17.8810323+07:00 0HLJNSSAO51HQ:00000007 [INF] Executed DbCommand ("7"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Business] AS [b]" (0723d8ff)
+2019-01-12T00:07:17.9149994+07:00 0HLJNSSAO51HQ:00000007 [INF] Executed DbCommand ("4"ms) [Parameters=["@__p_0='?', @__p_1='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT [b].[Id], [b].[Name]
+FROM [Business] AS [b]
+ORDER BY (SELECT 1)
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY" (0723d8ff)
+2019-01-12T00:07:17.9957262+07:00 0HLJNSSAO51HQ:00000007 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2019-01-12T00:07:18.0962769+07:00 0HLJNSSAO51HQ:00000007 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.BusinessController.GetAllPaging (ShopOnlineApp)" in 279.6332ms (afa2e885)
+2019-01-12T00:07:18.2580983+07:00 0HLJNSSAO51HQ:00000007 [INF] Request finished in 535.6417ms 200 application/json; charset=utf-8 (791a596a)
+2019-01-12T00:07:26.0991893+07:00 0HLJNSSAO51HR:00000005 [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/PermissionGrant/Index   (ca22a1cb)
+2019-01-12T00:07:26.1127672+07:00 0HLJNSSAO51HR:00000005 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2019-01-12T00:07:26.1288886+07:00 0HLJNSSAO51HR:00000005 [INF] Authorization was successful for user: "danghung". (d7eb274a)
+2019-01-12T00:07:26.1436005+07:00 0HLJNSSAO51HR:00000005 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.PermissionGrantController.Index (ShopOnlineApp)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2019-01-12T00:07:26.1577815+07:00 0HLJNSSAO51HR:00000005 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2019-01-12T00:07:26.1713990+07:00 0HLJNSSAO51HR:00000005 [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [b].[Id], [b].[Name]
+FROM [Business] AS [b]" (0723d8ff)
+2019-01-12T00:07:27.0651125+07:00 0HLJNSSAO51HR:00000005 [INF] Executing ViewResult, running view at path "/Areas/Admin/Views/PermissionGrant/Index.cshtml". (9707eebe)
+2019-01-12T00:07:27.1995731+07:00 0HLJNSSAO51HR:00000005 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.PermissionGrantController.Index (ShopOnlineApp)" in 1039.7387ms (afa2e885)
+2019-01-12T00:07:27.2767998+07:00 0HLJNSSAO51HR:00000005 [INF] Request finished in 1121.4146ms 200 text/html; charset=utf-8 (791a596a)
+2019-01-12T00:07:29.7429419+07:00 0HLJNSSAO51HQ:00000008 [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/PermissionGrant/GetPermissions?businessId=ProductController&userId=d60bffec-0c20-429a-9acc-08d677d5fc7a   (ca22a1cb)
+2019-01-12T00:07:29.7517377+07:00 0HLJNSSAO51HQ:00000008 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2019-01-12T00:07:29.7628963+07:00 0HLJNSSAO51HQ:00000008 [INF] Authorization was successful for user: "danghung". (d7eb274a)
+2019-01-12T00:07:29.7724730+07:00 0HLJNSSAO51HQ:00000008 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.PermissionGrantController.GetPermissions (ShopOnlineApp)" with arguments (["ProductController", "d60bffec-0c20-429a-9acc-08d677d5fc7a"]) - ModelState is Valid (ba7f4ac2)
+2019-01-12T00:07:29.7899471+07:00 0HLJNSSAO51HQ:00000008 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2019-01-12T00:07:29.8191948+07:00 0HLJNSSAO51HQ:00000008 [INF] Executed DbCommand ("0"ms) [Parameters=["@__userId_0='?', @__businessId_1='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [p].[Description], [p].[Id] AS [PermissionID], [p].[Name] AS [PermissionName]
+FROM [GrantPermission] AS [g]
+INNER JOIN [BusinessAction] AS [p] ON [g].[BusinessActionId] = [p].[Id]
+WHERE ([g].[UserId] = @__userId_0) AND ([p].[BusinessId] = @__businessId_1)" (0723d8ff)
+2019-01-12T00:07:29.8427636+07:00 0HLJNSSAO51HQ:00000008 [WRN] Query: '"(from BusinessAction <generated>_1 in [x] select [<generated>_1].BusinessId).FirstOrDefault()"' uses First/FirstOrDefault operation without OrderBy and filter which may lead to unpredictable results. (e99f2322)
+2019-01-12T00:07:29.8495718+07:00 0HLJNSSAO51HQ:00000008 [WRN] Query: '"(from BusinessAction <generated>_1 in [x] select [<generated>_1].Id).FirstOrDefault()"' uses First/FirstOrDefault operation without OrderBy and filter which may lead to unpredictable results. (e99f2322)
+2019-01-12T00:07:29.8573814+07:00 0HLJNSSAO51HQ:00000008 [WRN] Query: '"(from BusinessAction <generated>_1 in [x] select [<generated>_1].Name).FirstOrDefault()"' uses First/FirstOrDefault operation without OrderBy and filter which may lead to unpredictable results. (e99f2322)
+2019-01-12T00:07:29.8647280+07:00 0HLJNSSAO51HQ:00000008 [WRN] Query: '"(from BusinessAction <generated>_1 in [x] select [<generated>_1].Description).FirstOrDefault()"' uses First/FirstOrDefault operation without OrderBy and filter which may lead to unpredictable results. (e99f2322)
+2019-01-12T00:07:29.8812700+07:00 0HLJNSSAO51HQ:00000008 [WRN] The LINQ expression '"GroupBy([x].Name, [x])"' could not be translated and will be evaluated locally. (011792c6)
+2019-01-12T00:07:29.8943090+07:00 0HLJNSSAO51HQ:00000008 [WRN] The LINQ expression '"GroupBy([x].Name, [x])"' could not be translated and will be evaluated locally. (011792c6)
+2019-01-12T00:07:29.9104798+07:00 0HLJNSSAO51HQ:00000008 [WRN] The LINQ expression '"where ({from BusinessAction <generated>_1 in [x] select [<generated>_1].BusinessId => FirstOrDefault()} == __businessId_0)"' could not be translated and will be evaluated locally. (011792c6)
+2019-01-12T00:07:29.9226332+07:00 0HLJNSSAO51HQ:00000008 [WRN] The LINQ expression '"FirstOrDefault()"' could not be translated and will be evaluated locally. (011792c6)
+2019-01-12T00:07:29.9311754+07:00 0HLJNSSAO51HQ:00000008 [WRN] The LINQ expression '"FirstOrDefault()"' could not be translated and will be evaluated locally. (011792c6)
+2019-01-12T00:07:29.9412872+07:00 0HLJNSSAO51HQ:00000008 [WRN] The LINQ expression '"FirstOrDefault()"' could not be translated and will be evaluated locally. (011792c6)
+2019-01-12T00:07:29.9484007+07:00 0HLJNSSAO51HQ:00000008 [WRN] The LINQ expression '"FirstOrDefault()"' could not be translated and will be evaluated locally. (011792c6)
+2019-01-12T00:07:29.9730845+07:00 0HLJNSSAO51HQ:00000008 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [x0].[Id], [x0].[BusinessId], [x0].[Description], [x0].[Name]
+FROM [BusinessAction] AS [x0]
+ORDER BY [x0].[Name]" (0723d8ff)
+2019-01-12T00:07:29.9927449+07:00 0HLJNSSAO51HQ:00000008 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2019-01-12T00:07:30.0115191+07:00 0HLJNSSAO51HQ:00000008 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.PermissionGrantController.GetPermissions (ShopOnlineApp)" in 243.1657ms (afa2e885)
+2019-01-12T00:07:30.0262963+07:00 0HLJNSSAO51HQ:00000008 [INF] Request finished in 283.0154ms 200 application/json; charset=utf-8 (791a596a)
+2019-01-12T00:07:42.2620706+07:00 0HLJNSSAO51HR:00000006 [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/Business/Index   (ca22a1cb)
+2019-01-12T00:07:42.2730857+07:00 0HLJNSSAO51HR:00000006 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2019-01-12T00:07:42.2819351+07:00 0HLJNSSAO51HR:00000006 [INF] Authorization was successful for user: "danghung". (d7eb274a)
+2019-01-12T00:07:42.2964867+07:00 0HLJNSSAO51HR:00000006 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.BusinessController.Index (ShopOnlineApp)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2019-01-12T00:07:42.3088083+07:00 0HLJNSSAO51HR:00000006 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2019-01-12T00:07:42.3254244+07:00 0HLJNSSAO51HR:00000006 [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [b].[Id], [b].[Name]
+FROM [Business] AS [b]" (0723d8ff)
+2019-01-12T00:07:42.3404850+07:00 0HLJNSSAO51HR:00000006 [INF] Executing ViewResult, running view at path "/Areas/Admin/Views/Business/Index.cshtml". (9707eebe)
+2019-01-12T00:07:42.4072493+07:00 0HLJNSSAO51HR:00000006 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.BusinessController.Index (ShopOnlineApp)" in 69.7974ms (afa2e885)
+2019-01-12T00:07:42.5093733+07:00 0HLJNSSAO51HR:00000006 [INF] Request finished in 159.5168ms 200 text/html; charset=utf-8 (791a596a)
+2019-01-12T00:07:43.0722868+07:00 0HLJNSSAO51HQ:00000009 [INF] Request starting HTTP/1.1 POST http://localhost:44344/Admin/Business/GetAllPaging application/x-www-form-urlencoded; charset=UTF-8 35 (ca22a1cb)
+2019-01-12T00:07:43.1556038+07:00 0HLJNSSAO51HQ:00000009 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2019-01-12T00:07:43.1700071+07:00 0HLJNSSAO51HQ:00000009 [INF] Authorization was successful for user: "danghung". (d7eb274a)
+2019-01-12T00:07:43.2441984+07:00 0HLJNSSAO51HQ:00000009 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.BusinessController.GetAllPaging (ShopOnlineApp)" with arguments (["ShopOnlineApp.Application.ViewModels.Business.BusinessRequest"]) - ModelState is Valid (ba7f4ac2)
+2019-01-12T00:07:43.2575179+07:00 0HLJNSSAO51HQ:00000009 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2019-01-12T00:07:43.3252975+07:00 0HLJNSSAO51HQ:00000009 [INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Business] AS [b]" (0723d8ff)
+2019-01-12T00:07:43.3482399+07:00 0HLJNSSAO51HQ:00000009 [INF] Executed DbCommand ("0"ms) [Parameters=["@__p_0='?', @__p_1='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT [b].[Id], [b].[Name]
+FROM [Business] AS [b]
+ORDER BY (SELECT 1)
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY" (0723d8ff)
+2019-01-12T00:07:43.3753443+07:00 0HLJNSSAO51HQ:00000009 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2019-01-12T00:07:43.4234888+07:00 0HLJNSSAO51HQ:00000009 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.BusinessController.GetAllPaging (ShopOnlineApp)" in 219.2888ms (afa2e885)
+2019-01-12T00:07:43.5076877+07:00 0HLJNSSAO51HQ:00000009 [INF] Request finished in 409.8944ms 200 application/json; charset=utf-8 (791a596a)
+2019-01-12T00:07:43.5615479+07:00 0HLJNSSAO51HR:00000007 [INF] Request starting HTTP/1.1 POST http://localhost:44344/Admin/Business/GetAllPaging application/x-www-form-urlencoded; charset=UTF-8 35 (ca22a1cb)
+2019-01-12T00:07:43.5859687+07:00 0HLJNSSAO51HR:00000007 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2019-01-12T00:07:43.6429496+07:00 0HLJNSSAO51HR:00000007 [INF] Authorization was successful for user: "danghung". (d7eb274a)
+2019-01-12T00:07:43.6853183+07:00 0HLJNSSAO51HR:00000007 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.BusinessController.GetAllPaging (ShopOnlineApp)" with arguments (["ShopOnlineApp.Application.ViewModels.Business.BusinessRequest"]) - ModelState is Valid (ba7f4ac2)
+2019-01-12T00:07:43.7251648+07:00 0HLJNSSAO51HR:00000007 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2019-01-12T00:07:43.7642392+07:00 0HLJNSSAO51HR:00000007 [INF] Executed DbCommand ("16"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Business] AS [b]" (0723d8ff)
+2019-01-12T00:07:43.7816496+07:00 0HLJNSSAO51HR:00000007 [INF] Executed DbCommand ("3"ms) [Parameters=["@__p_0='?', @__p_1='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT [b].[Id], [b].[Name]
+FROM [Business] AS [b]
+ORDER BY (SELECT 1)
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY" (0723d8ff)
+2019-01-12T00:07:43.7962278+07:00 0HLJNSSAO51HR:00000007 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2019-01-12T00:07:43.8209912+07:00 0HLJNSSAO51HR:00000007 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.BusinessController.GetAllPaging (ShopOnlineApp)" in 210.3885ms (afa2e885)
+2019-01-12T00:07:43.8763266+07:00 0HLJNSSAO51HR:00000007 [INF] Request finished in 323.2297ms 200 application/json; charset=utf-8 (791a596a)
+2019-01-12T00:07:47.6447246+07:00 0HLJNSSAO51HQ:0000000A [INF] Request starting HTTP/1.1 POST http://localhost:44344/Admin/Business/GetAllPaging application/x-www-form-urlencoded; charset=UTF-8 35 (ca22a1cb)
+2019-01-12T00:07:47.6572154+07:00 0HLJNSSAO51HQ:0000000A [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2019-01-12T00:07:47.6645892+07:00 0HLJNSSAO51HQ:0000000A [INF] Authorization was successful for user: "danghung". (d7eb274a)
+2019-01-12T00:07:47.6738716+07:00 0HLJNSSAO51HQ:0000000A [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.BusinessController.GetAllPaging (ShopOnlineApp)" with arguments (["ShopOnlineApp.Application.ViewModels.Business.BusinessRequest"]) - ModelState is Valid (ba7f4ac2)
+2019-01-12T00:07:47.6815450+07:00 0HLJNSSAO51HQ:0000000A [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2019-01-12T00:07:47.6929837+07:00 0HLJNSSAO51HQ:0000000A [INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Business] AS [b]" (0723d8ff)
+2019-01-12T00:07:47.7029622+07:00 0HLJNSSAO51HQ:0000000A [INF] Executed DbCommand ("0"ms) [Parameters=["@__p_0='?', @__p_1='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT [b].[Id], [b].[Name]
+FROM [Business] AS [b]
+ORDER BY (SELECT 1)
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY" (0723d8ff)
+2019-01-12T00:07:47.7105213+07:00 0HLJNSSAO51HQ:0000000A [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2019-01-12T00:07:47.7194435+07:00 0HLJNSSAO51HQ:0000000A [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.BusinessController.GetAllPaging (ShopOnlineApp)" in 53.3459ms (afa2e885)
+2019-01-12T00:07:47.7294247+07:00 0HLJNSSAO51HQ:0000000A [INF] Request finished in 93.2092ms 200 application/json; charset=utf-8 (791a596a)
+2019-01-12T00:07:50.7854975+07:00 0HLJNSSAO51HR:00000008 [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/BusinessAction/Index?businessId=ProductController   (ca22a1cb)
+2019-01-12T00:07:50.7949095+07:00 0HLJNSSAO51HR:00000008 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2019-01-12T00:07:50.8088831+07:00 0HLJNSSAO51HR:00000008 [INF] Authorization was successful for user: "danghung". (d7eb274a)
+2019-01-12T00:07:50.8220769+07:00 0HLJNSSAO51HR:00000008 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.BusinessActionController.Index (ShopOnlineApp)" with arguments (["ProductController"]) - ModelState is Valid (ba7f4ac2)
+2019-01-12T00:07:50.8432167+07:00 0HLJNSSAO51HR:00000008 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2019-01-12T00:07:50.8680758+07:00 0HLJNSSAO51HR:00000008 [WRN] Query: '"(from BusinessAction <generated>_1 in [x] select [<generated>_1]).FirstOrDefault()"' uses First/FirstOrDefault operation without OrderBy and filter which may lead to unpredictable results. (e99f2322)
+2019-01-12T00:07:50.8786956+07:00 0HLJNSSAO51HR:00000008 [WRN] The LINQ expression '"GroupBy([x].Name, [x])"' could not be translated and will be evaluated locally. (011792c6)
+2019-01-12T00:07:50.8901063+07:00 0HLJNSSAO51HR:00000008 [WRN] The LINQ expression '"GroupBy([x].Name, [x])"' could not be translated and will be evaluated locally. (011792c6)
+2019-01-12T00:07:50.8988057+07:00 0HLJNSSAO51HR:00000008 [WRN] The LINQ expression '"FirstOrDefault()"' could not be translated and will be evaluated locally. (011792c6)
+2019-01-12T00:07:50.9213658+07:00 0HLJNSSAO51HR:00000008 [INF] Executed DbCommand ("0"ms) [Parameters=["@__businessId_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [x0].[Id], [x0].[BusinessId], [x0].[Description], [x0].[Name]
+FROM [BusinessAction] AS [x0]
+WHERE [x0].[BusinessId] = @__businessId_0
+ORDER BY [x0].[Name]" (0723d8ff)
+2019-01-12T00:07:51.3105055+07:00 0HLJNSSAO51HR:00000008 [INF] Executing ViewResult, running view at path "/Areas/Admin/Views/BusinessAction/Index.cshtml". (9707eebe)
+2019-01-12T00:07:51.6082944+07:00 0HLJNSSAO51HR:00000008 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.BusinessActionController.Index (ShopOnlineApp)" in 794.3785ms (afa2e885)
+2019-01-12T00:07:51.6562720+07:00 0HLJNSSAO51HR:00000008 [INF] Request finished in 836.7947ms 200 text/html; charset=utf-8 (791a596a)
+2019-01-12T00:07:58.2975490+07:00 0HLJNSSAO51HQ:0000000B [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/BusinessAction/GetById?id=5   (ca22a1cb)
+2019-01-12T00:07:58.3073801+07:00 0HLJNSSAO51HQ:0000000B [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2019-01-12T00:07:58.3171399+07:00 0HLJNSSAO51HQ:0000000B [INF] Authorization was successful for user: "danghung". (d7eb274a)
+2019-01-12T00:07:58.3251046+07:00 0HLJNSSAO51HQ:0000000B [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.BusinessActionController.GetById (ShopOnlineApp)" with arguments (["5"]) - ModelState is Valid (ba7f4ac2)
+2019-01-12T00:07:58.3376570+07:00 0HLJNSSAO51HQ:0000000B [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2019-01-12T00:07:58.3567841+07:00 0HLJNSSAO51HQ:0000000B [INF] Executed DbCommand ("0"ms) [Parameters=["@__id_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(2) [x].[Id], [x].[BusinessId], [x].[Description], [x].[Name]
+FROM [BusinessAction] AS [x]
+WHERE [x].[Id] = @__id_0" (0723d8ff)
+2019-01-12T00:07:58.3770662+07:00 0HLJNSSAO51HQ:0000000B [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2019-01-12T00:07:58.4108936+07:00 0HLJNSSAO51HQ:0000000B [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.BusinessActionController.GetById (ShopOnlineApp)" in 76.3908ms (afa2e885)
+2019-01-12T00:07:58.4415852+07:00 0HLJNSSAO51HQ:0000000B [INF] Request finished in 121.4094ms 200 application/json; charset=utf-8 (791a596a)
+2019-01-12T00:08:19.0574387+07:00 0HLJNSSAO51HR:00000009 [INF] Request starting HTTP/1.1 POST http://localhost:44344/Admin/BusinessAction/SaveEntity application/x-www-form-urlencoded; charset=UTF-8 57 (ca22a1cb)
+2019-01-12T00:08:19.0653517+07:00 0HLJNSSAO51HR:00000009 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2019-01-12T00:08:19.0932732+07:00 0HLJNSSAO51HR:00000009 [INF] Authorization was successful for user: "danghung". (d7eb274a)
+2019-01-12T00:08:19.1189751+07:00 0HLJNSSAO51HR:00000009 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.BusinessActionController.SaveEntity (ShopOnlineApp)" with arguments (["ShopOnlineApp.Application.ViewModels.BusinessAction.BusinessActionViewModel"]) - ModelState is Valid (ba7f4ac2)
+2019-01-12T00:08:19.1296899+07:00 0HLJNSSAO51HR:00000009 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2019-01-12T00:08:19.1408388+07:00 0HLJNSSAO51HR:00000009 [INF] Executed DbCommand ("0"ms) [Parameters=["@__id_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(2) [x].[Id], [x].[BusinessId], [x].[Description], [x].[Name]
+FROM [BusinessAction] AS [x]
+WHERE [x].[Id] = @__id_0" (0723d8ff)
+2019-01-12T00:08:19.2320058+07:00 0HLJNSSAO51HR:00000009 [INF] Executed DbCommand ("0"ms) [Parameters=["@p3='?', @p0='?' (Size = 450), @p1='?' (Size = 4000), @p2='?' (Size = 4000)"], CommandType='Text', CommandTimeout='30']"
+""SET NOCOUNT ON;
+UPDATE [BusinessAction] SET [BusinessId] = @p0, [Description] = @p1, [Name] = @p2
+WHERE [Id] = @p3;
+SELECT @@ROWCOUNT;" (0723d8ff)
+2019-01-12T00:08:19.2415004+07:00 0HLJNSSAO51HR:00000009 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2019-01-12T00:08:19.2540887+07:00 0HLJNSSAO51HR:00000009 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.BusinessActionController.SaveEntity (ShopOnlineApp)" in 166.6569ms (afa2e885)
+2019-01-12T00:08:19.3445892+07:00 0HLJNSSAO51HR:00000009 [INF] Request finished in 208.9659ms 200 application/json; charset=utf-8 (791a596a)
+2019-01-12T00:08:19.4201210+07:00 0HLJNSSAO51HQ:0000000C [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/BusinessAction/Index/?businessId=ProductController   (ca22a1cb)
+2019-01-12T00:08:19.4377206+07:00 0HLJNSSAO51HQ:0000000C [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2019-01-12T00:08:19.4523174+07:00 0HLJNSSAO51HQ:0000000C [INF] Authorization was successful for user: "danghung". (d7eb274a)
+2019-01-12T00:08:19.4660029+07:00 0HLJNSSAO51HQ:0000000C [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.BusinessActionController.Index (ShopOnlineApp)" with arguments (["ProductController"]) - ModelState is Valid (ba7f4ac2)
+2019-01-12T00:08:19.4756713+07:00 0HLJNSSAO51HQ:0000000C [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2019-01-12T00:08:19.4932816+07:00 0HLJNSSAO51HQ:0000000C [INF] Executed DbCommand ("0"ms) [Parameters=["@__businessId_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [x0].[Id], [x0].[BusinessId], [x0].[Description], [x0].[Name]
+FROM [BusinessAction] AS [x0]
+WHERE [x0].[BusinessId] = @__businessId_0
+ORDER BY [x0].[Name]" (0723d8ff)
+2019-01-12T00:08:19.5055333+07:00 0HLJNSSAO51HQ:0000000C [INF] Executing ViewResult, running view at path "/Areas/Admin/Views/BusinessAction/Index.cshtml". (9707eebe)
+2019-01-12T00:08:19.5287800+07:00 0HLJNSSAO51HQ:0000000C [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.BusinessActionController.Index (ShopOnlineApp)" in 69.9867ms (afa2e885)
+2019-01-12T00:08:19.6412142+07:00 0HLJNSSAO51HQ:0000000C [INF] Request finished in 194.5966ms 200 text/html; charset=utf-8 (791a596a)
+2019-01-12T00:08:24.7888690+07:00 0HLJNSSAO51HR:0000000A [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/PermissionGrant/Index   (ca22a1cb)
+2019-01-12T00:08:24.7978415+07:00 0HLJNSSAO51HR:0000000A [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2019-01-12T00:08:24.8087862+07:00 0HLJNSSAO51HR:0000000A [INF] Authorization was successful for user: "danghung". (d7eb274a)
+2019-01-12T00:08:24.8177825+07:00 0HLJNSSAO51HR:0000000A [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.PermissionGrantController.Index (ShopOnlineApp)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2019-01-12T00:08:24.8260207+07:00 0HLJNSSAO51HR:0000000A [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2019-01-12T00:08:24.8415969+07:00 0HLJNSSAO51HR:0000000A [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [b].[Id], [b].[Name]
+FROM [Business] AS [b]" (0723d8ff)
+2019-01-12T00:08:24.8509022+07:00 0HLJNSSAO51HR:0000000A [INF] Executing ViewResult, running view at path "/Areas/Admin/Views/PermissionGrant/Index.cshtml". (9707eebe)
+2019-01-12T00:08:24.8673034+07:00 0HLJNSSAO51HR:0000000A [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.PermissionGrantController.Index (ShopOnlineApp)" in 53.7142ms (afa2e885)
+2019-01-12T00:08:24.9762785+07:00 0HLJNSSAO51HR:0000000A [INF] Request finished in 88.8639ms 200 text/html; charset=utf-8 (791a596a)
+2019-01-12T00:08:26.8193589+07:00 0HLJNSSAO51HQ:0000000D [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/PermissionGrant/GetPermissions?businessId=ProductController&userId=d60bffec-0c20-429a-9acc-08d677d5fc7a   (ca22a1cb)
+2019-01-12T00:08:26.8331814+07:00 0HLJNSSAO51HQ:0000000D [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2019-01-12T00:08:26.8420495+07:00 0HLJNSSAO51HQ:0000000D [INF] Authorization was successful for user: "danghung". (d7eb274a)
+2019-01-12T00:08:26.8531508+07:00 0HLJNSSAO51HQ:0000000D [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.PermissionGrantController.GetPermissions (ShopOnlineApp)" with arguments (["ProductController", "d60bffec-0c20-429a-9acc-08d677d5fc7a"]) - ModelState is Valid (ba7f4ac2)
+2019-01-12T00:08:26.8625279+07:00 0HLJNSSAO51HQ:0000000D [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2019-01-12T00:08:26.8837931+07:00 0HLJNSSAO51HQ:0000000D [INF] Executed DbCommand ("3"ms) [Parameters=["@__userId_0='?', @__businessId_1='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [p].[Description], [p].[Id] AS [PermissionID], [p].[Name] AS [PermissionName]
+FROM [GrantPermission] AS [g]
+INNER JOIN [BusinessAction] AS [p] ON [g].[BusinessActionId] = [p].[Id]
+WHERE ([g].[UserId] = @__userId_0) AND ([p].[BusinessId] = @__businessId_1)" (0723d8ff)
+2019-01-12T00:08:26.8982473+07:00 0HLJNSSAO51HQ:0000000D [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [x0].[Id], [x0].[BusinessId], [x0].[Description], [x0].[Name]
+FROM [BusinessAction] AS [x0]
+ORDER BY [x0].[Name]" (0723d8ff)
+2019-01-12T00:08:26.9109591+07:00 0HLJNSSAO51HQ:0000000D [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2019-01-12T00:08:26.9226370+07:00 0HLJNSSAO51HQ:0000000D [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.PermissionGrantController.GetPermissions (ShopOnlineApp)" in 77.8265ms (afa2e885)
+2019-01-12T00:08:26.9402999+07:00 0HLJNSSAO51HQ:0000000D [INF] Request finished in 121.3153ms 200 application/json; charset=utf-8 (791a596a)
+2019-01-12T00:08:28.5259739+07:00 0HLJNSSAO51HR:0000000B [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/PermissionGrant/UpdatePermission?id=5&userId=d60bffec-0c20-429a-9acc-08d677d5fc7a   (ca22a1cb)
+2019-01-12T00:08:28.5396888+07:00 0HLJNSSAO51HR:0000000B [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2019-01-12T00:08:28.5606468+07:00 0HLJNSSAO51HR:0000000B [INF] Authorization was successful for user: "danghung". (d7eb274a)
+2019-01-12T00:08:28.5730454+07:00 0HLJNSSAO51HR:0000000B [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.PermissionGrantController.UpdatePermission (ShopOnlineApp)" with arguments (["5", "d60bffec-0c20-429a-9acc-08d677d5fc7a"]) - ModelState is Valid (ba7f4ac2)
+2019-01-12T00:08:28.5872375+07:00 0HLJNSSAO51HR:0000000B [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2019-01-12T00:08:28.6089219+07:00 0HLJNSSAO51HR:0000000B [INF] Executed DbCommand ("0"ms) [Parameters=["@__id_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(2) [x].[Id], [x].[BusinessActionId], [x].[UserId]
+FROM [GrantPermission] AS [x]
+WHERE [x].[BusinessActionId] = @__id_0" (0723d8ff)
+2019-01-12T00:08:28.6569236+07:00 0HLJNSSAO51HR:0000000B [INF] Executed DbCommand ("0"ms) [Parameters=["@p0='?', @p1='?'"], CommandType='Text', CommandTimeout='30']"
+""SET NOCOUNT ON;
+INSERT INTO [GrantPermission] ([BusinessActionId], [UserId])
+VALUES (@p0, @p1);
+SELECT [Id]
+FROM [GrantPermission]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();" (0723d8ff)
+2019-01-12T00:08:28.6773872+07:00 0HLJNSSAO51HR:0000000B [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2019-01-12T00:08:28.6851994+07:00 0HLJNSSAO51HR:0000000B [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.PermissionGrantController.UpdatePermission (ShopOnlineApp)" in 134.4438ms (afa2e885)
+2019-01-12T00:08:28.7001183+07:00 0HLJNSSAO51HR:0000000B [INF] Request finished in 171.6585ms 200 text/plain; charset=utf-8 (791a596a)
+2019-01-12T00:08:36.0651419+07:00 0HLJNSSAO51HQ:0000000E [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/Produt/Index   (ca22a1cb)
+2019-01-12T00:08:36.0744855+07:00 0HLJNSSAO51HQ:0000000E [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2019-01-12T00:08:36.1363280+07:00 0HLJNSSAO51HQ:0000000E [INF] Request finished in 23.5762ms 404  (791a596a)
+2019-01-12T00:08:40.7700365+07:00 0HLJNSSAO51HR:0000000C [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/Product/Index   (ca22a1cb)
+2019-01-12T00:08:40.7773417+07:00 0HLJNSSAO51HR:0000000C [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2019-01-12T00:08:40.7893570+07:00 0HLJNSSAO51HR:0000000C [INF] Authorization was successful for user: "danghung". (d7eb274a)
+2019-01-12T00:08:40.8000650+07:00 0HLJNSSAO51HR:0000000C [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2019-01-12T00:08:40.8177517+07:00 0HLJNSSAO51HR:0000000C [INF] Executed DbCommand ("1"ms) [Parameters=["@__get_Item_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [e].[Id], [e].[AccessFailedCount], [e].[Avatar], [e].[Balance], [e].[BirthDay], [e].[ConcurrencyStamp], [e].[DateCreated], [e].[DateModified], [e].[Email], [e].[EmailConfirmed], [e].[FullName], [e].[LockoutEnabled], [e].[LockoutEnd], [e].[NormalizedEmail], [e].[NormalizedUserName], [e].[PasswordHash], [e].[PhoneNumber], [e].[PhoneNumberConfirmed], [e].[SecurityStamp], [e].[Status], [e].[TwoFactorEnabled], [e].[UserName]
+FROM [AppUsers] AS [e]
+WHERE [e].[Id] = @__get_Item_0" (0723d8ff)
+2019-01-12T00:08:43.1302436+07:00 0HLJNSSAO51HR:0000000C [INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [b].[Id], [b].[BusinessId], [b].[Description], [b].[Name]
+FROM [BusinessAction] AS [b]" (0723d8ff)
+2019-01-12T00:08:43.1896437+07:00 0HLJNSSAO51HR:0000000C [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [g].[Id], [g].[BusinessActionId], [g].[UserId]
+FROM [GrantPermission] AS [g]" (0723d8ff)
+2019-01-12T00:08:48.0643319+07:00 0HLJNSSAO51HR:0000000C [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.ProductController.Index (ShopOnlineApp)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2019-01-12T00:08:48.3087822+07:00 0HLJNSSAO51HR:0000000C [INF] Executing ViewResult, running view at path "/Areas/Admin/Views/Product/Index.cshtml". (9707eebe)
+2019-01-12T00:08:49.6893932+07:00 0HLJNSSAO51HR:0000000C [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.ProductController.Index (ShopOnlineApp)" in 8896.4115ms (afa2e885)
+2019-01-12T00:08:49.7638020+07:00 0HLJNSSAO51HR:0000000C [INF] Request finished in 8933.4262ms 200 text/html; charset=utf-8 (791a596a)
+2019-01-12T00:08:49.8700922+07:00 0HLJNSSAO51HQ:0000000F [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/Product/Index   (ca22a1cb)
+2019-01-12T00:08:49.9019166+07:00 0HLJNSSAO51HQ:0000000F [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2019-01-12T00:08:49.9126031+07:00 0HLJNSSAO51HQ:0000000F [INF] Authorization was successful for user: "danghung". (d7eb274a)
+2019-01-12T00:08:49.9258341+07:00 0HLJNSSAO51HQ:0000000F [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2019-01-12T00:08:49.9429727+07:00 0HLJNSSAO51HQ:0000000F [INF] Executed DbCommand ("1"ms) [Parameters=["@__get_Item_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [e].[Id], [e].[AccessFailedCount], [e].[Avatar], [e].[Balance], [e].[BirthDay], [e].[ConcurrencyStamp], [e].[DateCreated], [e].[DateModified], [e].[Email], [e].[EmailConfirmed], [e].[FullName], [e].[LockoutEnabled], [e].[LockoutEnd], [e].[NormalizedEmail], [e].[NormalizedUserName], [e].[PasswordHash], [e].[PhoneNumber], [e].[PhoneNumberConfirmed], [e].[SecurityStamp], [e].[Status], [e].[TwoFactorEnabled], [e].[UserName]
+FROM [AppUsers] AS [e]
+WHERE [e].[Id] = @__get_Item_0" (0723d8ff)
+2019-01-12T00:08:52.1211458+07:00 0HLJNSSAO51HR:0000000D [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/ProductCategory/GetAll   (ca22a1cb)
+2019-01-12T00:08:52.2074908+07:00 0HLJNSSAO51HQ:0000000F [INF] Executed DbCommand ("19"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [b].[Id], [b].[BusinessId], [b].[Description], [b].[Name]
+FROM [BusinessAction] AS [b]" (0723d8ff)
+2019-01-12T00:08:52.2397296+07:00 0HLJNSSAO51HS:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/Product/GetAllPaging?categoryId=--Ch%E1%BB%8Dn+lo%E1%BA%A1i--&searchText=&pageIndex=1&pageSize=10   (ca22a1cb)
+2019-01-12T00:08:52.4809021+07:00 0HLJNSSAO51HT:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/Bill/GetSizes   (ca22a1cb)
+2019-01-12T00:08:52.5913255+07:00 0HLJNSSAO51HS:00000001 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2019-01-12T00:08:52.6346768+07:00 0HLJNSSAO51HQ:0000000F [INF] Executed DbCommand ("5"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [g].[Id], [g].[BusinessActionId], [g].[UserId]
+FROM [GrantPermission] AS [g]" (0723d8ff)
+2019-01-12T00:08:52.6687726+07:00 0HLJNSSAO51HT:00000001 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2019-01-12T00:08:52.7163587+07:00 0HLJNSSAO51HS:00000001 [INF] Authorization was successful for user: "danghung". (d7eb274a)
+2019-01-12T00:08:52.7247457+07:00 0HLJNSSAO51HQ:0000000F [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.ProductController.Index (ShopOnlineApp)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2019-01-12T00:08:52.7506278+07:00 0HLJNSSAO51HQ:0000000F [INF] Executing ViewResult, running view at path "/Areas/Admin/Views/Product/Index.cshtml". (9707eebe)
+2019-01-12T00:08:52.7645427+07:00 0HLJNSSAO51HT:00000001 [INF] Authorization was successful for user: "danghung". (d7eb274a)
+2019-01-12T00:08:52.8536571+07:00 0HLJNSSAO51HS:00000001 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2019-01-12T00:08:52.8815962+07:00 0HLJNSSAO51HR:0000000D [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2019-01-12T00:08:52.9190720+07:00 0HLJNSSAO51HT:00000001 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.BillController.GetSizes (ShopOnlineApp)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2019-01-12T00:08:52.9388708+07:00 0HLJNSSAO51HQ:0000000F [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.ProductController.Index (ShopOnlineApp)" in 2851.0204ms (afa2e885)
+2019-01-12T00:08:52.9695317+07:00 0HLJNSSAO51HT:00000001 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2019-01-12T00:08:52.9845033+07:00 0HLJNSSAO51HQ:0000000F [INF] Request finished in 3149.1356ms 200 text/html; charset=utf-8 (791a596a)
+2019-01-12T00:08:53.1060842+07:00 0HLJNSSAO51HU:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/Bill/GetColors   (ca22a1cb)
+2019-01-12T00:08:53.1160697+07:00 0HLJNSSAO51HR:0000000D [INF] Authorization was successful for user: "danghung". (d7eb274a)
+2019-01-12T00:08:53.1356862+07:00 0HLJNSSAO51HS:00000001 [INF] Executed DbCommand ("203"ms) [Parameters=["@__get_Item_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [e].[Id], [e].[AccessFailedCount], [e].[Avatar], [e].[Balance], [e].[BirthDay], [e].[ConcurrencyStamp], [e].[DateCreated], [e].[DateModified], [e].[Email], [e].[EmailConfirmed], [e].[FullName], [e].[LockoutEnabled], [e].[LockoutEnd], [e].[NormalizedEmail], [e].[NormalizedUserName], [e].[PasswordHash], [e].[PhoneNumber], [e].[PhoneNumberConfirmed], [e].[SecurityStamp], [e].[Status], [e].[TwoFactorEnabled], [e].[UserName]
+FROM [AppUsers] AS [e]
+WHERE [e].[Id] = @__get_Item_0" (0723d8ff)
+2019-01-12T00:08:57.7370329+07:00 0HLJNSSAO51HT:00000001 [INF] Executed DbCommand ("6"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [s].[Id], [s].[Name]
+FROM [Sizes] AS [s]" (0723d8ff)
+2019-01-12T00:08:57.7553242+07:00 0HLJNSSAO51HS:00000001 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [b].[Id], [b].[BusinessId], [b].[Description], [b].[Name]
+FROM [BusinessAction] AS [b]" (0723d8ff)
+2019-01-12T00:08:57.7799077+07:00 0HLJNSSAO51HU:00000001 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2019-01-12T00:08:57.8154802+07:00 0HLJNSSAO51HU:00000001 [INF] Authorization was successful for user: "danghung". (d7eb274a)
+2019-01-12T00:08:57.8463691+07:00 0HLJNSSAO51HS:00000001 [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [g].[Id], [g].[BusinessActionId], [g].[UserId]
+FROM [GrantPermission] AS [g]" (0723d8ff)
+2019-01-12T00:08:57.8502930+07:00 0HLJNSSAO51HR:0000000D [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.ProductCategoryController.GetAll (ShopOnlineApp)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2019-01-12T00:08:59.9729946+07:00 0HLJNSSAO51HU:00000001 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.BillController.GetColors (ShopOnlineApp)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2019-01-12T00:08:59.9918326+07:00 0HLJNSSAO51HS:00000001 [INF] Executing RedirectResult, redirecting to "/Admin/Authentication/NoAuthenication". (d98d540e)
+2019-01-12T00:08:59.9962305+07:00 0HLJNSSAO51HT:00000001 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2019-01-12T00:09:00.0195952+07:00 0HLJNSSAO51HS:00000001 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.ProductController.GetAllPaging (ShopOnlineApp)" in 7386.8067ms (afa2e885)
+2019-01-12T00:09:00.0526684+07:00 0HLJNSSAO51HU:00000001 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2019-01-12T00:09:00.0858800+07:00 0HLJNSSAO51HS:00000001 [INF] Request finished in 7953.245ms 302  (791a596a)
+2019-01-12T00:09:00.1114102+07:00 0HLJNSSAO51HT:00000001 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.BillController.GetSizes (ShopOnlineApp)" in 7353.1914ms (afa2e885)
+2019-01-12T00:09:00.1550509+07:00 0HLJNSSAO51HT:00000001 [INF] Request finished in 8044.0476ms 200 application/json; charset=utf-8 (791a596a)
+2019-01-12T00:09:00.1661984+07:00 0HLJNSSAO51HR:0000000D [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2019-01-12T00:09:00.1745393+07:00 0HLJNSSAO51HU:00000001 [INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [c].[Id], [c].[Code], [c].[Name]
+FROM [Colors] AS [c]" (0723d8ff)
+2019-01-12T00:09:00.2059955+07:00 0HLJNSSAO51HS:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/Authentication/NoAuthenication   (ca22a1cb)
+2019-01-12T00:09:00.3329281+07:00 0HLJNSSAO51HR:0000000D [INF] Executed DbCommand ("66"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[DateCreated], [x].[DateModified], [x].[Description], [x].[HomeFlag], [x].[HomeOrder], [x].[Image], [x].[Name], [x].[ParentId], [x].[SeoAlias], [x].[SeoDescription], [x].[SeoKeywords], [x].[SeoPageTitle], [x].[SortOrder], [x].[Status]
+FROM [ProductCategories] AS [x]
+ORDER BY [x].[ParentId]" (0723d8ff)
+2019-01-12T00:09:00.3416499+07:00 0HLJNSSAO51HS:00000002 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2019-01-12T00:09:00.3665806+07:00 0HLJNSSAO51HU:00000001 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2019-01-12T00:09:00.3831267+07:00 0HLJNSSAO51HS:00000002 [INF] Authorization was successful for user: "danghung". (d7eb274a)
+2019-01-12T00:09:00.4143219+07:00 0HLJNSSAO51HS:00000002 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.AuthenticationController.NoAuthenication (ShopOnlineApp)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2019-01-12T00:09:00.4522945+07:00 0HLJNSSAO51HS:00000002 [INF] Executing ViewResult, running view at path "/Areas/Admin/Views/Authentication/NoAuthenication.cshtml". (9707eebe)
+2019-01-12T00:09:00.4565522+07:00 0HLJNSSAO51HU:00000001 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.BillController.GetColors (ShopOnlineApp)" in 2588.4446ms (afa2e885)
+2019-01-12T00:09:00.4811358+07:00 0HLJNSSAO51HR:0000000D [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2019-01-12T00:09:00.4943551+07:00 0HLJNSSAO51HS:00000002 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.AuthenticationController.NoAuthenication (ShopOnlineApp)" in 116.0592ms (afa2e885)
+2019-01-12T00:09:00.5494201+07:00 0HLJNSSAO51HS:00000002 [INF] Request finished in 350.6268ms 200 text/html; charset=utf-8 (791a596a)
+2019-01-12T00:09:00.5539948+07:00 0HLJNSSAO51HU:00000001 [INF] Request finished in 7479.4537ms 200 application/json; charset=utf-8 (791a596a)
+2019-01-12T00:09:00.6198912+07:00 0HLJNSSAO51HR:0000000D [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.ProductCategoryController.GetAll (ShopOnlineApp)" in 7686.1683ms (afa2e885)
+2019-01-12T00:09:00.6394467+07:00 0HLJNSSAO51HR:0000000D [INF] Request finished in 8603.4917ms 200 application/json; charset=utf-8 (791a596a)
+2019-01-12T00:09:10.9718181+07:00 0HLJNSSAO51HT:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44344/lib/bootstrap/dist/css/bootstrap.min.css.map   (ca22a1cb)
+2019-01-12T00:09:10.9977496+07:00 0HLJNSSAO51HT:00000002 [INF] The file "/lib/bootstrap/dist/css/bootstrap.min.css.map" was not modified (f1f8d725)
+2019-01-12T00:09:11.1881754+07:00 0HLJNSSAO51HT:00000002 [INF] Request finished in 74.3385ms 304 text/plain (791a596a)
+2019-01-12T00:09:23.9509500+07:00 0HLJNSSAO51HU:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/Product/Index   (ca22a1cb)
+2019-01-12T00:09:23.9626265+07:00 0HLJNSSAO51HU:00000002 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2019-01-12T00:09:23.9809206+07:00 0HLJNSSAO51HU:00000002 [INF] Authorization was successful for user: "danghung". (d7eb274a)
+2019-01-12T00:09:23.9896945+07:00 0HLJNSSAO51HU:00000002 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2019-01-12T00:09:24.0156989+07:00 0HLJNSSAO51HU:00000002 [INF] Executed DbCommand ("7"ms) [Parameters=["@__get_Item_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [e].[Id], [e].[AccessFailedCount], [e].[Avatar], [e].[Balance], [e].[BirthDay], [e].[ConcurrencyStamp], [e].[DateCreated], [e].[DateModified], [e].[Email], [e].[EmailConfirmed], [e].[FullName], [e].[LockoutEnabled], [e].[LockoutEnd], [e].[NormalizedEmail], [e].[NormalizedUserName], [e].[PasswordHash], [e].[PhoneNumber], [e].[PhoneNumberConfirmed], [e].[SecurityStamp], [e].[Status], [e].[TwoFactorEnabled], [e].[UserName]
+FROM [AppUsers] AS [e]
+WHERE [e].[Id] = @__get_Item_0" (0723d8ff)
+2019-01-12T00:09:24.0247785+07:00 0HLJNSSAO51HU:00000002 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [b].[Id], [b].[BusinessId], [b].[Description], [b].[Name]
+FROM [BusinessAction] AS [b]" (0723d8ff)
+2019-01-12T00:09:24.0368163+07:00 0HLJNSSAO51HU:00000002 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [g].[Id], [g].[BusinessActionId], [g].[UserId]
+FROM [GrantPermission] AS [g]" (0723d8ff)
+2019-01-12T00:09:24.0449661+07:00 0HLJNSSAO51HU:00000002 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.ProductController.Index (ShopOnlineApp)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2019-01-12T00:09:24.0518550+07:00 0HLJNSSAO51HU:00000002 [INF] Executing ViewResult, running view at path "/Areas/Admin/Views/Product/Index.cshtml". (9707eebe)
+2019-01-12T00:09:24.0688318+07:00 0HLJNSSAO51HU:00000002 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.ProductController.Index (ShopOnlineApp)" in 91.4048ms (afa2e885)
+2019-01-12T00:09:24.1726095+07:00 0HLJNSSAO51HU:00000002 [INF] Request finished in 131.2862ms 200 text/html; charset=utf-8 (791a596a)
+2019-01-12T00:09:24.2733378+07:00 0HLJNSSAO51HS:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/Product/Index   (ca22a1cb)
+2019-01-12T00:09:24.3814608+07:00 0HLJNSSAO51HS:00000003 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2019-01-12T00:09:24.4572746+07:00 0HLJNSSAO51HS:00000003 [INF] Authorization was successful for user: "danghung". (d7eb274a)
+2019-01-12T00:09:24.5457811+07:00 0HLJNSSAO51HS:00000003 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2019-01-12T00:09:24.5717211+07:00 0HLJNSSAO51HS:00000003 [INF] Executed DbCommand ("4"ms) [Parameters=["@__get_Item_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [e].[Id], [e].[AccessFailedCount], [e].[Avatar], [e].[Balance], [e].[BirthDay], [e].[ConcurrencyStamp], [e].[DateCreated], [e].[DateModified], [e].[Email], [e].[EmailConfirmed], [e].[FullName], [e].[LockoutEnabled], [e].[LockoutEnd], [e].[NormalizedEmail], [e].[NormalizedUserName], [e].[PasswordHash], [e].[PhoneNumber], [e].[PhoneNumberConfirmed], [e].[SecurityStamp], [e].[Status], [e].[TwoFactorEnabled], [e].[UserName]
+FROM [AppUsers] AS [e]
+WHERE [e].[Id] = @__get_Item_0" (0723d8ff)
+2019-01-12T00:09:24.5963686+07:00 0HLJNSSAO51HS:00000003 [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [b].[Id], [b].[BusinessId], [b].[Description], [b].[Name]
+FROM [BusinessAction] AS [b]" (0723d8ff)
+2019-01-12T00:09:24.6205443+07:00 0HLJNSSAO51HS:00000003 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [g].[Id], [g].[BusinessActionId], [g].[UserId]
+FROM [GrantPermission] AS [g]" (0723d8ff)
+2019-01-12T00:09:24.6347542+07:00 0HLJNSSAO51HS:00000003 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.ProductController.Index (ShopOnlineApp)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2019-01-12T00:09:24.6492791+07:00 0HLJNSSAO51HS:00000003 [INF] Executing ViewResult, running view at path "/Areas/Admin/Views/Product/Index.cshtml". (9707eebe)
+2019-01-12T00:09:24.6693277+07:00 0HLJNSSAO51HS:00000003 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.ProductController.Index (ShopOnlineApp)" in 272.184ms (afa2e885)
+2019-01-12T00:09:24.7212684+07:00 0HLJNSSAO51HS:00000003 [INF] Request finished in 498.757ms 200 text/html; charset=utf-8 (791a596a)
+2019-01-12T00:09:24.7857296+07:00 0HLJNSSAO51HT:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/Product/GetAllPaging?categoryId=--Ch%E1%BB%8Dn+lo%E1%BA%A1i--&searchText=&pageIndex=1&pageSize=10   (ca22a1cb)
+2019-01-12T00:09:24.8132386+07:00 0HLJNSSAO51HR:0000000E [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/ProductCategory/GetAll   (ca22a1cb)
+2019-01-12T00:09:24.8437555+07:00 0HLJNSSAO51HS:00000004 [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/Bill/GetSizes   (ca22a1cb)
+2019-01-12T00:09:24.8843324+07:00 0HLJNSSAO51HT:00000003 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2019-01-12T00:09:24.9381283+07:00 0HLJNSSAO51HR:0000000E [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2019-01-12T00:09:24.9657304+07:00 0HLJNSSAO51HU:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/Bill/GetColors   (ca22a1cb)
+2019-01-12T00:09:25.0286828+07:00 0HLJNSSAO51HS:00000004 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2019-01-12T00:09:25.0357512+07:00 0HLJNSSAO51HT:00000003 [INF] Authorization was successful for user: "danghung". (d7eb274a)
+2019-01-12T00:09:25.0479814+07:00 0HLJNSSAO51HR:0000000E [INF] Authorization was successful for user: "danghung". (d7eb274a)
+2019-01-12T00:09:25.0806733+07:00 0HLJNSSAO51HS:00000004 [INF] Authorization was successful for user: "danghung". (d7eb274a)
+2019-01-12T00:09:25.0866426+07:00 0HLJNSSAO51HU:00000003 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2019-01-12T00:09:25.0960924+07:00 0HLJNSSAO51HT:00000003 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2019-01-12T00:09:25.1070268+07:00 0HLJNSSAO51HR:0000000E [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.ProductCategoryController.GetAll (ShopOnlineApp)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2019-01-12T00:09:25.1384983+07:00 0HLJNSSAO51HS:00000004 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.BillController.GetSizes (ShopOnlineApp)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2019-01-12T00:09:25.1991457+07:00 0HLJNSSAO51HU:00000003 [INF] Authorization was successful for user: "danghung". (d7eb274a)
+2019-01-12T00:09:25.2014904+07:00 0HLJNSSAO51HR:0000000E [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2019-01-12T00:09:25.2213515+07:00 0HLJNSSAO51HT:00000003 [INF] Executed DbCommand ("12"ms) [Parameters=["@__get_Item_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [e].[Id], [e].[AccessFailedCount], [e].[Avatar], [e].[Balance], [e].[BirthDay], [e].[ConcurrencyStamp], [e].[DateCreated], [e].[DateModified], [e].[Email], [e].[EmailConfirmed], [e].[FullName], [e].[LockoutEnabled], [e].[LockoutEnd], [e].[NormalizedEmail], [e].[NormalizedUserName], [e].[PasswordHash], [e].[PhoneNumber], [e].[PhoneNumberConfirmed], [e].[SecurityStamp], [e].[Status], [e].[TwoFactorEnabled], [e].[UserName]
+FROM [AppUsers] AS [e]
+WHERE [e].[Id] = @__get_Item_0" (0723d8ff)
+2019-01-12T00:09:25.2362733+07:00 0HLJNSSAO51HS:00000004 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2019-01-12T00:09:25.2439243+07:00 0HLJNSSAO51HR:0000000E [INF] Executed DbCommand ("13"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[DateCreated], [x].[DateModified], [x].[Description], [x].[HomeFlag], [x].[HomeOrder], [x].[Image], [x].[Name], [x].[ParentId], [x].[SeoAlias], [x].[SeoDescription], [x].[SeoKeywords], [x].[SeoPageTitle], [x].[SortOrder], [x].[Status]
+FROM [ProductCategories] AS [x]
+ORDER BY [x].[ParentId]" (0723d8ff)
+2019-01-12T00:09:25.2545837+07:00 0HLJNSSAO51HU:00000003 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.BillController.GetColors (ShopOnlineApp)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2019-01-12T00:09:25.3257516+07:00 0HLJNSSAO51HT:00000003 [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [b].[Id], [b].[BusinessId], [b].[Description], [b].[Name]
+FROM [BusinessAction] AS [b]" (0723d8ff)
+2019-01-12T00:09:25.3315358+07:00 0HLJNSSAO51HS:00000004 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [s].[Id], [s].[Name]
+FROM [Sizes] AS [s]" (0723d8ff)
+2019-01-12T00:09:25.3365168+07:00 0HLJNSSAO51HU:00000003 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2019-01-12T00:09:25.3453560+07:00 0HLJNSSAO51HR:0000000E [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2019-01-12T00:09:25.3885902+07:00 0HLJNSSAO51HT:00000003 [INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [g].[Id], [g].[BusinessActionId], [g].[UserId]
+FROM [GrantPermission] AS [g]" (0723d8ff)
+2019-01-12T00:09:25.4153931+07:00 0HLJNSSAO51HR:0000000E [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.ProductCategoryController.GetAll (ShopOnlineApp)" in 406.8073ms (afa2e885)
+2019-01-12T00:09:25.4390416+07:00 0HLJNSSAO51HS:00000004 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2019-01-12T00:09:25.4565051+07:00 0HLJNSSAO51HT:00000003 [INF] Executing RedirectResult, redirecting to "/Admin/Authentication/NoAuthenication". (d98d540e)
+2019-01-12T00:09:25.4912782+07:00 0HLJNSSAO51HR:0000000E [INF] Request finished in 659.4191ms 200 application/json; charset=utf-8 (791a596a)
+2019-01-12T00:09:25.5181490+07:00 0HLJNSSAO51HS:00000004 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.BillController.GetSizes (ShopOnlineApp)" in 414.8787ms (afa2e885)
+2019-01-12T00:09:25.5269407+07:00 0HLJNSSAO51HU:00000003 [INF] Executed DbCommand ("3"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [c].[Id], [c].[Code], [c].[Name]
+FROM [Colors] AS [c]" (0723d8ff)
+2019-01-12T00:09:25.5436448+07:00 0HLJNSSAO51HT:00000003 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.ProductController.GetAllPaging (ShopOnlineApp)" in 579.1622ms (afa2e885)
+2019-01-12T00:09:25.5826518+07:00 0HLJNSSAO51HS:00000004 [INF] Request finished in 729.8869ms 200 application/json; charset=utf-8 (791a596a)
+2019-01-12T00:09:25.6066229+07:00 0HLJNSSAO51HR:0000000F [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/Authentication/NoAuthenication   (ca22a1cb)
+2019-01-12T00:09:25.6175736+07:00 0HLJNSSAO51HT:00000003 [INF] Request finished in 779.6381ms 302  (791a596a)
+2019-01-12T00:09:25.6221291+07:00 0HLJNSSAO51HU:00000003 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2019-01-12T00:09:25.6649644+07:00 0HLJNSSAO51HR:0000000F [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2019-01-12T00:09:25.6810295+07:00 0HLJNSSAO51HU:00000003 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.BillController.GetColors (ShopOnlineApp)" in 533.4686ms (afa2e885)
+2019-01-12T00:09:25.6856758+07:00 0HLJNSSAO51HR:0000000F [INF] Authorization was successful for user: "danghung". (d7eb274a)
+2019-01-12T00:09:25.7025333+07:00 0HLJNSSAO51HR:0000000F [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.AuthenticationController.NoAuthenication (ShopOnlineApp)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2019-01-12T00:09:25.7153728+07:00 0HLJNSSAO51HR:0000000F [INF] Executing ViewResult, running view at path "/Areas/Admin/Views/Authentication/NoAuthenication.cshtml". (9707eebe)
+2019-01-12T00:09:25.7216730+07:00 0HLJNSSAO51HU:00000003 [INF] Request finished in 904.2648ms 200 application/json; charset=utf-8 (791a596a)
+2019-01-12T00:09:25.7368235+07:00 0HLJNSSAO51HR:0000000F [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.AuthenticationController.NoAuthenication (ShopOnlineApp)" in 59.1427ms (afa2e885)
+2019-01-12T00:09:25.7536824+07:00 0HLJNSSAO51HR:0000000F [INF] Request finished in 179.8152ms 200 text/html; charset=utf-8 (791a596a)
+2019-01-12T00:09:31.4095036+07:00 0HLJNSSAO51HS:00000005 [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/Product/Index   (ca22a1cb)
+2019-01-12T00:09:31.4209731+07:00 0HLJNSSAO51HS:00000005 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2019-01-12T00:09:31.4323582+07:00 0HLJNSSAO51HS:00000005 [INF] Authorization was successful for user: "danghung". (d7eb274a)
+2019-01-12T00:09:31.4425333+07:00 0HLJNSSAO51HS:00000005 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2019-01-12T00:09:31.4547948+07:00 0HLJNSSAO51HS:00000005 [INF] Executed DbCommand ("1"ms) [Parameters=["@__get_Item_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [e].[Id], [e].[AccessFailedCount], [e].[Avatar], [e].[Balance], [e].[BirthDay], [e].[ConcurrencyStamp], [e].[DateCreated], [e].[DateModified], [e].[Email], [e].[EmailConfirmed], [e].[FullName], [e].[LockoutEnabled], [e].[LockoutEnd], [e].[NormalizedEmail], [e].[NormalizedUserName], [e].[PasswordHash], [e].[PhoneNumber], [e].[PhoneNumberConfirmed], [e].[SecurityStamp], [e].[Status], [e].[TwoFactorEnabled], [e].[UserName]
+FROM [AppUsers] AS [e]
+WHERE [e].[Id] = @__get_Item_0" (0723d8ff)
+2019-01-12T00:09:31.4663021+07:00 0HLJNSSAO51HS:00000005 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [b].[Id], [b].[BusinessId], [b].[Description], [b].[Name]
+FROM [BusinessAction] AS [b]" (0723d8ff)
+2019-01-12T00:09:31.4766115+07:00 0HLJNSSAO51HS:00000005 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [g].[Id], [g].[BusinessActionId], [g].[UserId]
+FROM [GrantPermission] AS [g]" (0723d8ff)
+2019-01-12T00:09:34.9304758+07:00 0HLJNSSAO51HS:00000005 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.ProductController.Index (ShopOnlineApp)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2019-01-12T00:09:34.9415179+07:00 0HLJNSSAO51HS:00000005 [INF] Executing ViewResult, running view at path "/Areas/Admin/Views/Product/Index.cshtml". (9707eebe)
+2019-01-12T00:09:35.0225808+07:00 0HLJNSSAO51HS:00000005 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.ProductController.Index (ShopOnlineApp)" in 3523.3303ms (afa2e885)
+2019-01-12T00:09:35.0530991+07:00 0HLJNSSAO51HT:00000004 [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/Product/Index   (ca22a1cb)
+2019-01-12T00:09:35.0959059+07:00 0HLJNSSAO51HT:00000004 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2019-01-12T00:09:35.1232084+07:00 0HLJNSSAO51HT:00000004 [INF] Authorization was successful for user: "danghung". (d7eb274a)
+2019-01-12T00:09:35.2991753+07:00 0HLJNSSAO51HS:00000005 [INF] Request finished in 3639.3896ms 200 text/html; charset=utf-8 (791a596a)
+2019-01-12T00:09:35.3211989+07:00 0HLJNSSAO51HT:00000004 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2019-01-12T00:09:35.3745654+07:00 0HLJNSSAO51HT:00000004 [INF] Executed DbCommand ("5"ms) [Parameters=["@__get_Item_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [e].[Id], [e].[AccessFailedCount], [e].[Avatar], [e].[Balance], [e].[BirthDay], [e].[ConcurrencyStamp], [e].[DateCreated], [e].[DateModified], [e].[Email], [e].[EmailConfirmed], [e].[FullName], [e].[LockoutEnabled], [e].[LockoutEnd], [e].[NormalizedEmail], [e].[NormalizedUserName], [e].[PasswordHash], [e].[PhoneNumber], [e].[PhoneNumberConfirmed], [e].[SecurityStamp], [e].[Status], [e].[TwoFactorEnabled], [e].[UserName]
+FROM [AppUsers] AS [e]
+WHERE [e].[Id] = @__get_Item_0" (0723d8ff)
+2019-01-12T00:09:35.4012610+07:00 0HLJNSSAO51HT:00000004 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [b].[Id], [b].[BusinessId], [b].[Description], [b].[Name]
+FROM [BusinessAction] AS [b]" (0723d8ff)
+2019-01-12T00:09:35.4659893+07:00 0HLJNSSAO51HT:00000004 [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [g].[Id], [g].[BusinessActionId], [g].[UserId]
+FROM [GrantPermission] AS [g]" (0723d8ff)
+2019-01-12T00:09:38.7662641+07:00 0HLJNSSAO51HU:00000004 [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/ProductCategory/GetAll   (ca22a1cb)
+2019-01-12T00:09:38.7898250+07:00 0HLJNSSAO51HT:00000004 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.ProductController.Index (ShopOnlineApp)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2019-01-12T00:09:38.8030244+07:00 0HLJNSSAO51HU:00000004 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2019-01-12T00:09:38.8163081+07:00 0HLJNSSAO51HR:00000010 [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/Bill/GetColors   (ca22a1cb)
+2019-01-12T00:09:38.8444436+07:00 0HLJNSSAO51HT:00000004 [INF] Executing ViewResult, running view at path "/Areas/Admin/Views/Product/Index.cshtml". (9707eebe)
+2019-01-12T00:09:38.9580850+07:00 0HLJNSSAO51HR:00000010 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2019-01-12T00:09:38.9722250+07:00 0HLJNSSAO51HU:00000004 [INF] Authorization was successful for user: "danghung". (d7eb274a)
+2019-01-12T00:09:39.0001409+07:00 0HLJNSSAO51HT:00000004 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.ProductController.Index (ShopOnlineApp)" in 3754.2961ms (afa2e885)
+2019-01-12T00:09:39.0221785+07:00 0HLJNSSAO51HR:00000010 [INF] Authorization was successful for user: "danghung". (d7eb274a)
+2019-01-12T00:09:39.0435635+07:00 0HLJNSSAO51HR:00000010 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.BillController.GetColors (ShopOnlineApp)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2019-01-12T00:09:39.0482970+07:00 0HLJNSSAO51HU:00000004 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.ProductCategoryController.GetAll (ShopOnlineApp)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2019-01-12T00:09:39.0639897+07:00 0HLJNSSAO51HT:00000004 [INF] Request finished in 3995.7703ms 200 text/html; charset=utf-8 (791a596a)
+2019-01-12T00:09:39.0667711+07:00 0HLJNSSAO51HS:00000006 [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/Product/GetAllPaging?categoryId=--Ch%E1%BB%8Dn+lo%E1%BA%A1i--&searchText=&pageIndex=1&pageSize=10   (ca22a1cb)
+2019-01-12T00:09:39.1019329+07:00 0HLJNSSAO51HU:00000004 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2019-01-12T00:09:39.1085766+07:00 0HLJNSSAO51HR:00000010 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2019-01-12T00:09:39.1251857+07:00 0HLJNSSAO51HV:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/Bill/GetSizes   (ca22a1cb)
+2019-01-12T00:09:39.1381697+07:00 0HLJNSSAO51HS:00000006 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2019-01-12T00:09:39.1522230+07:00 0HLJNSSAO51HV:00000001 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2019-01-12T00:09:39.1827753+07:00 0HLJNSSAO51HR:00000010 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [c].[Id], [c].[Code], [c].[Name]
+FROM [Colors] AS [c]" (0723d8ff)
+2019-01-12T00:09:39.2278233+07:00 0HLJNSSAO51HR:00000010 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2019-01-12T00:09:39.2683801+07:00 0HLJNSSAO51HR:00000010 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.BillController.GetColors (ShopOnlineApp)" in 267.9082ms (afa2e885)
+2019-01-12T00:09:39.2761025+07:00 0HLJNSSAO51HS:00000006 [INF] Authorization was successful for user: "danghung". (d7eb274a)
+2019-01-12T00:09:39.2856348+07:00 0HLJNSSAO51HV:00000001 [INF] Authorization was successful for user: "danghung". (d7eb274a)
+2019-01-12T00:09:39.3002082+07:00 0HLJNSSAO51HV:00000001 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.BillController.GetSizes (ShopOnlineApp)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2019-01-12T00:09:39.3268600+07:00 0HLJNSSAO51I0:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/favicon.ico   (ca22a1cb)
+2019-01-12T00:09:39.3345185+07:00 0HLJNSSAO51HR:00000010 [INF] Request finished in 527.3996ms 200 application/json; charset=utf-8 (791a596a)
+2019-01-12T00:09:39.3516566+07:00 0HLJNSSAO51HV:00000001 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2019-01-12T00:09:39.3707683+07:00 0HLJNSSAO51HU:00000004 [INF] Executed DbCommand ("236"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[DateCreated], [x].[DateModified], [x].[Description], [x].[HomeFlag], [x].[HomeOrder], [x].[Image], [x].[Name], [x].[ParentId], [x].[SeoAlias], [x].[SeoDescription], [x].[SeoKeywords], [x].[SeoPageTitle], [x].[SortOrder], [x].[Status]
+FROM [ProductCategories] AS [x]
+ORDER BY [x].[ParentId]" (0723d8ff)
+2019-01-12T00:09:39.3848272+07:00 0HLJNSSAO51HU:00000004 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2019-01-12T00:09:39.3945996+07:00 0HLJNSSAO51I0:00000001 [INF] Sending file. Request path: '"/favicon.ico"'. Physical path: '"G:\KhoaLuan\teducoreapp\ShopOnlineApp\wwwroot\favicon.ico"' (27b0a520)
+2019-01-12T00:09:39.3979855+07:00 0HLJNSSAO51HV:00000001 [INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [s].[Id], [s].[Name]
+FROM [Sizes] AS [s]" (0723d8ff)
+2019-01-12T00:09:39.4148747+07:00 0HLJNSSAO51HU:00000004 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.ProductCategoryController.GetAll (ShopOnlineApp)" in 580.1317ms (afa2e885)
+2019-01-12T00:09:39.4773862+07:00 0HLJNSSAO51HV:00000001 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2019-01-12T00:09:39.5071778+07:00 0HLJNSSAO51HV:00000001 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.BillController.GetSizes (ShopOnlineApp)" in 325.9737ms (afa2e885)
+2019-01-12T00:09:39.5185485+07:00 0HLJNSSAO51I0:00000001 [INF] Request finished in 238.7473ms 200 image/x-icon (791a596a)
+2019-01-12T00:09:39.5351552+07:00 0HLJNSSAO51HS:00000006 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2019-01-12T00:09:39.5556859+07:00 0HLJNSSAO51HV:00000001 [INF] Request finished in 400.0013ms 200 application/json; charset=utf-8 (791a596a)
+2019-01-12T00:09:39.5612179+07:00 0HLJNSSAO51HU:00000004 [INF] Request finished in 700.9408ms 200 application/json; charset=utf-8 (791a596a)
+2019-01-12T00:09:39.6010163+07:00 0HLJNSSAO51HS:00000006 [INF] Executed DbCommand ("6"ms) [Parameters=["@__get_Item_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [e].[Id], [e].[AccessFailedCount], [e].[Avatar], [e].[Balance], [e].[BirthDay], [e].[ConcurrencyStamp], [e].[DateCreated], [e].[DateModified], [e].[Email], [e].[EmailConfirmed], [e].[FullName], [e].[LockoutEnabled], [e].[LockoutEnd], [e].[NormalizedEmail], [e].[NormalizedUserName], [e].[PasswordHash], [e].[PhoneNumber], [e].[PhoneNumberConfirmed], [e].[SecurityStamp], [e].[Status], [e].[TwoFactorEnabled], [e].[UserName]
+FROM [AppUsers] AS [e]
+WHERE [e].[Id] = @__get_Item_0" (0723d8ff)
+2019-01-12T00:09:39.6256399+07:00 0HLJNSSAO51HS:00000006 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [b].[Id], [b].[BusinessId], [b].[Description], [b].[Name]
+FROM [BusinessAction] AS [b]" (0723d8ff)
+2019-01-12T00:09:39.6373462+07:00 0HLJNSSAO51HS:00000006 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [g].[Id], [g].[BusinessActionId], [g].[UserId]
+FROM [GrantPermission] AS [g]" (0723d8ff)
+2019-01-12T00:09:47.8408832+07:00 0HLJNSSAO51HS:00000006 [INF] Executing RedirectResult, redirecting to "/Admin/Authentication/NoAuthenication". (d98d540e)
+2019-01-12T00:09:47.8505009+07:00 0HLJNSSAO51HS:00000006 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.ProductController.GetAllPaging (ShopOnlineApp)" in 8700.2146ms (afa2e885)
+2019-01-12T00:09:47.8655973+07:00 0HLJNSSAO51HS:00000006 [INF] Request finished in 9131.3529ms 302  (791a596a)
+2019-01-12T00:09:47.8802305+07:00 0HLJNSSAO51HT:00000005 [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/Authentication/NoAuthenication   (ca22a1cb)
+2019-01-12T00:09:47.8884232+07:00 0HLJNSSAO51HT:00000005 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2019-01-12T00:09:47.8968055+07:00 0HLJNSSAO51HT:00000005 [INF] Authorization was successful for user: "danghung". (d7eb274a)
+2019-01-12T00:09:47.9044803+07:00 0HLJNSSAO51HT:00000005 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.AuthenticationController.NoAuthenication (ShopOnlineApp)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2019-01-12T00:09:47.9135177+07:00 0HLJNSSAO51HT:00000005 [INF] Executing ViewResult, running view at path "/Areas/Admin/Views/Authentication/NoAuthenication.cshtml". (9707eebe)
+2019-01-12T00:09:47.9217354+07:00 0HLJNSSAO51HT:00000005 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.AuthenticationController.NoAuthenication (ShopOnlineApp)" in 26.0891ms (afa2e885)
+2019-01-12T00:09:47.9321114+07:00 0HLJNSSAO51HT:00000005 [INF] Request finished in 57.7853ms 200 text/html; charset=utf-8 (791a596a)
+2019-01-12T00:10:16.2261023+07:00 0HLJNSSAO51HR:00000011 [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/Business/Index   (ca22a1cb)
+2019-01-12T00:10:16.2338238+07:00 0HLJNSSAO51HR:00000011 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2019-01-12T00:10:16.2456886+07:00 0HLJNSSAO51HR:00000011 [INF] Authorization was successful for user: "danghung". (d7eb274a)
+2019-01-12T00:10:16.2526003+07:00 0HLJNSSAO51HR:00000011 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.BusinessController.Index (ShopOnlineApp)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2019-01-12T00:10:16.2636793+07:00 0HLJNSSAO51HR:00000011 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2019-01-12T00:10:16.2772137+07:00 0HLJNSSAO51HR:00000011 [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [b].[Id], [b].[Name]
+FROM [Business] AS [b]" (0723d8ff)
+2019-01-12T00:10:16.2847650+07:00 0HLJNSSAO51HR:00000011 [INF] Executing ViewResult, running view at path "/Areas/Admin/Views/Business/Index.cshtml". (9707eebe)
+2019-01-12T00:10:16.3164967+07:00 0HLJNSSAO51HR:00000011 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.BusinessController.Index (ShopOnlineApp)" in 52.2146ms (afa2e885)
+2019-01-12T00:10:16.3511108+07:00 0HLJNSSAO51HR:00000011 [INF] Request finished in 105.2012ms 200 text/html; charset=utf-8 (791a596a)
+2019-01-12T00:10:16.5157755+07:00 0HLJNSSAO51HU:00000005 [INF] Request starting HTTP/1.1 POST http://localhost:44344/Admin/Business/GetAllPaging application/x-www-form-urlencoded; charset=UTF-8 35 (ca22a1cb)
+2019-01-12T00:10:16.5277461+07:00 0HLJNSSAO51HU:00000005 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2019-01-12T00:10:16.5363173+07:00 0HLJNSSAO51HU:00000005 [INF] Authorization was successful for user: "danghung". (d7eb274a)
+2019-01-12T00:10:16.5587814+07:00 0HLJNSSAO51HU:00000005 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.BusinessController.GetAllPaging (ShopOnlineApp)" with arguments (["ShopOnlineApp.Application.ViewModels.Business.BusinessRequest"]) - ModelState is Valid (ba7f4ac2)
+2019-01-12T00:10:16.5720372+07:00 0HLJNSSAO51HU:00000005 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2019-01-12T00:10:16.5892606+07:00 0HLJNSSAO51HU:00000005 [INF] Executed DbCommand ("3"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Business] AS [b]" (0723d8ff)
+2019-01-12T00:10:16.6020455+07:00 0HLJNSSAO51HU:00000005 [INF] Executed DbCommand ("0"ms) [Parameters=["@__p_0='?', @__p_1='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT [b].[Id], [b].[Name]
+FROM [Business] AS [b]
+ORDER BY (SELECT 1)
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY" (0723d8ff)
+2019-01-12T00:10:16.6198380+07:00 0HLJNSSAO51HU:00000005 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2019-01-12T00:10:16.6311528+07:00 0HLJNSSAO51HU:00000005 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.BusinessController.GetAllPaging (ShopOnlineApp)" in 92.6228ms (afa2e885)
+2019-01-12T00:10:16.6458280+07:00 0HLJNSSAO51HU:00000005 [INF] Request finished in 134.564ms 200 application/json; charset=utf-8 (791a596a)
+2019-01-12T00:10:16.6679122+07:00 0HLJNSSAO51I0:00000002 [INF] Request starting HTTP/1.1 POST http://localhost:44344/Admin/Business/GetAllPaging application/x-www-form-urlencoded; charset=UTF-8 35 (ca22a1cb)
+2019-01-12T00:10:16.6801293+07:00 0HLJNSSAO51I0:00000002 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2019-01-12T00:10:16.6910848+07:00 0HLJNSSAO51I0:00000002 [INF] Authorization was successful for user: "danghung". (d7eb274a)
+2019-01-12T00:10:16.7005271+07:00 0HLJNSSAO51I0:00000002 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.BusinessController.GetAllPaging (ShopOnlineApp)" with arguments (["ShopOnlineApp.Application.ViewModels.Business.BusinessRequest"]) - ModelState is Valid (ba7f4ac2)
+2019-01-12T00:10:16.7114177+07:00 0HLJNSSAO51I0:00000002 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2019-01-12T00:10:16.7233962+07:00 0HLJNSSAO51I0:00000002 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Business] AS [b]" (0723d8ff)
+2019-01-12T00:10:16.7318849+07:00 0HLJNSSAO51I0:00000002 [INF] Executed DbCommand ("0"ms) [Parameters=["@__p_0='?', @__p_1='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT [b].[Id], [b].[Name]
+FROM [Business] AS [b]
+ORDER BY (SELECT 1)
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY" (0723d8ff)
+2019-01-12T00:10:16.7440266+07:00 0HLJNSSAO51I0:00000002 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2019-01-12T00:10:16.7531277+07:00 0HLJNSSAO51I0:00000002 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.BusinessController.GetAllPaging (ShopOnlineApp)" in 63.8939ms (afa2e885)
+2019-01-12T00:10:16.7833067+07:00 0HLJNSSAO51I0:00000002 [INF] Request finished in 93.164ms 200 application/json; charset=utf-8 (791a596a)
+2019-01-12T00:10:25.6927558+07:00 0HLJNSSAO51HV:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/PermissionGrant/Index   (ca22a1cb)
+2019-01-12T00:10:25.7070402+07:00 0HLJNSSAO51HV:00000002 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2019-01-12T00:10:25.7146289+07:00 0HLJNSSAO51HV:00000002 [INF] Authorization was successful for user: "danghung". (d7eb274a)
+2019-01-12T00:10:25.7297673+07:00 0HLJNSSAO51HV:00000002 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.PermissionGrantController.Index (ShopOnlineApp)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2019-01-12T00:10:25.7425881+07:00 0HLJNSSAO51HV:00000002 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2019-01-12T00:10:25.7526565+07:00 0HLJNSSAO51HV:00000002 [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [b].[Id], [b].[Name]
+FROM [Business] AS [b]" (0723d8ff)
+2019-01-12T00:10:25.7641148+07:00 0HLJNSSAO51HV:00000002 [INF] Executing ViewResult, running view at path "/Areas/Admin/Views/PermissionGrant/Index.cshtml". (9707eebe)
+2019-01-12T00:10:25.7796849+07:00 0HLJNSSAO51HV:00000002 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.PermissionGrantController.Index (ShopOnlineApp)" in 58.2142ms (afa2e885)
+2019-01-12T00:10:25.8167593+07:00 0HLJNSSAO51HV:00000002 [INF] Request finished in 99.8832ms 200 text/html; charset=utf-8 (791a596a)
+2019-01-12T00:10:27.3367526+07:00 0HLJNSSAO51HS:00000007 [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/PermissionGrant/GetPermissions?businessId=ProductController&userId=d60bffec-0c20-429a-9acc-08d677d5fc7a   (ca22a1cb)
+2019-01-12T00:10:27.3468723+07:00 0HLJNSSAO51HS:00000007 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2019-01-12T00:10:27.3546916+07:00 0HLJNSSAO51HS:00000007 [INF] Authorization was successful for user: "danghung". (d7eb274a)
+2019-01-12T00:10:27.3633802+07:00 0HLJNSSAO51HS:00000007 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.PermissionGrantController.GetPermissions (ShopOnlineApp)" with arguments (["ProductController", "d60bffec-0c20-429a-9acc-08d677d5fc7a"]) - ModelState is Valid (ba7f4ac2)
+2019-01-12T00:10:27.3710014+07:00 0HLJNSSAO51HS:00000007 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2019-01-12T00:10:27.3807905+07:00 0HLJNSSAO51HS:00000007 [INF] Executed DbCommand ("0"ms) [Parameters=["@__userId_0='?', @__businessId_1='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [p].[Description], [p].[Id] AS [PermissionID], [p].[Name] AS [PermissionName]
+FROM [GrantPermission] AS [g]
+INNER JOIN [BusinessAction] AS [p] ON [g].[BusinessActionId] = [p].[Id]
+WHERE ([g].[UserId] = @__userId_0) AND ([p].[BusinessId] = @__businessId_1)" (0723d8ff)
+2019-01-12T00:10:27.3946149+07:00 0HLJNSSAO51HS:00000007 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [x0].[Id], [x0].[BusinessId], [x0].[Description], [x0].[Name]
+FROM [BusinessAction] AS [x0]
+ORDER BY [x0].[Name]" (0723d8ff)
+2019-01-12T00:10:27.4039067+07:00 0HLJNSSAO51HS:00000007 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2019-01-12T00:10:27.4156271+07:00 0HLJNSSAO51HS:00000007 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.PermissionGrantController.GetPermissions (ShopOnlineApp)" in 57.012ms (afa2e885)
+2019-01-12T00:10:27.4354571+07:00 0HLJNSSAO51HS:00000007 [INF] Request finished in 88.5996ms 200 application/json; charset=utf-8 (791a596a)
+2019-01-12T00:10:29.0331250+07:00 0HLJNSSAO51HT:00000006 [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/PermissionGrant/UpdatePermission?id=13&userId=d60bffec-0c20-429a-9acc-08d677d5fc7a   (ca22a1cb)
+2019-01-12T00:10:29.0413895+07:00 0HLJNSSAO51HT:00000006 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2019-01-12T00:10:29.0490288+07:00 0HLJNSSAO51HT:00000006 [INF] Authorization was successful for user: "danghung". (d7eb274a)
+2019-01-12T00:10:29.0589037+07:00 0HLJNSSAO51HT:00000006 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.PermissionGrantController.UpdatePermission (ShopOnlineApp)" with arguments (["13", "d60bffec-0c20-429a-9acc-08d677d5fc7a"]) - ModelState is Valid (ba7f4ac2)
+2019-01-12T00:10:29.0687950+07:00 0HLJNSSAO51HT:00000006 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2019-01-12T00:10:29.0793733+07:00 0HLJNSSAO51HT:00000006 [INF] Executed DbCommand ("0"ms) [Parameters=["@__id_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(2) [x].[Id], [x].[BusinessActionId], [x].[UserId]
+FROM [GrantPermission] AS [x]
+WHERE [x].[BusinessActionId] = @__id_0" (0723d8ff)
+2019-01-12T00:10:29.0995781+07:00 0HLJNSSAO51HT:00000006 [INF] Executed DbCommand ("0"ms) [Parameters=["@p0='?', @p1='?'"], CommandType='Text', CommandTimeout='30']"
+""SET NOCOUNT ON;
+INSERT INTO [GrantPermission] ([BusinessActionId], [UserId])
+VALUES (@p0, @p1);
+SELECT [Id]
+FROM [GrantPermission]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();" (0723d8ff)
+2019-01-12T00:10:29.1125256+07:00 0HLJNSSAO51HT:00000006 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2019-01-12T00:10:29.1199007+07:00 0HLJNSSAO51HT:00000006 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.PermissionGrantController.UpdatePermission (ShopOnlineApp)" in 71.09ms (afa2e885)
+2019-01-12T00:10:29.1345185+07:00 0HLJNSSAO51HT:00000006 [INF] Request finished in 95.6871ms 200 text/plain; charset=utf-8 (791a596a)
+2019-01-12T00:10:31.1779309+07:00 0HLJNSSAO51HR:00000012 [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/PermissionGrant/UpdatePermission?id=12&userId=d60bffec-0c20-429a-9acc-08d677d5fc7a   (ca22a1cb)
+2019-01-12T00:10:31.1859655+07:00 0HLJNSSAO51HR:00000012 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2019-01-12T00:10:31.1985202+07:00 0HLJNSSAO51HR:00000012 [INF] Authorization was successful for user: "danghung". (d7eb274a)
+2019-01-12T00:10:31.2087773+07:00 0HLJNSSAO51HR:00000012 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.PermissionGrantController.UpdatePermission (ShopOnlineApp)" with arguments (["12", "d60bffec-0c20-429a-9acc-08d677d5fc7a"]) - ModelState is Valid (ba7f4ac2)
+2019-01-12T00:10:31.2272942+07:00 0HLJNSSAO51HR:00000012 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2019-01-12T00:10:31.2410469+07:00 0HLJNSSAO51HR:00000012 [INF] Executed DbCommand ("0"ms) [Parameters=["@__id_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(2) [x].[Id], [x].[BusinessActionId], [x].[UserId]
+FROM [GrantPermission] AS [x]
+WHERE [x].[BusinessActionId] = @__id_0" (0723d8ff)
+2019-01-12T00:10:31.2524185+07:00 0HLJNSSAO51HR:00000012 [INF] Executed DbCommand ("0"ms) [Parameters=["@p0='?', @p1='?'"], CommandType='Text', CommandTimeout='30']"
+""SET NOCOUNT ON;
+INSERT INTO [GrantPermission] ([BusinessActionId], [UserId])
+VALUES (@p0, @p1);
+SELECT [Id]
+FROM [GrantPermission]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();" (0723d8ff)
+2019-01-12T00:10:31.2650566+07:00 0HLJNSSAO51HR:00000012 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2019-01-12T00:10:31.2741233+07:00 0HLJNSSAO51HR:00000012 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.PermissionGrantController.UpdatePermission (ShopOnlineApp)" in 78.7648ms (afa2e885)
+2019-01-12T00:10:31.2846382+07:00 0HLJNSSAO51HR:00000012 [INF] Request finished in 106.1624ms 200 text/plain; charset=utf-8 (791a596a)
+2019-01-12T00:10:36.4860645+07:00 0HLJNSSAO51HU:00000006 [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/Product/Index   (ca22a1cb)
+2019-01-12T00:10:36.4976479+07:00 0HLJNSSAO51HU:00000006 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2019-01-12T00:10:36.5069946+07:00 0HLJNSSAO51HU:00000006 [INF] Authorization was successful for user: "danghung". (d7eb274a)
+2019-01-12T00:10:36.5183719+07:00 0HLJNSSAO51HU:00000006 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2019-01-12T00:10:36.5343344+07:00 0HLJNSSAO51HU:00000006 [INF] Executed DbCommand ("1"ms) [Parameters=["@__get_Item_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [e].[Id], [e].[AccessFailedCount], [e].[Avatar], [e].[Balance], [e].[BirthDay], [e].[ConcurrencyStamp], [e].[DateCreated], [e].[DateModified], [e].[Email], [e].[EmailConfirmed], [e].[FullName], [e].[LockoutEnabled], [e].[LockoutEnd], [e].[NormalizedEmail], [e].[NormalizedUserName], [e].[PasswordHash], [e].[PhoneNumber], [e].[PhoneNumberConfirmed], [e].[SecurityStamp], [e].[Status], [e].[TwoFactorEnabled], [e].[UserName]
+FROM [AppUsers] AS [e]
+WHERE [e].[Id] = @__get_Item_0" (0723d8ff)
+2019-01-12T00:10:36.5477598+07:00 0HLJNSSAO51HU:00000006 [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [b].[Id], [b].[BusinessId], [b].[Description], [b].[Name]
+FROM [BusinessAction] AS [b]" (0723d8ff)
+2019-01-12T00:10:36.5642151+07:00 0HLJNSSAO51HU:00000006 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [g].[Id], [g].[BusinessActionId], [g].[UserId]
+FROM [GrantPermission] AS [g]" (0723d8ff)
+2019-01-12T00:10:39.4294151+07:00 0HLJNSSAO51HU:00000006 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.ProductController.Index (ShopOnlineApp)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2019-01-12T00:10:39.4467490+07:00 0HLJNSSAO51HU:00000006 [INF] Executing ViewResult, running view at path "/Areas/Admin/Views/Product/Index.cshtml". (9707eebe)
+2019-01-12T00:10:39.5322350+07:00 0HLJNSSAO51HU:00000006 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.ProductController.Index (ShopOnlineApp)" in 2951.6234ms (afa2e885)
+2019-01-12T00:10:39.5955048+07:00 0HLJNSSAO51HU:00000006 [INF] Request finished in 3056.779ms 200 text/html; charset=utf-8 (791a596a)
+2019-01-12T00:10:39.6245203+07:00 0HLJNSSAO51I0:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/Product/Index   (ca22a1cb)
+2019-01-12T00:10:39.7833906+07:00 0HLJNSSAO51I0:00000003 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2019-01-12T00:10:39.8128602+07:00 0HLJNSSAO51I0:00000003 [INF] Authorization was successful for user: "danghung". (d7eb274a)
+2019-01-12T00:10:39.9833626+07:00 0HLJNSSAO51I0:00000003 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2019-01-12T00:10:40.1638888+07:00 0HLJNSSAO51HV:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/Product/GetAllPaging?categoryId=--Ch%E1%BB%8Dn+lo%E1%BA%A1i--&searchText=&pageIndex=1&pageSize=10   (ca22a1cb)
+2019-01-12T00:10:40.4750704+07:00 0HLJNSSAO51I0:00000003 [INF] Executed DbCommand ("36"ms) [Parameters=["@__get_Item_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [e].[Id], [e].[AccessFailedCount], [e].[Avatar], [e].[Balance], [e].[BirthDay], [e].[ConcurrencyStamp], [e].[DateCreated], [e].[DateModified], [e].[Email], [e].[EmailConfirmed], [e].[FullName], [e].[LockoutEnabled], [e].[LockoutEnd], [e].[NormalizedEmail], [e].[NormalizedUserName], [e].[PasswordHash], [e].[PhoneNumber], [e].[PhoneNumberConfirmed], [e].[SecurityStamp], [e].[Status], [e].[TwoFactorEnabled], [e].[UserName]
+FROM [AppUsers] AS [e]
+WHERE [e].[Id] = @__get_Item_0" (0723d8ff)
+2019-01-12T00:10:40.5141632+07:00 0HLJNSSAO51HR:00000013 [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/Bill/GetSizes   (ca22a1cb)
+2019-01-12T00:10:40.5262112+07:00 0HLJNSSAO51HS:00000008 [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/ProductCategory/GetAll   (ca22a1cb)
+2019-01-12T00:10:40.5437418+07:00 0HLJNSSAO51HV:00000003 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2019-01-12T00:10:40.5834717+07:00 0HLJNSSAO51HS:00000008 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2019-01-12T00:10:40.6244989+07:00 0HLJNSSAO51HR:00000013 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2019-01-12T00:10:40.6346385+07:00 0HLJNSSAO51I0:00000003 [INF] Executed DbCommand ("15"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [b].[Id], [b].[BusinessId], [b].[Description], [b].[Name]
+FROM [BusinessAction] AS [b]" (0723d8ff)
+2019-01-12T00:10:40.6912917+07:00 0HLJNSSAO51HV:00000003 [INF] Authorization was successful for user: "danghung". (d7eb274a)
+2019-01-12T00:10:40.7006781+07:00 0HLJNSSAO51HR:00000013 [INF] Authorization was successful for user: "danghung". (d7eb274a)
+2019-01-12T00:10:40.7232704+07:00 0HLJNSSAO51I0:00000003 [INF] Executed DbCommand ("20"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [g].[Id], [g].[BusinessActionId], [g].[UserId]
+FROM [GrantPermission] AS [g]" (0723d8ff)
+2019-01-12T00:10:40.7311120+07:00 0HLJNSSAO51HS:00000008 [INF] Authorization was successful for user: "danghung". (d7eb274a)
+2019-01-12T00:10:42.3831025+07:00 0HLJNSSAO51HR:00000013 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.BillController.GetSizes (ShopOnlineApp)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2019-01-12T00:10:42.4058836+07:00 0HLJNSSAO51HS:00000008 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.ProductCategoryController.GetAll (ShopOnlineApp)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2019-01-12T00:10:42.4111355+07:00 0HLJNSSAO51HV:00000003 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2019-01-12T00:10:42.4397851+07:00 0HLJNSSAO51I0:00000003 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.ProductController.Index (ShopOnlineApp)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2019-01-12T00:10:42.4670176+07:00 0HLJNSSAO51HR:00000013 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2019-01-12T00:10:42.5107763+07:00 0HLJNSSAO51HS:00000008 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2019-01-12T00:10:42.5617166+07:00 0HLJNSSAO51I0:00000003 [INF] Executing ViewResult, running view at path "/Areas/Admin/Views/Product/Index.cshtml". (9707eebe)
+2019-01-12T00:10:42.5812604+07:00 0HLJNSSAO51HR:00000013 [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [s].[Id], [s].[Name]
+FROM [Sizes] AS [s]" (0723d8ff)
+2019-01-12T00:10:42.6318678+07:00 0HLJNSSAO51HS:00000008 [INF] Executed DbCommand ("65"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[DateCreated], [x].[DateModified], [x].[Description], [x].[HomeFlag], [x].[HomeOrder], [x].[Image], [x].[Name], [x].[ParentId], [x].[SeoAlias], [x].[SeoDescription], [x].[SeoKeywords], [x].[SeoPageTitle], [x].[SortOrder], [x].[Status]
+FROM [ProductCategories] AS [x]
+ORDER BY [x].[ParentId]" (0723d8ff)
+2019-01-12T00:10:42.6607687+07:00 0HLJNSSAO51HV:00000003 [INF] Executed DbCommand ("116"ms) [Parameters=["@__get_Item_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [e].[Id], [e].[AccessFailedCount], [e].[Avatar], [e].[Balance], [e].[BirthDay], [e].[ConcurrencyStamp], [e].[DateCreated], [e].[DateModified], [e].[Email], [e].[EmailConfirmed], [e].[FullName], [e].[LockoutEnabled], [e].[LockoutEnd], [e].[NormalizedEmail], [e].[NormalizedUserName], [e].[PasswordHash], [e].[PhoneNumber], [e].[PhoneNumberConfirmed], [e].[SecurityStamp], [e].[Status], [e].[TwoFactorEnabled], [e].[UserName]
+FROM [AppUsers] AS [e]
+WHERE [e].[Id] = @__get_Item_0" (0723d8ff)
+2019-01-12T00:10:42.6955055+07:00 0HLJNSSAO51HR:00000013 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2019-01-12T00:10:42.7097201+07:00 0HLJNSSAO51HR:00000013 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.BillController.GetSizes (ShopOnlineApp)" in 2068.9062ms (afa2e885)
+2019-01-12T00:10:42.7180236+07:00 0HLJNSSAO51HS:00000008 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2019-01-12T00:10:42.7262801+07:00 0HLJNSSAO51HT:00000007 [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/Bill/GetColors   (ca22a1cb)
+2019-01-12T00:10:42.7778274+07:00 0HLJNSSAO51I0:00000003 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.ProductController.Index (ShopOnlineApp)" in 2788.4526ms (afa2e885)
+2019-01-12T00:10:42.7836740+07:00 0HLJNSSAO51HV:00000003 [INF] Executed DbCommand ("24"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [b].[Id], [b].[BusinessId], [b].[Description], [b].[Name]
+FROM [BusinessAction] AS [b]" (0723d8ff)
+2019-01-12T00:10:42.8425091+07:00 0HLJNSSAO51HS:00000008 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.ProductCategoryController.GetAll (ShopOnlineApp)" in 2131.8157ms (afa2e885)
+2019-01-12T00:10:42.8768627+07:00 0HLJNSSAO51HT:00000007 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2019-01-12T00:10:42.8924836+07:00 0HLJNSSAO51HR:00000013 [INF] Request finished in 2678.4497ms 200 application/json; charset=utf-8 (791a596a)
+2019-01-12T00:10:42.9179742+07:00 0HLJNSSAO51HS:00000008 [INF] Request finished in 2762.3256ms 200 application/json; charset=utf-8 (791a596a)
+2019-01-12T00:10:42.9294769+07:00 0HLJNSSAO51I0:00000003 [INF] Request finished in 3246.5251ms 200 text/html; charset=utf-8 (791a596a)
+2019-01-12T00:10:42.9408145+07:00 0HLJNSSAO51HV:00000003 [INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [g].[Id], [g].[BusinessActionId], [g].[UserId]
+FROM [GrantPermission] AS [g]" (0723d8ff)
+2019-01-12T00:10:46.6584894+07:00 0HLJNSSAO51HT:00000007 [INF] Authorization was successful for user: "danghung". (d7eb274a)
+2019-01-12T00:10:46.6717097+07:00 0HLJNSSAO51HT:00000007 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.BillController.GetColors (ShopOnlineApp)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2019-01-12T00:10:46.6832412+07:00 0HLJNSSAO51HV:00000003 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.ProductController.GetAllPaging (ShopOnlineApp)" with arguments (["ShopOnlineApp.Application.ViewModels.Product.ProductRequest"]) - ModelState is Invalid (ba7f4ac2)
+2019-01-12T00:10:46.6975252+07:00 0HLJNSSAO51HT:00000007 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2019-01-12T00:10:46.7099867+07:00 0HLJNSSAO51HT:00000007 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [c].[Id], [c].[Code], [c].[Name]
+FROM [Colors] AS [c]" (0723d8ff)
+2019-01-12T00:10:46.7433899+07:00 0HLJNSSAO51HT:00000007 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2019-01-12T00:10:46.8541702+07:00 0HLJNSSAO51HT:00000007 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.BillController.GetColors (ShopOnlineApp)" in 3866.4912ms (afa2e885)
+2019-01-12T00:10:46.8909902+07:00 0HLJNSSAO51HV:00000003 [INF] Executed DbCommand ("30"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Products] AS [x]
+WHERE [x].[Status] = 1" (0723d8ff)
+2019-01-12T00:10:46.8962308+07:00 0HLJNSSAO51HT:00000007 [INF] Request finished in 4342.732ms 200 application/json; charset=utf-8 (791a596a)
+2019-01-12T00:10:46.9835808+07:00 0HLJNSSAO51HV:00000003 [INF] Executed DbCommand ("0"ms) [Parameters=["@__p_0='?', @__p_1='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[CategoryId], [x].[Content], [x].[DateCreated], [x].[DateModified], [x].[Description], [x].[HomeFlag], [x].[HotFlag], [x].[Image], [x].[Name], [x].[OriginalPrice], [x].[Price], [x].[PromotionPrice], [x].[SeoAlias], [x].[SeoDescription], [x].[SeoKeywords], [x].[SeoPageTitle], [x].[Status], [x].[Tags], [x].[Unit], [x].[ViewCount]
+FROM [Products] AS [x]
+WHERE [x].[Status] = 1
+ORDER BY [x].[DateCreated] DESC
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY" (0723d8ff)
+2019-01-12T00:10:47.0174584+07:00 0HLJNSSAO51HV:00000003 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2019-01-12T00:10:47.0675588+07:00 0HLJNSSAO51HV:00000003 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.ProductController.GetAllPaging (ShopOnlineApp)" in 6513.4135ms (afa2e885)
+2019-01-12T00:10:47.0815795+07:00 0HLJNSSAO51HV:00000003 [INF] Request finished in 7039.0764ms 200 application/json; charset=utf-8 (791a596a)
+2019-01-12T00:10:47.1152441+07:00 0HLJNSSAO51HU:00000007 [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/Product/GetAllPaging?categoryId=&searchText=&pageIndex=1&pageSize=10   (ca22a1cb)
+2019-01-12T00:10:47.1251213+07:00 0HLJNSSAO51HU:00000007 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2019-01-12T00:10:47.1334138+07:00 0HLJNSSAO51HU:00000007 [INF] Authorization was successful for user: "danghung". (d7eb274a)
+2019-01-12T00:10:47.1442489+07:00 0HLJNSSAO51HU:00000007 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2019-01-12T00:10:47.1613656+07:00 0HLJNSSAO51HU:00000007 [INF] Executed DbCommand ("1"ms) [Parameters=["@__get_Item_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [e].[Id], [e].[AccessFailedCount], [e].[Avatar], [e].[Balance], [e].[BirthDay], [e].[ConcurrencyStamp], [e].[DateCreated], [e].[DateModified], [e].[Email], [e].[EmailConfirmed], [e].[FullName], [e].[LockoutEnabled], [e].[LockoutEnd], [e].[NormalizedEmail], [e].[NormalizedUserName], [e].[PasswordHash], [e].[PhoneNumber], [e].[PhoneNumberConfirmed], [e].[SecurityStamp], [e].[Status], [e].[TwoFactorEnabled], [e].[UserName]
+FROM [AppUsers] AS [e]
+WHERE [e].[Id] = @__get_Item_0" (0723d8ff)
+2019-01-12T00:10:47.1738467+07:00 0HLJNSSAO51HU:00000007 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [b].[Id], [b].[BusinessId], [b].[Description], [b].[Name]
+FROM [BusinessAction] AS [b]" (0723d8ff)
+2019-01-12T00:10:47.1956814+07:00 0HLJNSSAO51HU:00000007 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [g].[Id], [g].[BusinessActionId], [g].[UserId]
+FROM [GrantPermission] AS [g]" (0723d8ff)
+2019-01-12T00:10:49.6767769+07:00 0HLJNSSAO51HU:00000007 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.ProductController.GetAllPaging (ShopOnlineApp)" with arguments (["ShopOnlineApp.Application.ViewModels.Product.ProductRequest"]) - ModelState is Invalid (ba7f4ac2)
+2019-01-12T00:10:49.6864011+07:00 0HLJNSSAO51HU:00000007 [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Products] AS [x]
+WHERE [x].[Status] = 1" (0723d8ff)
+2019-01-12T00:10:49.6952958+07:00 0HLJNSSAO51HU:00000007 [INF] Executed DbCommand ("0"ms) [Parameters=["@__p_0='?', @__p_1='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[CategoryId], [x].[Content], [x].[DateCreated], [x].[DateModified], [x].[Description], [x].[HomeFlag], [x].[HotFlag], [x].[Image], [x].[Name], [x].[OriginalPrice], [x].[Price], [x].[PromotionPrice], [x].[SeoAlias], [x].[SeoDescription], [x].[SeoKeywords], [x].[SeoPageTitle], [x].[Status], [x].[Tags], [x].[Unit], [x].[ViewCount]
+FROM [Products] AS [x]
+WHERE [x].[Status] = 1
+ORDER BY [x].[DateCreated] DESC
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY" (0723d8ff)
+2019-01-12T00:10:49.7146666+07:00 0HLJNSSAO51HU:00000007 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2019-01-12T00:10:49.7265510+07:00 0HLJNSSAO51HU:00000007 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.ProductController.GetAllPaging (ShopOnlineApp)" in 2589.9833ms (afa2e885)
+2019-01-12T00:10:49.7535887+07:00 0HLJNSSAO51HU:00000007 [INF] Request finished in 2625.2864ms 200 application/json; charset=utf-8 (791a596a)
+2019-01-12T00:10:53.5303807+07:00 0HLJNSSAO51HR:00000014 [INF] Request starting HTTP/1.1 GET http://localhost:44344/admin/Product/GetImages?productId=21   (ca22a1cb)
+2019-01-12T00:10:53.5400846+07:00 0HLJNSSAO51HR:00000014 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2019-01-12T00:10:53.5580878+07:00 0HLJNSSAO51HR:00000014 [INF] Authorization was successful for user: "danghung". (d7eb274a)
+2019-01-12T00:10:53.5657430+07:00 0HLJNSSAO51HR:00000014 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2019-01-12T00:10:53.5803622+07:00 0HLJNSSAO51HR:00000014 [INF] Executed DbCommand ("0"ms) [Parameters=["@__get_Item_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [e].[Id], [e].[AccessFailedCount], [e].[Avatar], [e].[Balance], [e].[BirthDay], [e].[ConcurrencyStamp], [e].[DateCreated], [e].[DateModified], [e].[Email], [e].[EmailConfirmed], [e].[FullName], [e].[LockoutEnabled], [e].[LockoutEnd], [e].[NormalizedEmail], [e].[NormalizedUserName], [e].[PasswordHash], [e].[PhoneNumber], [e].[PhoneNumberConfirmed], [e].[SecurityStamp], [e].[Status], [e].[TwoFactorEnabled], [e].[UserName]
+FROM [AppUsers] AS [e]
+WHERE [e].[Id] = @__get_Item_0" (0723d8ff)
+2019-01-12T00:10:53.5942364+07:00 0HLJNSSAO51HR:00000014 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [b].[Id], [b].[BusinessId], [b].[Description], [b].[Name]
+FROM [BusinessAction] AS [b]" (0723d8ff)
+2019-01-12T00:10:53.6067459+07:00 0HLJNSSAO51HR:00000014 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [g].[Id], [g].[BusinessActionId], [g].[UserId]
+FROM [GrantPermission] AS [g]" (0723d8ff)
+2019-01-12T00:10:58.4384934+07:00 0HLJNSSAO51HR:00000014 [INF] Executing RedirectResult, redirecting to "/Admin/Authentication/NoAuthenication". (d98d540e)
+2019-01-12T00:10:58.4471653+07:00 0HLJNSSAO51HR:00000014 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.ProductController.GetImages (ShopOnlineApp)" in 4895.0089ms (afa2e885)
+2019-01-12T00:10:58.4603068+07:00 0HLJNSSAO51HR:00000014 [INF] Request finished in 4925.069ms 302  (791a596a)
+2019-01-12T00:10:58.4747051+07:00 0HLJNSSAO51HS:00000009 [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/Authentication/NoAuthenication   (ca22a1cb)
+2019-01-12T00:10:58.4837069+07:00 0HLJNSSAO51HS:00000009 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2019-01-12T00:10:58.4924673+07:00 0HLJNSSAO51HS:00000009 [INF] Authorization was successful for user: "danghung". (d7eb274a)
+2019-01-12T00:10:58.5001165+07:00 0HLJNSSAO51HS:00000009 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.AuthenticationController.NoAuthenication (ShopOnlineApp)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2019-01-12T00:10:58.5090256+07:00 0HLJNSSAO51HS:00000009 [INF] Executing ViewResult, running view at path "/Areas/Admin/Views/Authentication/NoAuthenication.cshtml". (9707eebe)
+2019-01-12T00:10:58.5178320+07:00 0HLJNSSAO51HS:00000009 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.AuthenticationController.NoAuthenication (ShopOnlineApp)" in 26.4839ms (afa2e885)
+2019-01-12T00:10:58.5295910+07:00 0HLJNSSAO51HS:00000009 [INF] Request finished in 58.1606ms 200 text/html; charset=utf-8 (791a596a)
+2019-01-12T00:11:16.9555362+07:00 0HLJNSSAO51HT:00000008 [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/Product/GetAllPaging?categoryId=&searchText=&pageIndex=2&pageSize=10   (ca22a1cb)
+2019-01-12T00:11:16.9648051+07:00 0HLJNSSAO51HT:00000008 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2019-01-12T00:11:16.9742270+07:00 0HLJNSSAO51HT:00000008 [INF] Authorization was successful for user: "danghung". (d7eb274a)
+2019-01-12T00:11:16.9822780+07:00 0HLJNSSAO51HT:00000008 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2019-01-12T00:11:16.9943558+07:00 0HLJNSSAO51HT:00000008 [INF] Executed DbCommand ("1"ms) [Parameters=["@__get_Item_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [e].[Id], [e].[AccessFailedCount], [e].[Avatar], [e].[Balance], [e].[BirthDay], [e].[ConcurrencyStamp], [e].[DateCreated], [e].[DateModified], [e].[Email], [e].[EmailConfirmed], [e].[FullName], [e].[LockoutEnabled], [e].[LockoutEnd], [e].[NormalizedEmail], [e].[NormalizedUserName], [e].[PasswordHash], [e].[PhoneNumber], [e].[PhoneNumberConfirmed], [e].[SecurityStamp], [e].[Status], [e].[TwoFactorEnabled], [e].[UserName]
+FROM [AppUsers] AS [e]
+WHERE [e].[Id] = @__get_Item_0" (0723d8ff)
+2019-01-12T00:11:17.0065250+07:00 0HLJNSSAO51HT:00000008 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [b].[Id], [b].[BusinessId], [b].[Description], [b].[Name]
+FROM [BusinessAction] AS [b]" (0723d8ff)
+2019-01-12T00:11:17.0168693+07:00 0HLJNSSAO51HT:00000008 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [g].[Id], [g].[BusinessActionId], [g].[UserId]
+FROM [GrantPermission] AS [g]" (0723d8ff)
+2019-01-12T00:11:21.5142597+07:00 0HLJNSSAO51HT:00000008 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.ProductController.GetAllPaging (ShopOnlineApp)" with arguments (["ShopOnlineApp.Application.ViewModels.Product.ProductRequest"]) - ModelState is Invalid (ba7f4ac2)
+2019-01-12T00:11:21.5283699+07:00 0HLJNSSAO51HT:00000008 [INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Products] AS [x]
+WHERE [x].[Status] = 1" (0723d8ff)
+2019-01-12T00:11:21.5422898+07:00 0HLJNSSAO51HT:00000008 [INF] Executed DbCommand ("0"ms) [Parameters=["@__p_0='?', @__p_1='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[CategoryId], [x].[Content], [x].[DateCreated], [x].[DateModified], [x].[Description], [x].[HomeFlag], [x].[HotFlag], [x].[Image], [x].[Name], [x].[OriginalPrice], [x].[Price], [x].[PromotionPrice], [x].[SeoAlias], [x].[SeoDescription], [x].[SeoKeywords], [x].[SeoPageTitle], [x].[Status], [x].[Tags], [x].[Unit], [x].[ViewCount]
+FROM [Products] AS [x]
+WHERE [x].[Status] = 1
+ORDER BY [x].[DateCreated] DESC
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY" (0723d8ff)
+2019-01-12T00:11:21.5518501+07:00 0HLJNSSAO51HT:00000008 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2019-01-12T00:11:21.5608239+07:00 0HLJNSSAO51HT:00000008 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.ProductController.GetAllPaging (ShopOnlineApp)" in 4587.1637ms (afa2e885)
+2019-01-12T00:11:21.5907266+07:00 0HLJNSSAO51HT:00000008 [INF] Request finished in 4631.1513ms 200 application/json; charset=utf-8 (791a596a)

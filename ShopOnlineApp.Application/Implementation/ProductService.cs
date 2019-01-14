@@ -7,6 +7,7 @@ using Microsoft.EntityFrameworkCore;
 using OfficeOpenXml;
 using ShopOnlineApp.Application.Interfaces;
 using ShopOnlineApp.Application.ViewModels.Product;
+using ShopOnlineApp.Application.ViewModels.Tag;
 using ShopOnlineApp.Data.EF.Common;
 using ShopOnlineApp.Data.Entities;
 using ShopOnlineApp.Data.IRepositories;
@@ -152,7 +153,7 @@ namespace ShopOnlineApp.Application.Implementation
                     var tagId = TextHelper.ToUnsignString(t);
                     if (!_tagRepository.FindAll(x => x.Id == tagId).Any())
                     {
-                        Tag tag = new Tag {Id = tagId, Name = t, Type = CommonConstants.ProductTag};
+                        Tag tag = new Tag { Id = tagId, Name = t, Type = CommonConstants.ProductTag };
                         _tagRepository.Add(tag);
                     }
                     _productTagRepository.RemoveMultiple(_productTagRepository.FindAll(x => x.Id == productVm.Id).ToList());
@@ -164,7 +165,7 @@ namespace ShopOnlineApp.Application.Implementation
                 }
             }
 
-            var product =  new ProductViewModel().Map(productVm);
+            var product = new ProductViewModel().Map(productVm);
 
             foreach (var productTag in productTags)
             {
@@ -272,6 +273,60 @@ namespace ShopOnlineApp.Application.Implementation
             return new WholePriceViewModel().Map(_wholePriceRepository.FindAll(x => x.ProductId == productId)).ToList();
         }
 
+        public List<ProductViewModel> GetLastest(int top)
+        {
+            return new ProductViewModel().Map(_productRepository.FindAll(x => x.Status == Status.Active).OrderByDescending(x => x.DateCreated)
+                .Take(top)).ToList();
+        }
+
+        public List<ProductViewModel> GetHotProduct(int top)
+        {
+            return new ProductViewModel().Map(_productRepository.FindAll(x => x.Status == Status.Active && x.HotFlag == true)
+                .OrderByDescending(x => x.DateCreated)
+                .Take(top)).ToList();
+        }
+
+        public List<ProductViewModel> GetRelatedProducts(int id, int top)
+        {
+            var product = _productRepository.FindById(id);
+            return new ProductViewModel().Map(_productRepository
+                .FindAll(x => x.Status == Status.Active&& x.Id != id && x.CategoryId == product.CategoryId)
+                .OrderByDescending(x => x.DateCreated)
+                .Take(top)).ToList();
+        }
+
+        public List<ProductViewModel> GetUpsellProducts(int top)
+        {
+            return new ProductViewModel().Map(_productRepository.FindAll(x => x.PromotionPrice != null)
+                    .OrderByDescending(x => x.DateModified)
+                    .Take(top)).ToList();
+        }
+
+        public List<TagViewModel> GetProductTags(int productId)
+        {
+            var tags = _tagRepository.FindAll();
+            var productTags = _productTagRepository.FindAll();
+
+            var query = from t in tags
+                        join pt in productTags
+                        on t.Id equals pt.TagId
+                        where pt.ProductId == productId
+                        select new TagViewModel()
+                        {
+                            Id = t.Id,
+                            Name = t.Name
+                        };
+            return query.ToList();
+
+        }
+
+        public bool CheckAvailability(int productId, int size, int color)
+        {
+            var quantity = _productQuantityRepository.FindSingle(x => x.ColorId == color && x.SizeId == size && x.ProductId == productId);
+            if (quantity == null)
+                return false;
+            return quantity.Quantity > 0;
+        }
         public void AddImages(int productId, string[] images)
         {
             _productImageRepository.RemoveMultiple(_productImageRepository.FindAll(x => x.ProductId == productId).ToList());

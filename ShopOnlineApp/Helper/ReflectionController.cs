@@ -35,7 +35,10 @@ namespace ShopOnlineApp.Helper
             {
                 if (method.ReflectedType != null && (method.ReflectedType.IsPublic && !method.IsDefined(typeof(NonActionAttribute))))
                 {
-                    listAction.Add(method.Name);
+                    if (!listAction.Contains(method.Name))
+                    {
+                        listAction.Add(method.Name);
+                    }
                 }
             }
             return listAction;

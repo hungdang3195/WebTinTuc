@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using ShopOnlineApp.Application.ViewModels.Product;
 using ShopOnlineApp.Application.ViewModels.User;
 using ShopOnlineApp.Data.EF.Common;
+using ShopOnlineApp.Data.Entities;
 
 namespace ShopOnlineApp.Application.Interfaces
 {
@@ -22,5 +23,7 @@ namespace ShopOnlineApp.Application.Interfaces
 
 
         Task UpdateAsync(AppUserViewModel userVm);
+
+        string GetUserId();
     }
 }

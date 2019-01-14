@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
@@ -32,6 +33,7 @@ namespace ShopOnlineApp
 
         public static IWebHost BuildWebHost(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
+                .UseContentRoot(Directory.GetCurrentDirectory())    
                 .UseStartup<Startup>()
                 .Build();
     }

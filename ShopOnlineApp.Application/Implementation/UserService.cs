@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
+using System.Security.Claims;
 using System.Threading.Tasks;
-using AutoMapper.QueryableExtensions;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using ShopOnlineApp.Application.Interfaces;
-using ShopOnlineApp.Application.ViewModels.Product;
 using ShopOnlineApp.Application.ViewModels.User;
 using ShopOnlineApp.Data.EF.Common;
 using ShopOnlineApp.Data.Entities;
@@ -18,9 +17,11 @@ namespace ShopOnlineApp.Application.Implementation
     public class UserService : IUserService
     {
         private readonly UserManager<AppUser> _userManager;
-        public UserService(UserManager<AppUser> userManager)
+        private readonly IHttpContextAccessor _httpContextAccessor;
+        public UserService(UserManager<AppUser> userManager, IHttpContextAccessor httpContextAccessor)
         {
             _userManager = userManager;
+            _httpContextAccessor = httpContextAccessor;
         }
 
         public async Task<bool> AddAsync(AppUserViewModel userVm)
@@ -141,6 +142,11 @@ namespace ShopOnlineApp.Application.Implementation
                 await _userManager.UpdateAsync(user);
             }
 
+        }
+
+        public string GetUserId()
+        {
+           return _httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
         }
     }
 }

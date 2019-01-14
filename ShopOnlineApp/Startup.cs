@@ -2,6 +2,7 @@
 using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -68,6 +69,8 @@ namespace ShopOnlineApp
             services.AddScoped<IMapper>(sp => new Mapper(sp.GetRequiredService<AutoMapper.IConfigurationProvider>(), sp.GetService));
 
             services.AddTransient<IEmailSender, EmailSender>();
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+
 
             services.AddTransient<DbInitializer>();
             services.AddMvc().AddJsonOptions(options => { options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore; });
@@ -93,6 +96,14 @@ namespace ShopOnlineApp
             services.AddTransient<ISizeRepository, SizeRepository>();
             services.AddTransient<IProductImageRepository, ProductImageRepository>();
             services.AddTransient<IWholePriceRepository, WholePriceRepository>();
+            services.AddTransient<IGrantPermissionRepository, GrantPermissionRepository>();
+            services.AddTransient<IBlogRepository, BlogRepository>();
+            services.AddTransient<IBlogTagRepository, BlogTagRepository>();
+            services.AddTransient<ITagRepository, TagRepository>();
+            services.AddTransient<ISystemConfigRepository, SystemConfigRepository>();
+            services.AddTransient<ISlideRepository, SlideRepository>();
+            services.AddTransient<IFooterRepository, FooterRepository>();
+
 
             //service
             services.AddTransient<IFunctionService, FunctionService>();
@@ -104,6 +115,9 @@ namespace ShopOnlineApp
             services.AddTransient<IBusinessService, BusinessService>();
             services.AddTransient<IBusinessActionService, BusinessActionService>();
             services.AddTransient<IBillService, BillService>();
+            services.AddTransient<IGrantPermissionService, GrantPermissionService>();
+            services.AddTransient<IBlogService, BlogService>();
+            services.AddTransient<ICommonService, CommonService>();
 
             //Config system
             services.AddMvc();

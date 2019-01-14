@@ -2,13 +2,19 @@
 using System.Runtime.CompilerServices;
 using AutoMapper;
 using ShopOnlineApp.Application.ViewModels.Bill;
+using ShopOnlineApp.Application.ViewModels.Blogs;
 using ShopOnlineApp.Application.ViewModels.Business;
 using ShopOnlineApp.Application.ViewModels.BusinessAction;
 using ShopOnlineApp.Application.ViewModels.Color;
+using ShopOnlineApp.Application.ViewModels.Footer;
 using ShopOnlineApp.Application.ViewModels.Function;
+using ShopOnlineApp.Application.ViewModels.GranPermission;
 using ShopOnlineApp.Application.ViewModels.Product;
 using ShopOnlineApp.Application.ViewModels.Role;
 using ShopOnlineApp.Application.ViewModels.Size;
+using ShopOnlineApp.Application.ViewModels.Slide;
+using ShopOnlineApp.Application.ViewModels.SystemConfig;
+using ShopOnlineApp.Application.ViewModels.Tag;
 using ShopOnlineApp.Application.ViewModels.User;
 using ShopOnlineApp.Data.Entities;
 
@@ -109,6 +115,43 @@ namespace ShopOnlineApp.Application.AutoMapper
 
                 cfg.CreateMap<WholePrice, WholePriceViewModel>();
                 cfg.CreateMap<WholePriceViewModel, WholePrice>();
+                #endregion
+
+                #region GrantPermission
+
+                cfg.CreateMap<GrantPermission, GrantPermissionViewModel>();
+                cfg.CreateMap<GrantPermissionViewModel, GrantPermission>();
+
+                #endregion
+
+                #region Footer
+
+
+                cfg.CreateMap<Footer, FooterViewModel>();
+                cfg.CreateMap<FooterViewModel, Footer>();
+
+                #endregion
+
+                #region Slider
+                cfg.CreateMap<Slide, SlideViewModel>();
+                cfg.CreateMap<FooterViewModel, Footer>();
+                #endregion
+
+                #region MyRegion
+
+                cfg.CreateMap<SystemConfig, SystemConfigViewModel>();
+                cfg.CreateMap<SystemConfigViewModel, SystemConfig>();
+
+                #endregion
+
+                #region Blog
+                cfg.CreateMap<Blog, BlogViewModel>();
+                cfg.CreateMap<BlogViewModel, Blog>();
+                #endregion
+
+                #region Tag
+                cfg.CreateMap<Tag, TagViewModel>();
+                cfg.CreateMap<TagViewModel, Tag>();
                 #endregion
             }
             catch (Exception e)

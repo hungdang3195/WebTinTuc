@@ -16,12 +16,14 @@ namespace ShopOnlineApp.Application.Implementation
     {
         private readonly IProductCategoryRepository _productCategoryRepository;
         private readonly IUnitOfWork _unitOfWork;
+        private readonly IProductRepository _productRepository;
 
         public ProductCategoryService(IProductCategoryRepository productCategoryRepository,
-            IUnitOfWork unitOfWork)
+            IUnitOfWork unitOfWork, IProductRepository productRepository)
         {
             _productCategoryRepository = productCategoryRepository;
             _unitOfWork = unitOfWork;
+            _productRepository = productRepository;
         }
 
         public ProductCategoryViewModel Add(ProductCategoryViewModel productCategoryVm)
@@ -81,18 +83,17 @@ namespace ShopOnlineApp.Application.Implementation
 
         public async Task<List<ProductCategoryViewModel>> GetHomeCategories(int top)
         {
-            var query = _productCategoryRepository
+            var categories = new ProductCategoryViewModel().Map(_productCategoryRepository
                 .FindAll(x => x.HomeFlag == true, c => c.Products)
-                  .OrderBy(x => x.HomeOrder)
-                  .Take(top).ProjectTo<ProductCategoryViewModel>();
+                .OrderBy(x => x.HomeOrder)
+                .Take(top)).ToList();
 
-            var categories = await query.ToListAsync();
+
             foreach (var category in categories)
             {
-                category.Products = _productCategoryRepository.FindAll(x => x.HomeFlag.Value && x.ParentId == category.Id)
+                var item =new ProductViewModel().Map(_productRepository.FindAll(x => x.HomeFlag.Value && x.CategoryId == category.Id)
                     .OrderByDescending(x => x.DateCreated)
-                    .Take(5)
-                    .ProjectTo<ProductViewModel>().ToList();
+                    .Take(5)).ToList();
             }
             return categories;
         }

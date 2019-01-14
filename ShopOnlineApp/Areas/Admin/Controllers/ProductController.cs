@@ -16,11 +16,13 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Options;
 using ShopOnlineApp.Application.Interfaces;
 using ShopOnlineApp.Application.ViewModels.Product;
+using ShopOnlineApp.Extensions;
 using ShopOnlineApp.Models;
 using ShopOnlineApp.Utilities.Helpers;
 
 namespace ShopOnlineApp.Areas.Admin.Controllers
 {
+    [CheckPermission]
     public class ProductController : BaseController
     {
         #region public  property 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 using ShopOnlineApp.Application.ViewModels.Product;
+using ShopOnlineApp.Application.ViewModels.Tag;
 using ShopOnlineApp.Data.EF.Common;
 
 namespace ShopOnlineApp.Application.Interfaces
@@ -23,5 +24,15 @@ namespace ShopOnlineApp.Application.Interfaces
         List<ProductImageViewModel> GetImages(int productId);
         void AddWholePrice(int productId, List<WholePriceViewModel> wholePrices);
         List<WholePriceViewModel> GetWholePrices(int productId);
+        List<ProductViewModel> GetLastest(int top);
+
+        List<ProductViewModel> GetHotProduct(int top);
+        List<ProductViewModel> GetRelatedProducts(int id, int top);
+
+        List<ProductViewModel> GetUpsellProducts(int top);
+
+        List<TagViewModel> GetProductTags(int productId);
+
+        bool CheckAvailability(int productId, int size, int color);
     }
 }

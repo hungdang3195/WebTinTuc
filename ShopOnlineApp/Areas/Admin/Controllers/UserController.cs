@@ -43,7 +43,7 @@ namespace ShopOnlineApp.Areas.Admin.Controllers
 
             return new OkObjectResult(model);
         }
-
+            
        [HttpPost]
         public async Task<IActionResult>  GetAllPaging(UserRequest request)
         {

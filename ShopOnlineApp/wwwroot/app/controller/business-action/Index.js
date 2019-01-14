@@ -1,37 +1,34 @@
 ﻿var businessActionController = function () {
+    window.index = "";
     this.initialize = function () {
-        loadData();
+      
         registerEvents();
     }
 
-    function loadData(isPageChanged) {
-
+    function loadData(businessId) {
         var template = $('#table-template').html();
         var render = "";
         $.ajax({
             type: 'POST',
             url: '/Admin/BusinessAction/GetAll',
             data: {
-                searchText: $('#txt-search-keyword').val(),
-                pageIndex: shoponline.configs.pageIndex,
-                pageSize: shoponline.configs.pageSize
+                businessId:businessId
             },
             dataType: 'json',
             success: (response) => {
-                $.each(response.data.items,
+                debugger;
+                $.each(response.result,
                     function (i, item) {
                         render += Mustache.render(template,
                             {
                                 Id: item.id,
-                                Name: item.name
+                                Name: item.name,
+
                             });
                         $('#lblTotalRecords').text(response.data.rowCount);
                         if (render !== "") {
                             $('#tbl-content').html(render);
                         }
-                        wrapPaging(response.data.rowCount, function () {
-                            loadData();
-                        }, isPageChanged);
                     });
             },
             error: function (status) {
@@ -40,35 +37,13 @@
             }
         });
 
-        function wrapPaging(recordCount, callBack, changePageSize) {
-            var totalsize = Math.ceil(recordCount / shoponline.configs.pageSize);
-            //Unbind pagination if it existed or click change pagesize
-            if ($('#paginationUL a').length === 0 || changePageSize === true) {
-                $('#paginationUL').empty();
-                $('#paginationUL').removeData("twbs-pagination");
-                $('#paginationUL').unbind("page");
-            }
-            //Bind Pagination Event
-            $('#paginationUL').twbsPagination({
-                totalPages: totalsize,
-                visiblePages: 7,
-                first: 'Đầu',
-                prev: 'Trước',
-                next: 'Tiếp',
-                last: 'Cuối',
-                onPageClick: function (event, p) {
-                    shoponline.configs.pageIndex = p;
-                    setTimeout(callBack(), 200);
-                }
-            });
-        }
+      
     };
 
     function registerEvents() {
 
         $('#txt-search-keyword').keypress(function (e) {
             if (e.which === 13) {
-
                 e.preventDefault();
                 loadData();
             }
@@ -86,11 +61,12 @@
                     shoponline.startLoading();
                 },
                 success: function (response) {
-                    debugger;
                     var data = response;
                     $('#hidId').val(data.id);
-                    $('#txtId').val(data.id);
-                    $('#txtName').val(data.name);
+                    //$('#businessId').val(data.businessId);
+                    window.index = data.businessId;
+                    $('#txtId').val(data.name);
+                    $('#txtName').val(data.description);
                     disableFieldEdit(true);
                     $('#modal-add-edit').modal('show');
                     shoponline.stopLoading();
@@ -103,26 +79,30 @@
         });
 
         $('#btnSave').on('click', function (e) {
-            if ($('#frmMaintainance').valid()) {
+         if ($('#frmMaintainance').valid()) {
                 e.preventDefault();
-                var id = $('#txtId').val();
-                var name = $('#txtName').val();
+                var id = $('#hidId').val();
+               // var businessId = $('#businessId').val();
+             
+                var name = $('#txtId').val();
+                var description = $('#txtName').val();
                 $.ajax({
                     type: "POST",
-                    url: "/Admin/Business/SaveEntity",
+                    url: "/Admin/BusinessAction/SaveEntity",
                     data: {
                         Id: id,
-                        name: name
+                        name: name,
+                        description: description
                     },
                     dataType: "json",
                     beforeSend: function () {
                         shoponline.startLoading();
                     },
                     success: function () {
-                        shoponline.notify('Save user succesful', 'success');
+                        shoponline.notify('Save user succesfull', 'success');
                         $('#modal-add-edit').modal('hide');
                         shoponline.stopLoading();
-                        loadData(true);
+                        LoadDataPage(window.index);
                     },
                     error: function () {
                         shoponline.notify('Has an error', 'error');
@@ -140,6 +120,10 @@
         });
     }
 
+    function LoadDataPage(urlPage) {
+        window.location.href = "/Admin/BusinessAction/Index/?businessId=" + urlPage;
+    }
+    
     function deleteBusiness(id) {
         shoponline.confirm('Are you sure to delete?', function () {
             $.ajax({

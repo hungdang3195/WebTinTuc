@@ -5,9 +5,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using ShopOnlineApp.Application.Interfaces;
 using ShopOnlineApp.Application.ViewModels.Function;
+using ShopOnlineApp.Extensions;
 
 namespace ShopOnlineApp.Areas.Admin.Controllers
 {
+    [CheckPermission]
     public class FunctionController : BaseController
     {
         #region Initialize

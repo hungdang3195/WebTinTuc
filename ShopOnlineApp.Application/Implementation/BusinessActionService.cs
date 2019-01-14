@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Internal;
 using ShopOnlineApp.Application.Interfaces;
 using ShopOnlineApp.Application.ViewModels.Business;
@@ -18,6 +20,12 @@ namespace ShopOnlineApp.Application.Implementation
             _repository = repository;
             _unitOfWork = unitOfWork;
         }
+
+        public async Task<List<BusinessActionViewModel>> GetAll(BusinessActionRequest request)
+        {
+                return new BusinessActionViewModel().Map(await _repository.FindAll(x => x.BusinessId == request.BusinessId).ToListAsync()).ToList();
+        }
+
         public List<BusinessActionViewModel>  GetByBusinessIds(string businessId)
         {
             var items = _repository.FindAll(x => x.BusinessId == businessId).GroupBy(x=>x.Name).Select(x=>x.FirstOrDefault());
@@ -35,6 +43,7 @@ namespace ShopOnlineApp.Application.Implementation
             var currentBusiness = _repository.FindById(businessVm.Id);
 
             currentBusiness.Name = businessVm.Name;
+            currentBusiness.Description = businessVm.Description;
             _repository.Update(currentBusiness);
             _unitOfWork.Commit();
         }

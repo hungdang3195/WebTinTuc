@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using ShopOnlineApp.Application.Interfaces;
-using ShopOnlineApp.Application.ViewModels.Business;
 using ShopOnlineApp.Application.ViewModels.BusinessAction;
 
 namespace ShopOnlineApp.Areas.Admin.Controllers
@@ -18,8 +15,13 @@ namespace ShopOnlineApp.Areas.Admin.Controllers
         {
             _actionService = actionService;
         }
-     
-        public IActionResult Index(string businessId)
+
+        public IActionResult GetAll(BusinessActionRequest request)
+        {
+            return new OkObjectResult(_actionService.GetAll(request));
+        }
+
+        public IActionResult Index([FromQuery]string businessId)
         {
             var items = _actionService.GetByBusinessIds(businessId);
             return View(items);
@@ -31,6 +33,7 @@ namespace ShopOnlineApp.Areas.Admin.Controllers
             var currentAction = _actionService.GetByActionId(id);
             return new OkObjectResult(currentAction);
         }
+
 
         [HttpPost]
         public IActionResult SaveEntity(BusinessActionViewModel businessVm)

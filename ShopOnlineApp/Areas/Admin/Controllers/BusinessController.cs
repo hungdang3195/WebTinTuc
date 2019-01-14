@@ -5,14 +5,17 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using OfficeOpenXml.FormulaParsing.Utilities;
 using ShopOnlineApp.Application.Interfaces;
 using ShopOnlineApp.Application.ViewModels.Business;
 using ShopOnlineApp.Data.EF;
 using ShopOnlineApp.Data.Entities;
 using ShopOnlineApp.Helper;
+using ShopOnlineApp.Utilities;
 
 namespace ShopOnlineApp.Areas.Admin.Controllers
 {
+   
     public class BusinessController : BaseController
     {
         private readonly AppDbContext _context;
@@ -26,17 +29,10 @@ namespace ShopOnlineApp.Areas.Admin.Controllers
 
         [HttpGet]
         public async Task<IActionResult>  Index()
-        {
+        {   
             var businesss = await _businessService.GetAll();
 
-            var businnesDiff = businesss.Select(x => x.Id).ToList().Except(new List<string>
-            {
-                "HomeController",
-                "BaseController",
-                "LoginController",
-                "LogoutController",
-                "UploadController"
-            });
+            var businnesDiff = businesss.Select(x => x.Id).ToList().Except(ExceptController.Except());
 
             List<BusinessViewModel> businessVm = new List<BusinessViewModel>();
 
@@ -68,6 +64,7 @@ namespace ShopOnlineApp.Areas.Admin.Controllers
             List<Type> lstType = rc.GetControllers("ShopOnlineApp.Areas.Admin");
 
             List<string> lstControllerOld = _context.Businesss.Select(x => x.Id).ToList();
+            List<BusinessAction> businessActions = new List<BusinessAction>();
 
             foreach (var item in lstType)
             {
@@ -79,12 +76,13 @@ namespace ShopOnlineApp.Areas.Admin.Controllers
                         Name = "Chưa có mô tả"
                     });
                 }
-                List<string> lisPermission = rc.GetActions(item);
-                foreach (var it in lisPermission)
+                List<string> listPermissions = rc.GetActions(item);
+
+                foreach (var it in listPermissions)
                 {
-                    if (!lisPermission.Contains(item.Name + "-" + it))
+                    if (businessActions.All(s => s.Name != item.Name + "-" + it))
                     {
-                        _context.BusinessActions.Add(new BusinessAction()
+                        businessActions.Add(new BusinessAction
                         {
                             Name = item.Name + "-" + it,
                             Description = "Chưa có mô tả",
@@ -94,6 +92,7 @@ namespace ShopOnlineApp.Areas.Admin.Controllers
                 }
             }
 
+            _context.BusinessActions.AddRange(businessActions);
             _context.SaveChanges();
 
             return Redirect("/Admin/Business/Index");
