@@ -6,6 +6,11 @@ namespace ShopOnlineApp.Data.EF.Common
 {
     public class ModelListResult<T> where T:class
     {
+        public ModelListResult()
+        {
+            Results = new List<T>();
+        }
+        public IList<T> Results { get; set; }
         public IList<T> Items { get; set; }
    
         public int PageIndex { get; set; }

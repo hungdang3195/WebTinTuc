@@ -10,7 +10,7 @@ namespace ShopOnlineApp.Controllers.Components
     public class MainMenuViewComponent : ViewComponent
     {
 
-        private IProductCategoryService _productCategoryService;
+        private readonly IProductCategoryService _productCategoryService;
 
         public MainMenuViewComponent(IProductCategoryService productCategoryService)
         {
@@ -19,7 +19,7 @@ namespace ShopOnlineApp.Controllers.Components
 
         public async Task<IViewComponentResult> InvokeAsync()
         {
-            return View(_productCategoryService.GetAll());
+            return View(await _productCategoryService.GetAll());
         }
     }
 }

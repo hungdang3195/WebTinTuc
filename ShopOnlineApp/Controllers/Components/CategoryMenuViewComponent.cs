@@ -10,14 +10,14 @@ namespace ShopOnlineApp.Controllers.Components
 {
     public class CategoryMenuViewComponent : ViewComponent
     {
-        private IProductCategoryService _productCategoryService;
+        private readonly IProductCategoryService _productCategoryService;
         public CategoryMenuViewComponent(IProductCategoryService productCategoryService)
         {
             _productCategoryService = productCategoryService;
         }
         public async Task<IViewComponentResult> InvokeAsync()
         {
-            return View(_productCategoryService.GetAll());
+            return View(await _productCategoryService.GetAll());
         }
     }
 
