@@ -6,7 +6,7 @@
     this.initialize = function () {
     $.when(loadColors(),
             loadSizes())
-    .then(function(){
+    .then(function(){   
             loadData();
             });
       
@@ -24,7 +24,7 @@
                     productId: id
                 },
                 success: function () {
-                    tedu.notify('Removing product is successful.', 'success');
+                    shoponline.notify('Removing product is successful.', 'success');
                     //loadHeaderCart();
                     loadData();
                 }
@@ -43,13 +43,13 @@
                         quantity: q
                     },
                     success: function () {
-                        tedu.notify('Update quantity is successful', 'success');
+                        shoponline.notify('Update quantity is successful', 'success');
                         //loadHeaderCart();
                         loadData();
                     }
                 });
             } else {
-                tedu.notify('Your quantity is invalid', 'error');
+                shoponline.notify('Your quantity is invalid', 'error');
             }
 
         });
@@ -72,13 +72,13 @@
                         size:sizeId
                     },
                     success: function () {
-                        tedu.notify('Update quantity is successful', 'success');
+                        shoponline.notify('Update quantity is successful', 'success');
                         //loadHeaderCart();
                         loadData();
                     }
                 });
             } else {
-                tedu.notify('Your quantity is invalid', 'error');
+                shoponline.notify('Your quantity is invalid', 'error');
             }
 
         });
@@ -100,13 +100,13 @@
                         size:sizeId
                     },
                     success: function () {
-                        tedu.notify('Update quantity is successful', 'success');
+                        shoponline.notify('Update quantity is successful', 'success');
                         //loadHeaderCart();
                         loadData();
                     }
                 });
             } else {
-                tedu.notify('Your quantity is invalid', 'error');
+                shoponline.notify('Your quantity is invalid', 'error');
             }
 
         });
@@ -116,7 +116,7 @@
                 url: '/Cart/ClearCart',
                 type: 'post',
                 success: function () {
-                    tedu.notify('Clear cart is successful', 'success');
+                    shoponline.notify('Clear cart is successful', 'success');
                    // loadHeaderCart();
                     loadData();
                 }
@@ -132,7 +132,7 @@
                 cachedObj.colors = response;
             },
             error: function () {
-                tedu.notify('Has an error in progress', 'error');
+                shoponline.notify('Has an error in progress', 'error');
             }
         });
     }
@@ -146,17 +146,17 @@
                 cachedObj.sizes = response;
             },
             error: function () {
-                tedu.notify('Has an error in progress', 'error');
+                shoponline.notify('Has an error in progress', 'error');
             }
         });
     }
     function getColorOptions(selectedId) {
         var colors = "<select class='form-control ddlColorId'>";
         $.each(cachedObj.colors, function (i, color) {
-            if (selectedId === color.Id)
-                colors += '<option value="' + color.Id + '" selected="select">' + color.Name + '</option>';
+            if (selectedId === color.id)
+                colors += '<option value="' + color.id + '" selected="select">' + color.name + '</option>';
             else
-                colors += '<option value="' + color.Id + '">' + color.Name + '</option>';
+                colors += '<option value="' + color.id + '">' + color.name + '</option>';
         });
         colors += "</select>";
         return colors;
@@ -165,10 +165,10 @@
     function getSizeOptions(selectedId) {
         var sizes = "<select class='form-control ddlSizeId'>";
         $.each(cachedObj.sizes, function (i, size) {
-            if (selectedId === size.Id)
-                sizes += '<option value="' + size.Id + '" selected="select">' + size.Name + '</option>';
+            if (selectedId === size.id)
+                sizes += '<option value="' + size.id + '" selected="select">' + size.name + '</option>';
             else
-                sizes += '<option value="' + size.Id + '">' + size.Name + '</option>';
+                sizes += '<option value="' + size.id + '">' + size.name + '</option>';
         });
         sizes += "</select>";
         return sizes;
@@ -188,19 +188,19 @@
                 $.each(response, function (i, item) {
                     render += Mustache.render(template,
                         {
-                            ProductId: item.Product.Id,
-                            ProductName: item.Product.Name,
-                            Image: item.Product.Image,
-                            Price: tedu.formatNumber(item.Price, 0),
-                            Quantity: item.Quantity,
-                            Colors: getColorOptions(item.Color == null? 0: item.Color.Id),
-                            Sizes:getSizeOptions(item.Size == null? "": item.Size.Id),
-                            Amount: tedu.formatNumber(item.Price * item.Quantity, 0),
-                            Url: '/' + item.Product.SeoAlias + "-p." + item.Product.Id + ".html"
+                            ProductId: item.product.id,
+                            ProductName: item.product.name,
+                            Image: item.product.image,
+                            Price: shoponline.formatNumber(item.price, 0),
+                            Quantity: item.quantity,
+                            Colors: getColorOptions(item.color == null? 0: item.color.id),
+                            Sizes:getSizeOptions(item.Size == null? "": item.size.id),
+                            Amount: shoponline.formatNumber(item.price * item.quantity, 0),
+                            Url: '/' + item.product.seoAlias + "-p." + item.product.id + ".html"
                         });
-                    totalAmount += item.Price * item.Quantity;
+                    totalAmount += item.price * item.quantity;
                 });
-                $('#lblTotalAmount').text(tedu.formatNumber(totalAmount, 0));
+                $('#lblTotalAmount').text(shoponline.formatNumber(totalAmount, 0));
                 if (render !== "")
                     $('#table-cart-content').html(render);
                 else

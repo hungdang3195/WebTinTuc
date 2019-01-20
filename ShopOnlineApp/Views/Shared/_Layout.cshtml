@@ -52,7 +52,7 @@
         </nav>
         @RenderBody();
         <!-- Footer -->
-        
+
         @Html.Partial("_Footer.cshtml")
         <a href="#" id="back-to-top" title="Back to top"><i class="fa fa-angle-up"></i></a>
 
@@ -79,11 +79,22 @@
     <script type="text/javascript" src="~/client-side/js/main.js"></script>
 
     <!-- countdown js -->
-    <script type="text/javascript" src="~/client-side/js/countdown.js"></script>
+    <script type="text/javascript" src="~/client-side/js/revolution-slider.js"></script>
+    <script src="~/lib/notifyjs/dist/notify.js"></script>
+    <script src="~/lib/notifyjs/dist/styles/metro/notify-metro.js"></script>
+    <script src="~/lib/mustache/mustache.js"></script>
+    <script src="~/client-app/shared/shoponline.js"></script>
+    <script src="~/client-app/controllers/base/index.js"></script>
+<script>
+    var baseObj = new BaseController();
+    baseObj.initialize();
+</script>
+<script>
+    var baseController = new BaseController();
+    baseController.initialize();
+</script>
 
-    <!-- Slider Js -->
-<script type="text/javascript" src="~/client-side/js/revolution-slider.js"></script>
-    @RenderSection("Scripts",required:false);
+@RenderSection("Scripts", required: false);
 
 </body>
 </html>

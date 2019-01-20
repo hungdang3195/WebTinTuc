@@ -17,9 +17,9 @@
                     size: 0
                 },
                 success: function (response) {
-                    tedu.notify('The product was added to cart', 'success');
+                    shoponline.notify('The product was added to cart', 'success');
                     //loadHeaderCart();
-                    loadMyCart();
+                    //loadMyCart();
                 }
             });
         });
@@ -34,9 +34,9 @@
                     productId: id
                 },
                 success: function (response) {
-                    tedu.notify('The product was removed', 'success');
+                    shoponline.notify('The product was removed', 'success');
                     //loadHeaderCart();
-                    loadMyCart();
+                    //loadMyCart();
                 }
             });
         });

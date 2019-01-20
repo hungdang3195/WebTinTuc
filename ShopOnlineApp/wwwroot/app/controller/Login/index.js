@@ -18,7 +18,7 @@
             },
             messages: {
                 txtUserName:{
-                    required: "Bạn phải nhâp tên"
+                    required: "Bạn phải nhâp email"
                 },
                 txtPassword: {
                     required: "Bạn phải nhập mật khẩu"
@@ -28,18 +28,20 @@
         $('#btnLogin').on('click', function (e) {
             if ($('#frmLogin').valid()) {
                 e.preventDefault();
-                var user = $('#txtUserName').val();
+                var email = $('#txtUserName').val();
                 var password = $('#txtPassword').val();
-                login(user, password);
+                debugger;
+                login(email, password);
             }
         });
     }
 
     var login = function (user, pass) {
+        debugger;
         $.ajax({
             type: 'POST',
             data: {
-                UserName: user,
+                Email: user,
                 Password: pass
             },
             dateType: 'json',

@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using PaulMiami.AspNetCore.Mvc.Recaptcha;
 using ShopOnlineApp.Data.Entities;
 using ShopOnlineApp.Data.Enums;
 using ShopOnlineApp.Extensions;
@@ -39,7 +40,7 @@ namespace ShopOnlineApp.Controllers
 
         [HttpGet]
         [AllowAnonymous]
-        [Route("dang-nhap.html",Name = "Login")]
+        [Route("login.html", Name = "Login")]
         public async Task<IActionResult> Login(string returnUrl = null)
         {
             // Clear the existing external cookie to ensure a clean login process
@@ -52,7 +53,7 @@ namespace ShopOnlineApp.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        [Route("dang-nhap.html", Name = "Login")]
+        [Route("login.html", Name = "Login")]
         public async Task<IActionResult> Login(LoginViewModel model, string returnUrl = null)
         {
             ViewData["ReturnUrl"] = returnUrl;
@@ -60,11 +61,11 @@ namespace ShopOnlineApp.Controllers
             {
                 // This doesn't count login failures towards account lockout
                 // To enable password failures to trigger account lockout, set lockoutOnFailure: true
-                var result = await _signInManager.PasswordSignInAsync(model.UserName, model.Password, model.RememberMe, lockoutOnFailure: false);
+                var result = await _signInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, lockoutOnFailure: false);
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User logged in.");
-                    return RedirectToLocal(returnUrl);
+                    return RedirectToAction("Index", "Home");
                 }
                 if (result.RequiresTwoFactor)
                 {
@@ -85,6 +86,7 @@ namespace ShopOnlineApp.Controllers
             // If we got this far, something failed, redisplay form
             return View(model);
         }
+
 
         [HttpGet]
         [AllowAnonymous]
@@ -215,7 +217,7 @@ namespace ShopOnlineApp.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        //[ValidateRecaptcha]
+        [ValidateRecaptcha]
         [Route("register.html")]
         public async Task<IActionResult> Register(RegisterViewModel model, string returnUrl = null)
         {
@@ -260,7 +262,7 @@ namespace ShopOnlineApp.Controllers
         {
             await _signInManager.SignOutAsync();
             _logger.LogInformation("User logged out.");
-            return new  OkObjectResult(new {});
+            return RedirectToAction(nameof(HomeController.Index), "Home");
         }
 
         [HttpPost]

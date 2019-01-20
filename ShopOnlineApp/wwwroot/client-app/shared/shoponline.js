@@ -1,4 +1,4 @@
-﻿var tedu = {
+﻿var shoponline = {
     configs: {
         pageSize: 10,
         pageIndex: 1

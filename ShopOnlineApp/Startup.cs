@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using PaulMiami.AspNetCore.Mvc.Recaptcha;
 using ShopOnlineApp.Application.Implementation;
 using ShopOnlineApp.Application.Interfaces;
 using ShopOnlineApp.Data.EF;
@@ -42,6 +43,12 @@ namespace ShopOnlineApp
                 .AddDefaultTokenProviders();
             services.Configure<CloudinaryImage>(Configuration.GetSection("CloudinarySettings"));
 
+            services.AddSession(options =>
+            {
+                options.IdleTimeout = TimeSpan.FromHours(2);
+                options.Cookie.HttpOnly = true;
+            });
+
             // Configure Identity
             services.Configure<IdentityOptions>(options =>
             {
@@ -58,6 +65,12 @@ namespace ShopOnlineApp
 
                 // User settings
                 options.User.RequireUniqueEmail = true;
+            });
+
+            services.AddRecaptcha(new RecaptchaOptions
+            {
+                SiteKey = Configuration["Recaptcha:SiteKey"],
+                SecretKey = Configuration["Recaptcha:SecretKey"]
             });
 
             services.AddAutoMapper();
@@ -138,6 +151,7 @@ namespace ShopOnlineApp
                 app.UseExceptionHandler("/Home/Error");
             }
 
+            app.UseSession();
             app.UseStaticFiles();
 
             app.UseAuthentication();

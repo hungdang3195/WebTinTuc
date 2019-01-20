@@ -2,10 +2,8 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
-using AutoMapper.QueryableExtensions;
 using Microsoft.EntityFrameworkCore;
 using ShopOnlineApp.Application.Interfaces;
 using ShopOnlineApp.Application.ViewModels.Bill;
@@ -199,12 +197,12 @@ namespace ShopOnlineApp.Application.Implementation
 
         public ColorViewModel GetColor(int id)
         {
-            return Mapper.Map<Color, ColorViewModel>(_colorRepository.FindById(id));
+            return new ColorViewModel().Map(_colorRepository.FindById(id));
         }
 
         public SizeViewModel GetSize(int id)
         {
-            return Mapper.Map<Size, SizeViewModel>(_sizeRepository.FindById(id));
+            return new SizeViewModel().Map(_sizeRepository.FindById(id));
         }
 
         public async Task<BaseReponse<ModelListResult<BillViewModel>>> GetAllPaging(BillRequest request)

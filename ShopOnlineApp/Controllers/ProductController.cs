@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -8,7 +6,6 @@ using Microsoft.Extensions.Configuration;
 using ShopOnlineApp.Application.Interfaces;
 using ShopOnlineApp.Application.ViewModels.Product;
 using ShopOnlineApp.Models.ProductViewModels;
-using StackExchange.Redis;
 
 namespace ShopOnlineApp.Controllers
 {
@@ -28,9 +25,9 @@ namespace ShopOnlineApp.Controllers
             _billService = billService;
         }
         [Route("products.html")]
-        public IActionResult Index()
+        public async Task<IActionResult>  Index()
         {
-            var categories = _productCategoryService.GetAll();
+            var categories =await _productCategoryService.GetAll();
             return View(categories);
         }
 
@@ -42,7 +39,8 @@ namespace ShopOnlineApp.Controllers
             var catalog = new CatalogViewModel();
             ViewData["BodyClass"] = "shop_grid_full_width_page";
 
-            request.PageSize = _configuration.GetValue<int>("PageSize");
+            
+            request.PageSize = pageSize ?? _configuration.GetValue<int>("PageSize");
             request.CategoryId = id;
             catalog.PageSize = request.PageSize;
             request.SortBy = sortBy;
@@ -59,25 +57,17 @@ namespace ShopOnlineApp.Controllers
         [Route("search.html")]
         public async Task<IActionResult>  Search(string keyword, int? pageSize, string sortBy, int page = 1)
         {
-            var catalog = new SearchResultViewModel();
+            var catalog = new CatalogViewModel();
             ViewData["BodyClass"] = "shop_grid_full_width_page";
-
-            if (pageSize == null)
-            {
-                pageSize = _configuration.GetValue<int>("PageSize");
-            }
-            catalog.PageSize = pageSize;
+            catalog.PageSize = pageSize ?? _configuration.GetValue<int>("PageSize");
             catalog.SortType = sortBy;
-            var request = new ProductRequest();
-            request.PageSize = pageSize.Value;
+            var request = new ProductRequest {PageSize = pageSize ?? _configuration.GetValue<int>("PageSize")};
             request.SortBy = sortBy;
             request.SearchText = keyword;
-
+            request.PageIndex = page;
             var data =await _productService.GetAllPaging(request);
             catalog.Data = data.Data;
-
-            catalog.Keyword = request.SearchText;
-
+            catalog.Keyword = keyword;
             return View(catalog);
         }
 

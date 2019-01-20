@@ -1,11 +1,10 @@
 ﻿@model ShopOnlineApp.Models.ProductViewModels.CatalogViewModel
 @{
-    ViewData["Title"] = Model.Category.Name;
-    ViewData["MetaKeyword"] = Model.Category.SeoKeywords;
-    ViewData["MetaDescription"] = Model.Category.SeoDescription;
-    var data = Model.Data;
+    ViewData["Title"] = "Search results of " + Model.Keyword;
+    ViewData["MetaKeyword"] = "Search results of " + Model.Keyword;
+    ViewData["MetaDescription"] = "Search results of " + Model.Keyword;
 }
-
+<!-- Breadcrumbs -->
 
 <div class="breadcrumbs">
     <div class="container">
@@ -13,7 +12,7 @@
             <div class="col-xs-12">
                 <ul>
                     <li class="home"> <a title="Go to Home Page" href="/">Home</a><span>&raquo;</span></li>
-                    <li><strong>@Model.Category.Name</strong></li>
+                    <li><strong>Search result: @Model.Keyword</strong></li>
                 </ul>
             </div>
         </div>
@@ -27,10 +26,11 @@
             <div class="col-main col-sm-12 col-xs-12">
                 <div class="shop-inner">
                     <div class="page-title">
-                        <h2>@Model.Category.Name</h2>
+                        <h2>Search result: @Model.Keyword</h2>
                     </div>
                     <div class="toolbar column">
-                        <form action="/@Model.Category.SeoAlias-c.@(Model.Category.Id).html" method="get">
+                        <form action="/search.html" method="get">
+                            <input type="hidden" name="keyword" value="@Model.Keyword" />
                             <div class="sorter">
                                 <div class="short-by">
                                     <label>Sort By:</label>
@@ -78,7 +78,7 @@
                                                             <div class="price-box"> <span class="regular-price"> <span class="price">@item.Price.ToString("N0")</span> </span> </div>
                                                         </div>
                                                         <div class="pro-action">
-                                                            <button type="button" class="add-to-cart" data-id="@item.Id"><span> Add to Cart</span> </button>
+                                                            <button type="button" data-id="@item.Id" class="add-to-cart"><span> Add to Cart</span> </button>
                                                         </div>
                                                     </div>
                                                 </div>

@@ -12,12 +12,14 @@ using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using CloudinaryDotNet;
 using CloudinaryDotNet.Actions;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Options;
 using ShopOnlineApp.Application.Interfaces;
 using ShopOnlineApp.Application.ViewModels.Product;
 using ShopOnlineApp.Extensions;
 using ShopOnlineApp.Models;
+using ShopOnlineApp.Models.ProductViewModels;
 using ShopOnlineApp.Utilities.Helpers;
 
 namespace ShopOnlineApp.Areas.Admin.Controllers
@@ -28,27 +30,30 @@ namespace ShopOnlineApp.Areas.Admin.Controllers
         #region public  property 
         private readonly IProductService _productService;
         private readonly IConfiguration _configuration;
-        private readonly IOptions<CloudinaryImage> _cloudinaryConfig;
-        private Cloudinary _cloudinary;
+        private readonly Cloudinary _cloudinary;
+        private readonly IProductCategoryService _productCategoryService;
+        private readonly IBillService _billService;
+
         private readonly IHostingEnvironment _hostingEnvironment;
         #endregion
         #region constructer
-        public ProductController(IProductService productService, IConfiguration configuration, IOptions<CloudinaryImage> cloudinaryConfig, IHostingEnvironment hostingEnvironment)
+        public ProductController(IProductService productService, IConfiguration configuration, IOptions<CloudinaryImage> cloudinaryConfig, IHostingEnvironment hostingEnvironment, IProductCategoryService productCategoryService, IBillService billService)
         {
             _productService = productService;
             _configuration = configuration;
-            _cloudinaryConfig = cloudinaryConfig;
+            var cloudinaryConfig1 = cloudinaryConfig;
             _hostingEnvironment = hostingEnvironment;
+            _productCategoryService = productCategoryService;
+            _billService = billService;
             Account acc = new Account(
-                _cloudinaryConfig.Value.CloudName,
-                _cloudinaryConfig.Value.ApiKey,
-                _cloudinaryConfig.Value.ApiSecret
+                cloudinaryConfig1.Value.CloudName,
+                cloudinaryConfig1.Value.ApiKey,
+                cloudinaryConfig1.Value.ApiSecret
             );
 
             _cloudinary = new Cloudinary(acc);
         }
         #endregion
-
         public IActionResult Index()
         {
             return View();
@@ -265,6 +270,6 @@ namespace ShopOnlineApp.Areas.Admin.Controllers
             var wholePrices = _productService.GetWholePrices(productId);
             return new OkObjectResult(wholePrices);
         }
-
+      
     }
 }

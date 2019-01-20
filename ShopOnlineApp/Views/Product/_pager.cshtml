@@ -17,8 +17,8 @@
     int finishIndex = 0;
     if (Model != null)
     {
-         startIndex = Math.Max(Model.PageIndex - 5, 1);
-         finishIndex = Math.Min(Model.PageIndex + 5, Model.PageCount);
+        startIndex = Math.Max(Model.PageIndex - 5, 1);
+        finishIndex = Math.Min(Model.PageIndex + 5, Model.PageCount);
     }
 
 }
@@ -29,7 +29,7 @@
             Từ @Model.FirstRowOnPage đến @Model.LastRowOnPage của @Model.RowCount sản phẩm
         </div>
         <div class="col-md-8 col-sm-8">
-            @if (Model.PageCount > 1)
+            @if (Model.PageCount >= 1)
             {
                 <ul>
                     @if (Model.PageIndex == startIndex)

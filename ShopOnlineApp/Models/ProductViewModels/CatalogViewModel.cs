@@ -11,6 +11,7 @@ namespace ShopOnlineApp.Models.ProductViewModels
 {
     public class CatalogViewModel
     {
+        public string Keyword { get; set; }
         public ModelListResult<ProductViewModel> Data { get; set; }
 
         public ProductCategoryViewModel Category { set; get; }
