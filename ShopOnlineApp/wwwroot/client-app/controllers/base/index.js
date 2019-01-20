@@ -18,7 +18,7 @@
                 },
                 success: function (response) {
                     shoponline.notify('The product was added to cart', 'success');
-                    //loadHeaderCart();
+                    loadHeaderCart();
                     //loadMyCart();
                 }
             });
@@ -35,16 +35,16 @@
                 },
                 success: function (response) {
                     shoponline.notify('The product was removed', 'success');
-                    //loadHeaderCart();
+                    loadHeaderCart();
                     //loadMyCart();
                 }
             });
         });
     }
 
-    //function loadHeaderCart() {
-    //    $("#headerCart").load("/AjaxContent/HeaderCart");
-    //}
+    function loadHeaderCart() {
+        $("#headerCart").load("/AjaxContent/HeaderCart");
+    }
 
     //function loadMyCart() {
     //    $("#sidebarCart").load("/AjaxContent/MyCart");

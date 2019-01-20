@@ -1,9 +1,15 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 using ShopOnlineApp.Application.Interfaces;
+using ShopOnlineApp.Application.ViewModels.Bill;
+using ShopOnlineApp.Data.Enums;
 using ShopOnlineApp.Extensions;
 using ShopOnlineApp.Models;
+using ShopOnlineApp.Services;
 using ShopOnlineApp.Utilities.Constants;
 
 namespace ShopOnlineApp.Controllers
@@ -12,10 +18,16 @@ namespace ShopOnlineApp.Controllers
     {
         public readonly IProductService _productService;
         public readonly IBillService _billService;
-        public CartController(IProductService productService, IBillService billService)
+        public readonly IViewRenderService _viewRenderService;
+        public readonly IEmailSender _emailSender;
+        public readonly IConfiguration _configuration;
+        public CartController(IProductService productService, IBillService billService, IViewRenderService viewRenderService, IEmailSender emailSender, IConfiguration configuration)
         {
             _productService = productService;
             _billService = billService;
+            _viewRenderService = viewRenderService;
+            _emailSender = emailSender;
+            _configuration = configuration;
         }
         [Route("cart.html", Name = "Cart")]
         public IActionResult Index()
@@ -43,6 +55,82 @@ namespace ShopOnlineApp.Controllers
         {
             HttpContext.Session.Remove(CommonConstants.CartSession);
             return new OkObjectResult("OK");
+        }
+
+        [Route("checkout.html", Name = "Checkout")]
+        [HttpGet]
+        public IActionResult Checkout()
+        {
+            var model = new CheckoutViewModel();
+            var session = HttpContext.Session.Get<List<ShoppingCartViewModel>>(CommonConstants.CartSession);
+            if (session.Any(x => x.Color == null || x.Size == null))
+            {
+                return Redirect("/cart.html");
+            }
+
+            model.Carts = session;
+            return View(model);
+        }
+        [Route("checkout.html", Name = "Checkout")]
+        [ValidateAntiForgeryToken]
+        [HttpPost]
+        public async Task<IActionResult> Checkout(CheckoutViewModel model)
+        {
+            var session = HttpContext.Session.Get<List<ShoppingCartViewModel>>(CommonConstants.CartSession);
+
+            if (ModelState.IsValid)
+            {
+                if (session != null)
+                {
+                    var details = new List<BillDetailViewModel>();
+                    foreach (var item in session)
+                    {
+                        details.Add(new BillDetailViewModel()
+                        {
+                            Product = item.Product,
+                            Price = item.Price,
+                            ColorId = item.Color.Id,
+                            SizeId = item.Size.Id,
+                            Quantity = item.Quantity,
+                            ProductId = item.Product.Id
+                        });
+                    }
+                    var billViewModel = new BillViewModel()
+                    {
+                        CustomerMobile = model.CustomerMobile,
+                        BillStatus = BillStatus.New,
+                        CustomerAddress = model.CustomerAddress,
+                        CustomerName = model.CustomerName,
+                        CustomerMessage = model.CustomerMessage,
+                        BillDetails = details,
+                        DateCreated = DateTime.Now
+                    };
+                    if (User.Identity.IsAuthenticated)
+                    {
+                        billViewModel.CustomerId = Guid.Parse(User.GetSpecificDefault("UserId"));
+                    }
+                    _billService.Create(billViewModel);
+
+                    try
+                    {
+
+                        _billService.Save();
+
+                        var content = await _viewRenderService.RenderToStringAsync("Cart/_BillMail", billViewModel);
+                       // Send mail
+                        await _emailSender.SendEmailAsync(_configuration["MailSettings:AdminMail"], "New bill from Panda Shop", content);
+                        ViewData["Success"] = true;
+                    }
+                    catch (Exception ex)
+                    {
+                        ViewData["Success"] = false;
+                        ModelState.AddModelError("", ex.Message);
+                    }
+
+                }
+            }
+            model.Carts = session;
+            return View(model);
         }
 
         [HttpPost]

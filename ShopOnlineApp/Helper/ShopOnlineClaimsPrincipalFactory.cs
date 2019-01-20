@@ -28,7 +28,9 @@ namespace ShopOnlineApp.Helper
                 new Claim("FullName",user.FullName??string.Empty),
                 new Claim("Avatar",user.Avatar??string.Empty),
                 new Claim("TelephoneNumber",user.PhoneNumber ?? string.Empty),
-                new Claim("Role", string.Join(";",roles))
+                new Claim("Role", string.Join(";",roles)),
+                new Claim("UserId",user.Id.ToString()), 
+
             });
             return identity;
         }

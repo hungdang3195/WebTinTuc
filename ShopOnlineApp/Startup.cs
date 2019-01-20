@@ -131,6 +131,7 @@ namespace ShopOnlineApp
             services.AddTransient<IGrantPermissionService, GrantPermissionService>();
             services.AddTransient<IBlogService, BlogService>();
             services.AddTransient<ICommonService, CommonService>();
+            services.AddTransient<IViewRenderService, ViewRenderService>();
 
             //Config system
             services.AddMvc();
