@@ -3,6 +3,7 @@
     public class CommonConstants
     {
         public const string DefaultFooterId = "DefaultFooterId";
+        public const string WishListSession = "WishListSession";
 
         public const string CartSession = "CartSession";
 

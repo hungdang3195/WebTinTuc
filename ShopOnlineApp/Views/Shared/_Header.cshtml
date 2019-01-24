@@ -79,24 +79,23 @@
                     </div>
                     <div class="col-xs-12 col-sm-5 col-md-6 jtv-top-search">
 
-                        <!-- Search -->
-
                         <div class="top-search">
                             <div id="search">
                                 <form method="get" action="/search.html">
                                     <div class="input-group">
-                                        <input type="text" class="form-control" placeholder="Enter your product name..." name="keyword">
+                                        <div><input type="text" class="form-control" placeholder="Enter your product name..." name="keyword"></div>
                                         <button class="btn-search" type="submit"><i class="fa fa-search"></i></button>
                                     </div>
                                 </form>
                             </div>
                         </div>
-
                         <!-- End Search -->
 
                     </div>
                     <div class="col-xs-12 col-sm-4 col-md-3 top-cart">
-                        <div class="link-wishlist"> <a href="#"> <i class="icon-heart icons"></i><span> Wishlist</span></a> </div>
+                        <div class="link-wishlist">
+                            @await Component.InvokeAsync("WishList")
+                        </div>
                         <!-- top cart -->
                         <div class="top-cart-contain">
                             <vc:header-cart>

@@ -72,7 +72,7 @@
                         size:sizeId
                     },
                     success: function () {
-                        shoponline.notify('Update quantity is successful', 'success');
+                        shoponline.notify('Update color is successful', 'success');
                         loadHeaderCart();
                         loadData();
                     }
@@ -100,7 +100,7 @@
                         size:sizeId
                     },
                     success: function () {
-                        shoponline.notify('Update quantity is successful', 'success');
+                        shoponline.notify('Update size is successful', 'success');
                         loadHeaderCart();
                         loadData();
                     }
@@ -110,6 +110,8 @@
             }
 
         });
+
+
         $('#btnClearAll').on('click', function (e) {
             e.preventDefault();
             $.ajax({
@@ -143,6 +145,7 @@
             url: "/Cart/GetSizes",
             dataType: "json",
             success: function (response) {
+                debugger;
                 cachedObj.sizes = response;
             },
             error: function () {
@@ -151,7 +154,7 @@
         });
     }
     function getColorOptions(selectedId) {
-        var colors = "<select class='form-control ddlColorId'>";
+        var colors = "<select class='form-control ddlColorId'><option value='0'></option>";
         $.each(cachedObj.colors, function (i, color) {
             if (selectedId === color.id)
                 colors += '<option value="' + color.id + '" selected="select">' + color.name + '</option>';
@@ -163,14 +166,16 @@
     }
 
     function getSizeOptions(selectedId) {
-        var sizes = "<select class='form-control ddlSizeId'>";
+        var sizes = "<select class='form-control ddlSizeId'> <option value='0'></option>";
         $.each(cachedObj.sizes, function (i, size) {
+            debugger;
             if (selectedId === size.id)
                 sizes += '<option value="' + size.id + '" selected="select">' + size.name + '</option>';
             else
                 sizes += '<option value="' + size.id + '">' + size.name + '</option>';
         });
         sizes += "</select>";
+        console.log(sizes);
         return sizes;
     }
     function loadHeaderCart() {
@@ -194,7 +199,7 @@
                             Price: shoponline.formatNumber(item.price, 0),
                             Quantity: item.quantity,
                             Colors: getColorOptions(item.color == null? 0: item.color.id),
-                            Sizes:getSizeOptions(item.Size == null? "": item.size.id),
+                            Sizes:getSizeOptions(item.size == null? "": item.size.id),
                             Amount: shoponline.formatNumber(item.price * item.quantity, 0),
                             Url: '/' + item.product.seoAlias + "-p." + item.product.id + ".html"
                         });

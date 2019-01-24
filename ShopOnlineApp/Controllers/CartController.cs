@@ -35,6 +35,8 @@ namespace ShopOnlineApp.Controllers
             return View();
         }
 
+       
+
         #region AJAX Request
         /// <summary>
         /// Get list item
@@ -196,6 +198,8 @@ namespace ShopOnlineApp.Controllers
             return new OkObjectResult(productId);
         }
 
+
+      
         /// <summary>
         /// Remove a product
         /// </summary>

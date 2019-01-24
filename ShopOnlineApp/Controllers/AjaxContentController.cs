@@ -12,5 +12,10 @@ namespace ShopOnlineApp.Controllers
         {
             return ViewComponent("HeaderCart");
         }
+
+        public IActionResult WishList()
+        {
+            return ViewComponent("WishList");
+        }
     }
 }
