@@ -38,7 +38,6 @@ namespace ShopOnlineApp.Controllers
 
             var catalog = new CatalogViewModel();
             ViewData["BodyClass"] = "shop_grid_full_width_page";
-
             
             request.PageSize = pageSize ?? _configuration.GetValue<int>("PageSize");
             request.CategoryId = id;
