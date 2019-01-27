@@ -6,7 +6,7 @@ using ShopOnlineApp.Infrastructure.SharedKernel;
 namespace ShopOnlineApp.Data.Entities
 {
     [Table("ContactDetails")]
-    public class Contact : DomainEntity<string>
+    public class Contact:DomainEntity<string>
     {
 
         [StringLength(250)]

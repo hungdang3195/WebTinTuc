@@ -6,7 +6,7 @@ using ShopOnlineApp.Infrastructure.Interfaces;
 
 namespace ShopOnlineApp.Data.IRepositories
 {
-    public interface IContactRepository:IRepository<Contact,int>
+    public interface IContactRepository:IRepository<Contact,string>
     {
 
     }

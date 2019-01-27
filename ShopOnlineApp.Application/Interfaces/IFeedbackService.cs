@@ -1,8 +1,9 @@
 ﻿using System.Collections.Generic;
 using ShopOnlineApp.Application.Common;
 using ShopOnlineApp.Application.ViewModels.Feedback;
+using ShopOnlineApp.Data.EF.Common;
 
-namespace ShopOnlineApp.Application.Implementation
+namespace ShopOnlineApp.Application.Interfaces
 {
     public interface IFeedbackService
     {
@@ -14,7 +15,7 @@ namespace ShopOnlineApp.Application.Implementation
 
         List<FeedbackViewModel> GetAll();
 
-        PagedResult<FeedbackViewModel> GetAllPaging(FeedbackRequest request);
+        BaseReponse<ModelListResult<FeedbackViewModel>> GetAllPaging(FeedbackRequest request);
 
         FeedbackViewModel GetById(int id);
 

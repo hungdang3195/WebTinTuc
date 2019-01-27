@@ -145,7 +145,6 @@
             url: "/Cart/GetSizes",
             dataType: "json",
             success: function (response) {
-                debugger;
                 cachedObj.sizes = response;
             },
             error: function () {
@@ -168,7 +167,7 @@
     function getSizeOptions(selectedId) {
         var sizes = "<select class='form-control ddlSizeId'> <option value='0'></option>";
         $.each(cachedObj.sizes, function (i, size) {
-            debugger;
+       
             if (selectedId === size.id)
                 sizes += '<option value="' + size.id + '" selected="select">' + size.name + '</option>';
             else

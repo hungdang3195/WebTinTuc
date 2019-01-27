@@ -67,6 +67,17 @@ namespace ShopOnlineApp
                 options.User.RequireUniqueEmail = true;
             });
 
+            services.AddAuthentication()
+                .AddFacebook(facebookOpts =>
+                {
+                    facebookOpts.AppId = Configuration["Authentication:Facebook:AppId"];
+                    facebookOpts.AppSecret = Configuration["Authentication:Facebook:AppSecret"];
+                })
+                .AddGoogle(googleOpts => {
+                    googleOpts.ClientId = Configuration["Authentication:Google:ClientId"];
+                    googleOpts.ClientSecret = Configuration["Authentication:Google:ClientSecret"];
+                });
+
             services.AddRecaptcha(new RecaptchaOptions
             {
                 SiteKey = Configuration["Recaptcha:SiteKey"],
@@ -74,6 +85,7 @@ namespace ShopOnlineApp
             });
 
             services.AddAutoMapper();
+            services.AddMemoryCache();
             // Add application services.
             services.AddScoped<UserManager<AppUser>, UserManager<AppUser>>();
             services.AddScoped<RoleManager<AppRole>, RoleManager<AppRole>>();
@@ -116,6 +128,9 @@ namespace ShopOnlineApp
             services.AddTransient<ISystemConfigRepository, SystemConfigRepository>();
             services.AddTransient<ISlideRepository, SlideRepository>();
             services.AddTransient<IFooterRepository, FooterRepository>();
+            services.AddTransient<IFeedbackRepository, FeedbackRepository>();
+            services.AddTransient<IContactRepository, ContactRepository>();
+
 
 
             //service
@@ -132,6 +147,8 @@ namespace ShopOnlineApp
             services.AddTransient<IBlogService, BlogService>();
             services.AddTransient<ICommonService, CommonService>();
             services.AddTransient<IViewRenderService, ViewRenderService>();
+            services.AddTransient<IContactService, ContactService>();
+            services.AddTransient<IFeedbackService, FeedbackService>();
 
             //Config system
             services.AddMvc();

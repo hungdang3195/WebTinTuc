@@ -6,6 +6,8 @@ using ShopOnlineApp.Application.ViewModels.Blogs;
 using ShopOnlineApp.Application.ViewModels.Business;
 using ShopOnlineApp.Application.ViewModels.BusinessAction;
 using ShopOnlineApp.Application.ViewModels.Color;
+using ShopOnlineApp.Application.ViewModels.Contact;
+using ShopOnlineApp.Application.ViewModels.Feedback;
 using ShopOnlineApp.Application.ViewModels.Footer;
 using ShopOnlineApp.Application.ViewModels.Function;
 using ShopOnlineApp.Application.ViewModels.GranPermission;
@@ -152,6 +154,15 @@ namespace ShopOnlineApp.Application.AutoMapper
                 #region Tag
                 cfg.CreateMap<Tag, TagViewModel>();
                 cfg.CreateMap<TagViewModel, Tag>();
+                #endregion
+
+                #region Contact
+                cfg.CreateMap<Contact, ContactViewModel>();
+                cfg.CreateMap<ContactViewModel, Contact>();
+                #endregion
+                #region Feedback
+                cfg.CreateMap<Feedback, FeedbackViewModel>();
+                cfg.CreateMap<FeedbackViewModel, Feedback>();
                 #endregion
             }
             catch (Exception e)

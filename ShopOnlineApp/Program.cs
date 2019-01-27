@@ -4,7 +4,7 @@ using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using TeduCoreApp;
+using ShopOnlineApp.Data.EF;
 
 namespace ShopOnlineApp
 {
@@ -19,8 +19,8 @@ namespace ShopOnlineApp
 
                 try
                 {
-                    //var dbInitializer = services.GetService<DbInitializer>();
-                    //dbInitializer.Seed().Wait();
+                    var dbInitializer = services.GetService<DbInitializer>();
+                    dbInitializer.Seed().Wait();
                 }
                 catch (Exception ex)
                 {

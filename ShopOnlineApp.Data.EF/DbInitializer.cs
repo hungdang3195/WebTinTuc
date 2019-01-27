@@ -60,6 +60,21 @@ namespace ShopOnlineApp.Data.EF
                 var user = await _userManager.FindByNameAsync("admin");
                 await _userManager.AddToRoleAsync(user, "Admin");
             }
+            if (!_context.Contacts.Any())
+            {
+                _context.Contacts.Add(new Contact()
+                {
+                    Id = CommonConstants.DefaultContactId,
+                    Address = "No 04 Lane 250/39 Kim giang Hoàng Mai-Đại Kim-Hà Nội",
+                    Email = "danghonghung31121995@gmail.com",
+                    Name = "Shop Online",
+                    Phone = "0983491814",
+                    Status = Status.Active,
+                    Website = "http://pandashop.com",
+                    Lat = 21.0435009,
+                    Lng = 105.7894758
+                });
+            }
             if (!_context.Functions.Any())
             {
                 _context.Functions.AddRange(new List<Function>()

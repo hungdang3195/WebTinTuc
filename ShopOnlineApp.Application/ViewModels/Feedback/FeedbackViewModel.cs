@@ -1,10 +1,11 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using ShopOnlineApp.Application.Common;
 using ShopOnlineApp.Data.Enums;
 
 namespace ShopOnlineApp.Application.ViewModels.Feedback
 {
-    public class FeedbackViewModel
+    public class FeedbackViewModel:ViewModelBase<Data.Entities.Feedback,FeedbackViewModel>
     {
         public int Id { set; get; }
         [StringLength(250)]

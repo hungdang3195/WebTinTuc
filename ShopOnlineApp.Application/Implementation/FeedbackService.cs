@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using ShopOnlineApp.Application.Interfaces;
-using ShopOnlineApp.Application.ViewModels.Contact;
+using ShopOnlineApp.Application.ViewModels.Feedback;
 using ShopOnlineApp.Data.EF.Common;
 using ShopOnlineApp.Data.IRepositories;
 using ShopOnlineApp.Infrastructure.Interfaces;
@@ -10,27 +10,27 @@ using ShopOnlineApp.Utilities.Enum;
 
 namespace ShopOnlineApp.Application.Implementation
 {
-    public class ContactService : IContactService
+    public class FeedbackService : IFeedbackService
     {
-        private readonly IContactRepository _contactRepository;
+        private readonly IFeedbackRepository _feedbackRepository;
         private readonly IUnitOfWork _unitOfWork;
 
-        public ContactService(IContactRepository contactRepository,
+        public FeedbackService(IFeedbackRepository feedbackRepository,
             IUnitOfWork unitOfWork)
         {
-            _contactRepository = contactRepository;
+            _feedbackRepository = feedbackRepository;
             _unitOfWork = unitOfWork;
         }
 
-        public void Add(ContactViewModel pageVm)
+        public void Add(FeedbackViewModel feedbackVm)
         {
-            var page = new ContactViewModel().Map(pageVm);
-            _contactRepository.Add(page);
+            var page = new  FeedbackViewModel().Map(feedbackVm);
+            _feedbackRepository.Add(page);
         }
 
-        public void Delete(string id)
+        public void Delete(int id)
         {
-            _contactRepository.Remove(id);
+            _feedbackRepository.Remove(id);
         }
 
         public void Dispose()
@@ -38,15 +38,15 @@ namespace ShopOnlineApp.Application.Implementation
             GC.SuppressFinalize(this);
         }
 
-        public List<ContactViewModel> GetAll()
+        public List<FeedbackViewModel> GetAll()
         {
-            return new ContactViewModel().Map(_contactRepository.FindAll()).ToList();
+            return new FeedbackViewModel().Map(_feedbackRepository.FindAll()).ToList();
         }
 
-        public BaseReponse<ModelListResult<ContactViewModel>> GetAllPaging(ContactRequest request)
+        public BaseReponse<ModelListResult<FeedbackViewModel>> GetAllPaging(FeedbackRequest request)
         {
 
-            var query = _contactRepository.FindAll();
+            var query = _feedbackRepository.FindAll();
             if (!string.IsNullOrEmpty(request.SearchText))
                 query = query.Where(x => x.Name.Contains(request.SearchText));
 
@@ -55,11 +55,11 @@ namespace ShopOnlineApp.Application.Implementation
                 .Skip((request.PageIndex) * request.PageSize)
                 .Take(request.PageSize);
 
-            var items = new ContactViewModel().Map(data).ToList();
+            var items = new FeedbackViewModel().Map(data).ToList();
 
-            return new BaseReponse<ModelListResult<ContactViewModel>>
+            return new BaseReponse<ModelListResult<FeedbackViewModel>>
             {
-                Data = new ModelListResult<ContactViewModel>()
+                Data = new ModelListResult<FeedbackViewModel>()
                 {
                     Items = items,
                     Message = Message.Success,
@@ -73,9 +73,9 @@ namespace ShopOnlineApp.Application.Implementation
 
         }
 
-        public ContactViewModel GetById(string id)
+        public FeedbackViewModel GetById(int id)
         {
-            return new ContactViewModel().Map(_contactRepository.FindById(id));
+            return new FeedbackViewModel().Map(_feedbackRepository.FindById(id));
         }
 
         public void SaveChanges()
@@ -83,10 +83,11 @@ namespace ShopOnlineApp.Application.Implementation
             _unitOfWork.Commit();
         }
 
-        public void Update(ContactViewModel pageVm)
+        public void Update(FeedbackViewModel feedbackVm)
         {
-            var page = new ContactViewModel().Map(pageVm);
-            _contactRepository.Update(page);
+            var page =new FeedbackViewModel().Map(feedbackVm);
+
+            _feedbackRepository.Update(page);
         }
     }
 }

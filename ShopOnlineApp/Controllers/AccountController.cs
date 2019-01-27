@@ -308,9 +308,10 @@ namespace ShopOnlineApp.Controllers
                 ViewData["ReturnUrl"] = returnUrl;
                 ViewData["LoginProvider"] = info.LoginProvider;
                 var email = info.Principal.FindFirstValue(ClaimTypes.Email);
-                return View("ExternalLogin", new ExternalLoginViewModel { Email = email });
+                return View("ExternalLogin", new ExternalLoginViewModel());
             }
         }
+
 
         [HttpPost]
         [AllowAnonymous]
@@ -319,13 +320,32 @@ namespace ShopOnlineApp.Controllers
         {
             if (ModelState.IsValid)
             {
+                var emailReturn = "";
                 // Get the information about the user from the external login provider
                 var info = await _signInManager.GetExternalLoginInfoAsync();
                 if (info == null)
                 {
                     throw new ApplicationException("Error loading external login information during confirmation.");
                 }
-                var user = new AppUser { UserName = model.Email, Email = model.Email };
+                var email = info.Principal.FindFirstValue(ClaimTypes.Email);
+
+                if (email != null)
+                {
+                    emailReturn = email;
+                }
+                else
+                {
+                    emailReturn = model.Email;
+                }
+
+                var user = new AppUser
+                {
+                    UserName = emailReturn,
+                    Email = emailReturn,
+                    FullName = model.FullName,
+                    BirthDay = DateTime.Parse(model.DOB),
+                    PhoneNumber = model.PhoneNumber
+                };
                 var result = await _userManager.CreateAsync(user);
                 if (result.Succeeded)
                 {
@@ -350,7 +370,7 @@ namespace ShopOnlineApp.Controllers
         {
             if (userId == null || code == null)
             {
-                return new OkObjectResult(new {});
+                return new OkObjectResult(new { });
             }
             var user = await _userManager.FindByIdAsync(userId);
             if (user == null)
@@ -470,7 +490,7 @@ namespace ShopOnlineApp.Controllers
             }
             else
             {
-                return new OkObjectResult(new {});
+                return new OkObjectResult(new { });
             }
         }
 
