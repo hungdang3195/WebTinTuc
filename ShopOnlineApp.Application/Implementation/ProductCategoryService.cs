@@ -78,7 +78,6 @@ namespace ShopOnlineApp.Application.Implementation
         public ProductCategoryViewModel GetById(int id)
         {
             return new ProductCategoryViewModel().Map(_productCategoryRepository.FindById(id));
-
         }
 
         public async Task<List<ProductCategoryViewModel>> GetHomeCategories(int top)
@@ -87,7 +86,6 @@ namespace ShopOnlineApp.Application.Implementation
                 .FindAll(x => x.HomeFlag == true, c => c.Products)
                 .OrderBy(x => x.HomeOrder)
                 .Take(top)).ToList();
-
 
             foreach (var category in categories)
             {
@@ -151,7 +149,6 @@ namespace ShopOnlineApp.Application.Implementation
             _productCategoryRepository.Update(productCategory);
            
         }
-
         public void UpdateParentId(int sourceId, int targetId, Dictionary<int, int> items)
         {
             var sourceCategory = _productCategoryRepository.FindById(sourceId);

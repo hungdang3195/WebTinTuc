@@ -1,11 +1,17 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
+using Microsoft.AspNetCore.SignalR;
 using ShopOnlineApp.Application.Interfaces;
+using ShopOnlineApp.Application.ViewModels.Annoucement;
 using ShopOnlineApp.Application.ViewModels.User;
+using ShopOnlineApp.Data.Enums;
+using ShopOnlineApp.Extensions;
+using ShopOnlineApp.SignalR;
 
 namespace ShopOnlineApp.Areas.Admin.Controllers
 {
@@ -13,11 +19,12 @@ namespace ShopOnlineApp.Areas.Admin.Controllers
     {
         private readonly IUserService _userService;
         private readonly IAuthorizationService _authorizationService;
-
-        public UserController(IUserService userService, IAuthorizationService authorizationService)
+        private readonly IHubContext<OnlineShopHub> _hubContext;
+        public UserController(IUserService userService, IAuthorizationService authorizationService, IHubContext<OnlineShopHub> hubContext)
         {
             _userService = userService;
             _authorizationService = authorizationService;
+            _hubContext = hubContext;
         }
         public  IActionResult Index()
         {
@@ -62,7 +69,18 @@ namespace ShopOnlineApp.Areas.Admin.Controllers
 
             if (userVm.Id == null)
             {
+                var announcement = new AnnouncementViewModel()
+                {
+                    Content = $"User {userVm.UserName} has been created",
+                    DateCreated = DateTime.Now,
+                    Status = Status.Active,
+                    Title = "User created",
+                    UserId = User.GetUserId(),  
+                    Id = Guid.NewGuid().ToString()
+                };
+
                 await _userService.AddAsync(userVm);
+                await _hubContext.Clients.All.SendAsync("ReceiveMessage", announcement);
             }
             else
             {

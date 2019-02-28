@@ -24,5 +24,7 @@ namespace ShopOnlineApp.Infrastructure.Interfaces
         void Remove(K id);
 
         void RemoveMultiple(List<T> entities);
+
+        void SaveChanges();
     }
 }

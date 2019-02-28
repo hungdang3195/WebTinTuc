@@ -1,5 +1,4 @@
 ﻿var RoleController = function () {
-    var self = this;
     this.initialize = function () {
         loadData();
         registerEvents();
@@ -31,7 +30,6 @@
             shoponline.configs.pageIndex = 1;
             loadData(true);
         });
-
         $("#btn-create").on('click', function () {
             
             resetFormMaintainance();
@@ -41,8 +39,14 @@
         //Grant permission
         $('body').on('click', '.btn-grant', function () {
             $('#hidRoleId').val($(this).data('id'));
-            $.when(loadFunctionList())
-                .done(fillPermission($('#hidRoleId').val()));
+            //$.when(loadFunctionList())
+            //    .done(fillPermission($('#hidRoleId').val()));
+                loadFunctionList(function(data) {
+                    if (data === "success") {
+                        fillPermission($('#hidRoleId').val());
+                    }
+                });
+
             $('#modal-grantpermission').modal('show');
         });
 
@@ -59,9 +63,9 @@
                 },
                 success: function (response) {
                     var data = response;
-                    $('#hidId').val(data.id);
-                    $('#txtName').val(data.name);
-                    $('#txtDescription').val(data.description);
+                    $('#hidId').val(data.Id);
+                    $('#txtName').val(data.Name);
+                    $('#txtDescription').val(data.Description);
                     $('#modal-add-edit').modal('show');
                     shoponline.stopLoading();
                 },
@@ -168,8 +172,8 @@
     };
 
     function loadFunctionList(callback) {
-        var strUrl = "/Admin/Function/GetAll";
-        return $.ajax({
+        var strUrl = "/admin/Function/GetAll";
+         $.ajax({
             type: "GET",
             url: strUrl,
             dataType: "json",
@@ -181,20 +185,21 @@
                 var render = "";
                 $.each(response, function (i, item) {
                     render += Mustache.render(template, {
-                        Name: item.name,
-                        treegridparent: item.parentId !== null ? "treegrid-parent-" + item.parentId : "",
-                        Id: item.id,
-                        AllowCreate: item.allowCreate ? "checked" : "",
-                        AllowEdit: item.allowEdit ? "checked" : "",
-                        AllowView: item.allowView ? "checked" : "",
-                        AllowDelete: item.allowDelete ? "checked" : "",
-                        Status: shoponline.getStatus(item.status)
+                        Name: item.Name,
+                        treegridparent: item.ParentId != null ? "treegrid-parent-" + item.ParentId : "",
+                        Id: item.Id,
+                        AllowCreate:  "",
+                        AllowEdit:  "",
+                        AllowView:  "",
+                        AllowDelete:  "",
+                        Status: shoponline.getStatus(item.Status),
                     });
                 });
+
                 if (render != undefined) {
                     $('#lst-data-function').html(render);
                 }
-                $('.tree').treegrid();
+                $('.tree').treegrid();               
 
                 $('#ckCheckAllView').on('click', function () {
                     $('.ckView').prop('checked', $(this).prop('checked'));
@@ -239,14 +244,16 @@
                     }
                 });
                 if (callback != undefined) {
-                    callback();
+                    callback("success");
                 }
                 shoponline.stopLoading();
             },
             error: function (status) {
-                //console.log(status);
+                console.log(status);
+                
             }
         });
+        return true;
     }
 
     function fillPermission(roleId) {
@@ -266,10 +273,10 @@
                 $.each($('#tblFunction tbody tr'), function (i, item) {
                     $.each(litsPermission, function (j, jitem) {
                         if (jitem.FunctionId === $(item).data('id')) {
-                            $(item).find('.ckView').first().prop('checked', jitem.CanRead);
-                            $(item).find('.ckAdd').first().prop('checked', jitem.CanCreate);
-                            $(item).find('.ckEdit').first().prop('checked', jitem.CanUpdate);
-                            $(item).find('.ckDelete').first().prop('checked', jitem.CanDelete);
+                            $(item).find('.ckView').prop('checked', jitem.CanRead);
+                            $(item).find('.ckAdd').prop('checked', jitem.CanCreate);
+                            $(item).find('.ckEdit').prop('checked', jitem.CanUpdate);
+                            $(item).find('.ckDelete').prop('checked', jitem.CanDelete);
                         }
                     });
                 });
@@ -325,20 +332,20 @@
                
                 var template = $('#table-template').html();
                 var render = "";
-                if (response.data.rowCount > 0) {
-                    $.each(response.data.items, function (i, item) {
+                if (response.Data.RowCount > 0) {
+                    $.each(response.Data.Items, function (i, item) {
                         render += Mustache.render(template, {
-                            Name: item.name,
-                            Id: item.id,
-                            Description: item.description
+                            Name: item.Name,
+                            Id: item.Id,
+                            Description: item.Description
                         });
                     });
-                    $("#lbl-total-records").text(response.data.rowCount);
+                    $("#lbl-total-records").text(response.Data.RowCount);
                     if (render != undefined) {
                         $('#tbl-content').html(render);
-
+                        
                     }
-                    wrapPaging(response.data.rowCount, function () {
+                    wrapPaging(response.Data.RowCount, function () {
                         loadData();
                     }, isPageChanged);
 

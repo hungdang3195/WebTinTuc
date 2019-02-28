@@ -11,7 +11,6 @@ namespace TeduCoreApp.Data.EF.Configurations
         {
             entity.Property(c => c.TagId).HasMaxLength(50).IsRequired()
             .HasColumnType("varchar(50)");
-            // etc.
         }
     }
 }

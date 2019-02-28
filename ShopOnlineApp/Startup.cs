@@ -1,14 +1,23 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Globalization;
 using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Localization;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Razor;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
+using Newtonsoft.Json.Serialization;
 using PaulMiami.AspNetCore.Mvc.Recaptcha;
+using ShopOnline.Application.Dapper.Implements;
+using ShopOnline.Application.Dapper.Interfaces;
 using ShopOnlineApp.Application.Implementation;
 using ShopOnlineApp.Application.Interfaces;
 using ShopOnlineApp.Data.EF;
@@ -19,6 +28,7 @@ using ShopOnlineApp.Helper;
 using ShopOnlineApp.Infrastructure.Interfaces;
 using ShopOnlineApp.Models;
 using ShopOnlineApp.Services;
+using ShopOnlineApp.SignalR;
 
 namespace ShopOnlineApp
 {
@@ -96,9 +106,44 @@ namespace ShopOnlineApp
             services.AddTransient<IEmailSender, EmailSender>();
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
-
             services.AddTransient<DbInitializer>();
-            services.AddMvc().AddJsonOptions(options => { options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore; });
+
+            services.AddMvc(options =>
+                {
+                    options.CacheProfiles.Add("Default",
+                        new CacheProfile
+                        {
+                            Duration = 60
+                        });
+                    options.CacheProfiles.Add("Never",
+                        new CacheProfile
+                        {
+                            Location = ResponseCacheLocation.None,
+                            NoStore = true
+                        });
+                }).AddViewLocalization(
+                    LanguageViewLocationExpanderFormat.Suffix,
+                    opts => { opts.ResourcesPath = "Resources"; })
+                .AddDataAnnotationsLocalization()
+                .AddJsonOptions(options => options.SerializerSettings.ContractResolver = new DefaultContractResolver());
+
+            services.AddLocalization(opts => { opts.ResourcesPath = "Resources"; });
+
+            services.Configure<RequestLocalizationOptions>(
+                opts =>
+                {
+                    var supportedCultures = new List<CultureInfo>
+                    {
+                        new CultureInfo("en-US"),
+                        new CultureInfo("vi-VN")
+                    };
+
+                    opts.DefaultRequestCulture = new RequestCulture("en-US");
+                    // Formatting numbers, dates, etc.
+                    opts.SupportedCultures = supportedCultures;
+                    // UI strings that we have localized.
+                    opts.SupportedUICultures = supportedCultures;
+                });
             //add config system
             services.AddTransient(typeof(IUnitOfWork),typeof(EFUnitOfWork));
             services.AddTransient(typeof(IRepository<,>), typeof(EFRepository<,>));
@@ -130,8 +175,11 @@ namespace ShopOnlineApp
             services.AddTransient<IFooterRepository, FooterRepository>();
             services.AddTransient<IFeedbackRepository, FeedbackRepository>();
             services.AddTransient<IContactRepository, ContactRepository>();
-
-
+            services.AddTransient<IPageRepository, PageRepository>();
+            services.AddTransient<IRatingRepository, RatingRepository>();
+            services.AddTransient<IBlogCategoryRepository, BlogCategoryRepository>();
+            services.AddTransient<IBlogCommentRepository, BlogCommentRepository>();
+            services.AddTransient<IAnnouncementService, AnnouncementService>();
 
             //service
             services.AddTransient<IFunctionService, FunctionService>();
@@ -149,9 +197,26 @@ namespace ShopOnlineApp
             services.AddTransient<IViewRenderService, ViewRenderService>();
             services.AddTransient<IContactService, ContactService>();
             services.AddTransient<IFeedbackService, FeedbackService>();
+            services.AddTransient<IPageService, PageService>();
+            services.AddTransient<IReportService, ReportService>();
+            services.AddTransient<IRatingService, RatingService>();
+            services.AddTransient<IColorService, ColorService>();
+            services.AddTransient<ISizeService, SizeService>();
+            services.AddTransient<IBlogCategoryService, BlogCategoryService>();
+            services.AddTransient<IBlogCommentService, BlogCommentService>();
+            services.ConfigureApplicationCookie(options => options.LoginPath = "/admin-login");
+            //services.Configure<IdentityOptions>(opt =>
+            //{
+            //    opt.Cookies.ApplicationCookie.LoginPath = new PathString("/login");
+            //});
 
             //Config system
             services.AddMvc();
+
+            services.AddCors(options => options.AddPolicy("CorsPolicy", builder => { builder.AllowAnyMethod().AllowAnyHeader().WithOrigins("http://localhost:3000").AllowCredentials(); }));
+
+
+            services.AddSignalR();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -174,6 +239,9 @@ namespace ShopOnlineApp
 
             app.UseAuthentication();
 
+            var options = app.ApplicationServices.GetService<IOptions<RequestLocalizationOptions>>();
+            app.UseRequestLocalization(options.Value);
+
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
@@ -187,7 +255,10 @@ namespace ShopOnlineApp
                 routes.MapRoute(name: "login",
                     template: "{area:exists}/{controller=Login}/{action=Index}/{id?}");
             });
-          
+            app.UseCookiePolicy();
+            app.UseCors("CorsPolicy");
+            app.UseSignalR(routes => { routes.MapHub<OnlineShopHub>("/onlineShopHub"); });
+
         }
     }
 }

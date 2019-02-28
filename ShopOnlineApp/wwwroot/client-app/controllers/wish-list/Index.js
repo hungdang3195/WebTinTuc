@@ -58,16 +58,18 @@
             type: 'GET',
             dataType: 'json',
             success: function (response) {
+                var productIds = "";
                 var template = $('#template-cart').html();
                 var render = "";
                 $.each(response, function (i, item) {
+
                     render += Mustache.render(template,
                         {
-                            ProductId: item.product.id,
-                            ProductName: item.product.name,
-                            Image: item.product.image,
-                            Price: shoponline.formatNumber(item.product.price, 0),
-                            Url: '/' + item.product.seoAlias + "-p." + item.product.id + ".html"
+                            ProductId: item.Product.Id,
+                            ProductName: item.Product.Name,
+                            Image: item.Product.Image,
+                            Price: shoponline.formatNumber(item.Product.Price, 0),
+                            Url: '/' + item.Product.SeoAlias + "-p." + item.Product.Id + ".html"
                         });
                 });
                 if (render !== "")

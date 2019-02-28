@@ -30,14 +30,12 @@
                 e.preventDefault();
                 var email = $('#txtUserName').val();
                 var password = $('#txtPassword').val();
-                debugger;
                 login(email, password);
             }
         });
     }
 
     var login = function (user, pass) {
-        debugger;
         $.ajax({
             type: 'POST',
             data: {
@@ -45,13 +43,14 @@
                 Password: pass
             },
             dateType: 'json',
-            url: '/Admin/Login/authen',
+            url: '/Admin/Login/Authen',
             success: function (res) {
-                if (res.success===true) {
+                if (res.Success===true) {
                     window.location.href = "/Admin/Home/Index";
                     shoponline.notify('Đăng nhập thành công', 'success');
                 }
                 else {
+                    window.location.href = "/Admin/Login/Index";
                     shoponline.notify('Đăng nhập thất bại', 'error');
                 }
             }

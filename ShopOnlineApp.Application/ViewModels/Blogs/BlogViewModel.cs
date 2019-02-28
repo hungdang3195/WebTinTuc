@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Text;
 using ShopOnlineApp.Application.Common;
 using ShopOnlineApp.Application.ViewModels.BlogTag;
 using ShopOnlineApp.Data.Entities;
@@ -9,7 +8,7 @@ using ShopOnlineApp.Data.Enums;
 
 namespace ShopOnlineApp.Application.ViewModels.Blogs
 {
-    public class BlogViewModel:ViewModelBase<Blog,BlogViewModel>
+    public class BlogViewModel : ViewModelBase<Blog, BlogViewModel>
     {
         public int Id { set; get; }
         [Required]
@@ -47,5 +46,12 @@ namespace ShopOnlineApp.Application.ViewModels.Blogs
 
         [MaxLength(256)]
         public string SeoDescription { set; get; }
+
+        public int BlogCategoryId { get; set; }
+
+        public BlogCategoryViewModel BlogCategory { set; get; }
+
+        public int CountComment { get; set; }
+
     }
 }

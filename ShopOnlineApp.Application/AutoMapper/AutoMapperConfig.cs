@@ -1,8 +1,11 @@
 ﻿using System;
-using System.Runtime.CompilerServices;
 using AutoMapper;
+using ShopOnlineApp.Application.ViewModels;
+using ShopOnlineApp.Application.ViewModels.Annoucement;
 using ShopOnlineApp.Application.ViewModels.Bill;
+using ShopOnlineApp.Application.ViewModels.BlogComment;
 using ShopOnlineApp.Application.ViewModels.Blogs;
+using ShopOnlineApp.Application.ViewModels.BlogTag;
 using ShopOnlineApp.Application.ViewModels.Business;
 using ShopOnlineApp.Application.ViewModels.BusinessAction;
 using ShopOnlineApp.Application.ViewModels.Color;
@@ -11,7 +14,9 @@ using ShopOnlineApp.Application.ViewModels.Feedback;
 using ShopOnlineApp.Application.ViewModels.Footer;
 using ShopOnlineApp.Application.ViewModels.Function;
 using ShopOnlineApp.Application.ViewModels.GranPermission;
+using ShopOnlineApp.Application.ViewModels.Page;
 using ShopOnlineApp.Application.ViewModels.Product;
+using ShopOnlineApp.Application.ViewModels.Rating;
 using ShopOnlineApp.Application.ViewModels.Role;
 using ShopOnlineApp.Application.ViewModels.Size;
 using ShopOnlineApp.Application.ViewModels.Slide;
@@ -29,7 +34,9 @@ namespace ShopOnlineApp.Application.AutoMapper
             try
             {
                 #region Product
+
                 cfg.CreateMap<Product, ProductViewModel>();
+
                 cfg.CreateMap<ProductViewModel, Product>()
                     .ConstructUsing(c => new Product(c.Name, c.CategoryId, c.Image, c.Price, c.OriginalPrice,
                         c.PromotionPrice, c.Description, c.Content, c.HomeFlag, c.HotFlag, c.Tags, c.Unit, c.Status,
@@ -43,7 +50,8 @@ namespace ShopOnlineApp.Application.AutoMapper
                 #endregion
 
                 #region ProductCategory
-                cfg.CreateMap<ProductCategory, ProductCategoryViewModel>().ForMember(x=>x.Children,opt=>opt.Ignore());
+
+                cfg.CreateMap<ProductCategory, ProductCategoryViewModel>().PreserveReferences();
                 cfg.CreateMap<ProductCategoryViewModel, ProductCategory>(); ;
 
                 #endregion
@@ -77,19 +85,14 @@ namespace ShopOnlineApp.Application.AutoMapper
 
                 #endregion
 
-
-                cfg.CreateMap<BillViewModel, Bill>();
-
-                cfg.CreateMap<BillDetailViewModel, BillDetail>();
                 #region Bill
-
-                cfg.CreateMap<Bill, BillViewModel>().MaxDepth(1);
-            
+                cfg.CreateMap<Bill, BillViewModel>();
+                cfg.CreateMap<BillViewModel, Bill>();
+                cfg.CreateMap<BillDetailViewModel, BillDetail>();
                 #endregion
-
                 #region BillDetail
-                cfg.CreateMap<BillDetail, BillDetailViewModel>().MaxDepth(1);
-               
+                cfg.CreateMap<BillDetail, BillDetailViewModel>().ForMember(t => t.Bill, opt => opt.Ignore());
+
                 #endregion
 
                 #region Size
@@ -107,6 +110,7 @@ namespace ShopOnlineApp.Application.AutoMapper
                 cfg.CreateMap<ProductQuantity, ProductQuantityViewModel>().MaxDepth(2);
                 cfg.CreateMap<ProductQuantityViewModel, ProductQuantity>();
                 #endregion
+
                 #region ProductImage
 
                 cfg.CreateMap<ProductImage, ProductImageViewModel>();
@@ -127,7 +131,6 @@ namespace ShopOnlineApp.Application.AutoMapper
                 #endregion
 
                 #region Footer
-
 
                 cfg.CreateMap<Footer, FooterViewModel>();
                 cfg.CreateMap<FooterViewModel, Footer>();
@@ -160,9 +163,50 @@ namespace ShopOnlineApp.Application.AutoMapper
                 cfg.CreateMap<Contact, ContactViewModel>();
                 cfg.CreateMap<ContactViewModel, Contact>();
                 #endregion
+
                 #region Feedback
                 cfg.CreateMap<Feedback, FeedbackViewModel>();
                 cfg.CreateMap<FeedbackViewModel, Feedback>();
+                #endregion
+
+                #region Page
+                cfg.CreateMap<Page, PageViewModel>();
+                cfg.CreateMap<PageViewModel, Page>();
+
+                #endregion
+
+                #region Rating
+
+                cfg.CreateMap<Rating, RatingViewModel>();
+                cfg.CreateMap<RatingViewModel, Rating>();
+
+                #endregion
+
+                #region BlogCategory
+                cfg.CreateMap<BlogCategory, BlogCategoryViewModel>();
+                cfg.CreateMap<BlogCategoryViewModel, BlogCategory>();
+                #endregion
+
+                #region BlogComment
+
+                cfg.CreateMap<BlogComment, BlogCommentViewModel>();
+                    
+                cfg.CreateMap<BlogCommentViewModel, BlogComment>();
+                #endregion
+
+                #region BlogTag
+
+                cfg.CreateMap<BlogTag, BlogTagViewModel>();
+
+                cfg.CreateMap<BlogTagViewModel, BlogTag>();
+                #endregion
+
+                #region Annoucement
+
+                cfg.CreateMap<Announcement, AnnouncementViewModel>();
+
+                cfg.CreateMap<AnnouncementViewModel, Announcement>();
+
                 #endregion
             }
             catch (Exception e)
@@ -170,7 +214,6 @@ namespace ShopOnlineApp.Application.AutoMapper
                 Console.WriteLine(e);
                 throw;
             }
-           
         });
     }
 

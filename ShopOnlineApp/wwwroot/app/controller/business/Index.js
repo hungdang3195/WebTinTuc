@@ -19,19 +19,18 @@
             },
             dataType: 'json',
             success: (response) => {
-
-                $.each(response.data.items,
+                $.each(response.Data.Items,
                     function (i, item) {
                         render += Mustache.render(template,
                             {
-                                Id: item.id,
-                                Name: item.name
+                                Id: item.Id,
+                                Name: item.Name
                             });
-                        $('#lblTotalRecords').text(response.data.rowCount);
+                        $('#lblTotalRecords').text(response.Data.RowCount);
                         if (render !== "") {
                             $('#tbl-content').html(render);
                         }
-                        wrapPaging(response.data.rowCount, function () {
+                        wrapPaging(response.Data.RowCount, function () {
                             loadData();
                         }, isPageChanged);
                     });

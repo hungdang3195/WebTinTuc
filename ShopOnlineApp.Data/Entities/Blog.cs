@@ -62,19 +62,17 @@ namespace ShopOnlineApp.Data.Entities
 
         [MaxLength(500)]
         public string Description { set; get; }
-
         public string Content { set; get; }
-
-        public bool? HomeFlag { set; get; }
+       public bool? HomeFlag { set; get; }
         public bool? HotFlag { set; get; }
         public int? ViewCount { set; get; }
-
         public string Tags { get; set; }
-
         public virtual ICollection<BlogTag> BlogTags { set; get; }
         public DateTime DateCreated { set; get; }
         public DateTime DateModified { set; get; }
         public Status Status { set; get; }
+        [Required]
+        public int BlogCategoryId { get; set; }
 
         [MaxLength(256)]
         public string SeoPageTitle { set; get; }
@@ -87,5 +85,11 @@ namespace ShopOnlineApp.Data.Entities
 
         [MaxLength(256)]
         public string SeoDescription { set; get; }
+
+        [ForeignKey("BlogCategoryId")]
+        public BlogCategory BlogCategory { set; get; }
+
+        public virtual ICollection<BlogComment> BlogComments { set; get; }
+        //public virtual ICollection<BlogCategory> BlogCategories { set; get; }
     }
 }

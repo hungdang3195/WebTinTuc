@@ -355,6 +355,8 @@ namespace ShopOnlineApp.Data.EF.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<int>("BlogCategoryId");
+
                     b.Property<string>("Content");
 
                     b.Property<DateTime>("DateCreated");
@@ -395,7 +397,71 @@ namespace ShopOnlineApp.Data.EF.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("BlogCategoryId");
+
                     b.ToTable("Blogs");
+                });
+
+            modelBuilder.Entity("ShopOnlineApp.Data.Entities.BlogCategory", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<DateTime>("DateCreated");
+
+                    b.Property<DateTime>("DateModified");
+
+                    b.Property<string>("Description");
+
+                    b.Property<bool?>("HomeFlag");
+
+                    b.Property<int?>("HomeOrder");
+
+                    b.Property<string>("Image");
+
+                    b.Property<string>("Name");
+
+                    b.Property<int?>("ParentId");
+
+                    b.Property<string>("SeoAlias");
+
+                    b.Property<string>("SeoDescription");
+
+                    b.Property<string>("SeoKeywords");
+
+                    b.Property<string>("SeoPageTitle");
+
+                    b.Property<int>("SortOrder");
+
+                    b.Property<int>("Status");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("BlogCategories");
+                });
+
+            modelBuilder.Entity("ShopOnlineApp.Data.Entities.BlogComment", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<int>("BlogId");
+
+                    b.Property<DateTime>("DateCreated");
+
+                    b.Property<DateTime>("DateModified");
+
+                    b.Property<string>("Email");
+
+                    b.Property<string>("Message");
+
+                    b.Property<string>("Name");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("BlogId");
+
+                    b.ToTable("BlogComment");
                 });
 
             modelBuilder.Entity("ShopOnlineApp.Data.Entities.BlogTag", b =>
@@ -821,6 +887,34 @@ namespace ShopOnlineApp.Data.EF.Migrations
                     b.ToTable("ProductTags");
                 });
 
+            modelBuilder.Entity("ShopOnlineApp.Data.Entities.Rating", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<DateTime>("DateCreated");
+
+                    b.Property<DateTime>("DateModified");
+
+                    b.Property<string>("NickName");
+
+                    b.Property<int>("Price");
+
+                    b.Property<int>("ProductId");
+
+                    b.Property<int>("Quantity");
+
+                    b.Property<string>("Review");
+
+                    b.Property<string>("Summary");
+
+                    b.Property<int>("Value");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Ratings");
+                });
+
             modelBuilder.Entity("ShopOnlineApp.Data.Entities.Size", b =>
                 {
                     b.Property<int>("Id")
@@ -992,6 +1086,22 @@ namespace ShopOnlineApp.Data.EF.Migrations
                     b.HasOne("ShopOnlineApp.Data.Entities.Size", "Size")
                         .WithMany()
                         .HasForeignKey("SizeId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("ShopOnlineApp.Data.Entities.Blog", b =>
+                {
+                    b.HasOne("ShopOnlineApp.Data.Entities.BlogCategory", "BlogCategory")
+                        .WithMany("Blogs")
+                        .HasForeignKey("BlogCategoryId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("ShopOnlineApp.Data.Entities.BlogComment", b =>
+                {
+                    b.HasOne("ShopOnlineApp.Data.Entities.Blog", "Blog")
+                        .WithMany("BlogComments")
+                        .HasForeignKey("BlogId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 

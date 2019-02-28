@@ -1,13 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
-using AutoMapper;
 using AutoMapper.QueryableExtensions;
 using Microsoft.EntityFrameworkCore;
 using ShopOnlineApp.Application.Interfaces;
+using ShopOnlineApp.Application.ViewModels;
 using ShopOnlineApp.Application.ViewModels.Blogs;
+using ShopOnlineApp.Application.ViewModels.Product;
 using ShopOnlineApp.Application.ViewModels.Tag;
 using ShopOnlineApp.Data.EF.Common;
 using ShopOnlineApp.Data.Entities;
@@ -26,16 +25,17 @@ namespace ShopOnlineApp.Application.Implementation
         private readonly ITagRepository _tagRepository;
         private readonly IBlogTagRepository _blogTagRepository;
         private readonly IUnitOfWork _unitOfWork;
-
+        private readonly IBlogCategoryRepository _categoryRepository;
         public BlogService(IBlogRepository blogRepository,
             IBlogTagRepository blogTagRepository,
             ITagRepository tagRepository,
-            IUnitOfWork unitOfWork)
+            IUnitOfWork unitOfWork, IBlogCategoryRepository categoryRepository)
         {
             _blogRepository = blogRepository;
             _blogTagRepository = blogTagRepository;
             _tagRepository = tagRepository;
             _unitOfWork = unitOfWork;
+            _categoryRepository = categoryRepository;
         }
 
         public BlogViewModel Add(BlogViewModel blogVm)
@@ -44,6 +44,8 @@ namespace ShopOnlineApp.Application.Implementation
 
             if (!string.IsNullOrEmpty(blog.Tags))
             {
+               
+
                 var tags = blog.Tags.Split(',');
                 foreach (string t in tags)
                 {
@@ -79,37 +81,68 @@ namespace ShopOnlineApp.Application.Implementation
 
         public async Task<BaseReponse<ModelListResult<BlogViewModel>>> GetAllPaging(BlogRequest request)
         {
-            var response = _blogRepository.FindAll();
-            if (!string.IsNullOrEmpty(request.SearchText))
-                response = response.Where(x => x.Name.Contains(request.SearchText));
+            var response = from c in _categoryRepository.FindAll()
+                           join p in _blogRepository.FindAll().AsNoTracking() on c.Id equals p.BlogCategoryId 
+                           select new BlogViewModel
+                           {
+                               Name = p.Name,
+                               Id = p.Id,
+                               BlogCategoryId = p.BlogCategoryId,
+                               BlogCategory = new BlogCategoryViewModel
+                               {
+                                   Name = c.Name
+                               },
+                               Description = p.Description,
+                               Content = p.Content,
+                               DateCreated = p.DateCreated,
+                               DateModified = p.DateModified,
+                               HomeFlag = p.HomeFlag,
+                               HotFlag = p.HotFlag,
+                               SeoAlias = p.SeoAlias,
+                               SeoDescription = p.SeoDescription,
+                               SeoKeywords = p.SeoKeywords,
+                               SeoPageTitle = p.SeoPageTitle,
+                               ViewCount = p.ViewCount,
+                               Status = p.Status,
+                               Image = p.Image
+                           };
 
-            int totalRow = await response.CountAsync();
+            if (!string.IsNullOrEmpty(request.SearchText))
+            {
+                response = response.Where(x => x.Name.Contains(request.SearchText));
+            }
+            else if (!string.IsNullOrEmpty(request.Name))
+            {
+                response = response.Where(x => x.Name.Contains(request.Name));
+            }
+            else if (request?.CategoryId > 0)
+            {
+                response = response.Where(x => x.BlogCategoryId == request.CategoryId);
+            }
+
+            var totalCount = await response.CountAsync();
 
             if (request.IsPaging)
             {
-                response = response.OrderByDescending(x => x.DateCreated)
-
+                response = response.OrderByDescending(x => x.DateModified)
                     .Skip((request.PageIndex - 1) * request.PageSize).Take(request.PageSize);
             }
 
-            var items = new BlogViewModel().Map(response).ToList();
+            //var items = new ProductViewModel().Map(response).ToList();
 
-            return new BaseReponse<ModelListResult<BlogViewModel>>
+            return new BaseReponse<ModelListResult<BlogViewModel>>()
             {
-                Data = new ModelListResult<BlogViewModel>
+                Data = new ModelListResult<BlogViewModel>()
                 {
-                    Items = items,
+                    Items = response.ToList(),
                     Message = Message.Success,
-                    RowCount = totalRow,
+                    RowCount = totalCount,
                     PageSize = request.PageSize,
                     PageIndex = request.PageIndex
                 },
                 Message = Message.Success,
                 Status = (int)QueryStatus.Success
             };
-
-
-
         }
 
         public BlogViewModel GetById(int id)
@@ -127,6 +160,9 @@ namespace ShopOnlineApp.Application.Implementation
             _blogRepository.Update(new BlogViewModel().Map(blog));
             if (!string.IsNullOrEmpty(blog.Tags))
             {
+                var blogTags = _blogTagRepository.FindAll(x => x.BlogId == blog.Id);
+                _blogTagRepository.RemoveMultiple(blogTags.ToList());
+
                 string[] tags = blog.Tags.Split(',');
                 foreach (string t in tags)
                 {
@@ -152,7 +188,7 @@ namespace ShopOnlineApp.Application.Implementation
             }
         }
 
-        public List<BlogViewModel> GetLastest(int top)
+        public IEnumerable<BlogViewModel> GetLastest(int top)
         {
             return new BlogViewModel().Map(_blogRepository.FindAll(x => x.Status == Status.Active).OrderByDescending(x => x.DateCreated)
                 .Take(top)).ToList();

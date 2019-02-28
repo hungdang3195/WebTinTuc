@@ -63,8 +63,8 @@ namespace ShopOnlineApp.Data.Entities
         public DateTime DateCreated { set; get; }
         public DateTime DateModified { set; get; }
 
-        [DefaultValue(Status.Active)]
-        public Status Status { set; get; } = Status.Active;
+        [DefaultValue(Status.InActive)]
+        public Status Status { set; get; } = Status.InActive;
 
         public Guid? CustomerId { set; get; }
 

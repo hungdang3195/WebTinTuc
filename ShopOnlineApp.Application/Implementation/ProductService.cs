@@ -28,8 +28,9 @@ namespace ShopOnlineApp.Application.Implementation
         private readonly IProductQuantityRepository _productQuantityRepository;
         private readonly IProductImageRepository _productImageRepository;
         private readonly IWholePriceRepository _wholePriceRepository;
-
-        public ProductService(IProductRepository productionRepository, IProductTagRepository productTagRepository, ITagRepository tagRepository, IUnitOfWork unitOfWork, IProductQuantityRepository productQuantityRepository, IProductImageRepository productImageRepository, IWholePriceRepository wholePriceRepository)
+        private readonly IProductCategoryRepository _categoryRepository;
+        private readonly IRatingRepository _ratingRepository;
+        public ProductService(IProductRepository productionRepository, IProductTagRepository productTagRepository, ITagRepository tagRepository, IUnitOfWork unitOfWork, IProductQuantityRepository productQuantityRepository, IProductImageRepository productImageRepository, IWholePriceRepository wholePriceRepository, IProductCategoryRepository categoryRepository, IRatingRepository ratingRepository)
         {
             _productRepository = productionRepository;
             _productTagRepository = productTagRepository;
@@ -38,6 +39,8 @@ namespace ShopOnlineApp.Application.Implementation
             _productQuantityRepository = productQuantityRepository;
             _productImageRepository = productImageRepository;
             _wholePriceRepository = wholePriceRepository;
+            _categoryRepository = categoryRepository;
+            _ratingRepository = ratingRepository;
         }
         public async Task<List<ProductViewModel>> GetAll()
         {
@@ -56,7 +59,35 @@ namespace ShopOnlineApp.Application.Implementation
 
         public async Task<BaseReponse<ModelListResult<ProductViewModel>>> GetAllPaging(ProductRequest request)
         {
-            var response = _productRepository.FindAll(x => x.Status == Status.Active).AsNoTracking();
+            var response = from c in _categoryRepository.FindAll()
+                           join p in _productRepository.FindAll().AsNoTracking() on c.Id equals p.CategoryId
+                           select new ProductViewModel
+                           {
+                               Name = p.Name,
+                               Id = p.Id,
+                               CategoryId = p.CategoryId,
+                               ProductCategory = new ProductCategoryViewModel()
+                               {
+                                   Name = c.Name
+                               },
+                               Description = p.Description,
+                               Content = p.Content,
+                               DateCreated = p.DateCreated,
+                               DateModified = p.DateModified,
+                               HomeFlag = p.HomeFlag,
+                               HotFlag = p.HotFlag,
+                               Price = p.Price,
+                               OriginalPrice = p.OriginalPrice,
+                               PromotionPrice = p.PromotionPrice,
+                               SeoAlias = p.SeoAlias,
+                               SeoDescription = p.SeoDescription,
+                               SeoKeywords = p.SeoKeywords,
+                               SeoPageTitle = p.SeoPageTitle,
+                               Unit = p.Unit,
+                               ViewCount = p.ViewCount,
+                               Status = p.Status,
+                               Image = p.Image
+                           };
 
             if (!string.IsNullOrEmpty(request.SearchText))
             {
@@ -75,18 +106,17 @@ namespace ShopOnlineApp.Application.Implementation
 
             if (request.IsPaging)
             {
-                response = response.OrderByDescending(x => x.DateCreated)
-
+                response = response.OrderByDescending(x => x.DateModified)
                     .Skip((request.PageIndex - 1) * request.PageSize).Take(request.PageSize);
             }
 
-            var items = new ProductViewModel().Map(response).ToList();
+            //var items = new ProductViewModel().Map(response).ToList();
 
             return new BaseReponse<ModelListResult<ProductViewModel>>()
             {
                 Data = new ModelListResult<ProductViewModel>()
                 {
-                    Items = items,
+                    Items = response.ToList(),
                     Message = Message.Success,
                     RowCount = totalCount,
                     PageSize = request.PageSize,
@@ -290,9 +320,22 @@ namespace ShopOnlineApp.Application.Implementation
         {
             var product = _productRepository.FindById(id);
             return new ProductViewModel().Map(_productRepository
-                .FindAll(x => x.Status == Status.Active&& x.Id != id && x.CategoryId == product.CategoryId)
+                .FindAll(x => x.Status == Status.Active && x.Id != id && x.CategoryId == product.CategoryId)
                 .OrderByDescending(x => x.DateCreated)
                 .Take(top)).ToList();
+        }
+
+        public List<ProductViewModel> GetRatingProducts(int top)
+        {
+            var resultReturn = from u in _productRepository.FindAll()
+                join p in (from item in _ratingRepository.FindAll()
+                    group item by item.ProductId
+                    into g
+                    orderby g.Sum(x => x.Quantity + x.Price + x.Value) descending
+                    select g.Key) on u.Id equals p
+                  select u;
+
+            return new ProductViewModel().Map(resultReturn.Take(top)).ToList();
         }
 
         public List<ProductViewModel> GetUpsellProducts(int top)

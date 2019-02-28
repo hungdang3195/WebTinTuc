@@ -32,5 +32,8 @@ namespace ShopOnlineApp.Data.Entities
         public DateTime DateCreated { set; get; }
         public DateTime DateModified { set; get; }
         public Status Status { set; get; }
+
+
+
     }
 }

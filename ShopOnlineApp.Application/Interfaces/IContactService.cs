@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
-using ShopOnlineApp.Application.Common;
+﻿using System.Collections.Generic;
 using ShopOnlineApp.Application.ViewModels.Contact;
 using ShopOnlineApp.Data.EF.Common;
-
 namespace ShopOnlineApp.Application.Interfaces
 {
     public interface IContactService

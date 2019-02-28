@@ -57,6 +57,14 @@
             loadData(true);
         });
 
+        $('body').on('click',
+            '.btnConfirm',
+            function(e) {
+                e.preventDeafault();
+
+            });
+
+
         $('body').on('click', '.btn-view', function (e) {
             e.preventDefault();
             var that = $(this).data('id');
@@ -64,30 +72,27 @@
                 type: "GET",
                 url: "/Admin/Bill/GetById",
                 data: { id: that },
-                contentType:'json',
+                contentType: 'json',
                 success: function (response) {
-                    var data = response;
-                    $('#hidId').val(data.id);
-                    $('#txtCustomerName').val(data.customerName);
-
-                    $('#txtCustomerAddress').val(data.customerAddress);
-                    $('#txtCustomerMobile').val(data.customerMobile);
-                    $('#txtCustomerMessage').val(data.customerMessage);
-                    $('#ddlPaymentMethod').val(data.paymentMethod);
-                    $('#ddlCustomerId').val(data.customerId);
-                    $('#ddlBillStatus').val(data.billStatus);
-
-                    var billDetails = data.billDetails;
-                    debugger;
-                    if (data.BillDetails !== null && data.billDetails.length > 0) {
+                    console.log(response);
+                    var data = response;    
+                    $('#hidId').val(data.Id);
+                    $('#txtCustomerName').val(data.CustomerName);
+                    $('#txtCustomerAddress').val(data.CustomerAddress);
+                    $('#txtCustomerMobile').val(data.CustomerMobile);
+                    $('#txtCustomerMessage').val(data.CustomerMessage);
+                    $('#ddlPaymentMethod').val(data.PaymentMethod);
+                    $('#ddlCustomerId').val(data.CustomerId);
+                    $('#ddlBillStatus').val(data.BillStatus);
+                    var billDetails = data.BillDetails;
+                    if (data.BillDetails !== null && data.BillDetails.length > 0) {
                         var render = '';
                         var templateDetails = $('#template-table-bill-details').html();
-
+                        
                         $.each(billDetails, function (i, item) {
-                            var products = getProductOptions(item.productId);
-                            var colors = getColorOptions(item.colorId);
-                            var sizes = getSizeOptions(item.sizeId);
-
+                            var products = getProductOptions(item.ProductId);
+                            var colors = getColorOptions(item.ColorId);
+                            var sizes = getSizeOptions(item.SizeId);
                             render += Mustache.render(templateDetails,
                                 {
                                     Id: item.Id,
@@ -106,16 +111,16 @@
                 error: () => {
 
                 }
-              
+
             });
         });
 
         //$('body').on('click', '.btn-view', function (e)
         //{
-           
+
         //        e.preventDefault();
         //    var that = $(this).data('id');
-            
+
         //        debugger;
         //        $.ajax({
         //            type: "GET",
@@ -136,6 +141,7 @@
             if ($('#frmMaintainance').valid()) {
                 e.preventDefault();
                 var id = $('#hidId').val();
+              //  var id = $(this).data('id');
                 var customerName = $('#txtCustomerName').val();
                 var customerAddress = $('#txtCustomerAddress').val();
                 var customerId = $('#ddlCustomerId').val();
@@ -147,7 +153,6 @@
 
                 var billDetails = [];
                 $.each($('#tbl-bill-details tr'), function (i, item) {
-                    
                     billDetails.push({
                         Id: $(item).data('id'),
                         ProductId: $(item).find('select.ddlProductId').first().val(),
@@ -243,7 +248,7 @@
                 cachedObj.billStatuses = response;
                 var render = "";
                 $.each(response, function (i, item) {
-                    render += "<option value='" + item.value + "'>" + item.name + "</option>";
+                    render += "<option value='" + item.Value + "'>" + item.Name + "</option>";
                 });
                 $('#ddlBillStatus').html(render);
             }
@@ -259,7 +264,7 @@
                 cachedObj.paymentMethods = response;
                 var render = "";
                 $.each(response, function (i, item) {
-                    render += "<option value='" + item.value + "'>" + item.name + "</option>";
+                    render += "<option value='" + item.Value + "'>" + item.Name + "</option>";
                 });
                 $('#ddlPaymentMethod').html(render);
             }
@@ -311,10 +316,10 @@
     function getProductOptions(selectedId) {
         var products = "<select class='form-control ddlProductId'>";
         $.each(cachedObj.products, function (i, product) {
-            if (selectedId === product.id)
-                products += '<option value="' + product.id + '" selected="select">' + product.name + '</option>';
+            if (selectedId === product.Id)
+                products += '<option value="' + product.Id + '" selected="select">' + product.Name + '</option>';
             else
-                products += '<option value="' + product.id + '">' + product.name + '</option>';
+                products += '<option value="' + product.Id + '">' + product.Name + '</option>';
         });
         products += "</select>";
         return products;
@@ -324,9 +329,9 @@
         var colors = "<select class='form-control ddlColorId'>";
         $.each(cachedObj.colors, function (i, color) {
             if (selectedId === color.Id)
-                colors += '<option value="' + color.id + '" selected="select">' + color.name + '</option>';
+                colors += '<option value="' + color.Id + '" selected="select">' + color.Name + '</option>';
             else
-                colors += '<option value="' + color.id + '">' + color.name + '</option>';
+                colors += '<option value="' + color.Id + '">' + color.Name + '</option>';
         });
         colors += "</select>";
         return colors;
@@ -336,9 +341,9 @@
         var sizes = "<select class='form-control ddlSizeId'>";
         $.each(cachedObj.sizes, function (i, size) {
             if (selectedId === size.Id)
-                sizes += '<option value="' + size.id + '" selected="select">' + size.name + '</option>';
+                sizes += '<option value="' + size.Id + '" selected="select">' + size.Name + '</option>';
             else
-                sizes += '<option value="' + size.id + '">' + size.name + '</option>';
+                sizes += '<option value="' + size.Id + '">' + size.Name + '</option>';
         });
         sizes += "</select>";
         return sizes;
@@ -374,22 +379,22 @@
             success: function (response) {
                 var template = $('#table-template').html();
                 var render = "";
-                if (response.result.data.rowCount > 0) {
-                    $.each(response.result.data.items, function (i, item) {
+                if (response.Result.Data.RowCount > 0) {
+                    $.each(response.Result.Data.Items, function (i, item) {
                         render += Mustache.render(template, {
-                            CustomerName: item.customerName,
-                            Id: item.id,
-                            PaymentMethod: getPaymentMethodName(item.paymentMethod),
-                            DateCreated: shoponline.dateTimeFormatJson(item.dateCreated),
-                            BillStatus: getBillStatusName(item.billStatus)
+                            CustomerName: item.CustomerName,
+                            Id: item.Id,
+                            PaymentMethod: getPaymentMethodName(item.PaymentMethod),
+                            DateCreated: shoponline.dateTimeFormatJson(item.DateCreated),
+                            BillStatus: getBillStatusName(item.BillStatus)
                         });
                     });
-                    $("#lbl-total-records").text(response.rowCount);
+                    $("#lbl-total-records").text(response.Result.Data.RowCount);
                     if (render !== undefined) {
                         $('#tbl-content').html(render);
 
                     }
-                    wrapPaging(response.result.data.rowCount, function () {
+                    wrapPaging(response.Result.Data.RowCount, function () {
                         loadData();
                     }, isPageChanged);
                 }
@@ -417,7 +422,7 @@
             return element.Value === status;
         });
         if (statuss.length > 0)
-            return status[0].Name;
+            return statuss[0].Name;
         else return '';
     }
     function wrapPaging(recordCount, callBack, changePageSize) {

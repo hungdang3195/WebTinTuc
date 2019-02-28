@@ -37,8 +37,11 @@ namespace ShopOnlineApp.Application.Implementation
 
         public void Add(FunctionViewModel functionVm)
         {
-            var function = _mapper.Map<Function>(functionVm);
-            _functionRepository.Add(function);
+            if (!CheckExistedId(functionVm.Id))
+            {
+                var function = new FunctionViewModel().Map(functionVm);
+                _functionRepository.Add(function);
+            }
         }
 
         public void Delete(string id)
@@ -49,7 +52,7 @@ namespace ShopOnlineApp.Application.Implementation
         public FunctionViewModel GetById(string id)
         {
             var function = _functionRepository.FindSingle(x => x.Id == id);
-            return Mapper.Map<Function, FunctionViewModel>(function);
+            return new FunctionViewModel().Map(function);
         }
 
         public async  Task<List<FunctionViewModel>> GetAll(string filter)
@@ -75,7 +78,17 @@ namespace ShopOnlineApp.Application.Implementation
         public void Update(FunctionViewModel functionVm)
         {
             var functionDb = _functionRepository.FindById(functionVm.Id);
-            var function = _mapper.Map<Function>(functionVm);
+            if (functionDb != null)
+            {
+                functionDb.Name = functionVm.Name;
+                functionDb.IconCss = functionVm.IconCss;
+                functionDb.ParentId = functionVm.ParentId;
+                functionDb.SortOrder = functionVm.SortOrder;
+                functionDb.URL = functionVm.URL;
+                functionDb.Status = functionVm.Status;
+                _functionRepository.Update(functionDb);
+                _unitOfWork.Commit();
+            }
         }
 
         public void ReOrder(string sourceId, string targetId)

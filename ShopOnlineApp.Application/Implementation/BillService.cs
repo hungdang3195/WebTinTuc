@@ -3,14 +3,12 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
-using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 using ShopOnlineApp.Application.Interfaces;
 using ShopOnlineApp.Application.ViewModels.Bill;
 using ShopOnlineApp.Application.ViewModels.Color;
 using ShopOnlineApp.Application.ViewModels.Size;
 using ShopOnlineApp.Data.EF.Common;
-using ShopOnlineApp.Data.Entities;
 using ShopOnlineApp.Data.Enums;
 using ShopOnlineApp.Data.IRepositories;
 using ShopOnlineApp.Infrastructure.Interfaces;
@@ -26,8 +24,6 @@ namespace ShopOnlineApp.Application.Implementation
         private readonly ISizeRepository _sizeRepository;
         private readonly IProductRepository _productRepository;
         private readonly IUnitOfWork _unitOfWork;
-
-
         public BillService(IBillRepository orderRepository,
             IBillDetailRepository orderDetailRepository,
             IColorRepository colorRepository,
@@ -43,7 +39,7 @@ namespace ShopOnlineApp.Application.Implementation
             _unitOfWork = unitOfWork;
         }
 
-        public void Create(BillViewModel billVm)
+        public BillViewModel Create(BillViewModel billVm)
         {
             try
             {
@@ -63,6 +59,8 @@ namespace ShopOnlineApp.Application.Implementation
                 order.BillDetails = orderDetails;
                 _orderRepository.Add(order);
 
+                return billVm;
+
             }
             catch (Exception e)
             {
@@ -75,7 +73,7 @@ namespace ShopOnlineApp.Application.Implementation
         public void Update(BillViewModel billVm)
         {
             //Mapping to order domain
-            var order = Mapper.Map<BillViewModel, Bill>(billVm);
+            var order =new BillViewModel().Map(billVm);
 
             //Get order Detail
             var newDetails = order.BillDetails;
@@ -107,6 +105,9 @@ namespace ShopOnlineApp.Application.Implementation
             }
 
             _orderDetailRepository.RemoveMultiple(existedDetails.Except(updatedDetails).ToList());
+
+            order.DateCreated=DateTime.Now;
+            order.DateModified=DateTime.Now;
 
             _orderRepository.Update(order);
         }

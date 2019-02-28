@@ -48,20 +48,33 @@
                                 <input type="text" name="txtPromotionPriceM" class="form-control" id="txtPromotionPriceM">
                             </div>
                         </div>
+                        @*div class="form-group">
+            <label for="txtImageM" class="col-sm-2 control-label no-padding-right">Image</label>
+            <div class="col-sm-6">
+                <div class="input-group">
+                    <img id="imageId" src="#" />
+                    <input type="file" id="fileInputImage" style="display:none" />
+                    <span class="input-group-btn">
+                        <input type="button" id="btnSelectImg" class="btn btn-default" value="Browser" />
+                    </span>
+                </div>
+
+            </div>
+
+        </div>*@
                         <div class="form-group">
-                            <label for="txtImageM" class="col-sm-2 control-label no-padding-right">Image</label>
-                            <div class="col-sm-6">
+                            <label for="txtName" class="col-sm-2 control-label no-padding-right">Chọn ảnh</label>
+                            <div class="col-sm-3">
                                 <div class="input-group">
-                                   
-                                    <img id="imageId" src="#" />
-                                    <input type="file" id="fileInputImage" style="display:none" />
-                                    <span class="input-group-btn">
-                                        <input type="button" id="btnSelectImg" class="btn btn-default" value="Browser" />
-                                    </span>
+                                    <input type="file" id="fileImages" />
                                 </div>
-
                             </div>
-
+                            <div class="col-sm-3">
+                                <input type="hidden" id="hidId" value="" />
+                                @*<div id="image_place" class="col-md-12">
+                                </div>*@
+                                <img style="padding-left:-1px;" width="300px;" id="image_place" src=""  class="" />
+                            </div>
                         </div>
                         <div class="form-group">
                             <label for="txtContentM" class="col-sm-2 control-label no-padding-right">Content</label>

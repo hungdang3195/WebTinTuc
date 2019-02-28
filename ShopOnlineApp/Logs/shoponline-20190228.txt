@@ -1,0 +1,1134 @@
+2019-02-28T22:04:32.2797621+07:00 0HLKTHO5DEJ29:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:3000/   (ca22a1cb)
+2019-02-28T22:04:34.7335419+07:00 0HLKTHO5DEJ29:00000001 [INF] Executing action method "ShopOnlineApp.Controllers.HomeController.Index (ShopOnlineApp)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2019-02-28T22:04:35.4278620+07:00 0HLKTHO5DEJ29:00000001 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2019-02-28T22:04:37.0212171+07:00 0HLKTHO5DEJ29:00000001 [INF] Executed DbCommand ("54"ms) [Parameters=["@__p_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(@__p_0) [c].[Id], [c].[DateCreated], [c].[DateModified], [c].[Description], [c].[HomeFlag], [c].[HomeOrder], [c].[Image], [c].[Name], [c].[ParentId], [c].[SeoAlias], [c].[SeoDescription], [c].[SeoKeywords], [c].[SeoPageTitle], [c].[SortOrder], [c].[Status]
+FROM [ProductCategories] AS [c]
+WHERE [c].[HomeFlag] = 1
+ORDER BY [c].[HomeOrder], [c].[Id]" (0723d8ff)
+2019-02-28T22:04:37.1239204+07:00 0HLKTHO5DEJ29:00000001 [INF] Executed DbCommand ("5"ms) [Parameters=["@__p_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT [c.Products].[Id], [c.Products].[CategoryId], [c.Products].[Content], [c.Products].[DateCreated], [c.Products].[DateModified], [c.Products].[Description], [c.Products].[HomeFlag], [c.Products].[HotFlag], [c.Products].[Image], [c.Products].[Name], [c.Products].[OriginalPrice], [c.Products].[Price], [c.Products].[PromotionPrice], [c.Products].[SeoAlias], [c.Products].[SeoDescription], [c.Products].[SeoKeywords], [c.Products].[SeoPageTitle], [c.Products].[Status], [c.Products].[Tags], [c.Products].[Unit], [c.Products].[ViewCount]
+FROM [Products] AS [c.Products]
+INNER JOIN (
+    SELECT TOP(@__p_0) [c0].[Id], [c0].[HomeOrder]
+    FROM [ProductCategories] AS [c0]
+    WHERE [c0].[HomeFlag] = 1
+    ORDER BY [c0].[HomeOrder], [c0].[Id]
+) AS [t] ON [c.Products].[CategoryId] = [t].[Id]
+ORDER BY [t].[HomeOrder], [t].[Id]" (0723d8ff)
+2019-02-28T22:04:37.3663569+07:00 0HLKTHO5DEJ29:00000001 [INF] Executed DbCommand ("4"ms) [Parameters=["@__p_1='?', @__category_Id_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(@__p_1) [x].[Id], [x].[CategoryId], [x].[Content], [x].[DateCreated], [x].[DateModified], [x].[Description], [x].[HomeFlag], [x].[HotFlag], [x].[Image], [x].[Name], [x].[OriginalPrice], [x].[Price], [x].[PromotionPrice], [x].[SeoAlias], [x].[SeoDescription], [x].[SeoKeywords], [x].[SeoPageTitle], [x].[Status], [x].[Tags], [x].[Unit], [x].[ViewCount]
+FROM [Products] AS [x]
+WHERE ([x].[HomeFlag] = 1) AND ([x].[CategoryId] = @__category_Id_0)
+ORDER BY [x].[DateCreated] DESC" (0723d8ff)
+2019-02-28T22:04:37.3822016+07:00 0HLKTHO5DEJ29:00000001 [INF] Executed DbCommand ("0"ms) [Parameters=["@__p_1='?', @__category_Id_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(@__p_1) [x].[Id], [x].[CategoryId], [x].[Content], [x].[DateCreated], [x].[DateModified], [x].[Description], [x].[HomeFlag], [x].[HotFlag], [x].[Image], [x].[Name], [x].[OriginalPrice], [x].[Price], [x].[PromotionPrice], [x].[SeoAlias], [x].[SeoDescription], [x].[SeoKeywords], [x].[SeoPageTitle], [x].[Status], [x].[Tags], [x].[Unit], [x].[ViewCount]
+FROM [Products] AS [x]
+WHERE ([x].[HomeFlag] = 1) AND ([x].[CategoryId] = @__category_Id_0)
+ORDER BY [x].[DateCreated] DESC" (0723d8ff)
+2019-02-28T22:04:37.3918565+07:00 0HLKTHO5DEJ29:00000001 [INF] Executed DbCommand ("0"ms) [Parameters=["@__p_1='?', @__category_Id_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(@__p_1) [x].[Id], [x].[CategoryId], [x].[Content], [x].[DateCreated], [x].[DateModified], [x].[Description], [x].[HomeFlag], [x].[HotFlag], [x].[Image], [x].[Name], [x].[OriginalPrice], [x].[Price], [x].[PromotionPrice], [x].[SeoAlias], [x].[SeoDescription], [x].[SeoKeywords], [x].[SeoPageTitle], [x].[Status], [x].[Tags], [x].[Unit], [x].[ViewCount]
+FROM [Products] AS [x]
+WHERE ([x].[HomeFlag] = 1) AND ([x].[CategoryId] = @__category_Id_0)
+ORDER BY [x].[DateCreated] DESC" (0723d8ff)
+2019-02-28T22:04:37.4001335+07:00 0HLKTHO5DEJ29:00000001 [INF] Executed DbCommand ("0"ms) [Parameters=["@__p_1='?', @__category_Id_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(@__p_1) [x].[Id], [x].[CategoryId], [x].[Content], [x].[DateCreated], [x].[DateModified], [x].[Description], [x].[HomeFlag], [x].[HotFlag], [x].[Image], [x].[Name], [x].[OriginalPrice], [x].[Price], [x].[PromotionPrice], [x].[SeoAlias], [x].[SeoDescription], [x].[SeoKeywords], [x].[SeoPageTitle], [x].[Status], [x].[Tags], [x].[Unit], [x].[ViewCount]
+FROM [Products] AS [x]
+WHERE ([x].[HomeFlag] = 1) AND ([x].[CategoryId] = @__category_Id_0)
+ORDER BY [x].[DateCreated] DESC" (0723d8ff)
+2019-02-28T22:04:37.4090822+07:00 0HLKTHO5DEJ29:00000001 [INF] Executed DbCommand ("0"ms) [Parameters=["@__p_1='?', @__category_Id_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(@__p_1) [x].[Id], [x].[CategoryId], [x].[Content], [x].[DateCreated], [x].[DateModified], [x].[Description], [x].[HomeFlag], [x].[HotFlag], [x].[Image], [x].[Name], [x].[OriginalPrice], [x].[Price], [x].[PromotionPrice], [x].[SeoAlias], [x].[SeoDescription], [x].[SeoKeywords], [x].[SeoPageTitle], [x].[Status], [x].[Tags], [x].[Unit], [x].[ViewCount]
+FROM [Products] AS [x]
+WHERE ([x].[HomeFlag] = 1) AND ([x].[CategoryId] = @__category_Id_0)
+ORDER BY [x].[DateCreated] DESC" (0723d8ff)
+2019-02-28T22:04:37.4296497+07:00 0HLKTHO5DEJ29:00000001 [INF] Executed DbCommand ("2"ms) [Parameters=["@__p_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(@__p_0) [x].[Id], [x].[CategoryId], [x].[Content], [x].[DateCreated], [x].[DateModified], [x].[Description], [x].[HomeFlag], [x].[HotFlag], [x].[Image], [x].[Name], [x].[OriginalPrice], [x].[Price], [x].[PromotionPrice], [x].[SeoAlias], [x].[SeoDescription], [x].[SeoKeywords], [x].[SeoPageTitle], [x].[Status], [x].[Tags], [x].[Unit], [x].[ViewCount]
+FROM [Products] AS [x]
+WHERE ([x].[Status] = 1) AND ([x].[HotFlag] = 1)
+ORDER BY [x].[DateCreated] DESC" (0723d8ff)
+2019-02-28T22:04:37.4493672+07:00 0HLKTHO5DEJ29:00000001 [INF] Executed DbCommand ("3"ms) [Parameters=["@__p_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(@__p_0) [x].[Id], [x].[CategoryId], [x].[Content], [x].[DateCreated], [x].[DateModified], [x].[Description], [x].[HomeFlag], [x].[HotFlag], [x].[Image], [x].[Name], [x].[OriginalPrice], [x].[Price], [x].[PromotionPrice], [x].[SeoAlias], [x].[SeoDescription], [x].[SeoKeywords], [x].[SeoPageTitle], [x].[Status], [x].[Tags], [x].[Unit], [x].[ViewCount]
+FROM [Products] AS [x]
+WHERE [x].[Status] = 1
+ORDER BY [x].[DateCreated] DESC" (0723d8ff)
+2019-02-28T22:04:37.4587280+07:00 0HLKTHO5DEJ29:00000001 [INF] Executed DbCommand ("0"ms) [Parameters=["@__p_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(@__p_0) [x].[Id], [x].[CategoryId], [x].[Content], [x].[DateCreated], [x].[DateModified], [x].[Description], [x].[HomeFlag], [x].[HotFlag], [x].[Image], [x].[Name], [x].[OriginalPrice], [x].[Price], [x].[PromotionPrice], [x].[SeoAlias], [x].[SeoDescription], [x].[SeoKeywords], [x].[SeoPageTitle], [x].[Status], [x].[Tags], [x].[Unit], [x].[ViewCount]
+FROM [Products] AS [x]
+WHERE [x].[Status] = 1
+ORDER BY [x].[DateCreated] DESC" (0723d8ff)
+2019-02-28T22:04:37.4964620+07:00 0HLKTHO5DEJ29:00000001 [WRN] Query: '"(from Product u in DbSet<Product> join int p in  from IGrouping<int, Rating> g in  (from Rating item..."' uses a row limiting operation (Skip/Take) without OrderBy which may lead to unpredictable results. (32148ccc)
+2019-02-28T22:04:37.5215965+07:00 0HLKTHO5DEJ29:00000001 [WRN] The LINQ expression '"GroupBy([item].ProductId, [item])"' could not be translated and will be evaluated locally. (011792c6)
+2019-02-28T22:04:37.5319077+07:00 0HLKTHO5DEJ29:00000001 [WRN] The LINQ expression '"GroupBy([item].ProductId, [item])"' could not be translated and will be evaluated locally. (011792c6)
+2019-02-28T22:04:37.5406014+07:00 0HLKTHO5DEJ29:00000001 [WRN] The LINQ expression '"orderby {from Rating x in [g] select (([x].Quantity + [x].Price) + [x].Value) => Sum()} desc"' could not be translated and will be evaluated locally. (011792c6)
+2019-02-28T22:04:37.5499795+07:00 0HLKTHO5DEJ29:00000001 [WRN] The LINQ expression '"Sum()"' could not be translated and will be evaluated locally. (011792c6)
+2019-02-28T22:04:37.5628563+07:00 0HLKTHO5DEJ29:00000001 [WRN] The LINQ expression '"GroupBy([item].ProductId, [item])"' could not be translated and will be evaluated locally. (011792c6)
+2019-02-28T22:04:37.5737128+07:00 0HLKTHO5DEJ29:00000001 [WRN] The LINQ expression '"GroupBy([item].ProductId, [item])"' could not be translated and will be evaluated locally. (011792c6)
+2019-02-28T22:04:37.5829505+07:00 0HLKTHO5DEJ29:00000001 [WRN] The LINQ expression '"orderby {from Rating x in [g] select (([x].Quantity + [x].Price) + [x].Value) => Sum()} desc"' could not be translated and will be evaluated locally. (011792c6)
+2019-02-28T22:04:37.5935349+07:00 0HLKTHO5DEJ29:00000001 [WRN] The LINQ expression '"Sum()"' could not be translated and will be evaluated locally. (011792c6)
+2019-02-28T22:04:37.6122555+07:00 0HLKTHO5DEJ29:00000001 [WRN] The LINQ expression '"join Int32 p in {from IGrouping`2 g in {value(Microsoft.EntityFrameworkCore.Query.Internal.EntityQueryable`1[ShopOnlineApp.Data.Entities.Rating]) => GroupBy([item].ProductId, [item])} orderby {from Rating x in [g] select (([x].Quantity + [x].Price) + [x].Value) => Sum()} desc select [g].Key} on [u].Id equals [p]"' could not be translated and will be evaluated locally. (011792c6)
+2019-02-28T22:04:37.6266309+07:00 0HLKTHO5DEJ29:00000001 [WRN] The LINQ expression '"Take(__p_0)"' could not be translated and will be evaluated locally. (011792c6)
+2019-02-28T22:04:37.6825298+07:00 0HLKTHO5DEJ29:00000001 [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [u].[Id], [u].[CategoryId], [u].[Content], [u].[DateCreated], [u].[DateModified], [u].[Description], [u].[HomeFlag], [u].[HotFlag], [u].[Image], [u].[Name], [u].[OriginalPrice], [u].[Price], [u].[PromotionPrice], [u].[SeoAlias], [u].[SeoDescription], [u].[SeoKeywords], [u].[SeoPageTitle], [u].[Status], [u].[Tags], [u].[Unit], [u].[ViewCount]
+FROM [Products] AS [u]" (0723d8ff)
+2019-02-28T22:04:37.6997798+07:00 0HLKTHO5DEJ29:00000001 [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [item2].[Id], [item2].[DateCreated], [item2].[DateModified], [item2].[NickName], [item2].[Price], [item2].[ProductId], [item2].[Quantity], [item2].[Review], [item2].[Summary], [item2].[Value]
+FROM [Ratings] AS [item2]
+ORDER BY [item2].[ProductId]" (0723d8ff)
+2019-02-28T22:04:37.8080817+07:00 0HLKTHO5DEJ29:00000001 [INF] Executed DbCommand ("3"ms) [Parameters=["@__p_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(@__p_0) [x].[Id], [x].[BlogCategoryId], [x].[Content], [x].[DateCreated], [x].[DateModified], [x].[Description], [x].[HomeFlag], [x].[HotFlag], [x].[Image], [x].[Name], [x].[SeoAlias], [x].[SeoDescription], [x].[SeoKeywords], [x].[SeoPageTitle], [x].[Status], [x].[Tags], [x].[ViewCount]
+FROM [Blogs] AS [x]
+WHERE [x].[Status] = 1
+ORDER BY [x].[DateCreated] DESC" (0723d8ff)
+2019-02-28T22:04:37.8947423+07:00 0HLKTHO5DEJ29:00000001 [INF] Executed DbCommand ("3"ms) [Parameters=["@__groupAlias_0='?' (Size = 25)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[Content], [x].[Description], [x].[DisplayOrder], [x].[GroupAlias], [x].[Image], [x].[Name], [x].[Status], [x].[Url]
+FROM [Slides] AS [x]
+WHERE ([x].[Status] = 1) AND ([x].[GroupAlias] = @__groupAlias_0)" (0723d8ff)
+2019-02-28T22:04:47.4883126+07:00 0HLKTHO5DEJ29:00000001 [INF] Executing ViewResult, running view at path "/Views/Home/Index.cshtml". (9707eebe)
+2019-02-28T22:04:50.8466571+07:00 0HLKTHO5DEJ29:00000001 [INF] Executed DbCommand ("247"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[DateCreated], [x].[DateModified], [x].[Description], [x].[HomeFlag], [x].[HomeOrder], [x].[Image], [x].[Name], [x].[ParentId], [x].[SeoAlias], [x].[SeoDescription], [x].[SeoKeywords], [x].[SeoPageTitle], [x].[SortOrder], [x].[Status]
+FROM [ProductCategories] AS [x]
+ORDER BY [x].[ParentId]" (0723d8ff)
+2019-02-28T22:04:55.6704333+07:00 0HLKTHO5DEJ29:00000001 [INF] Executed DbCommand ("19"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[DateCreated], [x].[DateModified], [x].[Description], [x].[HomeFlag], [x].[HomeOrder], [x].[Image], [x].[Name], [x].[ParentId], [x].[SeoAlias], [x].[SeoDescription], [x].[SeoKeywords], [x].[SeoPageTitle], [x].[SortOrder], [x].[Status]
+FROM [ProductCategories] AS [x]
+ORDER BY [x].[ParentId]" (0723d8ff)
+2019-02-28T22:04:56.3927407+07:00 0HLKTHO5DEJ29:00000001 [INF] Executed DbCommand ("8"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[DateCreated], [x].[DateModified], [x].[Description], [x].[HomeFlag], [x].[HomeOrder], [x].[Image], [x].[Name], [x].[ParentId], [x].[SeoAlias], [x].[SeoDescription], [x].[SeoKeywords], [x].[SeoPageTitle], [x].[SortOrder], [x].[Status]
+FROM [ProductCategories] AS [x]
+ORDER BY [x].[ParentId]" (0723d8ff)
+2019-02-28T22:05:03.0502535+07:00 0HLKTHO5DEJ2B:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:3000/css/style.css   (ca22a1cb)
+2019-02-28T22:05:03.0679435+07:00 0HLKTHO5DEJ29:00000001 [INF] Executed action "ShopOnlineApp.Controllers.HomeController.Index (ShopOnlineApp)" in 28863.0102ms (afa2e885)
+2019-02-28T22:05:03.1229835+07:00 0HLKTHO5DEJ2C:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:3000/uploaded/images/20190216/image_2019-01-18_11-04-14.png   (ca22a1cb)
+2019-02-28T22:05:03.1356108+07:00 0HLKTHO5DEJ2D:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:3000/uploaded/images/20190208/990fb7d7-ceea-4dd1-84d1-3112753db830.jpg   (ca22a1cb)
+2019-02-28T22:05:03.1740971+07:00 0HLKTHO5DEJ2E:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:3000/uploaded/images/20190208/5822b95b-80c4-4f5e-b767-b3b44a382c68.png   (ca22a1cb)
+2019-02-28T22:05:03.2106522+07:00 0HLKTHO5DEJ2F:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:3000/uploaded/images/20190208/ListProduct3.jpg   (ca22a1cb)
+2019-02-28T22:05:03.2451111+07:00 0HLKTHO5DEJ2C:00000001 [INF] The file "/uploaded/images/20190216/image_2019-01-18_11-04-14.png" was not modified (f1f8d725)
+2019-02-28T22:05:03.2551008+07:00 0HLKTHO5DEJ2D:00000001 [INF] The file "/uploaded/images/20190208/990fb7d7-ceea-4dd1-84d1-3112753db830.jpg" was not modified (f1f8d725)
+2019-02-28T22:05:03.3163960+07:00 0HLKTHO5DEJ29:00000001 [INF] Request finished in 31107.8973ms 200 text/html; charset=utf-8 (791a596a)
+2019-02-28T22:05:03.3236812+07:00 0HLKTHO5DEJ2B:00000001 [INF] The file "/css/style.css" was not modified (f1f8d725)
+2019-02-28T22:05:03.3543179+07:00 0HLKTHO5DEJ2E:00000001 [INF] The file "/uploaded/images/20190208/5822b95b-80c4-4f5e-b767-b3b44a382c68.png" was not modified (f1f8d725)
+2019-02-28T22:05:03.3669592+07:00 0HLKTHO5DEJ2F:00000001 [INF] The file "/uploaded/images/20190208/ListProduct3.jpg" was not modified (f1f8d725)
+2019-02-28T22:05:03.3962017+07:00 0HLKTHO5DEJ2D:00000001 [INF] Request finished in 253.9047ms 304 image/jpeg (791a596a)
+2019-02-28T22:05:03.4349742+07:00 0HLKTHO5DEJ2C:00000001 [INF] Request finished in 259.2232ms 304 image/png (791a596a)
+2019-02-28T22:05:03.5036903+07:00 0HLKTHO5DEJ2E:00000001 [INF] Request finished in 343.562ms 304 image/png (791a596a)
+2019-02-28T22:05:03.5089640+07:00 0HLKTHO5DEJ2F:00000001 [INF] Request finished in 319.4907ms 304 image/jpeg (791a596a)
+2019-02-28T22:05:03.5314309+07:00 0HLKTHO5DEJ2B:00000001 [INF] Request finished in 504.9381ms 304 text/css (791a596a)
+2019-02-28T22:05:03.5487125+07:00 0HLKTHO5DEJ29:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:3000/uploaded/images/20190208/1b00b30c-7f1e-4033-8817-bfa508c64903.jpg   (ca22a1cb)
+2019-02-28T22:05:03.5623318+07:00 0HLKTHO5DEJ29:00000002 [INF] The file "/uploaded/images/20190208/1b00b30c-7f1e-4033-8817-bfa508c64903.jpg" was not modified (f1f8d725)
+2019-02-28T22:05:03.5854961+07:00 0HLKTHO5DEJ29:00000002 [INF] Request finished in 81.0036ms 304 image/jpeg (791a596a)
+2019-02-28T22:05:12.2590130+07:00 0HLKTHO5DEJ2D:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:3000/client-app/shared/shoponline.js   (ca22a1cb)
+2019-02-28T22:05:12.3603994+07:00 0HLKTHO5DEJ2E:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:3000/client-app/controllers/home/index.js   (ca22a1cb)
+2019-02-28T22:05:13.0612989+07:00 0HLKTHO5DEJ2C:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:3000/client-app/controllers/base/index.js   (ca22a1cb)
+2019-02-28T22:05:13.0761200+07:00 0HLKTHO5DEJ2B:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:3000/client-app/shared/localize/resources.en-US.js   (ca22a1cb)
+2019-02-28T22:05:13.0843167+07:00 0HLKTHO5DEJ2E:00000002 [INF] The file "/client-app/controllers/home/index.js" was not modified (f1f8d725)
+2019-02-28T22:05:13.1244126+07:00 0HLKTHO5DEJ2F:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:3000/client-app/shared/SignalR.js   (ca22a1cb)
+2019-02-28T22:05:13.2547777+07:00 0HLKTHO5DEJ2D:00000002 [INF] The file "/client-app/shared/shoponline.js" was not modified (f1f8d725)
+2019-02-28T22:05:13.3043848+07:00 0HLKTHO5DEJ2E:00000002 [INF] Request finished in 910.8768ms 304 application/javascript (791a596a)
+2019-02-28T22:05:13.3128553+07:00 0HLKTHO5DEJ29:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:3000/app/shared/common.js   (ca22a1cb)
+2019-02-28T22:05:13.3412215+07:00 0HLKTHO5DEJ2C:00000002 [INF] The file "/client-app/controllers/base/index.js" was not modified (f1f8d725)
+2019-02-28T22:05:13.3914650+07:00 0HLKTHO5DEJ29:00000003 [INF] The file "/app/shared/common.js" was not modified (f1f8d725)
+2019-02-28T22:05:13.4422616+07:00 0HLKTHO5DEJ2B:00000002 [INF] The file "/client-app/shared/localize/resources.en-US.js" was not modified (f1f8d725)
+2019-02-28T22:05:13.5604851+07:00 0HLKTHO5DEJ2F:00000002 [INF] Request finished in 1016.362ms 404  (791a596a)
+2019-02-28T22:05:13.5752496+07:00 0HLKTHO5DEJ2E:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:3000/uploaded/images/20190208/96c018a7-951c-4a45-abab-f5fa5e790d2f.png   (ca22a1cb)
+2019-02-28T22:05:13.5923863+07:00 0HLKTHO5DEJ29:00000003 [INF] Request finished in 267.8442ms 304 application/javascript (791a596a)
+2019-02-28T22:05:13.6080585+07:00 0HLKTHO5DEJ2D:00000002 [INF] Request finished in 1125.4223ms 304 application/javascript (791a596a)
+2019-02-28T22:05:13.6161439+07:00 0HLKTHO5DEJ2C:00000002 [INF] Request finished in 1163.6186ms 304 application/javascript (791a596a)
+2019-02-28T22:05:13.6572601+07:00 0HLKTHO5DEJ2B:00000002 [INF] Request finished in 1264.8634ms 304 application/javascript (791a596a)
+2019-02-28T22:05:13.6734427+07:00 0HLKTHO5DEJ2E:00000003 [INF] The file "/uploaded/images/20190208/96c018a7-951c-4a45-abab-f5fa5e790d2f.png" was not modified (f1f8d725)
+2019-02-28T22:05:13.8519084+07:00 0HLKTHO5DEJ29:00000004 [INF] Request starting HTTP/1.1 GET http://localhost:3000/uploaded/images/20190216/image_2019-01-27_14-23-52.png   (ca22a1cb)
+2019-02-28T22:05:13.8753015+07:00 0HLKTHO5DEJ2E:00000003 [INF] Request finished in 287.1ms 304 image/png (791a596a)
+2019-02-28T22:05:14.0137511+07:00 0HLKTHO5DEJ2F:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:3000/uploaded/images/20190210/2cc979f5-aa64-4df5-a2b7-27c5e0b532e3.jpg   (ca22a1cb)
+2019-02-28T22:05:14.0297188+07:00 0HLKTHO5DEJ29:00000004 [INF] The file "/uploaded/images/20190216/image_2019-01-27_14-23-52.png" was not modified (f1f8d725)
+2019-02-28T22:05:14.1232211+07:00 0HLKTHO5DEJ2C:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:3000/uploaded/images/20190208/ListProDuct1.jpg   (ca22a1cb)
+2019-02-28T22:05:14.1276731+07:00 0HLKTHO5DEJ2B:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:3000/uploaded/images/20190218/anh1.jpg   (ca22a1cb)
+2019-02-28T22:05:14.1436912+07:00 0HLKTHO5DEJ2D:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:3000/uploaded/images/20190208/dbdfc564-cae9-4071-afa7-b460ca72a0a8.png   (ca22a1cb)
+2019-02-28T22:05:14.1773101+07:00 0HLKTHO5DEJ29:00000004 [INF] Request finished in 394.458ms 304 image/png (791a596a)
+2019-02-28T22:05:14.2025462+07:00 0HLKTHO5DEJ2B:00000003 [INF] The file "/uploaded/images/20190218/anh1.jpg" was not modified (f1f8d725)
+2019-02-28T22:05:14.2443714+07:00 0HLKTHO5DEJ2C:00000003 [INF] The file "/uploaded/images/20190208/ListProDuct1.jpg" was not modified (f1f8d725)
+2019-02-28T22:05:14.2578616+07:00 0HLKTHO5DEJ2F:00000003 [INF] The file "/uploaded/images/20190210/2cc979f5-aa64-4df5-a2b7-27c5e0b532e3.jpg" was not modified (f1f8d725)
+2019-02-28T22:05:14.2922329+07:00 0HLKTHO5DEJ2D:00000003 [INF] The file "/uploaded/images/20190208/dbdfc564-cae9-4071-afa7-b460ca72a0a8.png" was not modified (f1f8d725)
+2019-02-28T22:05:14.3493550+07:00 0HLKTHO5DEJ2B:00000003 [INF] Request finished in 361.1695ms 304 image/jpeg (791a596a)
+2019-02-28T22:05:14.3800462+07:00 0HLKTHO5DEJ2F:00000003 [INF] Request finished in 610.3929ms 304 image/jpeg (791a596a)
+2019-02-28T22:05:14.5732373+07:00 0HLKTHO5DEJ2D:00000003 [INF] Request finished in 560.1672ms 304 image/png (791a596a)
+2019-02-28T22:05:14.5835420+07:00 0HLKTHO5DEJ2C:00000003 [INF] Request finished in 433.2085ms 304 image/jpeg (791a596a)
+2019-02-28T22:05:17.8663672+07:00 0HLKTHO5DEJ2E:00000004 [INF] Request starting HTTP/1.1 GET http://localhost:3000/client-app/shared/SignalR.js   (ca22a1cb)
+2019-02-28T22:05:18.3270200+07:00 0HLKTHO5DEJ2E:00000004 [INF] Request finished in 259.3495ms 404  (791a596a)
+2019-02-28T22:05:19.1103775+07:00 0HLKTHO5DEJ2B:00000004 [INF] Request starting HTTP/1.1 GET http://localhost:3000/client-side/css/images/ui-bg_highlight-soft_100_eeeeee_1x100.png   (ca22a1cb)
+2019-02-28T22:05:19.5784254+07:00 0HLKTHO5DEJ29:00000005 [INF] Request starting HTTP/1.1 GET http://localhost:3000/   (ca22a1cb)
+2019-02-28T22:05:19.7009740+07:00 0HLKTHO5DEJ29:00000005 [INF] Executing action method "ShopOnlineApp.Controllers.HomeController.Index (ShopOnlineApp)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2019-02-28T22:05:19.7211191+07:00 0HLKTHO5DEJ2B:00000004 [INF] Request finished in 786.3509ms 404  (791a596a)
+2019-02-28T22:05:19.7655042+07:00 0HLKTHO5DEJ29:00000005 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2019-02-28T22:05:19.8302540+07:00 0HLKTHO5DEJ29:00000005 [INF] Executed DbCommand ("7"ms) [Parameters=["@__p_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(@__p_0) [c].[Id], [c].[DateCreated], [c].[DateModified], [c].[Description], [c].[HomeFlag], [c].[HomeOrder], [c].[Image], [c].[Name], [c].[ParentId], [c].[SeoAlias], [c].[SeoDescription], [c].[SeoKeywords], [c].[SeoPageTitle], [c].[SortOrder], [c].[Status]
+FROM [ProductCategories] AS [c]
+WHERE [c].[HomeFlag] = 1
+ORDER BY [c].[HomeOrder], [c].[Id]" (0723d8ff)
+2019-02-28T22:05:19.9046065+07:00 0HLKTHO5DEJ29:00000005 [INF] Executed DbCommand ("8"ms) [Parameters=["@__p_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT [c.Products].[Id], [c.Products].[CategoryId], [c.Products].[Content], [c.Products].[DateCreated], [c.Products].[DateModified], [c.Products].[Description], [c.Products].[HomeFlag], [c.Products].[HotFlag], [c.Products].[Image], [c.Products].[Name], [c.Products].[OriginalPrice], [c.Products].[Price], [c.Products].[PromotionPrice], [c.Products].[SeoAlias], [c.Products].[SeoDescription], [c.Products].[SeoKeywords], [c.Products].[SeoPageTitle], [c.Products].[Status], [c.Products].[Tags], [c.Products].[Unit], [c.Products].[ViewCount]
+FROM [Products] AS [c.Products]
+INNER JOIN (
+    SELECT TOP(@__p_0) [c0].[Id], [c0].[HomeOrder]
+    FROM [ProductCategories] AS [c0]
+    WHERE [c0].[HomeFlag] = 1
+    ORDER BY [c0].[HomeOrder], [c0].[Id]
+) AS [t] ON [c.Products].[CategoryId] = [t].[Id]
+ORDER BY [t].[HomeOrder], [t].[Id]" (0723d8ff)
+2019-02-28T22:05:19.9582549+07:00 0HLKTHO5DEJ29:00000005 [INF] Executed DbCommand ("2"ms) [Parameters=["@__p_1='?', @__category_Id_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(@__p_1) [x].[Id], [x].[CategoryId], [x].[Content], [x].[DateCreated], [x].[DateModified], [x].[Description], [x].[HomeFlag], [x].[HotFlag], [x].[Image], [x].[Name], [x].[OriginalPrice], [x].[Price], [x].[PromotionPrice], [x].[SeoAlias], [x].[SeoDescription], [x].[SeoKeywords], [x].[SeoPageTitle], [x].[Status], [x].[Tags], [x].[Unit], [x].[ViewCount]
+FROM [Products] AS [x]
+WHERE ([x].[HomeFlag] = 1) AND ([x].[CategoryId] = @__category_Id_0)
+ORDER BY [x].[DateCreated] DESC" (0723d8ff)
+2019-02-28T22:05:19.9882307+07:00 0HLKTHO5DEJ29:00000005 [INF] Executed DbCommand ("2"ms) [Parameters=["@__p_1='?', @__category_Id_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(@__p_1) [x].[Id], [x].[CategoryId], [x].[Content], [x].[DateCreated], [x].[DateModified], [x].[Description], [x].[HomeFlag], [x].[HotFlag], [x].[Image], [x].[Name], [x].[OriginalPrice], [x].[Price], [x].[PromotionPrice], [x].[SeoAlias], [x].[SeoDescription], [x].[SeoKeywords], [x].[SeoPageTitle], [x].[Status], [x].[Tags], [x].[Unit], [x].[ViewCount]
+FROM [Products] AS [x]
+WHERE ([x].[HomeFlag] = 1) AND ([x].[CategoryId] = @__category_Id_0)
+ORDER BY [x].[DateCreated] DESC" (0723d8ff)
+2019-02-28T22:05:20.0462313+07:00 0HLKTHO5DEJ29:00000005 [INF] Executed DbCommand ("0"ms) [Parameters=["@__p_1='?', @__category_Id_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(@__p_1) [x].[Id], [x].[CategoryId], [x].[Content], [x].[DateCreated], [x].[DateModified], [x].[Description], [x].[HomeFlag], [x].[HotFlag], [x].[Image], [x].[Name], [x].[OriginalPrice], [x].[Price], [x].[PromotionPrice], [x].[SeoAlias], [x].[SeoDescription], [x].[SeoKeywords], [x].[SeoPageTitle], [x].[Status], [x].[Tags], [x].[Unit], [x].[ViewCount]
+FROM [Products] AS [x]
+WHERE ([x].[HomeFlag] = 1) AND ([x].[CategoryId] = @__category_Id_0)
+ORDER BY [x].[DateCreated] DESC" (0723d8ff)
+2019-02-28T22:05:20.1068163+07:00 0HLKTHO5DEJ29:00000005 [INF] Executed DbCommand ("11"ms) [Parameters=["@__p_1='?', @__category_Id_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(@__p_1) [x].[Id], [x].[CategoryId], [x].[Content], [x].[DateCreated], [x].[DateModified], [x].[Description], [x].[HomeFlag], [x].[HotFlag], [x].[Image], [x].[Name], [x].[OriginalPrice], [x].[Price], [x].[PromotionPrice], [x].[SeoAlias], [x].[SeoDescription], [x].[SeoKeywords], [x].[SeoPageTitle], [x].[Status], [x].[Tags], [x].[Unit], [x].[ViewCount]
+FROM [Products] AS [x]
+WHERE ([x].[HomeFlag] = 1) AND ([x].[CategoryId] = @__category_Id_0)
+ORDER BY [x].[DateCreated] DESC" (0723d8ff)
+2019-02-28T22:05:20.1274000+07:00 0HLKTHO5DEJ29:00000005 [INF] Executed DbCommand ("0"ms) [Parameters=["@__p_1='?', @__category_Id_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(@__p_1) [x].[Id], [x].[CategoryId], [x].[Content], [x].[DateCreated], [x].[DateModified], [x].[Description], [x].[HomeFlag], [x].[HotFlag], [x].[Image], [x].[Name], [x].[OriginalPrice], [x].[Price], [x].[PromotionPrice], [x].[SeoAlias], [x].[SeoDescription], [x].[SeoKeywords], [x].[SeoPageTitle], [x].[Status], [x].[Tags], [x].[Unit], [x].[ViewCount]
+FROM [Products] AS [x]
+WHERE ([x].[HomeFlag] = 1) AND ([x].[CategoryId] = @__category_Id_0)
+ORDER BY [x].[DateCreated] DESC" (0723d8ff)
+2019-02-28T22:05:20.1694857+07:00 0HLKTHO5DEJ29:00000005 [INF] Executed DbCommand ("0"ms) [Parameters=["@__p_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(@__p_0) [x].[Id], [x].[CategoryId], [x].[Content], [x].[DateCreated], [x].[DateModified], [x].[Description], [x].[HomeFlag], [x].[HotFlag], [x].[Image], [x].[Name], [x].[OriginalPrice], [x].[Price], [x].[PromotionPrice], [x].[SeoAlias], [x].[SeoDescription], [x].[SeoKeywords], [x].[SeoPageTitle], [x].[Status], [x].[Tags], [x].[Unit], [x].[ViewCount]
+FROM [Products] AS [x]
+WHERE ([x].[Status] = 1) AND ([x].[HotFlag] = 1)
+ORDER BY [x].[DateCreated] DESC" (0723d8ff)
+2019-02-28T22:05:20.1945517+07:00 0HLKTHO5DEJ29:00000005 [INF] Executed DbCommand ("2"ms) [Parameters=["@__p_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(@__p_0) [x].[Id], [x].[CategoryId], [x].[Content], [x].[DateCreated], [x].[DateModified], [x].[Description], [x].[HomeFlag], [x].[HotFlag], [x].[Image], [x].[Name], [x].[OriginalPrice], [x].[Price], [x].[PromotionPrice], [x].[SeoAlias], [x].[SeoDescription], [x].[SeoKeywords], [x].[SeoPageTitle], [x].[Status], [x].[Tags], [x].[Unit], [x].[ViewCount]
+FROM [Products] AS [x]
+WHERE [x].[Status] = 1
+ORDER BY [x].[DateCreated] DESC" (0723d8ff)
+2019-02-28T22:05:20.2573363+07:00 0HLKTHO5DEJ29:00000005 [INF] Executed DbCommand ("0"ms) [Parameters=["@__p_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(@__p_0) [x].[Id], [x].[CategoryId], [x].[Content], [x].[DateCreated], [x].[DateModified], [x].[Description], [x].[HomeFlag], [x].[HotFlag], [x].[Image], [x].[Name], [x].[OriginalPrice], [x].[Price], [x].[PromotionPrice], [x].[SeoAlias], [x].[SeoDescription], [x].[SeoKeywords], [x].[SeoPageTitle], [x].[Status], [x].[Tags], [x].[Unit], [x].[ViewCount]
+FROM [Products] AS [x]
+WHERE [x].[Status] = 1
+ORDER BY [x].[DateCreated] DESC" (0723d8ff)
+2019-02-28T22:05:20.3165028+07:00 0HLKTHO5DEJ29:00000005 [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [u].[Id], [u].[CategoryId], [u].[Content], [u].[DateCreated], [u].[DateModified], [u].[Description], [u].[HomeFlag], [u].[HotFlag], [u].[Image], [u].[Name], [u].[OriginalPrice], [u].[Price], [u].[PromotionPrice], [u].[SeoAlias], [u].[SeoDescription], [u].[SeoKeywords], [u].[SeoPageTitle], [u].[Status], [u].[Tags], [u].[Unit], [u].[ViewCount]
+FROM [Products] AS [u]" (0723d8ff)
+2019-02-28T22:05:20.3410584+07:00 0HLKTHO5DEJ29:00000005 [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [item2].[Id], [item2].[DateCreated], [item2].[DateModified], [item2].[NickName], [item2].[Price], [item2].[ProductId], [item2].[Quantity], [item2].[Review], [item2].[Summary], [item2].[Value]
+FROM [Ratings] AS [item2]
+ORDER BY [item2].[ProductId]" (0723d8ff)
+2019-02-28T22:05:20.3633267+07:00 0HLKTHO5DEJ29:00000005 [INF] Executed DbCommand ("0"ms) [Parameters=["@__p_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(@__p_0) [x].[Id], [x].[BlogCategoryId], [x].[Content], [x].[DateCreated], [x].[DateModified], [x].[Description], [x].[HomeFlag], [x].[HotFlag], [x].[Image], [x].[Name], [x].[SeoAlias], [x].[SeoDescription], [x].[SeoKeywords], [x].[SeoPageTitle], [x].[Status], [x].[Tags], [x].[ViewCount]
+FROM [Blogs] AS [x]
+WHERE [x].[Status] = 1
+ORDER BY [x].[DateCreated] DESC" (0723d8ff)
+2019-02-28T22:05:20.3849251+07:00 0HLKTHO5DEJ29:00000005 [INF] Executed DbCommand ("0"ms) [Parameters=["@__groupAlias_0='?' (Size = 25)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[Content], [x].[Description], [x].[DisplayOrder], [x].[GroupAlias], [x].[Image], [x].[Name], [x].[Status], [x].[Url]
+FROM [Slides] AS [x]
+WHERE ([x].[Status] = 1) AND ([x].[GroupAlias] = @__groupAlias_0)" (0723d8ff)
+2019-02-28T22:05:20.4041207+07:00 0HLKTHO5DEJ29:00000005 [INF] Executing ViewResult, running view at path "/Views/Home/Index.cshtml". (9707eebe)
+2019-02-28T22:05:20.4562557+07:00 0HLKTHO5DEJ29:00000005 [INF] Executed DbCommand ("6"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[DateCreated], [x].[DateModified], [x].[Description], [x].[HomeFlag], [x].[HomeOrder], [x].[Image], [x].[Name], [x].[ParentId], [x].[SeoAlias], [x].[SeoDescription], [x].[SeoKeywords], [x].[SeoPageTitle], [x].[SortOrder], [x].[Status]
+FROM [ProductCategories] AS [x]
+ORDER BY [x].[ParentId]" (0723d8ff)
+2019-02-28T22:05:20.5157825+07:00 0HLKTHO5DEJ29:00000005 [INF] Executed DbCommand ("16"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[DateCreated], [x].[DateModified], [x].[Description], [x].[HomeFlag], [x].[HomeOrder], [x].[Image], [x].[Name], [x].[ParentId], [x].[SeoAlias], [x].[SeoDescription], [x].[SeoKeywords], [x].[SeoPageTitle], [x].[SortOrder], [x].[Status]
+FROM [ProductCategories] AS [x]
+ORDER BY [x].[ParentId]" (0723d8ff)
+2019-02-28T22:05:20.5870324+07:00 0HLKTHO5DEJ29:00000005 [INF] Executed action "ShopOnlineApp.Controllers.HomeController.Index (ShopOnlineApp)" in 983.913ms (afa2e885)
+2019-02-28T22:05:20.6165020+07:00 0HLKTHO5DEJ29:00000005 [INF] Committing the session was canceled. (12038ba6)
+2019-02-28T22:05:20.6375611+07:00 0HLKTHO5DEJ29:00000005 [INF] Request finished in 2291.1595ms 200 text/html; charset=utf-8 (791a596a)
+2019-02-28T22:06:44.1180000+07:00 0HLKTHO5DEJ2G:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:3000/admin-login   (ca22a1cb)
+2019-02-28T22:06:44.2685634+07:00 0HLKTHO5DEJ2G:00000001 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.LoginController.index (ShopOnlineApp)" with arguments ([""]) - ModelState is Valid (ba7f4ac2)
+2019-02-28T22:06:44.3006335+07:00 0HLKTHO5DEJ2G:00000001 [INF] AuthenticationScheme: "Identity.External" signed out. (d3f50c8d)
+2019-02-28T22:06:44.9864813+07:00 0HLKTHO5DEJ2G:00000001 [INF] Executing ViewResult, running view at path "/Areas/Admin/Views/Login/index.cshtml". (9707eebe)
+2019-02-28T22:06:45.1369174+07:00 0HLKTHO5DEJ2G:00000001 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.LoginController.index (ShopOnlineApp)" in 916.1385ms (afa2e885)
+2019-02-28T22:06:45.2053817+07:00 0HLKTHO5DEJ2G:00000001 [INF] Request finished in 1042.0409ms 200 text/html; charset=utf-8 (791a596a)
+2019-02-28T22:06:45.2310602+07:00 0HLKTHO5DEJ2G:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:3000/app/controller/login/index.js   (ca22a1cb)
+2019-02-28T22:06:45.2426342+07:00 0HLKTHO5DEJ2G:00000002 [INF] The file "/app/controller/login/index.js" was not modified (f1f8d725)
+2019-02-28T22:06:45.2586046+07:00 0HLKTHO5DEJ2G:00000002 [INF] Request finished in 31.3717ms 304 application/javascript (791a596a)
+2019-02-28T22:07:15.7944447+07:00 0HLKTHO5DEJ2G:00000003 [INF] Request starting HTTP/1.1 POST http://localhost:3000/Admin/Login/Authen application/x-www-form-urlencoded; charset=UTF-8 30 (ca22a1cb)
+2019-02-28T22:07:15.9327708+07:00 0HLKTHO5DEJ2G:00000003 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.LoginController.Authen (ShopOnlineApp)" with arguments (["ShopOnlineApp.Models.AccountViewModels.LoginViewModel", ""]) - ModelState is Valid (ba7f4ac2)
+2019-02-28T22:07:15.9599693+07:00 0HLKTHO5DEJ2G:00000003 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2019-02-28T22:07:16.0014547+07:00 0HLKTHO5DEJ2G:00000003 [INF] Executed DbCommand ("4"ms) [Parameters=["@__normalizedUserName_0='?' (Size = 4000)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[Avatar], [u].[Balance], [u].[BirthDay], [u].[ConcurrencyStamp], [u].[DateCreated], [u].[DateModified], [u].[Email], [u].[EmailConfirmed], [u].[FullName], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[Status], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [AppUsers] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0" (0723d8ff)
+2019-02-28T22:07:16.2230041+07:00 0HLKTHO5DEJ2G:00000003 [INF] Executed DbCommand ("1"ms) [Parameters=["@__user_Id_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT [uc].[Id], [uc].[ClaimType], [uc].[ClaimValue], [uc].[UserId]
+FROM [AppUserClaims] AS [uc]
+WHERE [uc].[UserId] = @__user_Id_0" (0723d8ff)
+2019-02-28T22:07:16.2809279+07:00 0HLKTHO5DEJ2G:00000003 [INF] Executed DbCommand ("3"ms) [Parameters=["@__userId_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT [role].[Name]
+FROM [AppUserRoles] AS [userRole]
+INNER JOIN [AppRoles] AS [role] ON [userRole].[RoleId] = [role].[Id]
+WHERE [userRole].[UserId] = @__userId_0" (0723d8ff)
+2019-02-28T22:07:16.3069994+07:00 0HLKTHO5DEJ2G:00000003 [INF] Executed DbCommand ("1"ms) [Parameters=["@__normalizedName_0='?' (Size = 4000)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [r].[Id], [r].[ConcurrencyStamp], [r].[Description], [r].[Name], [r].[NormalizedName]
+FROM [AppRoles] AS [r]
+WHERE [r].[NormalizedName] = @__normalizedName_0" (0723d8ff)
+2019-02-28T22:07:16.3559684+07:00 0HLKTHO5DEJ2G:00000003 [INF] Executed DbCommand ("1"ms) [Parameters=["@__role_Id_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT [rc].[ClaimType], [rc].[ClaimValue]
+FROM [AppRoleClaims] AS [rc]
+WHERE [rc].[RoleId] = @__role_Id_0" (0723d8ff)
+2019-02-28T22:07:16.3679716+07:00 0HLKTHO5DEJ2G:00000003 [INF] Executed DbCommand ("1"ms) [Parameters=["@__normalizedName_0='?' (Size = 4000)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [r].[Id], [r].[ConcurrencyStamp], [r].[Description], [r].[Name], [r].[NormalizedName]
+FROM [AppRoles] AS [r]
+WHERE [r].[NormalizedName] = @__normalizedName_0" (0723d8ff)
+2019-02-28T22:07:16.3801347+07:00 0HLKTHO5DEJ2G:00000003 [INF] Executed DbCommand ("1"ms) [Parameters=["@__role_Id_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT [rc].[ClaimType], [rc].[ClaimValue]
+FROM [AppRoleClaims] AS [rc]
+WHERE [rc].[RoleId] = @__role_Id_0" (0723d8ff)
+2019-02-28T22:07:16.3904315+07:00 0HLKTHO5DEJ2G:00000003 [INF] Executed DbCommand ("0"ms) [Parameters=["@__userId_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT [role].[Name]
+FROM [AppUserRoles] AS [userRole]
+INNER JOIN [AppRoles] AS [role] ON [userRole].[RoleId] = [role].[Id]
+WHERE [userRole].[UserId] = @__userId_0" (0723d8ff)
+2019-02-28T22:07:16.4132862+07:00 0HLKTHO5DEJ2G:00000003 [INF] AuthenticationScheme: "Identity.Application" signed in. (c66dd7e7)
+2019-02-28T22:07:16.4299591+07:00 0HLKTHO5DEJ2G:00000003 [INF] Đăng nhập thành công (ba4d6ffb)
+2019-02-28T22:07:16.4506249+07:00 0HLKTHO5DEJ2G:00000003 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2019-02-28T22:07:16.8240322+07:00 0HLKTHO5DEJ2G:00000003 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.LoginController.Authen (ShopOnlineApp)" in 1001.0073ms (afa2e885)
+2019-02-28T22:07:16.8368706+07:00 0HLKTHO5DEJ2G:00000003 [INF] Request finished in 1048.2591ms 200 application/json; charset=utf-8 (791a596a)
+2019-02-28T22:07:16.8906156+07:00 0HLKTHO5DEJ2G:00000004 [INF] Request starting HTTP/1.1 GET http://localhost:3000/Admin/Home/Index   (ca22a1cb)
+2019-02-28T22:07:16.9119447+07:00 0HLKTHO5DEJ2G:00000004 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2019-02-28T22:07:16.9735038+07:00 0HLKTHO5DEJ2G:00000004 [INF] Authorization was successful. (0d575a54)
+2019-02-28T22:07:16.9880829+07:00 0HLKTHO5DEJ2G:00000004 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.HomeController.Index (ShopOnlineApp)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2019-02-28T22:07:17.5365270+07:00 0HLKTHO5DEJ2G:00000004 [INF] Executing ViewResult, running view at path "/Areas/Admin/Views/Home/Index.cshtml". (9707eebe)
+2019-02-28T22:07:18.2313189+07:00 0HLKTHO5DEJ2G:00000004 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2019-02-28T22:07:18.2619952+07:00 0HLKTHO5DEJ2G:00000004 [INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[IconCss], [x].[Name], [x].[ParentId], [x].[SortOrder], [x].[Status], [x].[URL]
+FROM [Functions] AS [x]
+WHERE [x].[Status] = 1
+ORDER BY [x].[ParentId]" (0723d8ff)
+2019-02-28T22:07:19.4967011+07:00 0HLKTHO5DEJ2G:00000004 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.HomeController.Index (ShopOnlineApp)" in 2562.3594ms (afa2e885)
+2019-02-28T22:07:19.6428684+07:00 0HLKTHO5DEJ2G:00000004 [INF] Request finished in 2622.6283ms 200 text/html; charset=utf-8 (791a596a)
+2019-02-28T22:07:19.6707014+07:00 0HLKTHO5DEJ2J:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:3000/app/shared/base.js?v=jFI7jzHMhXO7l-WIkiIORV5UXRNfl2U2pQzHapFM2Lw   (ca22a1cb)
+2019-02-28T22:07:19.6906441+07:00 0HLKTHO5DEJ2I:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:3000/app/controller/home/index.js?v=0ko7lCnz9bfv-p7c-t6b-KEa2imZZ3hYtEBS_WaSHwo   (ca22a1cb)
+2019-02-28T22:07:19.7450282+07:00 0HLKTHO5DEJ2I:00000001 [INF] The file "/app/controller/home/index.js" was not modified (f1f8d725)
+2019-02-28T22:07:19.7691754+07:00 0HLKTHO5DEJ2K:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:3000/lib/jquery/dist/jquery.js   (ca22a1cb)
+2019-02-28T22:07:19.7790136+07:00 0HLKTHO5DEJ2J:00000001 [INF] The file "/app/shared/base.js" was not modified (f1f8d725)
+2019-02-28T22:07:19.8422750+07:00 0HLKTHO5DEJ2I:00000001 [INF] Request finished in 113.6139ms 304 application/javascript (791a596a)
+2019-02-28T22:07:19.8544097+07:00 0HLKTHO5DEJ2J:00000001 [INF] Request finished in 136.4215ms 304 application/javascript (791a596a)
+2019-02-28T22:07:19.8764398+07:00 0HLKTHO5DEJ2H:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:3000/app/shared/signalR.js?v=dc2fYNz-JIgXwRe_7cjvz2nfkUExoQ1BBxGQgF_U3QY   (ca22a1cb)
+2019-02-28T22:07:19.8801399+07:00 0HLKTHO5DEJ2K:00000001 [INF] The file "/lib/jquery/dist/jquery.js" was not modified (f1f8d725)
+2019-02-28T22:07:19.9150085+07:00 0HLKTHO5DEJ2K:00000001 [INF] Request finished in 164.2926ms 304 application/javascript (791a596a)
+2019-02-28T22:07:19.9344596+07:00 0HLKTHO5DEJ2H:00000001 [INF] The file "/app/shared/signalR.js" was not modified (f1f8d725)
+2019-02-28T22:07:19.9833344+07:00 0HLKTHO5DEJ2H:00000001 [INF] Request finished in 302.9655ms 304 application/javascript (791a596a)
+2019-02-28T22:07:20.4817589+07:00 0HLKTHO5DEJ2G:00000005 [INF] Request starting HTTP/1.1 GET http://localhost:3000/Admin/Announcement/GetAllPaging?page=1&pageSize=10   (ca22a1cb)
+2019-02-28T22:07:20.5436126+07:00 0HLKTHO5DEJ2G:00000005 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2019-02-28T22:07:20.5853949+07:00 0HLKTHO5DEJ2G:00000005 [INF] Authorization was successful. (0d575a54)
+2019-02-28T22:07:20.7410997+07:00 0HLKTHO5DEJ2I:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:3000/Admin/Home/GetRevenue   (ca22a1cb)
+2019-02-28T22:07:20.7660958+07:00 0HLKTHO5DEJ2G:00000005 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.AnnouncementController.GetAllPaging (ShopOnlineApp)" with arguments (["1", "10"]) - ModelState is Valid (ba7f4ac2)
+2019-02-28T22:07:20.8177758+07:00 0HLKTHO5DEJ2I:00000002 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2019-02-28T22:07:20.8555917+07:00 0HLKTHO5DEJ2G:00000005 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2019-02-28T22:07:20.9150832+07:00 0HLKTHO5DEJ2I:00000002 [INF] Authorization was successful. (0d575a54)
+2019-02-28T22:07:20.9319858+07:00 0HLKTHO5DEJ2I:00000002 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.HomeController.GetRevenue (ShopOnlineApp)" with arguments (["", ""]) - ModelState is Valid (ba7f4ac2)
+2019-02-28T22:07:22.1329506+07:00 0HLKTHO5DEJ2G:00000005 [INF] Executed DbCommand ("10"ms) [Parameters=["@__userId_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Announcements] AS [x]
+LEFT JOIN [AnnouncementUsers] AS [y] ON [x].[Id] = [y].[AnnouncementId]
+WHERE ([y].[HasRead] = 0) AND ([y].[UserId] IS NULL OR ([y].[UserId] = @__userId_0))" (0723d8ff)
+2019-02-28T22:07:22.2260960+07:00 0HLKTHO5DEJ2G:00000005 [INF] Executed DbCommand ("6"ms) [Parameters=["@__userId_0='?', @__p_1='?', @__p_2='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[Content], [x].[DateCreated], [x].[DateModified], [x].[Status], [x].[Title], [x].[UserId]
+FROM [Announcements] AS [x]
+LEFT JOIN [AnnouncementUsers] AS [y] ON [x].[Id] = [y].[AnnouncementId]
+WHERE ([y].[HasRead] = 0) AND ([y].[UserId] IS NULL OR ([y].[UserId] = @__userId_0))
+ORDER BY [x].[DateCreated] DESC
+OFFSET @__p_1 ROWS FETCH NEXT @__p_2 ROWS ONLY" (0723d8ff)
+2019-02-28T22:07:22.3075736+07:00 0HLKTHO5DEJ2I:00000002 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2019-02-28T22:07:22.3792533+07:00 0HLKTHO5DEJ2G:00000005 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2019-02-28T22:07:22.4446794+07:00 0HLKTHO5DEJ2I:00000002 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.HomeController.GetRevenue (ShopOnlineApp)" in 1571.0695ms (afa2e885)
+2019-02-28T22:07:23.0283451+07:00 0HLKTHO5DEJ2G:00000005 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.AnnouncementController.GetAllPaging (ShopOnlineApp)" in 1890.0372ms (afa2e885)
+2019-02-28T22:07:23.1015602+07:00 0HLKTHO5DEJ2I:00000002 [INF] Request finished in 1936.3885ms 200 application/json; charset=utf-8 (791a596a)
+2019-02-28T22:07:23.1230054+07:00 0HLKTHO5DEJ2G:00000005 [INF] Request finished in 2576.9184ms 200 application/json; charset=utf-8 (791a596a)
+2019-02-28T22:07:33.4399007+07:00 0HLKTHO5DEJ2J:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:3000/Admin/Role/Index   (ca22a1cb)
+2019-02-28T22:07:33.4502864+07:00 0HLKTHO5DEJ2J:00000002 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2019-02-28T22:07:33.4619579+07:00 0HLKTHO5DEJ2J:00000002 [INF] Authorization was successful. (0d575a54)
+2019-02-28T22:07:33.4724075+07:00 0HLKTHO5DEJ2J:00000002 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.RoleController.Index (ShopOnlineApp)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2019-02-28T22:07:33.8177259+07:00 0HLKTHO5DEJ2J:00000002 [INF] Executing ViewResult, running view at path "/Areas/Admin/Views/Role/Index.cshtml". (9707eebe)
+2019-02-28T22:07:34.4054678+07:00 0HLKTHO5DEJ2J:00000002 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2019-02-28T22:07:34.4196176+07:00 0HLKTHO5DEJ2J:00000002 [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[IconCss], [x].[Name], [x].[ParentId], [x].[SortOrder], [x].[Status], [x].[URL]
+FROM [Functions] AS [x]
+WHERE [x].[Status] = 1
+ORDER BY [x].[ParentId]" (0723d8ff)
+2019-02-28T22:07:34.7222686+07:00 0HLKTHO5DEJ2J:00000002 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.RoleController.Index (ShopOnlineApp)" in 1166.3758ms (afa2e885)
+2019-02-28T22:07:34.7738591+07:00 0HLKTHO5DEJ2J:00000002 [INF] Request finished in 1292.1574ms 200 text/html; charset=utf-8 (791a596a)
+2019-02-28T22:07:34.7979733+07:00 0HLKTHO5DEJ2K:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:3000/app/controller/role/index.js?v=vt1C_U7-YY9FnBYIbXa4_Jhm8q77AnpWS9B12gYxi60   (ca22a1cb)
+2019-02-28T22:07:34.8689785+07:00 0HLKTHO5DEJ2K:00000002 [INF] Sending file. Request path: '"/app/controller/role/index.js"'. Physical path: '"G:\KhoaLuan\teducoreapp\ShopOnlineApp\wwwroot\app\controller\role\index.js"' (27b0a520)
+2019-02-28T22:07:34.9132923+07:00 0HLKTHO5DEJ2K:00000002 [INF] Request finished in 142.8573ms 200 application/javascript (791a596a)
+2019-02-28T22:07:35.1535558+07:00 0HLKTHO5DEJ2H:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:3000/Admin/Announcement/GetAllPaging?page=1&pageSize=10   (ca22a1cb)
+2019-02-28T22:07:35.1663902+07:00 0HLKTHO5DEJ2H:00000002 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2019-02-28T22:07:35.1772626+07:00 0HLKTHO5DEJ2H:00000002 [INF] Authorization was successful. (0d575a54)
+2019-02-28T22:07:35.1904363+07:00 0HLKTHO5DEJ2H:00000002 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.AnnouncementController.GetAllPaging (ShopOnlineApp)" with arguments (["1", "10"]) - ModelState is Valid (ba7f4ac2)
+2019-02-28T22:07:35.2035005+07:00 0HLKTHO5DEJ2H:00000002 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2019-02-28T22:07:35.2228704+07:00 0HLKTHO5DEJ2H:00000002 [INF] Executed DbCommand ("0"ms) [Parameters=["@__userId_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Announcements] AS [x]
+LEFT JOIN [AnnouncementUsers] AS [y] ON [x].[Id] = [y].[AnnouncementId]
+WHERE ([y].[HasRead] = 0) AND ([y].[UserId] IS NULL OR ([y].[UserId] = @__userId_0))" (0723d8ff)
+2019-02-28T22:07:35.3389748+07:00 0HLKTHO5DEJ2H:00000002 [INF] Executed DbCommand ("0"ms) [Parameters=["@__userId_0='?', @__p_1='?', @__p_2='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[Content], [x].[DateCreated], [x].[DateModified], [x].[Status], [x].[Title], [x].[UserId]
+FROM [Announcements] AS [x]
+LEFT JOIN [AnnouncementUsers] AS [y] ON [x].[Id] = [y].[AnnouncementId]
+WHERE ([y].[HasRead] = 0) AND ([y].[UserId] IS NULL OR ([y].[UserId] = @__userId_0))
+ORDER BY [x].[DateCreated] DESC
+OFFSET @__p_1 ROWS FETCH NEXT @__p_2 ROWS ONLY" (0723d8ff)
+2019-02-28T22:07:35.4288484+07:00 0HLKTHO5DEJ2I:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:3000/Admin/Role/GetAllPaging?keyword=&page=1&pageSize=10   (ca22a1cb)
+2019-02-28T22:07:35.4288488+07:00 0HLKTHO5DEJ2H:00000002 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2019-02-28T22:07:35.4740058+07:00 0HLKTHO5DEJ2H:00000002 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.AnnouncementController.GetAllPaging (ShopOnlineApp)" in 261.9687ms (afa2e885)
+2019-02-28T22:07:35.5174144+07:00 0HLKTHO5DEJ2H:00000002 [INF] Request finished in 339.3393ms 200 application/json; charset=utf-8 (791a596a)
+2019-02-28T22:07:35.5637475+07:00 0HLKTHO5DEJ2I:00000003 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2019-02-28T22:07:35.6018777+07:00 0HLKTHO5DEJ2I:00000003 [INF] Authorization was successful. (0d575a54)
+2019-02-28T22:07:35.6415055+07:00 0HLKTHO5DEJ2I:00000003 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.RoleController.GetAllPaging (ShopOnlineApp)" with arguments (["ShopOnlineApp.Application.ViewModels.Role.AppRoleRequest"]) - ModelState is Valid (ba7f4ac2)
+2019-02-28T22:07:35.6907779+07:00 0HLKTHO5DEJ2I:00000003 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2019-02-28T22:07:35.7626678+07:00 0HLKTHO5DEJ2I:00000003 [INF] Executed DbCommand ("3"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [AppRoles] AS [a]" (0723d8ff)
+2019-02-28T22:07:35.8037444+07:00 0HLKTHO5DEJ2I:00000003 [WRN] Query: '"(from AppRole <generated>_2 in DbSet<AppRole> select [<generated>_2]).Skip(__p_0).Take(__p_1)"' uses a row limiting operation (Skip/Take) without OrderBy which may lead to unpredictable results. (32148ccc)
+2019-02-28T22:07:35.8230719+07:00 0HLKTHO5DEJ2I:00000003 [INF] Executed DbCommand ("1"ms) [Parameters=["@__p_0='?', @__p_1='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT [a].[Id], [a].[ConcurrencyStamp], [a].[Description], [a].[Name], [a].[NormalizedName]
+FROM [AppRoles] AS [a]
+ORDER BY (SELECT 1)
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY" (0723d8ff)
+2019-02-28T22:07:35.8489080+07:00 0HLKTHO5DEJ2I:00000003 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2019-02-28T22:07:35.8938678+07:00 0HLKTHO5DEJ2I:00000003 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.RoleController.GetAllPaging (ShopOnlineApp)" in 296.6621ms (afa2e885)
+2019-02-28T22:07:35.9115648+07:00 0HLKTHO5DEJ2I:00000003 [INF] Request finished in 510.1089ms 200 application/json; charset=utf-8 (791a596a)
+2019-02-28T22:07:35.9583333+07:00 0HLKTHO5DEJ2G:00000006 [INF] Request starting HTTP/1.1 GET http://localhost:3000/Admin/Role/GetAllPaging?keyword=&page=1&pageSize=10   (ca22a1cb)
+2019-02-28T22:07:35.9739173+07:00 0HLKTHO5DEJ2G:00000006 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2019-02-28T22:07:35.9842475+07:00 0HLKTHO5DEJ2G:00000006 [INF] Authorization was successful. (0d575a54)
+2019-02-28T22:07:35.9933991+07:00 0HLKTHO5DEJ2G:00000006 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.RoleController.GetAllPaging (ShopOnlineApp)" with arguments (["ShopOnlineApp.Application.ViewModels.Role.AppRoleRequest"]) - ModelState is Valid (ba7f4ac2)
+2019-02-28T22:07:36.0041797+07:00 0HLKTHO5DEJ2G:00000006 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2019-02-28T22:07:36.0231464+07:00 0HLKTHO5DEJ2G:00000006 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [AppRoles] AS [a]" (0723d8ff)
+2019-02-28T22:07:36.0820411+07:00 0HLKTHO5DEJ2G:00000006 [INF] Executed DbCommand ("0"ms) [Parameters=["@__p_0='?', @__p_1='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT [a].[Id], [a].[ConcurrencyStamp], [a].[Description], [a].[Name], [a].[NormalizedName]
+FROM [AppRoles] AS [a]
+ORDER BY (SELECT 1)
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY" (0723d8ff)
+2019-02-28T22:07:36.0974285+07:00 0HLKTHO5DEJ2G:00000006 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2019-02-28T22:07:36.1190153+07:00 0HLKTHO5DEJ2G:00000006 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.RoleController.GetAllPaging (ShopOnlineApp)" in 123.5969ms (afa2e885)
+2019-02-28T22:07:36.1549821+07:00 0HLKTHO5DEJ2G:00000006 [INF] Request finished in 182.6702ms 200 application/json; charset=utf-8 (791a596a)
+2019-02-28T22:07:37.9709051+07:00 0HLKTHO5DEJ2J:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:3000/admin/Function/GetAll   (ca22a1cb)
+2019-02-28T22:07:38.0030353+07:00 0HLKTHO5DEJ2J:00000003 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2019-02-28T22:07:38.0243290+07:00 0HLKTHO5DEJ2J:00000003 [INF] Authorization was successful. (0d575a54)
+2019-02-28T22:07:38.0811508+07:00 0HLKTHO5DEJ2J:00000003 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2019-02-28T22:07:38.1235149+07:00 0HLKTHO5DEJ2J:00000003 [INF] Executed DbCommand ("3"ms) [Parameters=["@__get_Item_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [e].[Id], [e].[AccessFailedCount], [e].[Avatar], [e].[Balance], [e].[BirthDay], [e].[ConcurrencyStamp], [e].[DateCreated], [e].[DateModified], [e].[Email], [e].[EmailConfirmed], [e].[FullName], [e].[LockoutEnabled], [e].[LockoutEnd], [e].[NormalizedEmail], [e].[NormalizedUserName], [e].[PasswordHash], [e].[PhoneNumber], [e].[PhoneNumberConfirmed], [e].[SecurityStamp], [e].[Status], [e].[TwoFactorEnabled], [e].[UserName]
+FROM [AppUsers] AS [e]
+WHERE [e].[Id] = @__get_Item_0" (0723d8ff)
+2019-02-28T22:07:38.1483636+07:00 0HLKTHO5DEJ2J:00000003 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.FunctionController.GetAll (ShopOnlineApp)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2019-02-28T22:07:38.1686825+07:00 0HLKTHO5DEJ2J:00000003 [INF] Executed DbCommand ("3"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[IconCss], [x].[Name], [x].[ParentId], [x].[SortOrder], [x].[Status], [x].[URL]
+FROM [Functions] AS [x]
+WHERE [x].[Status] = 1
+ORDER BY [x].[ParentId]" (0723d8ff)
+2019-02-28T22:07:38.1890501+07:00 0HLKTHO5DEJ2J:00000003 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2019-02-28T22:07:38.2173822+07:00 0HLKTHO5DEJ2J:00000003 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.FunctionController.GetAll (ShopOnlineApp)" in 190.7654ms (afa2e885)
+2019-02-28T22:07:38.3141409+07:00 0HLKTHO5DEJ2J:00000003 [INF] Request finished in 283.5024ms 200 application/json; charset=utf-8 (791a596a)
+2019-02-28T22:07:38.5179113+07:00 0HLKTHO5DEJ2K:00000003 [INF] Request starting HTTP/1.1 POST http://localhost:3000/Admin/Role/ListAllFunction application/x-www-form-urlencoded; charset=UTF-8 43 (ca22a1cb)
+2019-02-28T22:07:38.6030933+07:00 0HLKTHO5DEJ2K:00000003 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2019-02-28T22:07:38.6818516+07:00 0HLKTHO5DEJ2K:00000003 [INF] Authorization was successful. (0d575a54)
+2019-02-28T22:07:38.6964087+07:00 0HLKTHO5DEJ2K:00000003 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.RoleController.ListAllFunction (ShopOnlineApp)" with arguments (["c766e73a-99e2-4c96-fe9b-08d653ce2ab3"]) - ModelState is Valid (ba7f4ac2)
+2019-02-28T22:07:38.7294963+07:00 0HLKTHO5DEJ2K:00000003 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2019-02-28T22:07:38.8073126+07:00 0HLKTHO5DEJ2K:00000003 [INF] Executed DbCommand ("8"ms) [Parameters=["@__roleId_1='?', @__roleId_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT @__roleId_1 AS [RoleId], [x].[Id] AS [FunctionId], CASE
+    WHEN [p].[Id] IS NOT NULL AND ([p].[CanCreate] = 1)
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END AS [CanCreate], CASE
+    WHEN [p].[Id] IS NOT NULL AND ([p].[CanDelete] = 1)
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END AS [CanDelete], CASE
+    WHEN [p].[Id] IS NOT NULL AND ([p].[CanRead] = 1)
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END AS [CanRead], CASE
+    WHEN [p].[Id] IS NOT NULL AND ([p].[CanUpdate] = 1)
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END AS [CanUpdate]
+FROM [Functions] AS [x]
+LEFT JOIN [Permissions] AS [p] ON [x].[Id] = [p].[FunctionId]
+WHERE ([x].[Status] = 1) AND ([p].[Id] IS NOT NULL AND ([p].[RoleId] = @__roleId_0))" (0723d8ff)
+2019-02-28T22:07:38.8489816+07:00 0HLKTHO5DEJ2K:00000003 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2019-02-28T22:07:38.8889823+07:00 0HLKTHO5DEJ2K:00000003 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.RoleController.ListAllFunction (ShopOnlineApp)" in 246.7044ms (afa2e885)
+2019-02-28T22:07:38.9066859+07:00 0HLKTHO5DEJ2K:00000003 [INF] Request finished in 434.283ms 200 application/json; charset=utf-8 (791a596a)
+2019-02-28T22:07:41.9693903+07:00 0HLKTHO5DEJ2H:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:3000/admin/Function/GetAll   (ca22a1cb)
+2019-02-28T22:07:41.9956645+07:00 0HLKTHO5DEJ2H:00000003 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2019-02-28T22:07:42.0071116+07:00 0HLKTHO5DEJ2H:00000003 [INF] Authorization was successful. (0d575a54)
+2019-02-28T22:07:42.0338072+07:00 0HLKTHO5DEJ2H:00000003 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2019-02-28T22:07:42.0522449+07:00 0HLKTHO5DEJ2H:00000003 [INF] Executed DbCommand ("1"ms) [Parameters=["@__get_Item_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [e].[Id], [e].[AccessFailedCount], [e].[Avatar], [e].[Balance], [e].[BirthDay], [e].[ConcurrencyStamp], [e].[DateCreated], [e].[DateModified], [e].[Email], [e].[EmailConfirmed], [e].[FullName], [e].[LockoutEnabled], [e].[LockoutEnd], [e].[NormalizedEmail], [e].[NormalizedUserName], [e].[PasswordHash], [e].[PhoneNumber], [e].[PhoneNumberConfirmed], [e].[SecurityStamp], [e].[Status], [e].[TwoFactorEnabled], [e].[UserName]
+FROM [AppUsers] AS [e]
+WHERE [e].[Id] = @__get_Item_0" (0723d8ff)
+2019-02-28T22:07:42.0647166+07:00 0HLKTHO5DEJ2H:00000003 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.FunctionController.GetAll (ShopOnlineApp)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2019-02-28T22:07:42.0793544+07:00 0HLKTHO5DEJ2H:00000003 [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[IconCss], [x].[Name], [x].[ParentId], [x].[SortOrder], [x].[Status], [x].[URL]
+FROM [Functions] AS [x]
+WHERE [x].[Status] = 1
+ORDER BY [x].[ParentId]" (0723d8ff)
+2019-02-28T22:07:42.0915269+07:00 0HLKTHO5DEJ2H:00000003 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2019-02-28T22:07:42.1057199+07:00 0HLKTHO5DEJ2H:00000003 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.FunctionController.GetAll (ShopOnlineApp)" in 97.9315ms (afa2e885)
+2019-02-28T22:07:42.1201559+07:00 0HLKTHO5DEJ2H:00000003 [INF] Request finished in 153.3857ms 200 application/json; charset=utf-8 (791a596a)
+2019-02-28T22:07:42.3078584+07:00 0HLKTHO5DEJ2I:00000004 [INF] Request starting HTTP/1.1 POST http://localhost:3000/Admin/Role/ListAllFunction application/x-www-form-urlencoded; charset=UTF-8 43 (ca22a1cb)
+2019-02-28T22:07:42.3205889+07:00 0HLKTHO5DEJ2I:00000004 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2019-02-28T22:07:42.3339364+07:00 0HLKTHO5DEJ2I:00000004 [INF] Authorization was successful. (0d575a54)
+2019-02-28T22:07:42.3496831+07:00 0HLKTHO5DEJ2I:00000004 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.RoleController.ListAllFunction (ShopOnlineApp)" with arguments (["c56c3bf8-3951-4de4-fe9c-08d653ce2ab3"]) - ModelState is Valid (ba7f4ac2)
+2019-02-28T22:07:42.3706593+07:00 0HLKTHO5DEJ2I:00000004 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2019-02-28T22:07:42.4123301+07:00 0HLKTHO5DEJ2I:00000004 [INF] Executed DbCommand ("12"ms) [Parameters=["@__roleId_1='?', @__roleId_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT @__roleId_1 AS [RoleId], [x].[Id] AS [FunctionId], CASE
+    WHEN [p].[Id] IS NOT NULL AND ([p].[CanCreate] = 1)
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END AS [CanCreate], CASE
+    WHEN [p].[Id] IS NOT NULL AND ([p].[CanDelete] = 1)
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END AS [CanDelete], CASE
+    WHEN [p].[Id] IS NOT NULL AND ([p].[CanRead] = 1)
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END AS [CanRead], CASE
+    WHEN [p].[Id] IS NOT NULL AND ([p].[CanUpdate] = 1)
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END AS [CanUpdate]
+FROM [Functions] AS [x]
+LEFT JOIN [Permissions] AS [p] ON [x].[Id] = [p].[FunctionId]
+WHERE ([x].[Status] = 1) AND ([p].[Id] IS NOT NULL AND ([p].[RoleId] = @__roleId_0))" (0723d8ff)
+2019-02-28T22:07:42.4371659+07:00 0HLKTHO5DEJ2I:00000004 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2019-02-28T22:07:42.4869106+07:00 0HLKTHO5DEJ2I:00000004 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.RoleController.ListAllFunction (ShopOnlineApp)" in 116.9392ms (afa2e885)
+2019-02-28T22:07:42.5391253+07:00 0HLKTHO5DEJ2I:00000004 [INF] Request finished in 191.1546ms 200 application/json; charset=utf-8 (791a596a)
+2019-02-28T22:09:29.5061556+07:00 0HLKTHO5DEJ2L:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:3000/admin/Function/GetAll   (ca22a1cb)
+2019-02-28T22:09:29.5156483+07:00 0HLKTHO5DEJ2L:00000001 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2019-02-28T22:09:29.5289502+07:00 0HLKTHO5DEJ2L:00000001 [INF] Authorization was successful. (0d575a54)
+2019-02-28T22:09:29.5402906+07:00 0HLKTHO5DEJ2L:00000001 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2019-02-28T22:09:29.5601024+07:00 0HLKTHO5DEJ2L:00000001 [INF] Executed DbCommand ("3"ms) [Parameters=["@__get_Item_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [e].[Id], [e].[AccessFailedCount], [e].[Avatar], [e].[Balance], [e].[BirthDay], [e].[ConcurrencyStamp], [e].[DateCreated], [e].[DateModified], [e].[Email], [e].[EmailConfirmed], [e].[FullName], [e].[LockoutEnabled], [e].[LockoutEnd], [e].[NormalizedEmail], [e].[NormalizedUserName], [e].[PasswordHash], [e].[PhoneNumber], [e].[PhoneNumberConfirmed], [e].[SecurityStamp], [e].[Status], [e].[TwoFactorEnabled], [e].[UserName]
+FROM [AppUsers] AS [e]
+WHERE [e].[Id] = @__get_Item_0" (0723d8ff)
+2019-02-28T22:09:29.5791805+07:00 0HLKTHO5DEJ2L:00000001 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.FunctionController.GetAll (ShopOnlineApp)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2019-02-28T22:09:29.5959742+07:00 0HLKTHO5DEJ2L:00000001 [INF] Executed DbCommand ("6"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[IconCss], [x].[Name], [x].[ParentId], [x].[SortOrder], [x].[Status], [x].[URL]
+FROM [Functions] AS [x]
+WHERE [x].[Status] = 1
+ORDER BY [x].[ParentId]" (0723d8ff)
+2019-02-28T22:09:29.6064299+07:00 0HLKTHO5DEJ2L:00000001 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2019-02-28T22:09:29.6151054+07:00 0HLKTHO5DEJ2L:00000001 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.FunctionController.GetAll (ShopOnlineApp)" in 90.837ms (afa2e885)
+2019-02-28T22:09:29.6265284+07:00 0HLKTHO5DEJ2L:00000001 [INF] Request finished in 134.7248ms 200 application/json; charset=utf-8 (791a596a)
+2019-02-28T22:09:29.7275861+07:00 0HLKTHO5DEJ2L:00000002 [INF] Request starting HTTP/1.1 POST http://localhost:3000/Admin/Role/ListAllFunction application/x-www-form-urlencoded; charset=UTF-8 43 (ca22a1cb)
+2019-02-28T22:09:29.7382484+07:00 0HLKTHO5DEJ2L:00000002 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2019-02-28T22:09:29.7486094+07:00 0HLKTHO5DEJ2L:00000002 [INF] Authorization was successful. (0d575a54)
+2019-02-28T22:09:29.7608402+07:00 0HLKTHO5DEJ2L:00000002 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.RoleController.ListAllFunction (ShopOnlineApp)" with arguments (["c766e73a-99e2-4c96-fe9b-08d653ce2ab3"]) - ModelState is Valid (ba7f4ac2)
+2019-02-28T22:09:29.7714879+07:00 0HLKTHO5DEJ2L:00000002 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2019-02-28T22:09:29.7902239+07:00 0HLKTHO5DEJ2L:00000002 [INF] Executed DbCommand ("6"ms) [Parameters=["@__roleId_1='?', @__roleId_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT @__roleId_1 AS [RoleId], [x].[Id] AS [FunctionId], CASE
+    WHEN [p].[Id] IS NOT NULL AND ([p].[CanCreate] = 1)
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END AS [CanCreate], CASE
+    WHEN [p].[Id] IS NOT NULL AND ([p].[CanDelete] = 1)
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END AS [CanDelete], CASE
+    WHEN [p].[Id] IS NOT NULL AND ([p].[CanRead] = 1)
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END AS [CanRead], CASE
+    WHEN [p].[Id] IS NOT NULL AND ([p].[CanUpdate] = 1)
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END AS [CanUpdate]
+FROM [Functions] AS [x]
+LEFT JOIN [Permissions] AS [p] ON [x].[Id] = [p].[FunctionId]
+WHERE ([x].[Status] = 1) AND ([p].[Id] IS NOT NULL AND ([p].[RoleId] = @__roleId_0))" (0723d8ff)
+2019-02-28T22:09:29.8040255+07:00 0HLKTHO5DEJ2L:00000002 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2019-02-28T22:09:29.8189513+07:00 0HLKTHO5DEJ2L:00000002 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.RoleController.ListAllFunction (ShopOnlineApp)" in 66.2222ms (afa2e885)
+2019-02-28T22:09:29.8477874+07:00 0HLKTHO5DEJ2L:00000002 [INF] Request finished in 100.4714ms 200 application/json; charset=utf-8 (791a596a)
+2019-02-28T22:09:35.7713984+07:00 0HLKTHO5DEJ2L:00000003 [INF] Request starting HTTP/1.1 POST http://localhost:3000/Admin/Role/SavePermission application/x-www-form-urlencoded; charset=UTF-8 8352 (ca22a1cb)
+2019-02-28T22:09:35.7800325+07:00 0HLKTHO5DEJ2L:00000003 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2019-02-28T22:09:35.7941860+07:00 0HLKTHO5DEJ2L:00000003 [INF] Authorization was successful. (0d575a54)
+2019-02-28T22:09:35.8214213+07:00 0HLKTHO5DEJ2L:00000003 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.RoleController.SavePermission (ShopOnlineApp)" with arguments (["System.Collections.Generic.List`1[ShopOnlineApp.Application.ViewModels.Role.PermissionViewModel]", "c766e73a-99e2-4c96-fe9b-08d653ce2ab3"]) - ModelState is Valid (ba7f4ac2)
+2019-02-28T22:09:35.8591400+07:00 0HLKTHO5DEJ2L:00000003 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2019-02-28T22:09:35.8793321+07:00 0HLKTHO5DEJ2L:00000003 [INF] Executed DbCommand ("1"ms) [Parameters=["@__roleId_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[CanCreate], [x].[CanDelete], [x].[CanRead], [x].[CanUpdate], [x].[FunctionId], [x].[RoleId]
+FROM [Permissions] AS [x]
+WHERE [x].[RoleId] = @__roleId_0" (0723d8ff)
+2019-02-28T22:09:36.0488566+07:00 0HLKTHO5DEJ2L:00000003 [INF] Executed DbCommand ("32"ms) [Parameters=["@p0='?', @p1='?', @p2='?', @p3='?', @p4='?', @p5='?', @p6='?', @p7='?', @p8='?', @p9='?', @p10='?', @p11='?', @p12='?', @p13='?', @p14='?', @p15='?', @p16='?', @p17='?', @p18='?', @p19='?', @p20='?', @p21='?', @p22='?', @p23='?', @p24='?', @p25='?', @p26='?', @p27='?', @p28='?', @p29='?', @p30='?', @p31='?', @p32='?' (Size = 450), @p33='?', @p34='?', @p35='?', @p36='?', @p37='?', @p38='?' (Size = 450), @p39='?', @p40='?', @p41='?', @p42='?', @p43='?', @p44='?' (Size = 450), @p45='?', @p46='?', @p47='?', @p48='?', @p49='?', @p50='?' (Size = 450), @p51='?', @p52='?', @p53='?', @p54='?', @p55='?', @p56='?' (Size = 450), @p57='?', @p58='?', @p59='?', @p60='?', @p61='?', @p62='?' (Size = 450), @p63='?', @p64='?', @p65='?', @p66='?', @p67='?', @p68='?' (Size = 450), @p69='?', @p70='?', @p71='?', @p72='?', @p73='?', @p74='?' (Size = 450), @p75='?', @p76='?', @p77='?', @p78='?', @p79='?', @p80='?' (Size = 450), @p81='?', @p82='?', @p83='?', @p84='?', @p85='?', @p86='?' (Size = 450), @p87='?', @p88='?', @p89='?', @p90='?', @p91='?', @p92='?' (Size = 450), @p93='?', @p94='?', @p95='?', @p96='?', @p97='?', @p98='?' (Size = 450), @p99='?', @p100='?', @p101='?', @p102='?', @p103='?', @p104='?' (Size = 450), @p105='?', @p106='?', @p107='?', @p108='?', @p109='?', @p110='?' (Size = 450), @p111='?', @p112='?', @p113='?', @p114='?', @p115='?', @p116='?' (Size = 450), @p117='?', @p118='?', @p119='?', @p120='?', @p121='?', @p122='?' (Size = 450), @p123='?', @p124='?', @p125='?', @p126='?', @p127='?', @p128='?' (Size = 450), @p129='?', @p130='?', @p131='?', @p132='?', @p133='?', @p134='?' (Size = 450), @p135='?', @p136='?', @p137='?', @p138='?', @p139='?', @p140='?' (Size = 450), @p141='?', @p142='?', @p143='?', @p144='?', @p145='?', @p146='?' (Size = 450), @p147='?', @p148='?', @p149='?', @p150='?', @p151='?', @p152='?' (Size = 450), @p153='?', @p154='?', @p155='?', @p156='?', @p157='?', @p158='?' (Size = 450), @p159='?', @p160='?', @p161='?', @p162='?', @p163='?', @p164='?' (Size = 450), @p165='?', @p166='?', @p167='?', @p168='?', @p169='?', @p170='?' (Size = 450), @p171='?', @p172='?', @p173='?', @p174='?', @p175='?', @p176='?' (Size = 450), @p177='?', @p178='?', @p179='?', @p180='?', @p181='?', @p182='?' (Size = 450), @p183='?', @p184='?', @p185='?', @p186='?', @p187='?', @p188='?' (Size = 450), @p189='?', @p190='?', @p191='?', @p192='?', @p193='?', @p194='?' (Size = 450), @p195='?'"], CommandType='Text', CommandTimeout='30']"
+""SET NOCOUNT ON;
+DELETE FROM [Permissions]
+WHERE [Id] = @p0;
+SELECT @@ROWCOUNT;
+
+DELETE FROM [Permissions]
+WHERE [Id] = @p1;
+SELECT @@ROWCOUNT;
+
+DELETE FROM [Permissions]
+WHERE [Id] = @p2;
+SELECT @@ROWCOUNT;
+
+DELETE FROM [Permissions]
+WHERE [Id] = @p3;
+SELECT @@ROWCOUNT;
+
+DELETE FROM [Permissions]
+WHERE [Id] = @p4;
+SELECT @@ROWCOUNT;
+
+DELETE FROM [Permissions]
+WHERE [Id] = @p5;
+SELECT @@ROWCOUNT;
+
+DELETE FROM [Permissions]
+WHERE [Id] = @p6;
+SELECT @@ROWCOUNT;
+
+DELETE FROM [Permissions]
+WHERE [Id] = @p7;
+SELECT @@ROWCOUNT;
+
+DELETE FROM [Permissions]
+WHERE [Id] = @p8;
+SELECT @@ROWCOUNT;
+
+DELETE FROM [Permissions]
+WHERE [Id] = @p9;
+SELECT @@ROWCOUNT;
+
+DELETE FROM [Permissions]
+WHERE [Id] = @p10;
+SELECT @@ROWCOUNT;
+
+DELETE FROM [Permissions]
+WHERE [Id] = @p11;
+SELECT @@ROWCOUNT;
+
+DELETE FROM [Permissions]
+WHERE [Id] = @p12;
+SELECT @@ROWCOUNT;
+
+DELETE FROM [Permissions]
+WHERE [Id] = @p13;
+SELECT @@ROWCOUNT;
+
+DELETE FROM [Permissions]
+WHERE [Id] = @p14;
+SELECT @@ROWCOUNT;
+
+DELETE FROM [Permissions]
+WHERE [Id] = @p15;
+SELECT @@ROWCOUNT;
+
+DELETE FROM [Permissions]
+WHERE [Id] = @p16;
+SELECT @@ROWCOUNT;
+
+DELETE FROM [Permissions]
+WHERE [Id] = @p17;
+SELECT @@ROWCOUNT;
+
+DELETE FROM [Permissions]
+WHERE [Id] = @p18;
+SELECT @@ROWCOUNT;
+
+DELETE FROM [Permissions]
+WHERE [Id] = @p19;
+SELECT @@ROWCOUNT;
+
+DELETE FROM [Permissions]
+WHERE [Id] = @p20;
+SELECT @@ROWCOUNT;
+
+DELETE FROM [Permissions]
+WHERE [Id] = @p21;
+SELECT @@ROWCOUNT;
+
+DELETE FROM [Permissions]
+WHERE [Id] = @p22;
+SELECT @@ROWCOUNT;
+
+DELETE FROM [Permissions]
+WHERE [Id] = @p23;
+SELECT @@ROWCOUNT;
+
+DELETE FROM [Permissions]
+WHERE [Id] = @p24;
+SELECT @@ROWCOUNT;
+
+DELETE FROM [Permissions]
+WHERE [Id] = @p25;
+SELECT @@ROWCOUNT;
+
+DELETE FROM [Permissions]
+WHERE [Id] = @p26;
+SELECT @@ROWCOUNT;
+
+DELETE FROM [Permissions]
+WHERE [Id] = @p27;
+SELECT @@ROWCOUNT;
+
+DECLARE @inserted28 TABLE ([Id] int, [_Position] [int]);
+MERGE [Permissions] USING (
+VALUES (@p28, @p29, @p30, @p31, @p32, @p33, 0),
+(@p34, @p35, @p36, @p37, @p38, @p39, 1),
+(@p40, @p41, @p42, @p43, @p44, @p45, 2),
+(@p46, @p47, @p48, @p49, @p50, @p51, 3),
+(@p52, @p53, @p54, @p55, @p56, @p57, 4),
+(@p58, @p59, @p60, @p61, @p62, @p63, 5),
+(@p64, @p65, @p66, @p67, @p68, @p69, 6),
+(@p70, @p71, @p72, @p73, @p74, @p75, 7),
+(@p76, @p77, @p78, @p79, @p80, @p81, 8),
+(@p82, @p83, @p84, @p85, @p86, @p87, 9),
+(@p88, @p89, @p90, @p91, @p92, @p93, 10),
+(@p94, @p95, @p96, @p97, @p98, @p99, 11),
+(@p100, @p101, @p102, @p103, @p104, @p105, 12),
+(@p106, @p107, @p108, @p109, @p110, @p111, 13),
+(@p112, @p113, @p114, @p115, @p116, @p117, 14),
+(@p118, @p119, @p120, @p121, @p122, @p123, 15),
+(@p124, @p125, @p126, @p127, @p128, @p129, 16),
+(@p130, @p131, @p132, @p133, @p134, @p135, 17),
+(@p136, @p137, @p138, @p139, @p140, @p141, 18),
+(@p142, @p143, @p144, @p145, @p146, @p147, 19),
+(@p148, @p149, @p150, @p151, @p152, @p153, 20),
+(@p154, @p155, @p156, @p157, @p158, @p159, 21),
+(@p160, @p161, @p162, @p163, @p164, @p165, 22),
+(@p166, @p167, @p168, @p169, @p170, @p171, 23),
+(@p172, @p173, @p174, @p175, @p176, @p177, 24),
+(@p178, @p179, @p180, @p181, @p182, @p183, 25),
+(@p184, @p185, @p186, @p187, @p188, @p189, 26),
+(@p190, @p191, @p192, @p193, @p194, @p195, 27)) AS i ([CanCreate], [CanDelete], [CanRead], [CanUpdate], [FunctionId], [RoleId], _Position) ON 1=0
+WHEN NOT MATCHED THEN
+INSERT ([CanCreate], [CanDelete], [CanRead], [CanUpdate], [FunctionId], [RoleId])
+VALUES (i.[CanCreate], i.[CanDelete], i.[CanRead], i.[CanUpdate], i.[FunctionId], i.[RoleId])
+OUTPUT INSERTED.[Id], i._Position
+INTO @inserted28;
+
+SELECT [t].[Id] FROM [Permissions] t
+INNER JOIN @inserted28 i ON ([t].[Id] = [i].[Id])
+ORDER BY [i].[_Position];" (0723d8ff)
+2019-02-28T22:09:36.0952270+07:00 0HLKTHO5DEJ2L:00000003 [INF] Executing HttpStatusCodeResult, setting HTTP status code 200 (e28ccfae)
+2019-02-28T22:09:36.1066079+07:00 0HLKTHO5DEJ2L:00000003 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.RoleController.SavePermission (ShopOnlineApp)" in 309.3198ms (afa2e885)
+2019-02-28T22:09:36.1230165+07:00 0HLKTHO5DEJ2L:00000003 [INF] Request finished in 345.1529ms 200  (791a596a)
+2019-02-28T22:10:07.7282775+07:00 0HLKTHO5DEJ2L:00000004 [INF] Request starting HTTP/1.1 GET http://localhost:3000/admin/Function/GetAll   (ca22a1cb)
+2019-02-28T22:10:07.7432415+07:00 0HLKTHO5DEJ2L:00000004 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2019-02-28T22:10:07.7552284+07:00 0HLKTHO5DEJ2L:00000004 [INF] Authorization was successful. (0d575a54)
+2019-02-28T22:10:07.7664556+07:00 0HLKTHO5DEJ2L:00000004 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2019-02-28T22:10:07.7845922+07:00 0HLKTHO5DEJ2L:00000004 [INF] Executed DbCommand ("3"ms) [Parameters=["@__get_Item_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [e].[Id], [e].[AccessFailedCount], [e].[Avatar], [e].[Balance], [e].[BirthDay], [e].[ConcurrencyStamp], [e].[DateCreated], [e].[DateModified], [e].[Email], [e].[EmailConfirmed], [e].[FullName], [e].[LockoutEnabled], [e].[LockoutEnd], [e].[NormalizedEmail], [e].[NormalizedUserName], [e].[PasswordHash], [e].[PhoneNumber], [e].[PhoneNumberConfirmed], [e].[SecurityStamp], [e].[Status], [e].[TwoFactorEnabled], [e].[UserName]
+FROM [AppUsers] AS [e]
+WHERE [e].[Id] = @__get_Item_0" (0723d8ff)
+2019-02-28T22:10:07.7937772+07:00 0HLKTHO5DEJ2L:00000004 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.FunctionController.GetAll (ShopOnlineApp)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2019-02-28T22:10:07.8125799+07:00 0HLKTHO5DEJ2L:00000004 [INF] Executed DbCommand ("7"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[IconCss], [x].[Name], [x].[ParentId], [x].[SortOrder], [x].[Status], [x].[URL]
+FROM [Functions] AS [x]
+WHERE [x].[Status] = 1
+ORDER BY [x].[ParentId]" (0723d8ff)
+2019-02-28T22:10:07.8390731+07:00 0HLKTHO5DEJ2L:00000004 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2019-02-28T22:10:07.8549881+07:00 0HLKTHO5DEJ2L:00000004 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.FunctionController.GetAll (ShopOnlineApp)" in 96.1853ms (afa2e885)
+2019-02-28T22:10:07.9038047+07:00 0HLKTHO5DEJ2L:00000004 [INF] Request finished in 153.3783ms 200 application/json; charset=utf-8 (791a596a)
+2019-02-28T22:10:08.1384412+07:00 0HLKTHO5DEJ2L:00000005 [INF] Request starting HTTP/1.1 POST http://localhost:3000/Admin/Role/ListAllFunction application/x-www-form-urlencoded; charset=UTF-8 43 (ca22a1cb)
+2019-02-28T22:10:08.1556688+07:00 0HLKTHO5DEJ2L:00000005 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2019-02-28T22:10:08.1947624+07:00 0HLKTHO5DEJ2L:00000005 [INF] Authorization was successful. (0d575a54)
+2019-02-28T22:10:08.2214515+07:00 0HLKTHO5DEJ2L:00000005 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.RoleController.ListAllFunction (ShopOnlineApp)" with arguments (["c766e73a-99e2-4c96-fe9b-08d653ce2ab3"]) - ModelState is Valid (ba7f4ac2)
+2019-02-28T22:10:08.2437785+07:00 0HLKTHO5DEJ2L:00000005 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2019-02-28T22:10:08.2891229+07:00 0HLKTHO5DEJ2L:00000005 [INF] Executed DbCommand ("17"ms) [Parameters=["@__roleId_1='?', @__roleId_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT @__roleId_1 AS [RoleId], [x].[Id] AS [FunctionId], CASE
+    WHEN [p].[Id] IS NOT NULL AND ([p].[CanCreate] = 1)
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END AS [CanCreate], CASE
+    WHEN [p].[Id] IS NOT NULL AND ([p].[CanDelete] = 1)
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END AS [CanDelete], CASE
+    WHEN [p].[Id] IS NOT NULL AND ([p].[CanRead] = 1)
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END AS [CanRead], CASE
+    WHEN [p].[Id] IS NOT NULL AND ([p].[CanUpdate] = 1)
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END AS [CanUpdate]
+FROM [Functions] AS [x]
+LEFT JOIN [Permissions] AS [p] ON [x].[Id] = [p].[FunctionId]
+WHERE ([x].[Status] = 1) AND ([p].[Id] IS NOT NULL AND ([p].[RoleId] = @__roleId_0))" (0723d8ff)
+2019-02-28T22:10:08.3199493+07:00 0HLKTHO5DEJ2L:00000005 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2019-02-28T22:10:08.3655557+07:00 0HLKTHO5DEJ2L:00000005 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.RoleController.ListAllFunction (ShopOnlineApp)" in 186.9161ms (afa2e885)
+2019-02-28T22:10:08.3799824+07:00 0HLKTHO5DEJ2L:00000005 [INF] Request finished in 242.0721ms 200 application/json; charset=utf-8 (791a596a)
+2019-02-28T22:10:13.4748467+07:00 0HLKTHO5DEJ2L:00000006 [INF] Request starting HTTP/1.1 POST http://localhost:3000/Admin/Role/SavePermission application/x-www-form-urlencoded; charset=UTF-8 8348 (ca22a1cb)
+2019-02-28T22:10:13.4866836+07:00 0HLKTHO5DEJ2L:00000006 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2019-02-28T22:10:13.4958192+07:00 0HLKTHO5DEJ2L:00000006 [INF] Authorization was successful. (0d575a54)
+2019-02-28T22:10:13.5105442+07:00 0HLKTHO5DEJ2L:00000006 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.RoleController.SavePermission (ShopOnlineApp)" with arguments (["System.Collections.Generic.List`1[ShopOnlineApp.Application.ViewModels.Role.PermissionViewModel]", "c766e73a-99e2-4c96-fe9b-08d653ce2ab3"]) - ModelState is Valid (ba7f4ac2)
+2019-02-28T22:10:13.5199231+07:00 0HLKTHO5DEJ2L:00000006 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2019-02-28T22:10:13.5308571+07:00 0HLKTHO5DEJ2L:00000006 [INF] Executed DbCommand ("1"ms) [Parameters=["@__roleId_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[CanCreate], [x].[CanDelete], [x].[CanRead], [x].[CanUpdate], [x].[FunctionId], [x].[RoleId]
+FROM [Permissions] AS [x]
+WHERE [x].[RoleId] = @__roleId_0" (0723d8ff)
+2019-02-28T22:10:13.6184872+07:00 0HLKTHO5DEJ2L:00000006 [INF] Executed DbCommand ("41"ms) [Parameters=["@p0='?', @p1='?', @p2='?', @p3='?', @p4='?', @p5='?', @p6='?', @p7='?', @p8='?', @p9='?', @p10='?', @p11='?', @p12='?', @p13='?', @p14='?', @p15='?', @p16='?', @p17='?', @p18='?', @p19='?', @p20='?', @p21='?', @p22='?', @p23='?', @p24='?', @p25='?', @p26='?', @p27='?', @p28='?', @p29='?', @p30='?', @p31='?', @p32='?' (Size = 450), @p33='?', @p34='?', @p35='?', @p36='?', @p37='?', @p38='?' (Size = 450), @p39='?', @p40='?', @p41='?', @p42='?', @p43='?', @p44='?' (Size = 450), @p45='?', @p46='?', @p47='?', @p48='?', @p49='?', @p50='?' (Size = 450), @p51='?', @p52='?', @p53='?', @p54='?', @p55='?', @p56='?' (Size = 450), @p57='?', @p58='?', @p59='?', @p60='?', @p61='?', @p62='?' (Size = 450), @p63='?', @p64='?', @p65='?', @p66='?', @p67='?', @p68='?' (Size = 450), @p69='?', @p70='?', @p71='?', @p72='?', @p73='?', @p74='?' (Size = 450), @p75='?', @p76='?', @p77='?', @p78='?', @p79='?', @p80='?' (Size = 450), @p81='?', @p82='?', @p83='?', @p84='?', @p85='?', @p86='?' (Size = 450), @p87='?', @p88='?', @p89='?', @p90='?', @p91='?', @p92='?' (Size = 450), @p93='?', @p94='?', @p95='?', @p96='?', @p97='?', @p98='?' (Size = 450), @p99='?', @p100='?', @p101='?', @p102='?', @p103='?', @p104='?' (Size = 450), @p105='?', @p106='?', @p107='?', @p108='?', @p109='?', @p110='?' (Size = 450), @p111='?', @p112='?', @p113='?', @p114='?', @p115='?', @p116='?' (Size = 450), @p117='?', @p118='?', @p119='?', @p120='?', @p121='?', @p122='?' (Size = 450), @p123='?', @p124='?', @p125='?', @p126='?', @p127='?', @p128='?' (Size = 450), @p129='?', @p130='?', @p131='?', @p132='?', @p133='?', @p134='?' (Size = 450), @p135='?', @p136='?', @p137='?', @p138='?', @p139='?', @p140='?' (Size = 450), @p141='?', @p142='?', @p143='?', @p144='?', @p145='?', @p146='?' (Size = 450), @p147='?', @p148='?', @p149='?', @p150='?', @p151='?', @p152='?' (Size = 450), @p153='?', @p154='?', @p155='?', @p156='?', @p157='?', @p158='?' (Size = 450), @p159='?', @p160='?', @p161='?', @p162='?', @p163='?', @p164='?' (Size = 450), @p165='?', @p166='?', @p167='?', @p168='?', @p169='?', @p170='?' (Size = 450), @p171='?', @p172='?', @p173='?', @p174='?', @p175='?', @p176='?' (Size = 450), @p177='?', @p178='?', @p179='?', @p180='?', @p181='?', @p182='?' (Size = 450), @p183='?', @p184='?', @p185='?', @p186='?', @p187='?', @p188='?' (Size = 450), @p189='?', @p190='?', @p191='?', @p192='?', @p193='?', @p194='?' (Size = 450), @p195='?'"], CommandType='Text', CommandTimeout='30']"
+""SET NOCOUNT ON;
+DELETE FROM [Permissions]
+WHERE [Id] = @p0;
+SELECT @@ROWCOUNT;
+
+DELETE FROM [Permissions]
+WHERE [Id] = @p1;
+SELECT @@ROWCOUNT;
+
+DELETE FROM [Permissions]
+WHERE [Id] = @p2;
+SELECT @@ROWCOUNT;
+
+DELETE FROM [Permissions]
+WHERE [Id] = @p3;
+SELECT @@ROWCOUNT;
+
+DELETE FROM [Permissions]
+WHERE [Id] = @p4;
+SELECT @@ROWCOUNT;
+
+DELETE FROM [Permissions]
+WHERE [Id] = @p5;
+SELECT @@ROWCOUNT;
+
+DELETE FROM [Permissions]
+WHERE [Id] = @p6;
+SELECT @@ROWCOUNT;
+
+DELETE FROM [Permissions]
+WHERE [Id] = @p7;
+SELECT @@ROWCOUNT;
+
+DELETE FROM [Permissions]
+WHERE [Id] = @p8;
+SELECT @@ROWCOUNT;
+
+DELETE FROM [Permissions]
+WHERE [Id] = @p9;
+SELECT @@ROWCOUNT;
+
+DELETE FROM [Permissions]
+WHERE [Id] = @p10;
+SELECT @@ROWCOUNT;
+
+DELETE FROM [Permissions]
+WHERE [Id] = @p11;
+SELECT @@ROWCOUNT;
+
+DELETE FROM [Permissions]
+WHERE [Id] = @p12;
+SELECT @@ROWCOUNT;
+
+DELETE FROM [Permissions]
+WHERE [Id] = @p13;
+SELECT @@ROWCOUNT;
+
+DELETE FROM [Permissions]
+WHERE [Id] = @p14;
+SELECT @@ROWCOUNT;
+
+DELETE FROM [Permissions]
+WHERE [Id] = @p15;
+SELECT @@ROWCOUNT;
+
+DELETE FROM [Permissions]
+WHERE [Id] = @p16;
+SELECT @@ROWCOUNT;
+
+DELETE FROM [Permissions]
+WHERE [Id] = @p17;
+SELECT @@ROWCOUNT;
+
+DELETE FROM [Permissions]
+WHERE [Id] = @p18;
+SELECT @@ROWCOUNT;
+
+DELETE FROM [Permissions]
+WHERE [Id] = @p19;
+SELECT @@ROWCOUNT;
+
+DELETE FROM [Permissions]
+WHERE [Id] = @p20;
+SELECT @@ROWCOUNT;
+
+DELETE FROM [Permissions]
+WHERE [Id] = @p21;
+SELECT @@ROWCOUNT;
+
+DELETE FROM [Permissions]
+WHERE [Id] = @p22;
+SELECT @@ROWCOUNT;
+
+DELETE FROM [Permissions]
+WHERE [Id] = @p23;
+SELECT @@ROWCOUNT;
+
+DELETE FROM [Permissions]
+WHERE [Id] = @p24;
+SELECT @@ROWCOUNT;
+
+DELETE FROM [Permissions]
+WHERE [Id] = @p25;
+SELECT @@ROWCOUNT;
+
+DELETE FROM [Permissions]
+WHERE [Id] = @p26;
+SELECT @@ROWCOUNT;
+
+DELETE FROM [Permissions]
+WHERE [Id] = @p27;
+SELECT @@ROWCOUNT;
+
+DECLARE @inserted28 TABLE ([Id] int, [_Position] [int]);
+MERGE [Permissions] USING (
+VALUES (@p28, @p29, @p30, @p31, @p32, @p33, 0),
+(@p34, @p35, @p36, @p37, @p38, @p39, 1),
+(@p40, @p41, @p42, @p43, @p44, @p45, 2),
+(@p46, @p47, @p48, @p49, @p50, @p51, 3),
+(@p52, @p53, @p54, @p55, @p56, @p57, 4),
+(@p58, @p59, @p60, @p61, @p62, @p63, 5),
+(@p64, @p65, @p66, @p67, @p68, @p69, 6),
+(@p70, @p71, @p72, @p73, @p74, @p75, 7),
+(@p76, @p77, @p78, @p79, @p80, @p81, 8),
+(@p82, @p83, @p84, @p85, @p86, @p87, 9),
+(@p88, @p89, @p90, @p91, @p92, @p93, 10),
+(@p94, @p95, @p96, @p97, @p98, @p99, 11),
+(@p100, @p101, @p102, @p103, @p104, @p105, 12),
+(@p106, @p107, @p108, @p109, @p110, @p111, 13),
+(@p112, @p113, @p114, @p115, @p116, @p117, 14),
+(@p118, @p119, @p120, @p121, @p122, @p123, 15),
+(@p124, @p125, @p126, @p127, @p128, @p129, 16),
+(@p130, @p131, @p132, @p133, @p134, @p135, 17),
+(@p136, @p137, @p138, @p139, @p140, @p141, 18),
+(@p142, @p143, @p144, @p145, @p146, @p147, 19),
+(@p148, @p149, @p150, @p151, @p152, @p153, 20),
+(@p154, @p155, @p156, @p157, @p158, @p159, 21),
+(@p160, @p161, @p162, @p163, @p164, @p165, 22),
+(@p166, @p167, @p168, @p169, @p170, @p171, 23),
+(@p172, @p173, @p174, @p175, @p176, @p177, 24),
+(@p178, @p179, @p180, @p181, @p182, @p183, 25),
+(@p184, @p185, @p186, @p187, @p188, @p189, 26),
+(@p190, @p191, @p192, @p193, @p194, @p195, 27)) AS i ([CanCreate], [CanDelete], [CanRead], [CanUpdate], [FunctionId], [RoleId], _Position) ON 1=0
+WHEN NOT MATCHED THEN
+INSERT ([CanCreate], [CanDelete], [CanRead], [CanUpdate], [FunctionId], [RoleId])
+VALUES (i.[CanCreate], i.[CanDelete], i.[CanRead], i.[CanUpdate], i.[FunctionId], i.[RoleId])
+OUTPUT INSERTED.[Id], i._Position
+INTO @inserted28;
+
+SELECT [t].[Id] FROM [Permissions] t
+INNER JOIN @inserted28 i ON ([t].[Id] = [i].[Id])
+ORDER BY [i].[_Position];" (0723d8ff)
+2019-02-28T22:10:13.6491299+07:00 0HLKTHO5DEJ2L:00000006 [INF] Executing HttpStatusCodeResult, setting HTTP status code 200 (e28ccfae)
+2019-02-28T22:10:13.6604009+07:00 0HLKTHO5DEJ2L:00000006 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.RoleController.SavePermission (ShopOnlineApp)" in 162.361ms (afa2e885)
+2019-02-28T22:10:13.7245135+07:00 0HLKTHO5DEJ2L:00000006 [INF] Request finished in 198.1703ms 200  (791a596a)
+2019-02-28T22:10:16.6434716+07:00 0HLKTHO5DEJ2L:00000007 [INF] Request starting HTTP/1.1 GET http://localhost:3000/admin/Function/GetAll   (ca22a1cb)
+2019-02-28T22:10:16.6731299+07:00 0HLKTHO5DEJ2L:00000007 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2019-02-28T22:10:16.6893120+07:00 0HLKTHO5DEJ2L:00000007 [INF] Authorization was successful. (0d575a54)
+2019-02-28T22:10:16.7030762+07:00 0HLKTHO5DEJ2L:00000007 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2019-02-28T22:10:16.7223777+07:00 0HLKTHO5DEJ2L:00000007 [INF] Executed DbCommand ("1"ms) [Parameters=["@__get_Item_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [e].[Id], [e].[AccessFailedCount], [e].[Avatar], [e].[Balance], [e].[BirthDay], [e].[ConcurrencyStamp], [e].[DateCreated], [e].[DateModified], [e].[Email], [e].[EmailConfirmed], [e].[FullName], [e].[LockoutEnabled], [e].[LockoutEnd], [e].[NormalizedEmail], [e].[NormalizedUserName], [e].[PasswordHash], [e].[PhoneNumber], [e].[PhoneNumberConfirmed], [e].[SecurityStamp], [e].[Status], [e].[TwoFactorEnabled], [e].[UserName]
+FROM [AppUsers] AS [e]
+WHERE [e].[Id] = @__get_Item_0" (0723d8ff)
+2019-02-28T22:10:16.7411192+07:00 0HLKTHO5DEJ2L:00000007 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.FunctionController.GetAll (ShopOnlineApp)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2019-02-28T22:10:16.8013728+07:00 0HLKTHO5DEJ2L:00000007 [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[IconCss], [x].[Name], [x].[ParentId], [x].[SortOrder], [x].[Status], [x].[URL]
+FROM [Functions] AS [x]
+WHERE [x].[Status] = 1
+ORDER BY [x].[ParentId]" (0723d8ff)
+2019-02-28T22:10:16.8164250+07:00 0HLKTHO5DEJ2L:00000007 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2019-02-28T22:10:16.8734552+07:00 0HLKTHO5DEJ2L:00000007 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.FunctionController.GetAll (ShopOnlineApp)" in 154.0541ms (afa2e885)
+2019-02-28T22:10:16.9694979+07:00 0HLKTHO5DEJ2L:00000007 [INF] Request finished in 302.9595ms 200 application/json; charset=utf-8 (791a596a)
+2019-02-28T22:10:17.1413041+07:00 0HLKTHO5DEJ2L:00000008 [INF] Request starting HTTP/1.1 POST http://localhost:3000/Admin/Role/ListAllFunction application/x-www-form-urlencoded; charset=UTF-8 43 (ca22a1cb)
+2019-02-28T22:10:17.1532458+07:00 0HLKTHO5DEJ2L:00000008 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2019-02-28T22:10:17.1699285+07:00 0HLKTHO5DEJ2L:00000008 [INF] Authorization was successful. (0d575a54)
+2019-02-28T22:10:17.1826598+07:00 0HLKTHO5DEJ2L:00000008 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.RoleController.ListAllFunction (ShopOnlineApp)" with arguments (["c56c3bf8-3951-4de4-fe9c-08d653ce2ab3"]) - ModelState is Valid (ba7f4ac2)
+2019-02-28T22:10:17.1982005+07:00 0HLKTHO5DEJ2L:00000008 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2019-02-28T22:10:17.2212808+07:00 0HLKTHO5DEJ2L:00000008 [INF] Executed DbCommand ("0"ms) [Parameters=["@__roleId_1='?', @__roleId_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT @__roleId_1 AS [RoleId], [x].[Id] AS [FunctionId], CASE
+    WHEN [p].[Id] IS NOT NULL AND ([p].[CanCreate] = 1)
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END AS [CanCreate], CASE
+    WHEN [p].[Id] IS NOT NULL AND ([p].[CanDelete] = 1)
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END AS [CanDelete], CASE
+    WHEN [p].[Id] IS NOT NULL AND ([p].[CanRead] = 1)
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END AS [CanRead], CASE
+    WHEN [p].[Id] IS NOT NULL AND ([p].[CanUpdate] = 1)
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END AS [CanUpdate]
+FROM [Functions] AS [x]
+LEFT JOIN [Permissions] AS [p] ON [x].[Id] = [p].[FunctionId]
+WHERE ([x].[Status] = 1) AND ([p].[Id] IS NOT NULL AND ([p].[RoleId] = @__roleId_0))" (0723d8ff)
+2019-02-28T22:10:17.2331969+07:00 0HLKTHO5DEJ2L:00000008 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2019-02-28T22:10:17.2575143+07:00 0HLKTHO5DEJ2L:00000008 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.RoleController.ListAllFunction (ShopOnlineApp)" in 79.9361ms (afa2e885)
+2019-02-28T22:10:17.2946176+07:00 0HLKTHO5DEJ2L:00000008 [INF] Request finished in 127.9864ms 200 application/json; charset=utf-8 (791a596a)
+2019-02-28T22:10:23.9558236+07:00 0HLKTHO5DEJ2L:00000009 [INF] Request starting HTTP/1.1 GET http://localhost:3000/admin/news/index   (ca22a1cb)
+2019-02-28T22:10:24.0044085+07:00 0HLKTHO5DEJ2L:00000009 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2019-02-28T22:10:24.8135279+07:00 0HLKTHO5DEJ2L:00000009 [INF] Request finished in 187.9677ms 404  (791a596a)
+2019-02-28T22:10:27.2370985+07:00 0HLKTHO5DEJ2L:0000000A [INF] Request starting HTTP/1.1 GET http://localhost:3000/admin/page/index   (ca22a1cb)
+2019-02-28T22:10:27.2597568+07:00 0HLKTHO5DEJ2L:0000000A [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2019-02-28T22:10:27.2780673+07:00 0HLKTHO5DEJ2L:0000000A [INF] Authorization was successful. (0d575a54)
+2019-02-28T22:10:27.3290081+07:00 0HLKTHO5DEJ2L:0000000A [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.PageController.Index (ShopOnlineApp)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2019-02-28T22:10:28.1450191+07:00 0HLKTHO5DEJ2L:0000000A [INF] Executing ViewResult, running view at path "/Areas/Admin/Views/Page/Index.cshtml". (9707eebe)
+2019-02-28T22:10:28.9454872+07:00 0HLKTHO5DEJ2L:0000000A [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2019-02-28T22:10:28.9813213+07:00 0HLKTHO5DEJ2L:0000000A [INF] Executed DbCommand ("9"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[IconCss], [x].[Name], [x].[ParentId], [x].[SortOrder], [x].[Status], [x].[URL]
+FROM [Functions] AS [x]
+WHERE [x].[Status] = 1
+ORDER BY [x].[ParentId]" (0723d8ff)
+2019-02-28T22:10:29.0570767+07:00 0HLKTHO5DEJ2L:0000000A [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.PageController.Index (ShopOnlineApp)" in 1735.7243ms (afa2e885)
+2019-02-28T22:10:29.1522521+07:00 0HLKTHO5DEJ2L:0000000A [INF] Request finished in 1836.7752ms 200 text/html; charset=utf-8 (791a596a)
+2019-02-28T22:10:29.3451873+07:00 0HLKTHO5DEJ2L:0000000B [INF] Request starting HTTP/1.1 GET http://localhost:3000/app/controller/page/index.js   (ca22a1cb)
+2019-02-28T22:10:29.4659726+07:00 0HLKTHO5DEJ2L:0000000B [INF] The file "/app/controller/page/index.js" was not modified (f1f8d725)
+2019-02-28T22:10:29.7601055+07:00 0HLKTHO5DEJ2M:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:3000/Admin/Announcement/GetAllPaging?page=1&pageSize=10   (ca22a1cb)
+2019-02-28T22:10:29.9487697+07:00 0HLKTHO5DEJ2M:00000001 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2019-02-28T22:10:30.0251885+07:00 0HLKTHO5DEJ2M:00000001 [INF] Authorization was successful. (0d575a54)
+2019-02-28T22:10:30.2084726+07:00 0HLKTHO5DEJ2M:00000001 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.AnnouncementController.GetAllPaging (ShopOnlineApp)" with arguments (["1", "10"]) - ModelState is Valid (ba7f4ac2)
+2019-02-28T22:10:30.2702317+07:00 0HLKTHO5DEJ2M:00000001 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2019-02-28T22:10:30.2775009+07:00 0HLKTHO5DEJ2L:0000000B [INF] Request finished in 295.2372ms 304 application/javascript (791a596a)
+2019-02-28T22:10:30.3546567+07:00 0HLKTHO5DEJ2L:0000000C [INF] Request starting HTTP/1.1 GET http://localhost:3000/admin/page/GetAllPaging?keyword=&page=1&pageSize=10   (ca22a1cb)
+2019-02-28T22:10:30.3608119+07:00 0HLKTHO5DEJ2M:00000001 [INF] Executed DbCommand ("8"ms) [Parameters=["@__userId_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Announcements] AS [x]
+LEFT JOIN [AnnouncementUsers] AS [y] ON [x].[Id] = [y].[AnnouncementId]
+WHERE ([y].[HasRead] = 0) AND ([y].[UserId] IS NULL OR ([y].[UserId] = @__userId_0))" (0723d8ff)
+2019-02-28T22:10:30.3778862+07:00 0HLKTHO5DEJ2L:0000000C [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2019-02-28T22:10:30.3970617+07:00 0HLKTHO5DEJ2M:00000001 [INF] Executed DbCommand ("9"ms) [Parameters=["@__userId_0='?', @__p_1='?', @__p_2='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[Content], [x].[DateCreated], [x].[DateModified], [x].[Status], [x].[Title], [x].[UserId]
+FROM [Announcements] AS [x]
+LEFT JOIN [AnnouncementUsers] AS [y] ON [x].[Id] = [y].[AnnouncementId]
+WHERE ([y].[HasRead] = 0) AND ([y].[UserId] IS NULL OR ([y].[UserId] = @__userId_0))
+ORDER BY [x].[DateCreated] DESC
+OFFSET @__p_1 ROWS FETCH NEXT @__p_2 ROWS ONLY" (0723d8ff)
+2019-02-28T22:10:30.4170609+07:00 0HLKTHO5DEJ2M:00000001 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2019-02-28T22:10:30.4611565+07:00 0HLKTHO5DEJ2M:00000001 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.AnnouncementController.GetAllPaging (ShopOnlineApp)" in 468.0502ms (afa2e885)
+2019-02-28T22:10:30.5375032+07:00 0HLKTHO5DEJ2M:00000001 [INF] Request finished in 1128.4931ms 200 application/json; charset=utf-8 (791a596a)
+2019-02-28T22:10:30.5519787+07:00 0HLKTHO5DEJ2L:0000000C [INF] Authorization was successful. (0d575a54)
+2019-02-28T22:10:30.5957369+07:00 0HLKTHO5DEJ2L:0000000C [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.PageController.GetAllPaging (ShopOnlineApp)" with arguments (["ShopOnlineApp.Application.ViewModels.Page.PageRequest"]) - ModelState is Valid (ba7f4ac2)
+2019-02-28T22:10:30.6426517+07:00 0HLKTHO5DEJ2L:0000000C [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2019-02-28T22:10:30.6701635+07:00 0HLKTHO5DEJ2L:0000000C [INF] Executed DbCommand ("5"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Pages] AS [p]" (0723d8ff)
+2019-02-28T22:10:30.7205471+07:00 0HLKTHO5DEJ2L:0000000C [INF] Executed DbCommand ("1"ms) [Parameters=["@__p_0='?', @__p_1='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[Alias], [x].[Content], [x].[Name], [x].[Status]
+FROM [Pages] AS [x]
+ORDER BY [x].[Alias] DESC
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY" (0723d8ff)
+2019-02-28T22:10:30.7595523+07:00 0HLKTHO5DEJ2L:0000000C [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2019-02-28T22:10:30.8254161+07:00 0HLKTHO5DEJ2L:0000000C [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.PageController.GetAllPaging (ShopOnlineApp)" in 383.0183ms (afa2e885)
+2019-02-28T22:10:30.8399354+07:00 0HLKTHO5DEJ2L:0000000C [INF] Request finished in 509.7924ms 200 application/json; charset=utf-8 (791a596a)
+2019-02-28T22:10:30.8596709+07:00 0HLKTHO5DEJ2M:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:3000/admin/page/GetAllPaging?keyword=&page=1&pageSize=10   (ca22a1cb)
+2019-02-28T22:10:30.8754031+07:00 0HLKTHO5DEJ2M:00000002 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2019-02-28T22:10:30.8868410+07:00 0HLKTHO5DEJ2M:00000002 [INF] Authorization was successful. (0d575a54)
+2019-02-28T22:10:30.9001493+07:00 0HLKTHO5DEJ2M:00000002 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.PageController.GetAllPaging (ShopOnlineApp)" with arguments (["ShopOnlineApp.Application.ViewModels.Page.PageRequest"]) - ModelState is Valid (ba7f4ac2)
+2019-02-28T22:10:30.9135090+07:00 0HLKTHO5DEJ2M:00000002 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2019-02-28T22:10:30.9267461+07:00 0HLKTHO5DEJ2M:00000002 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Pages] AS [p]" (0723d8ff)
+2019-02-28T22:10:30.9395446+07:00 0HLKTHO5DEJ2M:00000002 [INF] Executed DbCommand ("0"ms) [Parameters=["@__p_0='?', @__p_1='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[Alias], [x].[Content], [x].[Name], [x].[Status]
+FROM [Pages] AS [x]
+ORDER BY [x].[Alias] DESC
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY" (0723d8ff)
+2019-02-28T22:10:30.9532217+07:00 0HLKTHO5DEJ2M:00000002 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2019-02-28T22:10:30.9714766+07:00 0HLKTHO5DEJ2M:00000002 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.PageController.GetAllPaging (ShopOnlineApp)" in 77.5715ms (afa2e885)
+2019-02-28T22:10:30.9875296+07:00 0HLKTHO5DEJ2M:00000002 [INF] Request finished in 122.2391ms 200 application/json; charset=utf-8 (791a596a)
+2019-02-28T22:10:52.2338257+07:00 0HLKTHO5DEJ2L:0000000D [INF] Request starting HTTP/1.1 GET http://localhost:3000/Admin/Blog/Index   (ca22a1cb)
+2019-02-28T22:10:52.2435696+07:00 0HLKTHO5DEJ2L:0000000D [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2019-02-28T22:10:52.2555967+07:00 0HLKTHO5DEJ2L:0000000D [INF] Authorization was successful. (0d575a54)
+2019-02-28T22:10:52.2663311+07:00 0HLKTHO5DEJ2L:0000000D [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.BlogController.Index (ShopOnlineApp)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2019-02-28T22:10:52.9922837+07:00 0HLKTHO5DEJ2L:0000000D [INF] Executing ViewResult, running view at path "/Areas/Admin/Views/Blog/Index.cshtml". (9707eebe)
+2019-02-28T22:10:53.4169300+07:00 0HLKTHO5DEJ2L:0000000D [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2019-02-28T22:10:53.4357582+07:00 0HLKTHO5DEJ2L:0000000D [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[IconCss], [x].[Name], [x].[ParentId], [x].[SortOrder], [x].[Status], [x].[URL]
+FROM [Functions] AS [x]
+WHERE [x].[Status] = 1
+ORDER BY [x].[ParentId]" (0723d8ff)
+2019-02-28T22:10:53.5784618+07:00 0HLKTHO5DEJ2L:0000000D [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.BlogController.Index (ShopOnlineApp)" in 1277.2577ms (afa2e885)
+2019-02-28T22:10:53.6260725+07:00 0HLKTHO5DEJ2L:0000000D [INF] Request finished in 1359.7995ms 200 text/html; charset=utf-8 (791a596a)
+2019-02-28T22:10:53.6433219+07:00 0HLKTHO5DEJ2M:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:3000/app/controller/blog/index.js?v=rBiI_F39vPTyqkMF0xRmOd9LOn33tE4VsnISlY19vU8   (ca22a1cb)
+2019-02-28T22:10:53.6630974+07:00 0HLKTHO5DEJ2M:00000003 [INF] The file "/app/controller/blog/index.js" was not modified (f1f8d725)
+2019-02-28T22:10:53.6823182+07:00 0HLKTHO5DEJ2M:00000003 [INF] Request finished in 46.8169ms 304 application/javascript (791a596a)
+2019-02-28T22:10:53.8042548+07:00 0HLKTHO5DEJ2L:0000000E [INF] Request starting HTTP/1.1 GET http://localhost:3000/Admin/Announcement/GetAllPaging?page=1&pageSize=10   (ca22a1cb)
+2019-02-28T22:10:53.8169573+07:00 0HLKTHO5DEJ2L:0000000E [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2019-02-28T22:10:53.8315037+07:00 0HLKTHO5DEJ2L:0000000E [INF] Authorization was successful. (0d575a54)
+2019-02-28T22:10:53.8475562+07:00 0HLKTHO5DEJ2L:0000000E [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.AnnouncementController.GetAllPaging (ShopOnlineApp)" with arguments (["1", "10"]) - ModelState is Valid (ba7f4ac2)
+2019-02-28T22:10:53.8591343+07:00 0HLKTHO5DEJ2L:0000000E [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2019-02-28T22:10:53.8836195+07:00 0HLKTHO5DEJ2L:0000000E [INF] Executed DbCommand ("1"ms) [Parameters=["@__userId_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Announcements] AS [x]
+LEFT JOIN [AnnouncementUsers] AS [y] ON [x].[Id] = [y].[AnnouncementId]
+WHERE ([y].[HasRead] = 0) AND ([y].[UserId] IS NULL OR ([y].[UserId] = @__userId_0))" (0723d8ff)
+2019-02-28T22:10:53.9036267+07:00 0HLKTHO5DEJ2L:0000000E [INF] Executed DbCommand ("0"ms) [Parameters=["@__userId_0='?', @__p_1='?', @__p_2='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[Content], [x].[DateCreated], [x].[DateModified], [x].[Status], [x].[Title], [x].[UserId]
+FROM [Announcements] AS [x]
+LEFT JOIN [AnnouncementUsers] AS [y] ON [x].[Id] = [y].[AnnouncementId]
+WHERE ([y].[HasRead] = 0) AND ([y].[UserId] IS NULL OR ([y].[UserId] = @__userId_0))
+ORDER BY [x].[DateCreated] DESC
+OFFSET @__p_1 ROWS FETCH NEXT @__p_2 ROWS ONLY" (0723d8ff)
+2019-02-28T22:10:53.9182840+07:00 0HLKTHO5DEJ2L:0000000E [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2019-02-28T22:10:53.9422118+07:00 0HLKTHO5DEJ2L:0000000E [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.AnnouncementController.GetAllPaging (ShopOnlineApp)" in 101.8726ms (afa2e885)
+2019-02-28T22:10:53.9602937+07:00 0HLKTHO5DEJ2L:0000000E [INF] Request finished in 151.5627ms 200 application/json; charset=utf-8 (791a596a)
+2019-02-28T22:10:53.9674763+07:00 0HLKTHO5DEJ2M:00000004 [INF] Request starting HTTP/1.1 GET http://localhost:3000/Admin/BlogCategory/GetAll   (ca22a1cb)
+2019-02-28T22:10:54.0119141+07:00 0HLKTHO5DEJ2M:00000004 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2019-02-28T22:10:54.0207310+07:00 0HLKTHO5DEJ2N:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:3000/Admin/Blog/GetAllPaging?categoryId=--Ch%E1%BB%8Dn+lo%E1%BA%A1i--&searchText=&pageIndex=1&pageSize=10   (ca22a1cb)
+2019-02-28T22:10:54.0315702+07:00 0HLKTHO5DEJ2N:00000001 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2019-02-28T22:10:54.0515181+07:00 0HLKTHO5DEJ2M:00000004 [INF] Authorization was successful. (0d575a54)
+2019-02-28T22:10:54.0843633+07:00 0HLKTHO5DEJ2M:00000004 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.BlogCategoryController.GetAll (ShopOnlineApp)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2019-02-28T22:10:54.1223849+07:00 0HLKTHO5DEJ2M:00000004 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2019-02-28T22:10:54.2089504+07:00 0HLKTHO5DEJ2N:00000001 [INF] Authorization was successful. (0d575a54)
+2019-02-28T22:10:54.2683224+07:00 0HLKTHO5DEJ2M:00000004 [INF] Executed DbCommand ("43"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[DateCreated], [x].[DateModified], [x].[Description], [x].[HomeFlag], [x].[HomeOrder], [x].[Image], [x].[Name], [x].[ParentId], [x].[SeoAlias], [x].[SeoDescription], [x].[SeoKeywords], [x].[SeoPageTitle], [x].[SortOrder], [x].[Status]
+FROM [BlogCategories] AS [x]
+ORDER BY [x].[ParentId]" (0723d8ff)
+2019-02-28T22:10:54.3379307+07:00 0HLKTHO5DEJ2N:00000001 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.BlogController.GetAllPaging (ShopOnlineApp)" with arguments (["ShopOnlineApp.Application.ViewModels.Blogs.BlogRequest"]) - ModelState is Invalid (ba7f4ac2)
+2019-02-28T22:10:54.5354429+07:00 0HLKTHO5DEJ2M:00000004 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2019-02-28T22:10:54.6336578+07:00 0HLKTHO5DEJ2N:00000001 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2019-02-28T22:10:54.8370003+07:00 0HLKTHO5DEJ2N:00000001 [INF] Executed DbCommand ("131"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [BlogCategories] AS [c]
+INNER JOIN [Blogs] AS [p] ON [c].[Id] = [p].[BlogCategoryId]" (0723d8ff)
+2019-02-28T22:10:54.8556258+07:00 0HLKTHO5DEJ2M:00000004 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.BlogCategoryController.GetAll (ShopOnlineApp)" in 802.3498ms (afa2e885)
+2019-02-28T22:10:54.9033908+07:00 0HLKTHO5DEJ2M:00000004 [INF] Request finished in 930.1974ms 200 application/json; charset=utf-8 (791a596a)
+2019-02-28T22:10:54.9515865+07:00 0HLKTHO5DEJ2N:00000001 [INF] Executed DbCommand ("12"ms) [Parameters=["@__p_0='?', @__p_1='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT [p].[Name], [p].[Id], [p].[BlogCategoryId], [c].[Name] AS [Name0], [p].[Description], [p].[Content], [p].[DateCreated], [p].[DateModified], [p].[HomeFlag], [p].[HotFlag], [p].[SeoAlias], [p].[SeoDescription], [p].[SeoKeywords], [p].[SeoPageTitle], [p].[ViewCount], [p].[Status], [p].[Image]
+FROM [BlogCategories] AS [c]
+INNER JOIN [Blogs] AS [p] ON [c].[Id] = [p].[BlogCategoryId]
+ORDER BY [p].[DateModified] DESC
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY" (0723d8ff)
+2019-02-28T22:10:54.9656491+07:00 0HLKTHO5DEJ2N:00000001 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2019-02-28T22:10:55.0706112+07:00 0HLKTHO5DEJ2N:00000001 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.BlogController.GetAllPaging (ShopOnlineApp)" in 898.9174ms (afa2e885)
+2019-02-28T22:10:55.1805483+07:00 0HLKTHO5DEJ2N:00000001 [INF] Request finished in 1132.9199ms 200 application/json; charset=utf-8 (791a596a)
+2019-02-28T22:10:55.1978533+07:00 0HLKTHO5DEJ2L:0000000F [INF] Request starting HTTP/1.1 GET http://localhost:3000/Admin/Blog/GetAllPaging?categoryId=&searchText=&pageIndex=1&pageSize=10   (ca22a1cb)
+2019-02-28T22:10:55.2086851+07:00 0HLKTHO5DEJ2L:0000000F [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2019-02-28T22:10:55.2343296+07:00 0HLKTHO5DEJ2L:0000000F [INF] Authorization was successful. (0d575a54)
+2019-02-28T22:10:55.2469482+07:00 0HLKTHO5DEJ2L:0000000F [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.BlogController.GetAllPaging (ShopOnlineApp)" with arguments (["ShopOnlineApp.Application.ViewModels.Blogs.BlogRequest"]) - ModelState is Invalid (ba7f4ac2)
+2019-02-28T22:10:55.2569419+07:00 0HLKTHO5DEJ2L:0000000F [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2019-02-28T22:10:55.2736554+07:00 0HLKTHO5DEJ2L:0000000F [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [BlogCategories] AS [c]
+INNER JOIN [Blogs] AS [p] ON [c].[Id] = [p].[BlogCategoryId]" (0723d8ff)
+2019-02-28T22:10:55.2854508+07:00 0HLKTHO5DEJ2L:0000000F [INF] Executed DbCommand ("0"ms) [Parameters=["@__p_0='?', @__p_1='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT [p].[Name], [p].[Id], [p].[BlogCategoryId], [c].[Name] AS [Name0], [p].[Description], [p].[Content], [p].[DateCreated], [p].[DateModified], [p].[HomeFlag], [p].[HotFlag], [p].[SeoAlias], [p].[SeoDescription], [p].[SeoKeywords], [p].[SeoPageTitle], [p].[ViewCount], [p].[Status], [p].[Image]
+FROM [BlogCategories] AS [c]
+INNER JOIN [Blogs] AS [p] ON [c].[Id] = [p].[BlogCategoryId]
+ORDER BY [p].[DateModified] DESC
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY" (0723d8ff)
+2019-02-28T22:10:55.2951397+07:00 0HLKTHO5DEJ2L:0000000F [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2019-02-28T22:10:55.3086103+07:00 0HLKTHO5DEJ2L:0000000F [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.BlogController.GetAllPaging (ShopOnlineApp)" in 86.9048ms (afa2e885)
+2019-02-28T22:10:55.3261390+07:00 0HLKTHO5DEJ2L:0000000F [INF] Request finished in 192.5912ms 200 application/json; charset=utf-8 (791a596a)
+2019-02-28T22:10:58.0758910+07:00 0HLKTHO5DEJ2M:00000005 [INF] Request starting HTTP/1.1 GET http://localhost:3000/Admin/Blog/GetById?id=7   (ca22a1cb)
+2019-02-28T22:10:58.0852224+07:00 0HLKTHO5DEJ2M:00000005 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2019-02-28T22:10:58.0963028+07:00 0HLKTHO5DEJ2M:00000005 [INF] Authorization was successful. (0d575a54)
+2019-02-28T22:10:58.1046786+07:00 0HLKTHO5DEJ2M:00000005 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.BlogController.GetById (ShopOnlineApp)" with arguments (["7"]) - ModelState is Valid (ba7f4ac2)
+2019-02-28T22:10:58.1463243+07:00 0HLKTHO5DEJ2M:00000005 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2019-02-28T22:10:58.1655408+07:00 0HLKTHO5DEJ2M:00000005 [INF] Executed DbCommand ("1"ms) [Parameters=["@__id_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(2) [x].[Id], [x].[BlogCategoryId], [x].[Content], [x].[DateCreated], [x].[DateModified], [x].[Description], [x].[HomeFlag], [x].[HotFlag], [x].[Image], [x].[Name], [x].[SeoAlias], [x].[SeoDescription], [x].[SeoKeywords], [x].[SeoPageTitle], [x].[Status], [x].[Tags], [x].[ViewCount]
+FROM [Blogs] AS [x]
+WHERE [x].[Id] = @__id_0" (0723d8ff)
+2019-02-28T22:10:58.2161986+07:00 0HLKTHO5DEJ2M:00000005 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2019-02-28T22:10:58.2252793+07:00 0HLKTHO5DEJ2M:00000005 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.BlogController.GetById (ShopOnlineApp)" in 129.5191ms (afa2e885)
+2019-02-28T22:10:58.2391918+07:00 0HLKTHO5DEJ2M:00000005 [INF] Request finished in 157.8731ms 200 application/json; charset=utf-8 (791a596a)
+2019-02-28T22:10:58.2499706+07:00 0HLKTHO5DEJ2N:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:3000/Admin/BlogCategory/GetAll   (ca22a1cb)
+2019-02-28T22:10:58.2580932+07:00 0HLKTHO5DEJ2N:00000002 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2019-02-28T22:10:58.2657895+07:00 0HLKTHO5DEJ2N:00000002 [INF] Authorization was successful. (0d575a54)
+2019-02-28T22:10:58.2742660+07:00 0HLKTHO5DEJ2N:00000002 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.BlogCategoryController.GetAll (ShopOnlineApp)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2019-02-28T22:10:58.2861108+07:00 0HLKTHO5DEJ2N:00000002 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2019-02-28T22:10:58.3044421+07:00 0HLKTHO5DEJ2N:00000002 [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[DateCreated], [x].[DateModified], [x].[Description], [x].[HomeFlag], [x].[HomeOrder], [x].[Image], [x].[Name], [x].[ParentId], [x].[SeoAlias], [x].[SeoDescription], [x].[SeoKeywords], [x].[SeoPageTitle], [x].[SortOrder], [x].[Status]
+FROM [BlogCategories] AS [x]
+ORDER BY [x].[ParentId]" (0723d8ff)
+2019-02-28T22:10:58.3132678+07:00 0HLKTHO5DEJ2N:00000002 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2019-02-28T22:10:58.3223485+07:00 0HLKTHO5DEJ2N:00000002 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.BlogCategoryController.GetAll (ShopOnlineApp)" in 55.8192ms (afa2e885)
+2019-02-28T22:10:58.3400552+07:00 0HLKTHO5DEJ2N:00000002 [INF] Request finished in 86.4582ms 200 application/json; charset=utf-8 (791a596a)

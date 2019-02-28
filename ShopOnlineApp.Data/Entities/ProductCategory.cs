@@ -34,17 +34,11 @@ namespace ShopOnlineApp.Data.Entities
             SeoDescription = seoDescription;
         }
         public string Name { get; set; }
-
         public string Description { get; set; }
-
         public int? ParentId { get; set; }
-
         public int? HomeOrder { get; set; }
-
         public string Image { get; set; }
-
         public bool? HomeFlag { get; set; }
-
         public DateTime DateCreated { set; get; }
         public DateTime DateModified { set; get; }
         public int SortOrder { set; get; }
@@ -53,7 +47,6 @@ namespace ShopOnlineApp.Data.Entities
         public string SeoAlias { set; get; }
         public string SeoKeywords { set; get; }
         public string SeoDescription { set; get; }
-
         public virtual ICollection<Product> Products { set; get; }
     }
 }

@@ -21,7 +21,6 @@ namespace ShopOnlineApp.Areas.Admin.Components
         public async Task<IViewComponentResult> InvokeAsync()
         {
 
-
             var roles =  ((ClaimsPrincipal) User).GetSpecificDefault("Role");
             List<FunctionViewModel> functions;
 

@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using ShopOnlineApp.Application.ViewModels.Blogs;
-using ShopOnlineApp.Application.ViewModels.Product;
 using ShopOnlineApp.Application.ViewModels.Tag;
 using ShopOnlineApp.Data.EF.Common;
 
@@ -21,7 +18,7 @@ namespace ShopOnlineApp.Application.Interfaces
 
         Task<BaseReponse<ModelListResult<BlogViewModel>>> GetAllPaging(BlogRequest request);
 
-        List<BlogViewModel> GetLastest(int top);
+        IEnumerable<BlogViewModel> GetLastest(int top);
 
         List<BlogViewModel> GetHotProduct(int top);
 

@@ -1,8 +1,7 @@
-﻿var BaseController = function() {
+﻿var BaseController = function () {
     this.initialize = function() {
         registerEvents();
     }
-
     function registerEvents() {
         $('body').on('click',
             '.add-to-cart',
@@ -19,9 +18,8 @@
                         size: 0
                     },
                     success: function(response) {
-                        shoponline.notify('The product was added to cart', 'success');
+                        shoponline.notify(resources["AddCartOK"], 'success');
                         loadHeaderCart();
-                      
                     }
                 });
             });
@@ -38,7 +36,7 @@
                         productId: id
                     },
                     success: function(response) {
-                        shoponline.notify('The product was removed', 'success');
+                        shoponline.notify(resources["RemoveCartOK"], 'success');
                         loadHeaderCart();
                         //loadMyCart();
                     }
@@ -58,7 +56,6 @@
                     },
                     success: function() {
                         shoponline.notify('The product was added to wish list', 'success');
-
                         loadWishList();
                     }
                 });

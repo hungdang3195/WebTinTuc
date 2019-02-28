@@ -15,4 +15,8 @@
     <ProjectReference Include="..\ShopOnlineApp.Utilities\ShopOnlineApp.Utilities.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="ViewModels\NewFolder\" />
+  </ItemGroup>
+
 </Project>

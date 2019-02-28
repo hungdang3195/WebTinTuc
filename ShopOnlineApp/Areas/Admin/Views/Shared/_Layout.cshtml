@@ -29,6 +29,23 @@
             margin: 0;
             width: inherit;
         }
+
+        .text-muted {
+            color: #87837b !important;
+        }
+
+        .mb-1, .my-1 {
+            margin-bottom: 0.25rem !important;
+        }
+
+        .times {
+            font-size: 12px;
+            color: #87837b;
+        }
+
+        .m-0 {
+            margin: 0 !important;
+        }
     </style>
 
 </head>
@@ -98,7 +115,7 @@
                                     <i class="fa fa-envelope-o"></i>
                                     <span class="badge bg-green"><label id="totalAnnouncement"></label></span>
                                 </a>
-                                <ul id="annoncementList" class="dropdown-menu list-unstyled msg_list" role="menu"></ul>
+                                <ul style="margin-right: -136px;" id="announcementList" class="dropdown-menu list-unstyled msg_list" role="menu"></ul>
                             </li>
                         </ul>
                     </nav>
@@ -110,10 +127,7 @@
                 <div class="">
                     @RenderBody()
                 </div>
-
                 <!--end copy--->
-
-
             </div>
             <!-- /page content -->
             <!-- footer content -->
@@ -123,12 +137,32 @@
                 </div>
                 <div class="clearfix"></div>
             </footer>
-            <!-- /footer content -->
         </div>
     </div>
-
+    <script id="announcement-template" type="x-tmpl-mustache">
+        <li>
+            <a data-id="{{Id}}" class="read">
+                <p class="text-muted mb-1">
+                    {{Content}}
+                </p>
+                <p class="times m-0"> <i class="icofont icofont-clock-time"></i> {{DateCreated}} </p>
+            </a>
+        </li>
+    </script>
+    <script id="announcement-tag-template" type="x-tmpl-mustache">
+        <li>
+            <div class="text-center">
+                <a>
+                    <strong>See All Alerts</strong>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+        </li>
+    </script>
     <!-- jQuery -->
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+
+    <script src="~/lib/signalr/signalr.js"></script>
     <!-- Bootstrap -->
     <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
     <!-- FastClick -->
@@ -136,20 +170,20 @@
     <!-- NProgress -->
     <script src="~/lib/nprogress/nprogress.js"></script>
     <!-- Chart.js -->
-    <script src="~/lib/Chart.js/dist/Chart.min.js"></script>
+    @*<script src="~/lib/Chart.js/dist/Chart.min.js"></script>*@
     <!-- jQuery Sparklines -->
     <script src="~/lib/Chart.js/dist/Chart.min.js"></script>
     <!-- Flot -->
-    <script src="~/lib/flot/jquery.flot.js"></script>
-    <script src="~/lib/flot/jquery.flot.pie.js"></script>
-    <script src="~/lib/flot/jquery.flot.time.js"></script>
-    <script src="~/lib/flot/jquery.flot.resize.js"></script>
-    <script src="~/lib/flot/jquery.flot.stack.js"></script>
+    @*<script src="~/lib/flot/jquery.flot.js"></script>
+        <script src="~/lib/flot/jquery.flot.pie.js"></script>
+        <script src="~/lib/flot/jquery.flot.time.js"></script>
+        <script src="~/lib/flot/jquery.flot.resize.js"></script>
+        <script src="~/lib/flot/jquery.flot.stack.js"></script>*@
 
     <!-- Flot plugins -->
-    <script src="~/lib/flot.orderbars/js/jquery.flot.orderBars.js"></script>
-    <script src="~/lib/flot-spline/js/jquery.flot.spline.min.js"></script>
-    <script src="~/lib/flot.curvedlines/curvedLines.js"></script>
+    @*<script src="~/lib/flot.orderbars/js/jquery.flot.orderBars.js"></script>
+        <script src="~/lib/flot-spline/js/jquery.flot.spline.min.js"></script>
+        <script src="~/lib/flot.curvedlines/curvedLines.js"></script>*@
     <!-- DateJS -->
     <script src="~/lib/DateJS/build/date.js"></script>
     <!-- bootstrap-daterangepicker -->
@@ -167,6 +201,13 @@
     <script src="~/lib/ckeditor/ckeditor.js"></script>
     <!--Client side-->
     <script src="~/app/shared/shoponline.js"></script>
+    <script src="~/app/shared/base.js" asp-append-version="true"></script>
+
+    <script src="~/app/shared/signalR.js" asp-append-version="true"></script>
+    <script>
+        var baseObj = new BaseController();
+        baseObj.initialize();
+    </script>
 
     <!-- Custom Theme Scripts -->
     <script src="~/admin-side/js/custom.min.js"></script>

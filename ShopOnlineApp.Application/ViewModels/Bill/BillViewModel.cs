@@ -9,7 +9,6 @@ namespace ShopOnlineApp.Application.ViewModels.Bill
 {
     public class BillViewModel:ViewModelBase<Data.Entities.Bill, BillViewModel>
     {
-      
             public int Id { get; set; }
 
             [Required]

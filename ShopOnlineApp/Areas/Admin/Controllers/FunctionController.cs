@@ -55,7 +55,7 @@ namespace ShopOnlineApp.Areas.Admin.Controllers
         [HttpGet]
         public IActionResult GetById(string id)
         {
-            var model = _functionService.GetAll(id);
+            var model = _functionService.GetById(id);
 
             return new ObjectResult(model);
         }
@@ -69,14 +69,15 @@ namespace ShopOnlineApp.Areas.Admin.Controllers
                 return new BadRequestObjectResult(allErrors);
             }
 
-            if (string.IsNullOrWhiteSpace(functionVm.Id))
-            {
-                _functionService.Add(functionVm);
-            }
-            else
+            if (functionVm.IsUpdated)
             {
                 _functionService.Update(functionVm);
             }
+            else
+            {
+                _functionService.Add(functionVm);
+            }
+
             _functionService.Save();
             return new OkObjectResult(functionVm);
         }

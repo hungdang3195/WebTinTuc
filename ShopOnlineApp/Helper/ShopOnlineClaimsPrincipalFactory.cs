@@ -3,7 +3,6 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Options;
 using ShopOnlineApp.Data.Entities;
-
 namespace ShopOnlineApp.Helper
 {
     public class ShopOnlineClaimsPrincipalFactory: UserClaimsPrincipalFactory<AppUser, AppRole>
@@ -18,7 +17,6 @@ namespace ShopOnlineApp.Helper
         protected  override async Task<ClaimsIdentity> GenerateClaimsAsync(AppUser user)
         {
             var identity = await base.GenerateClaimsAsync(user);
-
             //get role user
             var roles = await UserManager.GetRolesAsync(user);
 

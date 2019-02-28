@@ -27,6 +27,7 @@
     "jQuery-EasyUI": "~1.5.3",
     "ckeditor": "~4.7.3",
     "jquery-treegrid": "~0.3.0",
-    "bootstrap-datepicker": "~1.7.1"
+    "bootstrap-datepicker": "~1.7.1",
+     "jquery-ui" : "~1.11.4"
   }
 }

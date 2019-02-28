@@ -25,10 +25,9 @@ namespace ShopOnlineApp.Application.Interfaces
         void AddWholePrice(int productId, List<WholePriceViewModel> wholePrices);
         List<WholePriceViewModel> GetWholePrices(int productId);
         List<ProductViewModel> GetLastest(int top);
-
         List<ProductViewModel> GetHotProduct(int top);
         List<ProductViewModel> GetRelatedProducts(int id, int top);
-
+        List<ProductViewModel> GetRatingProducts(int top);
         List<ProductViewModel> GetUpsellProducts(int top);
 
         List<TagViewModel> GetProductTags(int productId);

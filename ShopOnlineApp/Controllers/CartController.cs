@@ -3,13 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.SignalR;
 using Microsoft.Extensions.Configuration;
 using ShopOnlineApp.Application.Interfaces;
+using ShopOnlineApp.Application.ViewModels.Annoucement;
 using ShopOnlineApp.Application.ViewModels.Bill;
 using ShopOnlineApp.Data.Enums;
 using ShopOnlineApp.Extensions;
 using ShopOnlineApp.Models;
 using ShopOnlineApp.Services;
+using ShopOnlineApp.SignalR;
 using ShopOnlineApp.Utilities.Constants;
 
 namespace ShopOnlineApp.Controllers
@@ -21,13 +24,20 @@ namespace ShopOnlineApp.Controllers
         public readonly IViewRenderService _viewRenderService;
         public readonly IEmailSender _emailSender;
         public readonly IConfiguration _configuration;
-        public CartController(IProductService productService, IBillService billService, IViewRenderService viewRenderService, IEmailSender emailSender, IConfiguration configuration)
+        public readonly IColorService _color;
+        public readonly ISizeService _size;
+        private readonly IHubContext<OnlineShopHub> _hubContext;
+
+        public CartController(IProductService productService, IBillService billService, IViewRenderService viewRenderService, IEmailSender emailSender, IConfiguration configuration, IColorService color, ISizeService size, IHubContext<OnlineShopHub> hubContext)
         {
             _productService = productService;
             _billService = billService;
             _viewRenderService = viewRenderService;
             _emailSender = emailSender;
             _configuration = configuration;
+            _color = color;
+            _size = size;
+            _hubContext = hubContext;
         }
         [Route("cart.html", Name = "Cart")]
         public IActionResult Index()
@@ -35,7 +45,7 @@ namespace ShopOnlineApp.Controllers
             return View();
         }
 
-       
+
 
         #region AJAX Request
         /// <summary>
@@ -64,10 +74,18 @@ namespace ShopOnlineApp.Controllers
         public IActionResult Checkout()
         {
             var model = new CheckoutViewModel();
-            var session = HttpContext.Session.Get<List<ShoppingCartViewModel>>(CommonConstants.CartSession);
-            if (session.Any(x => x.Color == null || x.Size == null))
+
+            if (!User.Identity.IsAuthenticated)
             {
-                return Redirect("/cart.html");
+                return Redirect("/login.html");
+            }
+            var session = HttpContext.Session.Get<List<ShoppingCartViewModel>>(CommonConstants.CartSession);
+            if (session != null)
+            {
+                if (session.Any(x => x.Color == null || x.Size == null))
+                {
+                    return Redirect("/cart.html");
+                }
             }
 
             model.Carts = session;
@@ -79,7 +97,6 @@ namespace ShopOnlineApp.Controllers
         public async Task<IActionResult> Checkout(CheckoutViewModel model)
         {
             var session = HttpContext.Session.Get<List<ShoppingCartViewModel>>(CommonConstants.CartSession);
-
             if (ModelState.IsValid)
             {
                 if (session != null)
@@ -105,21 +122,50 @@ namespace ShopOnlineApp.Controllers
                         CustomerName = model.CustomerName,
                         CustomerMessage = model.CustomerMessage,
                         BillDetails = details,
-                        DateCreated = DateTime.Now
+                        DateCreated = DateTime.Now,
+                        PaymentMethod = model.PaymentMethod
                     };
                     if (User.Identity.IsAuthenticated)
                     {
                         billViewModel.CustomerId = Guid.Parse(User.GetSpecificDefault("UserId"));
                     }
-                    _billService.Create(billViewModel);
+                     var dataReturn=  _billService.Create(billViewModel);
 
                     try
                     {
-
                         _billService.Save();
 
+                        foreach (var item in dataReturn.BillDetails)
+                        {
+                            var colorVM = _color.GetById(item.ColorId);
+
+                            if (colorVM != null)
+                            {
+                                item.Color = colorVM;
+                            }
+
+                            var sizeVM = _size.GetById(item.ColorId);
+
+                            if (sizeVM != null)
+                            {
+                                item.Size = sizeVM;
+                            }
+                        }
+
+                        ViewBag.BillModel = dataReturn;
+
+                        var announcement = new AnnouncementViewModel()
+                        {
+                            Content = $"Bạn có một yêu cầu phê duyệt",
+                            DateCreated = DateTime.Now,
+                            Status = Status.Active,
+                            Title = "User created",
+                            UserId = User.GetUserId(),
+                            Id = Guid.NewGuid().ToString()
+                        };
+                        await _hubContext.Clients.Client("").SendAsync("ReceiveMessage", announcement);
+
                         var content = await _viewRenderService.RenderToStringAsync("Cart/_BillMail", billViewModel);
-                       // Send mail
                         await _emailSender.SendEmailAsync(_configuration["MailSettings:AdminMail"], "New bill from Panda Shop", content);
                         ViewData["Success"] = true;
                     }
@@ -128,10 +174,11 @@ namespace ShopOnlineApp.Controllers
                         ViewData["Success"] = false;
                         ModelState.AddModelError("", ex.Message);
                     }
-
                 }
             }
+
             model.Carts = session;
+            HttpContext.Session.Set(CommonConstants.CartSession,new List<ShoppingCartViewModel>());
             return View(model);
         }
 
@@ -199,7 +246,7 @@ namespace ShopOnlineApp.Controllers
         }
 
 
-      
+
         /// <summary>
         /// Remove a product
         /// </summary>

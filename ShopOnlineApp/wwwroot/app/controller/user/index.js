@@ -240,23 +240,24 @@
             success: function (response) {
                 var template = $('#table-template').html();
                 var render = "";
-                if (response.data.rowCount > 0) {
-                    $.each(response.data.items, function (i, item) {
+                if (response.Data.RowCount > 0) {
+                    $.each(response.Data.Items, function (i, item) {
                         render += Mustache.render(template, {
-                            FullName: item.fullName,
-                            Id: item.id,
-                            UserName: item.userName,
-                            Avatar: item.avatar === undefined ? '<img src="/admin-side/images/user.png" width=25 />' : '<img src="' + item.Avatar + '" width=25 />',
-                            DateCreated: shoponline.dateTimeFormatJson(item.dateCreated),
-                            Status: shoponline.getStatus(item.status)
+                            
+                            FullName: item.FullName,
+                            Id: item.Id,
+                            UserName: item.UserName,
+                            Avatar: item.Avatar === undefined ? '<img src="/admin-side/images/user.png" width=25 />' : '<img src="' + item.Avatar + '" width=25 />',
+                            DateCreated: shoponline.dateTimeFormatJson(item.DateCreated),
+                            Status: shoponline.getStatus(item.Status)
                         });
                     });
-                    $("#lbl-total-records").text(response.data.rowCount);
+                    $("#lbl-total-records").text(response.Data.RowCount);
                     if (render !== undefined) {
                         $('#tbl-content').html(render);
 
                     }
-                    wrapPaging(response.data.rowCount, function () {
+                    wrapPaging(response.Data.RowCount, function () {
                         loadData();
                     }, isPageChanged);
                 }

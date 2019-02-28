@@ -20,8 +20,8 @@
                 .on('focusin.bs.modal', $.proxy(function (e) {
                     if (
                         this.$element[0] !== e.target && !this.$element.has(e.target).length
-                            // CKEditor compatibility fix start.
-                            && !$(e.target).closest('.cke_dialog, .cke').length
+                        // CKEditor compatibility fix start.
+                        && !$(e.target).closest('.cke_dialog, .cke').length
                         // CKEditor compatibility fix end.
                     ) {
                         this.$element.trigger('focus');
@@ -52,7 +52,7 @@
             loadData(true);
         });
         $('#btnSearch').on('click',
-            function() {
+            function () {
                 loadData(true);
             });
         $('#txtKeyword').on('keypress', function (e) {
@@ -61,17 +61,27 @@
             }
         });
 
+        function clearFileInput(ctrl) {
+            try {
+                ctrl.value = null;
+            } catch (ex) { }
+            if (ctrl.value) {
+                ctrl.parentNode.replaceChild(ctrl.cloneNode(true), ctrl);
+            }
+        }
+
         $("#btnCreate").on('click', function () {
             resetFormMaintainance();
             initTreeDropDownCategory();
             $('#modal-add-edit').modal('show');
 
         });
-        $("#btnSelectImg").on('click',
-            () => {
-                $('#fileInputImage').click();
-            });
-        $("#fileInputImage").on('change', function () {
+        //$("#btnSelectImg").on('click',
+        //    () => {
+        //        $('#fileInputImage').click();
+        //    });
+
+        $("#fileImages").on('change', function () {
             var fileUpload = $(this).get(0);
             var files = fileUpload.files;
             var data = new FormData();
@@ -80,14 +90,21 @@
             }
             $.ajax({
                 type: "POST",
-                url: "/Admin/Product/UploadImage",
+                url: "/Admin/Upload/UploadImage",
                 contentType: false,
                 processData: false,
                 data: data,
                 success: function (path) {
-                    $('#imageId').attr('src',path);
-                    shoponline.notify('Upload image succesful!', 'success');
+                    clearFileInput($("#fileImages"));
+                    $('#hidId').val(path);
+
+                    $("#image_place").attr("src", path);
+                    $("#fileImages").val('');
+
+                   // $('#image_place').append('<div class="col-md-3"><img width="200"  data-path="' + path + '" src="' + path + '">  <a class="btn  btn-sm  btn-deleted"><i class="fa fa-trash"></i></a> </div>  </div>');
+                    shoponline.notify('Upload image succesfull!', 'success');
                 },
+
                 error: function () {
                     shoponline.notify('There was error uploading files!', 'error');
                 }
@@ -161,7 +178,6 @@
     }
     function saveProduct() {
         if ($('#frmMaintainance').valid()) {
-           // e.preventDefault();
             var id = $('#hidIdM').val();
             var name = $('#txtNameM').val();
             var categoryId = $('#ddlCategoryIdM').combotree('getValue');
@@ -172,9 +188,7 @@
             var price = $('#txtPriceM').val();
             var originalPrice = $('#txtOriginalPriceM').val();
             var promotionPrice = $('#txtPromotionPriceM').val();
-
-            //var image = $('#txtImageM').val();
-
+            var image = $('#hidId').val();
             var tags = $('#txtTagM').val();
             var seoKeyword = $('#txtMetakeywordM').val();
             var seoMetaDescription = $('#txtMetaDescriptionM').val();
@@ -182,7 +196,7 @@
             var seoAlias = $('#txtSeoAliasM').val();
 
             var content = CKEDITOR.instances.txtContent.getData();
-            var status = $('#ckStatusM').prop('checked') == true ? 1 : 0;
+            var status = $('#ckStatusM').prop('checked') === true ? 1 : 0;
             var hot = $('#ckHotM').prop('checked');
             var showHome = $('#ckShowHomeM').prop('checked');
 
@@ -193,12 +207,12 @@
                     Id: id,
                     Name: name,
                     CategoryId: categoryId,
-                    Image: '',
+                    Image: image,
                     Price: price,
                     OriginalPrice: originalPrice,
                     PromotionPrice: promotionPrice,
                     Description: description,
-                    //Content: content,
+                    Content: content,
                     HomeFlag: showHome,
                     HotFlag: hot,
                     Tags: tags,
@@ -263,34 +277,31 @@
             },
             success: function (response) {
                 var data = response;
-                $('#hidIdM').val(data.id);
-                $('#txtNameM').val(data.name);
-                initTreeDropDownCategory(data.categoryId);
+                $('#hidIdM').val(data.Id);
+                $('#txtNameM').val(data.Name);
+                initTreeDropDownCategory(data.CategoryId);
 
-                $('#txtDescM').val(data.description);
-                $('#txtUnitM').val(data.unit);
+                $('#txtDescM').val(data.Description);
+                $('#txtUnitM').val(data.Unit);
 
-                $('#txtPriceM').val(data.price);
-                $('#txtOriginalPriceM').val(data.originalPrice);
-                $('#txtPromotionPriceM').val(data.promotionPrice);
-
-                // $('#txtImageM').val(data.ThumbnailImage);
+                $('#txtPriceM').val(data.Price);
+                $('#txtOriginalPriceM').val(data.OriginalPrice);
+                $('#txtPromotionPriceM').val(data.PromotionPrice);
+                $("#image_place").attr("src", data.Image);
+                 //$('#txtImageM').val(data.ThumbnailImage);
 
                 $('#txtTagM').val(data.tags);
-                $('#txtMetakeywordM').val(data.seoKeywords);
-                $('#txtMetaDescriptionM').val(data.seoDescription);
-                $('#txtSeoPageTitleM').val(data.seoPageTitle);
-                $('#txtSeoAliasM').val(data.seoAlias);
+                $('#txtMetakeywordM').val(data.SeoKeywords);
+                $('#txtMetaDescriptionM').val(data.SeoDescription);
+                $('#txtSeoPageTitleM').val(data.SeoPageTitle);
+                $('#txtSeoAliasM').val(data.SeoAlias);
                 // get instance by id 
                 CKEDITOR.instances.txtContent.setData(data.Content);
-                $('#ckStatusM').prop('checked', data.status === 1);
-                $('#ckHotM').prop('checked', data.hotFlag);
-                $('#ckShowHomeM').prop('checked', data.homeFlag);
-
+                $('#ckStatusM').prop('checked', data.Status === 1);
+                $('#ckHotM').prop('checked', data.HotFlag);
+                $('#ckShowHomeM').prop('checked', data.HomeFlag);
                 $('#modal-add-edit').modal('show');
-
                 shoponline.stopLoading();
-
             },
             error: function (status) {
                 shoponline.notify('Có lỗi xảy ra', 'error');
@@ -309,10 +320,10 @@
                 var data = [];
                 $.each(response, function (i, item) {
                     data.push({
-                        id: item.id,
-                        text: item.name,
-                        parentId: item.parentId,
-                        sortOrder: item.sortOrder
+                        id: item.Id,
+                        text: item.Name,
+                        parentId: item.ParentId,
+                        sortOrder: item.SortOrder
                     });
                 });
                 var arr = shoponline.unflattern(data);
@@ -367,14 +378,11 @@
                 $.each(response,
                     function (i, item) {
                         var temp = Object.assign({}, item);
-                        result += "<option value='" + temp.id + "'>" + temp.name + "</option>";
+                        result += "<option value='" + temp.Id + "'>" + temp.Name + "</option>";
                     });
                 $('#ddlCategorySearch').html(result);
-
-                console.log(result);
             },
             error: function (status) {
-                console.log(status);
                 shoponline.notify('Không thể load danh mục sản phẩm ', 'lỗi');
             }
         });
@@ -393,32 +401,43 @@
             },
             dataType: 'json',
             success: (response) => {
-
-                    $.each(response.data.items,
+                if (response.Data.Items.length > 0) {
+                    $.each(response.Data.Items,
                         function (i, item) {
                             render += Mustache.render(template,
                                 {
-                                    Id: item.id,
-                                    Name: item.name,
-                                    Image: item.image === null
-                                        ? '<img src="/admin-side/images/user.png" width=25'
-                                        : '<img src="' + item.image + '" width=25 />',
-                                    //CategoryName: item.ProductCategory.Name,
-                                    Price: shoponline.formatNumber(item.price, 0),
-                                    CreatedDate: shoponline.dateTimeFormatJson(item.dateCreated),
-                                    Status: shoponline.getStatus(item.status)
+                                    Id: item.Id,
+                                    Name: item.Name,
+                                    Image: item.Image === null
+                                        ? '<img src="/admin-side/images/user.png" width=50'
+                                        : '<img src="' + item.Image + '" width=50 />',
+                                    CategoryName: item.ProductCategory.Name,
+                                    Price: shoponline.formatNumber(item.Price, 0),
+                                    CreatedDate: shoponline.dateTimeFormatJson(item.DateModified),
+                                    Status: shoponline.getStatus(item.Status)
                                 });
-                            $('#lblTotalRecords').text(response.data.rowCount);
+                            $('#lblTotalRecords').text(response.Data.RowCount);
                             if (render !== "") {
                                 $('#tbl-content').html(render);
                             }
-                            wrapPaging(response.data.rowCount, function () {
-                                loadData();
-                            }, isPageChanged);
+                            wrapPaging(response.Data.RowCount,
+                                function () {
+                                    loadData();
+                                },
+                                isPageChanged);
                         });
+                } else {
+                    $('#lblTotalRecords').text(0);
+                    $('#tbl-content').html("");
+                    wrapPaging(0,
+                        function () {
+                            loadData();
+                        },
+                        isPageChanged);
+                }
+
             },
             error: function (status) {
-                console.log(status);
                 shoponline.notify('Không thể load dữ liệu', 'lỗi');
             }
         });

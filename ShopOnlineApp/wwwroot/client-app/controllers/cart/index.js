@@ -1,7 +1,7 @@
 ﻿var CartController = function () {
    var cachedObj = {
         colors: [],
-        sizes: [],
+        sizes: []
     }
     this.initialize = function () {
     $.when(loadColors(),
@@ -51,7 +51,6 @@
             } else {
                 shoponline.notify('Your quantity is invalid', 'error');
             }
-
         });
 
         $('body').on('change', '.ddlColorId', function (e) {
@@ -155,10 +154,10 @@
     function getColorOptions(selectedId) {
         var colors = "<select class='form-control ddlColorId'><option value='0'></option>";
         $.each(cachedObj.colors, function (i, color) {
-            if (selectedId === color.id)
-                colors += '<option value="' + color.id + '" selected="select">' + color.name + '</option>';
+            if (selectedId === color.Id)
+                colors += '<option value="' + color.Id + '" selected="select">' + color.Name + '</option>';
             else
-                colors += '<option value="' + color.id + '">' + color.name + '</option>';
+                colors += '<option value="' + color.Id + '">' + color.Name + '</option>';
         });
         colors += "</select>";
         return colors;
@@ -167,14 +166,13 @@
     function getSizeOptions(selectedId) {
         var sizes = "<select class='form-control ddlSizeId'> <option value='0'></option>";
         $.each(cachedObj.sizes, function (i, size) {
-       
-            if (selectedId === size.id)
-                sizes += '<option value="' + size.id + '" selected="select">' + size.name + '</option>';
+           
+            if (selectedId === size.Id)
+                sizes += '<option value="' + size.Id + '" selected="select">' + size.Name + '</option>';
             else
-                sizes += '<option value="' + size.id + '">' + size.name + '</option>';
+                sizes += '<option value="' + size.Id + '">' + size.Name + '</option>';
         });
         sizes += "</select>";
-        console.log(sizes);
         return sizes;
     }
     function loadHeaderCart() {
@@ -192,17 +190,17 @@
                 $.each(response, function (i, item) {
                     render += Mustache.render(template,
                         {
-                            ProductId: item.product.id,
-                            ProductName: item.product.name,
-                            Image: item.product.image,
-                            Price: shoponline.formatNumber(item.price, 0),
-                            Quantity: item.quantity,
-                            Colors: getColorOptions(item.color == null? 0: item.color.id),
-                            Sizes:getSizeOptions(item.size == null? "": item.size.id),
-                            Amount: shoponline.formatNumber(item.price * item.quantity, 0),
-                            Url: '/' + item.product.seoAlias + "-p." + item.product.id + ".html"
+                            ProductId: item.Product.Id,
+                            ProductName: item.Product.Name,
+                            Image: item.Product.Image,
+                            Price: shoponline.formatNumber(item.Price, 0),
+                            Quantity: item.Quantity,
+                            Colors: getColorOptions(item.Color == null? 0: item.Color.Id),
+                            Sizes: getSizeOptions(item.Size == null ? "" : item.Size.Id),
+                            Amount: shoponline.formatNumber(item.Price * item.Quantity, 0),
+                            Url: '/' + item.Product.SeoAlias + "-p." + item.Product.Id + ".html"
                         });
-                    totalAmount += item.price * item.quantity;
+                    totalAmount += item.Price * item.Quantity;
                 });
                 $('#lblTotalAmount').text(shoponline.formatNumber(totalAmount, 0));
                 if (render !== "")

@@ -32,6 +32,7 @@ namespace ShopOnlineApp.Areas.Admin.Controllers
         }
         [HttpGet]
         [AllowAnonymous]
+        [Route("/admin-login")]
         public async Task<IActionResult> index(string returnUrl = null)
         {
             await HttpContext.SignOutAsync(IdentityConstants.ExternalScheme);

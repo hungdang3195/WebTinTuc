@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ShopOnlineApp.Data.EF.Common
 {
-    public partial class BaseRequest
+    public  class BaseRequest
     {
         #region Public Properties
         public string SearchText { get; set; }

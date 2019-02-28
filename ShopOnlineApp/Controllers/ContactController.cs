@@ -1,7 +1,6 @@
 ﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
-using ShopOnlineApp.Application.Implementation;
 using ShopOnlineApp.Application.Interfaces;
 using ShopOnlineApp.Models;
 using ShopOnlineApp.Services;

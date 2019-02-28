@@ -74,10 +74,10 @@
                 var template = $('#template-table-whole-price').html();
                 $.each(response, function (i, item) {
                     render += Mustache.render(template, {
-                        Id: item.id,
-                        FromQuantity: item.fromQuantity,
-                        ToQuantity: item.toQuantity,
-                        Price: item.price
+                        Id: item.Id,
+                        FromQuantity: item.FromQuantity,
+                        ToQuantity: item.ToQuantity,
+                        Price: item.Price
                     });
                 });
                 $('#table-content-whole-price').html(render);

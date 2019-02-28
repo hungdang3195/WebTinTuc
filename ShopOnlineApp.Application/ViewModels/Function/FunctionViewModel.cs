@@ -18,5 +18,7 @@ namespace ShopOnlineApp.Application.ViewModels.Function
         public string IconCss { get; set; }
         public int SortOrder { set; get; }
         public Status Status { set; get; }
+
+        public bool IsUpdated { get; set; }
     }
 }

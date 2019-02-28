@@ -1,0 +1,740 @@
+2019-02-03T23:36:32.4087396+07:00  [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2019-02-03T23:36:33.3811709+07:00  [INF] Executed DbCommand ("46"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [AppRoles] AS [a])
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END" (0723d8ff)
+2019-02-03T23:36:33.4340275+07:00  [INF] Executed DbCommand ("3"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [AppUsers] AS [a])
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END" (0723d8ff)
+2019-02-03T23:36:33.4608708+07:00  [INF] Executed DbCommand ("4"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [ContactDetails] AS [c])
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END" (0723d8ff)
+2019-02-03T23:36:33.4793803+07:00  [INF] Executed DbCommand ("3"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Functions] AS [f])
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END" (0723d8ff)
+2019-02-03T23:36:33.5622265+07:00  [INF] Executed DbCommand ("16"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Footers] AS [x]
+WHERE [x].[Id] = 'DefaultFooterId'" (0723d8ff)
+2019-02-03T23:36:33.5849055+07:00  [INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Colors] AS [c])
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END" (0723d8ff)
+2019-02-03T23:36:33.5989173+07:00  [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [AdvertistmentPages] AS [a])
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END" (0723d8ff)
+2019-02-03T23:36:33.6227168+07:00  [INF] Executed DbCommand ("10"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Slides] AS [s])
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END" (0723d8ff)
+2019-02-03T23:36:33.6398474+07:00  [INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Sizes] AS [s])
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END" (0723d8ff)
+2019-02-03T23:36:33.6610819+07:00  [INF] Executed DbCommand ("4"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [ProductCategories] AS [p])
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END" (0723d8ff)
+2019-02-03T23:36:33.6810280+07:00  [INF] Executed DbCommand ("4"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [SystemConfigs] AS [x]
+        WHERE [x].[Id] = N'HomeTitle')
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END" (0723d8ff)
+2019-02-03T23:36:33.6975890+07:00  [INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [SystemConfigs] AS [x]
+        WHERE [x].[Id] = N'HomeMetaKeyword')
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END" (0723d8ff)
+2019-02-03T23:36:33.7323099+07:00  [INF] Executed DbCommand ("3"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [SystemConfigs] AS [x]
+        WHERE [x].[Id] = N'HomeMetaDescription')
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END" (0723d8ff)
+2019-02-03T23:36:34.5310705+07:00 0HLK9UN16ECHC:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/   (ca22a1cb)
+2019-02-03T23:36:35.1844572+07:00 0HLK9UN16ECHC:00000001 [INF] Executing action method "ShopOnlineApp.Controllers.HomeController.Index (ShopOnlineApp)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2019-02-03T23:36:35.2388884+07:00 0HLK9UN16ECHC:00000001 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2019-02-03T23:36:36.4672051+07:00 0HLK9UN16ECHC:00000001 [INF] Executed DbCommand ("57"ms) [Parameters=["@__p_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(@__p_0) [c].[Id], [c].[DateCreated], [c].[DateModified], [c].[Description], [c].[HomeFlag], [c].[HomeOrder], [c].[Image], [c].[Name], [c].[ParentId], [c].[SeoAlias], [c].[SeoDescription], [c].[SeoKeywords], [c].[SeoPageTitle], [c].[SortOrder], [c].[Status]
+FROM [ProductCategories] AS [c]
+WHERE [c].[HomeFlag] = 1
+ORDER BY [c].[HomeOrder], [c].[Id]" (0723d8ff)
+2019-02-03T23:36:36.5761362+07:00 0HLK9UN16ECHC:00000001 [INF] Executed DbCommand ("7"ms) [Parameters=["@__p_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT [c.Products].[Id], [c.Products].[CategoryId], [c.Products].[Content], [c.Products].[DateCreated], [c.Products].[DateModified], [c.Products].[Description], [c.Products].[HomeFlag], [c.Products].[HotFlag], [c.Products].[Image], [c.Products].[Name], [c.Products].[OriginalPrice], [c.Products].[Price], [c.Products].[PromotionPrice], [c.Products].[SeoAlias], [c.Products].[SeoDescription], [c.Products].[SeoKeywords], [c.Products].[SeoPageTitle], [c.Products].[Status], [c.Products].[Tags], [c.Products].[Unit], [c.Products].[ViewCount]
+FROM [Products] AS [c.Products]
+INNER JOIN (
+    SELECT TOP(@__p_0) [c0].[Id], [c0].[HomeOrder]
+    FROM [ProductCategories] AS [c0]
+    WHERE [c0].[HomeFlag] = 1
+    ORDER BY [c0].[HomeOrder], [c0].[Id]
+) AS [t] ON [c.Products].[CategoryId] = [t].[Id]
+ORDER BY [t].[HomeOrder], [t].[Id]" (0723d8ff)
+2019-02-03T23:36:36.8956908+07:00 0HLK9UN16ECHC:00000001 [INF] Executed DbCommand ("7"ms) [Parameters=["@__p_1='?', @__category_Id_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(@__p_1) [x].[Id], [x].[CategoryId], [x].[Content], [x].[DateCreated], [x].[DateModified], [x].[Description], [x].[HomeFlag], [x].[HotFlag], [x].[Image], [x].[Name], [x].[OriginalPrice], [x].[Price], [x].[PromotionPrice], [x].[SeoAlias], [x].[SeoDescription], [x].[SeoKeywords], [x].[SeoPageTitle], [x].[Status], [x].[Tags], [x].[Unit], [x].[ViewCount]
+FROM [Products] AS [x]
+WHERE ([x].[HomeFlag] = 1) AND ([x].[CategoryId] = @__category_Id_0)
+ORDER BY [x].[DateCreated] DESC" (0723d8ff)
+2019-02-03T23:36:36.9097208+07:00 0HLK9UN16ECHC:00000001 [INF] Executed DbCommand ("0"ms) [Parameters=["@__p_1='?', @__category_Id_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(@__p_1) [x].[Id], [x].[CategoryId], [x].[Content], [x].[DateCreated], [x].[DateModified], [x].[Description], [x].[HomeFlag], [x].[HotFlag], [x].[Image], [x].[Name], [x].[OriginalPrice], [x].[Price], [x].[PromotionPrice], [x].[SeoAlias], [x].[SeoDescription], [x].[SeoKeywords], [x].[SeoPageTitle], [x].[Status], [x].[Tags], [x].[Unit], [x].[ViewCount]
+FROM [Products] AS [x]
+WHERE ([x].[HomeFlag] = 1) AND ([x].[CategoryId] = @__category_Id_0)
+ORDER BY [x].[DateCreated] DESC" (0723d8ff)
+2019-02-03T23:36:36.9199546+07:00 0HLK9UN16ECHC:00000001 [INF] Executed DbCommand ("0"ms) [Parameters=["@__p_1='?', @__category_Id_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(@__p_1) [x].[Id], [x].[CategoryId], [x].[Content], [x].[DateCreated], [x].[DateModified], [x].[Description], [x].[HomeFlag], [x].[HotFlag], [x].[Image], [x].[Name], [x].[OriginalPrice], [x].[Price], [x].[PromotionPrice], [x].[SeoAlias], [x].[SeoDescription], [x].[SeoKeywords], [x].[SeoPageTitle], [x].[Status], [x].[Tags], [x].[Unit], [x].[ViewCount]
+FROM [Products] AS [x]
+WHERE ([x].[HomeFlag] = 1) AND ([x].[CategoryId] = @__category_Id_0)
+ORDER BY [x].[DateCreated] DESC" (0723d8ff)
+2019-02-03T23:36:36.9695007+07:00 0HLK9UN16ECHC:00000001 [INF] Executed DbCommand ("0"ms) [Parameters=["@__p_1='?', @__category_Id_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(@__p_1) [x].[Id], [x].[CategoryId], [x].[Content], [x].[DateCreated], [x].[DateModified], [x].[Description], [x].[HomeFlag], [x].[HotFlag], [x].[Image], [x].[Name], [x].[OriginalPrice], [x].[Price], [x].[PromotionPrice], [x].[SeoAlias], [x].[SeoDescription], [x].[SeoKeywords], [x].[SeoPageTitle], [x].[Status], [x].[Tags], [x].[Unit], [x].[ViewCount]
+FROM [Products] AS [x]
+WHERE ([x].[HomeFlag] = 1) AND ([x].[CategoryId] = @__category_Id_0)
+ORDER BY [x].[DateCreated] DESC" (0723d8ff)
+2019-02-03T23:36:36.9814919+07:00 0HLK9UN16ECHC:00000001 [INF] Executed DbCommand ("0"ms) [Parameters=["@__p_1='?', @__category_Id_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(@__p_1) [x].[Id], [x].[CategoryId], [x].[Content], [x].[DateCreated], [x].[DateModified], [x].[Description], [x].[HomeFlag], [x].[HotFlag], [x].[Image], [x].[Name], [x].[OriginalPrice], [x].[Price], [x].[PromotionPrice], [x].[SeoAlias], [x].[SeoDescription], [x].[SeoKeywords], [x].[SeoPageTitle], [x].[Status], [x].[Tags], [x].[Unit], [x].[ViewCount]
+FROM [Products] AS [x]
+WHERE ([x].[HomeFlag] = 1) AND ([x].[CategoryId] = @__category_Id_0)
+ORDER BY [x].[DateCreated] DESC" (0723d8ff)
+2019-02-03T23:36:37.0159382+07:00 0HLK9UN16ECHC:00000001 [INF] Executed DbCommand ("3"ms) [Parameters=["@__p_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(@__p_0) [x].[Id], [x].[CategoryId], [x].[Content], [x].[DateCreated], [x].[DateModified], [x].[Description], [x].[HomeFlag], [x].[HotFlag], [x].[Image], [x].[Name], [x].[OriginalPrice], [x].[Price], [x].[PromotionPrice], [x].[SeoAlias], [x].[SeoDescription], [x].[SeoKeywords], [x].[SeoPageTitle], [x].[Status], [x].[Tags], [x].[Unit], [x].[ViewCount]
+FROM [Products] AS [x]
+WHERE ([x].[Status] = 1) AND ([x].[HotFlag] = 1)
+ORDER BY [x].[DateCreated] DESC" (0723d8ff)
+2019-02-03T23:36:37.0463022+07:00 0HLK9UN16ECHC:00000001 [INF] Executed DbCommand ("3"ms) [Parameters=["@__p_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(@__p_0) [x].[Id], [x].[CategoryId], [x].[Content], [x].[DateCreated], [x].[DateModified], [x].[Description], [x].[HomeFlag], [x].[HotFlag], [x].[Image], [x].[Name], [x].[OriginalPrice], [x].[Price], [x].[PromotionPrice], [x].[SeoAlias], [x].[SeoDescription], [x].[SeoKeywords], [x].[SeoPageTitle], [x].[Status], [x].[Tags], [x].[Unit], [x].[ViewCount]
+FROM [Products] AS [x]
+WHERE [x].[Status] = 1
+ORDER BY [x].[DateCreated] DESC" (0723d8ff)
+2019-02-03T23:36:37.1323353+07:00 0HLK9UN16ECHC:00000001 [INF] Executed DbCommand ("14"ms) [Parameters=["@__p_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(@__p_0) [x].[Id], [x].[Content], [x].[DateCreated], [x].[DateModified], [x].[Description], [x].[HomeFlag], [x].[HotFlag], [x].[Image], [x].[Name], [x].[SeoAlias], [x].[SeoDescription], [x].[SeoKeywords], [x].[SeoPageTitle], [x].[Status], [x].[Tags], [x].[ViewCount]
+FROM [Blogs] AS [x]
+WHERE [x].[Status] = 1
+ORDER BY [x].[DateCreated] DESC" (0723d8ff)
+2019-02-03T23:36:37.1824585+07:00 0HLK9UN16ECHC:00000001 [INF] Executed DbCommand ("3"ms) [Parameters=["@__groupAlias_0='?' (Size = 25)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[Content], [x].[Description], [x].[DisplayOrder], [x].[GroupAlias], [x].[Image], [x].[Name], [x].[Status], [x].[Url]
+FROM [Slides] AS [x]
+WHERE ([x].[Status] = 1) AND ([x].[GroupAlias] = @__groupAlias_0)" (0723d8ff)
+2019-02-03T23:36:46.7534432+07:00 0HLK9UN16ECHC:00000001 [INF] Executing ViewResult, running view at path "/Views/Home/Index.cshtml". (9707eebe)
+2019-02-03T23:36:48.4863107+07:00 0HLK9UN16ECHC:00000001 [INF] Executed DbCommand ("30"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[DateCreated], [x].[DateModified], [x].[Description], [x].[HomeFlag], [x].[HomeOrder], [x].[Image], [x].[Name], [x].[ParentId], [x].[SeoAlias], [x].[SeoDescription], [x].[SeoKeywords], [x].[SeoPageTitle], [x].[SortOrder], [x].[Status]
+FROM [ProductCategories] AS [x]
+ORDER BY [x].[ParentId]" (0723d8ff)
+2019-02-03T23:36:51.2475583+07:00 0HLK9UN16ECHC:00000001 [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[DateCreated], [x].[DateModified], [x].[Description], [x].[HomeFlag], [x].[HomeOrder], [x].[Image], [x].[Name], [x].[ParentId], [x].[SeoAlias], [x].[SeoDescription], [x].[SeoKeywords], [x].[SeoPageTitle], [x].[SortOrder], [x].[Status]
+FROM [ProductCategories] AS [x]
+ORDER BY [x].[ParentId]" (0723d8ff)
+2019-02-03T23:36:51.7658002+07:00 0HLK9UN16ECHC:00000001 [INF] Executed DbCommand ("49"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[DateCreated], [x].[DateModified], [x].[Description], [x].[HomeFlag], [x].[HomeOrder], [x].[Image], [x].[Name], [x].[ParentId], [x].[SeoAlias], [x].[SeoDescription], [x].[SeoKeywords], [x].[SeoPageTitle], [x].[SortOrder], [x].[Status]
+FROM [ProductCategories] AS [x]
+ORDER BY [x].[ParentId]" (0723d8ff)
+2019-02-03T23:36:53.4909682+07:00 0HLK9UN16ECHJ:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/client-side/images/flag-spain.jpg   (ca22a1cb)
+2019-02-03T23:36:53.5659225+07:00 0HLK9UN16ECHC:00000001 [INF] Executed action "ShopOnlineApp.Controllers.HomeController.Index (ShopOnlineApp)" in 17992.2455ms (afa2e885)
+2019-02-03T23:36:53.9316269+07:00 0HLK9UN16ECHE:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/client-side/images/flag-english.jpg   (ca22a1cb)
+2019-02-03T23:36:53.9436600+07:00 0HLK9UN16ECHF:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/client-side/style.css   (ca22a1cb)
+2019-02-03T23:36:53.9691693+07:00 0HLK9UN16ECHH:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/client-side/images/flag-default.jpg   (ca22a1cb)
+2019-02-03T23:36:54.0164416+07:00 0HLK9UN16ECHC:00000001 [INF] Request finished in 19179.3602ms 200 text/html; charset=utf-8 (791a596a)
+2019-02-03T23:36:54.0724198+07:00 0HLK9UN16ECHI:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/client-side/images/logo.png   (ca22a1cb)
+2019-02-03T23:36:54.0810026+07:00 0HLK9UN16ECHE:00000001 [INF] The file "/client-side/images/flag-english.jpg" was not modified (f1f8d725)
+2019-02-03T23:36:54.0849885+07:00 0HLK9UN16ECHF:00000001 [INF] The file "/client-side/style.css" was not modified (f1f8d725)
+2019-02-03T23:36:54.1179759+07:00 0HLK9UN16ECHK:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/client-side/images/slider/slide-3.jpg   (ca22a1cb)
+2019-02-03T23:36:54.2019333+07:00 0HLK9UN16ECHH:00000001 [INF] The file "/client-side/images/flag-default.jpg" was not modified (f1f8d725)
+2019-02-03T23:36:54.2907357+07:00 0HLK9UN16ECHN:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/client-side/images/slider/slide-1.jpg   (ca22a1cb)
+2019-02-03T23:36:54.3184111+07:00 0HLK9UN16ECHF:00000001 [INF] Request finished in 790.3004ms 304 text/css (791a596a)
+2019-02-03T23:36:54.3372645+07:00 0HLK9UN16ECHJ:00000001 [INF] The file "/client-side/images/flag-spain.jpg" was not modified (f1f8d725)
+2019-02-03T23:36:54.3504993+07:00 0HLK9UN16ECHC:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44344/client-side/css/bootstrap.min.css   (ca22a1cb)
+2019-02-03T23:36:54.3923543+07:00 0HLK9UN16ECHE:00000001 [INF] Request finished in 850.6947ms 304 image/jpeg (791a596a)
+2019-02-03T23:36:54.4122211+07:00 0HLK9UN16ECHH:00000001 [INF] Request finished in 902.0498ms 304 image/jpeg (791a596a)
+2019-02-03T23:36:54.4391376+07:00 0HLK9UN16ECHG:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/client-side/images/products/product-1.jpg   (ca22a1cb)
+2019-02-03T23:36:54.4494890+07:00 0HLK9UN16ECHI:00000001 [INF] The file "/client-side/images/logo.png" was not modified (f1f8d725)
+2019-02-03T23:36:54.4956402+07:00 0HLK9UN16ECHK:00000001 [INF] The file "/client-side/images/slider/slide-3.jpg" was not modified (f1f8d725)
+2019-02-03T23:36:54.5174442+07:00 0HLK9UN16ECHJ:00000001 [INF] Request finished in 1040.3927ms 304 image/jpeg (791a596a)
+2019-02-03T23:36:54.5301802+07:00 0HLK9UN16ECHC:00000002 [INF] The file "/client-side/css/bootstrap.min.css" was not modified (f1f8d725)
+2019-02-03T23:36:54.5788384+07:00 0HLK9UN16ECHF:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44344/client-side/css/pe-icon-7-stroke.min.css   (ca22a1cb)
+2019-02-03T23:36:54.5933783+07:00 0HLK9UN16ECHN:00000001 [INF] The file "/client-side/images/slider/slide-1.jpg" was not modified (f1f8d725)
+2019-02-03T23:36:54.6331394+07:00 0HLK9UN16ECHR:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/client-side/images/banner-arrival.jpg   (ca22a1cb)
+2019-02-03T23:36:54.6650994+07:00 0HLK9UN16ECIA:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/client-side/images/brand4.png   (ca22a1cb)
+2019-02-03T23:36:54.6785248+07:00 0HLK9UN16ECHC:00000002 [INF] Request finished in 328.7074ms 304 text/css (791a596a)
+2019-02-03T23:36:54.6891260+07:00 0HLK9UN16ECHI:00000001 [INF] Request finished in 1015.6786ms 304 image/png (791a596a)
+2019-02-03T23:36:54.7023165+07:00 0HLK9UN16ECHF:00000002 [INF] The file "/client-side/css/pe-icon-7-stroke.min.css" was not modified (f1f8d725)
+2019-02-03T23:36:54.7339441+07:00 0HLK9UN16ECHK:00000001 [INF] Request finished in 1061.2421ms 304 image/jpeg (791a596a)
+2019-02-03T23:36:54.7475038+07:00 0HLK9UN16ECHR:00000001 [INF] The file "/client-side/images/banner-arrival.jpg" was not modified (f1f8d725)
+2019-02-03T23:36:54.7635987+07:00 0HLK9UN16ECIA:00000001 [INF] The file "/client-side/images/brand4.png" was not modified (f1f8d725)
+2019-02-03T23:36:54.8245490+07:00 0HLK9UN16ECHF:00000002 [INF] Request finished in 300.7146ms 304 text/css (791a596a)
+2019-02-03T23:36:54.8615284+07:00 0HLK9UN16ECHT:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/client-side/js/jquery.min.js   (ca22a1cb)
+2019-02-03T23:36:54.8858443+07:00 0HLK9UN16ECHR:00000001 [INF] Request finished in 256.3095ms 304 image/jpeg (791a596a)
+2019-02-03T23:36:54.9170288+07:00 0HLK9UN16ECHN:00000001 [INF] Request finished in 1158.5723ms 304 image/jpeg (791a596a)
+2019-02-03T23:36:54.9656976+07:00 0HLK9UN16ECIA:00000001 [INF] Request finished in 239.1718ms 304 image/png (791a596a)
+2019-02-03T23:36:54.9711368+07:00 0HLK9UN16ECHT:00000001 [INF] The file "/client-side/js/jquery.min.js" was not modified (f1f8d725)
+2019-02-03T23:36:55.0151677+07:00 0HLK9UN16ECHS:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/client-side/images/brand11.png   (ca22a1cb)
+2019-02-03T23:36:55.0387118+07:00 0HLK9UN16ECI1:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/client-side/js/main.js   (ca22a1cb)
+2019-02-03T23:36:55.0600445+07:00 0HLK9UN16ECHU:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/client-side/images/brand2.png   (ca22a1cb)
+2019-02-03T23:36:55.0672621+07:00 0HLK9UN16ECI2:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/client-app/controllers/home/index.js   (ca22a1cb)
+2019-02-03T23:36:55.0957000+07:00 0HLK9UN16ECHT:00000001 [INF] Request finished in 242.0823ms 304 application/javascript (791a596a)
+2019-02-03T23:36:55.1347895+07:00 0HLK9UN16ECHV:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/client-side/js/owl.carousel.min.js   (ca22a1cb)
+2019-02-03T23:36:55.1538570+07:00 0HLK9UN16ECI1:00000001 [INF] The file "/client-side/js/main.js" was not modified (f1f8d725)
+2019-02-03T23:36:55.2020308+07:00 0HLK9UN16ECI2:00000001 [INF] The file "/client-app/controllers/home/index.js" was not modified (f1f8d725)
+2019-02-03T23:36:55.2872854+07:00 0HLK9UN16ECI4:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/client-app/controllers/base/index.js   (ca22a1cb)
+2019-02-03T23:36:55.3116177+07:00 0HLK9UN16ECI5:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/client-side/images/brand5.png   (ca22a1cb)
+2019-02-03T23:36:55.3370702+07:00 0HLK9UN16ECI2:00000001 [INF] Request finished in 249.256ms 304 application/javascript (791a596a)
+2019-02-03T23:36:55.3429597+07:00 0HLK9UN16ECI1:00000001 [INF] Request finished in 221.9447ms 304 application/javascript (791a596a)
+2019-02-03T23:36:55.3518138+07:00 0HLK9UN16ECHU:00000001 [INF] The file "/client-side/images/brand2.png" was not modified (f1f8d725)
+2019-02-03T23:36:55.3669960+07:00 0HLK9UN16ECHS:00000001 [INF] The file "/client-side/images/brand11.png" was not modified (f1f8d725)
+2019-02-03T23:36:55.3797399+07:00 0HLK9UN16ECI3:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/lib/mustache/mustache.js   (ca22a1cb)
+2019-02-03T23:36:55.4146342+07:00 0HLK9UN16ECI5:00000001 [INF] The file "/client-side/images/brand5.png" was not modified (f1f8d725)
+2019-02-03T23:36:55.4237103+07:00 0HLK9UN16ECHV:00000001 [INF] The file "/client-side/js/owl.carousel.min.js" was not modified (f1f8d725)
+2019-02-03T23:36:55.4490013+07:00 0HLK9UN16ECI4:00000001 [INF] The file "/client-app/controllers/base/index.js" was not modified (f1f8d725)
+2019-02-03T23:36:55.4954426+07:00 0HLK9UN16ECI6:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/client-side/images/banner-kids.jpg   (ca22a1cb)
+2019-02-03T23:36:55.5030577+07:00 0HLK9UN16ECI5:00000001 [INF] Request finished in 260.878ms 304 image/png (791a596a)
+2019-02-03T23:36:55.5132985+07:00 0HLK9UN16ECI7:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/client-side/images/brand6.png   (ca22a1cb)
+2019-02-03T23:36:55.5469474+07:00 0HLK9UN16ECHU:00000001 [INF] Request finished in 546.554ms 304 image/png (791a596a)
+2019-02-03T23:36:55.5791651+07:00 0HLK9UN16ECI4:00000001 [INF] Request finished in 347.6574ms 304 application/javascript (791a596a)
+2019-02-03T23:36:55.5860009+07:00 0HLK9UN16ECHS:00000001 [INF] Request finished in 636.8382ms 304 image/png (791a596a)
+2019-02-03T23:36:55.5995083+07:00 0HLK9UN16ECHG:00000001 [INF] The file "/client-side/images/products/product-1.jpg" was not modified (f1f8d725)
+2019-02-03T23:36:55.6387893+07:00 0HLK9UN16ECI6:00000001 [INF] The file "/client-side/images/banner-kids.jpg" was not modified (f1f8d725)
+2019-02-03T23:36:55.6671043+07:00 0HLK9UN16ECI7:00000001 [INF] The file "/client-side/images/brand6.png" was not modified (f1f8d725)
+2019-02-03T23:36:55.7365167+07:00 0HLK9UN16ECHV:00000001 [INF] Request finished in 506.6875ms 304 application/javascript (791a596a)
+2019-02-03T23:36:55.8543075+07:00 0HLK9UN16ECI3:00000001 [INF] The file "/lib/mustache/mustache.js" was not modified (f1f8d725)
+2019-02-03T23:36:55.9003507+07:00 0HLK9UN16ECI9:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/client-side/images/visa.png   (ca22a1cb)
+2019-02-03T23:36:55.9975621+07:00 0HLK9UN16ECI6:00000001 [INF] Request finished in 236.9367ms 304 image/jpeg (791a596a)
+2019-02-03T23:36:56.1068377+07:00 0HLK9UN16ECI7:00000001 [INF] Request finished in 269.7777ms 304 image/png (791a596a)
+2019-02-03T23:36:56.1424032+07:00 0HLK9UN16ECI9:00000001 [INF] The file "/client-side/images/visa.png" was not modified (f1f8d725)
+2019-02-03T23:36:56.2882182+07:00 0HLK9UN16ECI9:00000001 [INF] Request finished in 543.0081ms 304 image/png (791a596a)
+2019-02-03T23:36:56.3076934+07:00 0HLK9UN16ECIB:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/client-side/images/discover.png   (ca22a1cb)
+2019-02-03T23:36:56.3203860+07:00 0HLK9UN16ECIF:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/client-side/images/brand1.png   (ca22a1cb)
+2019-02-03T23:36:56.3411050+07:00 0HLK9UN16ECIC:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/client-side/images/brand9.png   (ca22a1cb)
+2019-02-03T23:36:56.3532615+07:00 0HLK9UN16ECI3:00000001 [INF] Request finished in 806.2261ms 304 application/javascript (791a596a)
+2019-02-03T23:36:56.3592621+07:00 0HLK9UN16ECIG:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/client-side/images/brand7.png   (ca22a1cb)
+2019-02-03T23:36:56.3718475+07:00 0HLK9UN16ECID:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/client-side/images/banner-left.jpg   (ca22a1cb)
+2019-02-03T23:36:56.3934432+07:00 0HLK9UN16ECIE:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/client-side/images/banner-women.jpg   (ca22a1cb)
+2019-02-03T23:36:56.4013645+07:00 0HLK9UN16ECIF:00000001 [INF] The file "/client-side/images/brand1.png" was not modified (f1f8d725)
+2019-02-03T23:36:56.4196974+07:00 0HLK9UN16ECIH:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/client-side/images/brand3.png   (ca22a1cb)
+2019-02-03T23:36:56.4308098+07:00 0HLK9UN16ECIC:00000001 [INF] The file "/client-side/images/brand9.png" was not modified (f1f8d725)
+2019-02-03T23:36:56.5044202+07:00 0HLK9UN16ECIG:00000001 [INF] The file "/client-side/images/brand7.png" was not modified (f1f8d725)
+2019-02-03T23:36:56.5289319+07:00 0HLK9UN16ECIF:00000001 [INF] Request finished in 221.0749ms 304 image/png (791a596a)
+2019-02-03T23:36:56.5415678+07:00 0HLK9UN16ECIB:00000001 [INF] The file "/client-side/images/discover.png" was not modified (f1f8d725)
+2019-02-03T23:36:56.5648397+07:00 0HLK9UN16ECIH:00000001 [INF] The file "/client-side/images/brand3.png" was not modified (f1f8d725)
+2019-02-03T23:36:56.6298663+07:00 0HLK9UN16ECID:00000001 [INF] The file "/client-side/images/banner-left.jpg" was not modified (f1f8d725)
+2019-02-03T23:36:56.6426535+07:00 0HLK9UN16ECIG:00000001 [INF] Request finished in 304.8865ms 304 image/png (791a596a)
+2019-02-03T23:36:56.6797531+07:00 0HLK9UN16ECIH:00000001 [INF] Request finished in 223.695ms 304 image/png (791a596a)
+2019-02-03T23:36:56.6948188+07:00 0HLK9UN16ECIE:00000001 [INF] The file "/client-side/images/banner-women.jpg" was not modified (f1f8d725)
+2019-02-03T23:36:56.7229323+07:00 0HLK9UN16ECIJ:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/client-side/js/mobile-menu.js   (ca22a1cb)
+2019-02-03T23:36:56.7383630+07:00 0HLK9UN16ECIC:00000001 [INF] Request finished in 493.2611ms 304 image/png (791a596a)
+2019-02-03T23:36:56.7686669+07:00 0HLK9UN16ECIB:00000001 [INF] Request finished in 683.4612ms 304 image/png (791a596a)
+2019-02-03T23:36:56.7749811+07:00 0HLK9UN16ECID:00000001 [INF] Request finished in 634.1524ms 304 image/jpeg (791a596a)
+2019-02-03T23:36:56.7873921+07:00 0HLK9UN16ECII:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/client-side/js/bootstrap.min.js   (ca22a1cb)
+2019-02-03T23:36:56.8120429+07:00 0HLK9UN16ECIJ:00000001 [INF] The file "/client-side/js/mobile-menu.js" was not modified (f1f8d725)
+2019-02-03T23:36:56.8205865+07:00 0HLK9UN16ECIK:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/client-side/js/jquery-ui.js   (ca22a1cb)
+2019-02-03T23:36:56.8307275+07:00 0HLK9UN16ECIL:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/client-side/js/revolution-slider.js   (ca22a1cb)
+2019-02-03T23:36:56.8800023+07:00 0HLK9UN16ECIM:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/lib/notifyjs/dist/styles/metro/notify-metro.js   (ca22a1cb)
+2019-02-03T23:36:56.8967997+07:00 0HLK9UN16ECIJ:00000001 [INF] Request finished in 199.3058ms 304 application/javascript (791a596a)
+2019-02-03T23:36:56.9139542+07:00 0HLK9UN16ECIE:00000001 [INF] Request finished in 564.4383ms 304 image/jpeg (791a596a)
+2019-02-03T23:36:56.9253966+07:00 0HLK9UN16ECIL:00000001 [INF] The file "/client-side/js/revolution-slider.js" was not modified (f1f8d725)
+2019-02-03T23:36:57.0132477+07:00 0HLK9UN16ECIK:00000001 [INF] The file "/client-side/js/jquery-ui.js" was not modified (f1f8d725)
+2019-02-03T23:36:57.1157995+07:00 0HLK9UN16ECIM:00000001 [INF] The file "/lib/notifyjs/dist/styles/metro/notify-metro.js" was not modified (f1f8d725)
+2019-02-03T23:36:57.1345089+07:00 0HLK9UN16ECIL:00000001 [INF] Request finished in 171.6141ms 304 application/javascript (791a596a)
+2019-02-03T23:36:57.1454097+07:00 0HLK9UN16ECII:00000001 [INF] The file "/client-side/js/bootstrap.min.js" was not modified (f1f8d725)
+2019-02-03T23:36:57.1782172+07:00 0HLK9UN16ECIK:00000001 [INF] Request finished in 323.1722ms 304 application/javascript (791a596a)
+2019-02-03T23:36:57.2001732+07:00 0HLK9UN16ECIO:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/lib/notifyjs/dist/notify.js   (ca22a1cb)
+2019-02-03T23:36:57.2048779+07:00 0HLK9UN16ECIP:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/client-side/images/brand8.png   (ca22a1cb)
+2019-02-03T23:36:57.2311553+07:00 0HLK9UN16ECIM:00000001 [INF] Request finished in 349.9186ms 304 application/javascript (791a596a)
+2019-02-03T23:36:57.2578010+07:00 0HLK9UN16ECIR:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/client-side/images/footer-logo.png   (ca22a1cb)
+2019-02-03T23:36:57.2717098+07:00 0HLK9UN16ECIP:00000001 [INF] The file "/client-side/images/brand8.png" was not modified (f1f8d725)
+2019-02-03T23:36:57.2906299+07:00 0HLK9UN16ECIN:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/client-app/shared/shoponline.js   (ca22a1cb)
+2019-02-03T23:36:57.3018309+07:00 0HLK9UN16ECIS:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/client-side/images/paypal.png   (ca22a1cb)
+2019-02-03T23:36:57.3643442+07:00 0HLK9UN16ECII:00000001 [INF] Request finished in 616.4782ms 304 application/javascript (791a596a)
+2019-02-03T23:36:57.3728967+07:00 0HLK9UN16ECIQ:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/client-side/images/banner-sunglasses.jpg   (ca22a1cb)
+2019-02-03T23:36:57.3803646+07:00 0HLK9UN16ECIR:00000001 [INF] The file "/client-side/images/footer-logo.png" was not modified (f1f8d725)
+2019-02-03T23:36:57.3892448+07:00 0HLK9UN16ECIO:00000001 [INF] The file "/lib/notifyjs/dist/notify.js" was not modified (f1f8d725)
+2019-02-03T23:36:57.3987496+07:00 0HLK9UN16ECIP:00000001 [INF] Request finished in 180.2994ms 304 image/png (791a596a)
+2019-02-03T23:36:57.4135477+07:00 0HLK9UN16ECIS:00000001 [INF] The file "/client-side/images/paypal.png" was not modified (f1f8d725)
+2019-02-03T23:36:57.4540943+07:00 0HLK9UN16ECIT:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/client-side/images/master-card.png   (ca22a1cb)
+2019-02-03T23:36:57.4820088+07:00 0HLK9UN16ECIR:00000001 [INF] Request finished in 187.0247ms 304 image/png (791a596a)
+2019-02-03T23:36:57.5690637+07:00 0HLK9UN16ECIS:00000001 [INF] Request finished in 199.5817ms 304 image/png (791a596a)
+2019-02-03T23:36:57.6013896+07:00 0HLK9UN16ECIT:00000001 [INF] The file "/client-side/images/master-card.png" was not modified (f1f8d725)
+2019-02-03T23:36:57.6479795+07:00 0HLK9UN16ECIU:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/client-side/css/font-awesome.min.css   (ca22a1cb)
+2019-02-03T23:36:57.8288356+07:00 0HLK9UN16ECIV:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/client-side/css/animate.css   (ca22a1cb)
+2019-02-03T23:36:57.8873490+07:00 0HLK9UN16ECIO:00000001 [INF] Request finished in 525.5633ms 304 application/javascript (791a596a)
+2019-02-03T23:36:57.8987463+07:00 0HLK9UN16ECIQ:00000001 [INF] The file "/client-side/images/banner-sunglasses.jpg" was not modified (f1f8d725)
+2019-02-03T23:36:57.9382082+07:00 0HLK9UN16ECIT:00000001 [INF] Request finished in 333.6964ms 304 image/png (791a596a)
+2019-02-03T23:36:57.9512155+07:00 0HLK9UN16ECIU:00000001 [INF] The file "/client-side/css/font-awesome.min.css" was not modified (f1f8d725)
+2019-02-03T23:36:57.9659050+07:00 0HLK9UN16ECJ3:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/client-side/css/quick_view_popup.css   (ca22a1cb)
+2019-02-03T23:36:57.9778896+07:00 0HLK9UN16ECIN:00000001 [INF] The file "/client-app/shared/shoponline.js" was not modified (f1f8d725)
+2019-02-03T23:36:58.0058144+07:00 0HLK9UN16ECIV:00000001 [INF] The file "/client-side/css/animate.css" was not modified (f1f8d725)
+2019-02-03T23:36:58.1089185+07:00 0HLK9UN16ECIU:00000001 [INF] Request finished in 481.0789ms 304 text/css (791a596a)
+2019-02-03T23:36:58.1160320+07:00 0HLK9UN16ECJ3:00000001 [INF] The file "/client-side/css/quick_view_popup.css" was not modified (f1f8d725)
+2019-02-03T23:36:58.1500925+07:00 0HLK9UN16ECJ1:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/client-side/css/owl.carousel.css   (ca22a1cb)
+2019-02-03T23:36:58.1532006+07:00 0HLK9UN16ECIV:00000001 [INF] Request finished in 479.8646ms 304 text/css (791a596a)
+2019-02-03T23:36:58.2140503+07:00 0HLK9UN16ECIQ:00000001 [INF] Request finished in 720.5318ms 304 image/jpeg (791a596a)
+2019-02-03T23:36:58.2298734+07:00 0HLK9UN16ECJ3:00000001 [INF] Request finished in 438.3756ms 304 text/css (791a596a)
+2019-02-03T23:36:58.2587957+07:00 0HLK9UN16ECJ4:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/client-side/css/revolution-slider.css   (ca22a1cb)
+2019-02-03T23:36:58.2797468+07:00 0HLK9UN16ECJ9:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/client-side/css/shortcode.css   (ca22a1cb)
+2019-02-03T23:36:58.3116746+07:00 0HLK9UN16ECJ7:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/client-side/css/responsive.css   (ca22a1cb)
+2019-02-03T23:36:58.3213799+07:00 0HLK9UN16ECJA:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/client-side/css/shortcodes/pricing-table.css   (ca22a1cb)
+2019-02-03T23:36:58.3303523+07:00 0HLK9UN16ECIN:00000001 [INF] Request finished in 1128.0876ms 304 application/javascript (791a596a)
+2019-02-03T23:36:58.3847648+07:00 0HLK9UN16ECJ9:00000001 [INF] The file "/client-side/css/shortcode.css" was not modified (f1f8d725)
+2019-02-03T23:36:58.4125059+07:00 0HLK9UN16ECJ1:00000001 [INF] The file "/client-side/css/owl.carousel.css" was not modified (f1f8d725)
+2019-02-03T23:36:58.4193645+07:00 0HLK9UN16ECJA:00000001 [INF] The file "/client-side/css/shortcodes/pricing-table.css" was not modified (f1f8d725)
+2019-02-03T23:36:58.4416543+07:00 0HLK9UN16ECJD:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/client-side/css/flexslider.css   (ca22a1cb)
+2019-02-03T23:36:58.5617427+07:00 0HLK9UN16ECJ7:00000001 [INF] The file "/client-side/css/responsive.css" was not modified (f1f8d725)
+2019-02-03T23:36:58.6202729+07:00 0HLK9UN16ECJ9:00000001 [INF] Request finished in 217.7024ms 304 text/css (791a596a)
+2019-02-03T23:36:58.6382612+07:00 0HLK9UN16ECJ4:00000001 [INF] The file "/client-side/css/revolution-slider.css" was not modified (f1f8d725)
+2019-02-03T23:36:58.6576470+07:00 0HLK9UN16ECJA:00000001 [INF] Request finished in 222.5483ms 304 text/css (791a596a)
+2019-02-03T23:36:58.6737405+07:00 0HLK9UN16ECJD:00000001 [INF] The file "/client-side/css/flexslider.css" was not modified (f1f8d725)
+2019-02-03T23:36:58.7343520+07:00 0HLK9UN16ECJ0:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/client-side/css/simple-line-icons.css   (ca22a1cb)
+2019-02-03T23:36:58.7438647+07:00 0HLK9UN16ECJ7:00000001 [INF] Request finished in 404.9677ms 304 text/css (791a596a)
+2019-02-03T23:36:58.7492517+07:00 0HLK9UN16ECJD:00000001 [INF] Request finished in 365.3595ms 304 text/css (791a596a)
+2019-02-03T23:36:58.7591569+07:00 0HLK9UN16ECJ2:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/client-side/css/blog.css   (ca22a1cb)
+2019-02-03T23:36:58.7697442+07:00 0HLK9UN16ECHG:00000001 [INF] Request finished in 2271.5178ms 304 image/jpeg (791a596a)
+2019-02-03T23:36:58.7827691+07:00 0HLK9UN16ECJ1:00000001 [INF] Request finished in 840.2991ms 304 text/css (791a596a)
+2019-02-03T23:36:58.7909059+07:00 0HLK9UN16ECJF:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/client-side/css/style.css   (ca22a1cb)
+2019-02-03T23:36:58.8011904+07:00 0HLK9UN16ECJ4:00000001 [INF] Request finished in 632.3042ms 304 text/css (791a596a)
+2019-02-03T23:36:58.8376878+07:00 0HLK9UN16ECJ2:00000001 [INF] The file "/client-side/css/blog.css" was not modified (f1f8d725)
+2019-02-03T23:36:58.8714089+07:00 0HLK9UN16ECJ6:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/client-side/css/jquery-ui.css   (ca22a1cb)
+2019-02-03T23:36:58.8861095+07:00 0HLK9UN16ECJF:00000001 [INF] The file "/client-side/css/style.css" was not modified (f1f8d725)
+2019-02-03T23:36:58.9759929+07:00 0HLK9UN16ECJ0:00000001 [INF] The file "/client-side/css/simple-line-icons.css" was not modified (f1f8d725)
+2019-02-03T23:36:58.9979531+07:00 0HLK9UN16ECJ8:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/client-side/css/shortcodes/shortcodes.css   (ca22a1cb)
+2019-02-03T23:36:59.0150633+07:00 0HLK9UN16ECJ5:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/client-side/css/owl.transitions.css   (ca22a1cb)
+2019-02-03T23:36:59.0201930+07:00 0HLK9UN16ECJ2:00000001 [INF] Request finished in 168.0585ms 304 text/css (791a596a)
+2019-02-03T23:36:59.0269537+07:00 0HLK9UN16ECJF:00000001 [INF] Request finished in 172.8037ms 304 text/css (791a596a)
+2019-02-03T23:36:59.0380415+07:00 0HLK9UN16ECJ6:00000001 [INF] The file "/client-side/css/jquery-ui.css" was not modified (f1f8d725)
+2019-02-03T23:36:59.2311958+07:00 0HLK9UN16ECJ8:00000001 [INF] The file "/client-side/css/shortcodes/shortcodes.css" was not modified (f1f8d725)
+2019-02-03T23:36:59.2990370+07:00 0HLK9UN16ECJE:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/client-side/css/shortcodes/post.css   (ca22a1cb)
+2019-02-03T23:36:59.3040922+07:00 0HLK9UN16ECJC:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/client-side/css/shortcodes/tooltip.css   (ca22a1cb)
+2019-02-03T23:36:59.3130390+07:00 0HLK9UN16ECJB:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/client-side/css/shortcodes/featured-box.css   (ca22a1cb)
+2019-02-03T23:36:59.3175343+07:00 0HLK9UN16ECJ8:00000001 [INF] Request finished in 398.3091ms 304 text/css (791a596a)
+2019-02-03T23:36:59.3274088+07:00 0HLK9UN16ECJ0:00000001 [INF] Request finished in 631.3001ms 304 text/css (791a596a)
+2019-02-03T23:36:59.3302354+07:00 0HLK9UN16ECJ6:00000001 [INF] Request finished in 262.7858ms 304 text/css (791a596a)
+2019-02-03T23:36:59.3377969+07:00 0HLK9UN16ECJ5:00000001 [INF] The file "/client-side/css/owl.transitions.css" was not modified (f1f8d725)
+2019-02-03T23:36:59.4303665+07:00 0HLK9UN16ECJE:00000001 [INF] The file "/client-side/css/shortcodes/post.css" was not modified (f1f8d725)
+2019-02-03T23:36:59.4647159+07:00 0HLK9UN16ECJ5:00000001 [INF] Request finished in 568.2583ms 304 text/css (791a596a)
+2019-02-03T23:36:59.4869119+07:00 0HLK9UN16ECHM:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/client-side/images/flag-brazil.jpg   (ca22a1cb)
+2019-02-03T23:36:59.4919960+07:00 0HLK9UN16ECJC:00000001 [INF] The file "/client-side/css/shortcodes/tooltip.css" was not modified (f1f8d725)
+2019-02-03T23:36:59.5179598+07:00 0HLK9UN16ECHL:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/client-side/images/flag-german.jpg   (ca22a1cb)
+2019-02-03T23:36:59.5304935+07:00 0HLK9UN16ECJE:00000001 [INF] Request finished in 327.3487ms 304 text/css (791a596a)
+2019-02-03T23:36:59.5790826+07:00 0HLK9UN16ECJB:00000001 [INF] The file "/client-side/css/shortcodes/featured-box.css" was not modified (f1f8d725)
+2019-02-03T23:36:59.6156139+07:00 0HLK9UN16ECHM:00000001 [INF] The file "/client-side/images/flag-brazil.jpg" was not modified (f1f8d725)
+2019-02-03T23:36:59.6887778+07:00 0HLK9UN16ECHL:00000001 [INF] The file "/client-side/images/flag-german.jpg" was not modified (f1f8d725)
+2019-02-03T23:36:59.8197624+07:00 0HLK9UN16ECHO:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/client-side/images/sub1.jpg   (ca22a1cb)
+2019-02-03T23:36:59.8524067+07:00 0HLK9UN16ECHQ:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/client-side/images/brand10.png   (ca22a1cb)
+2019-02-03T23:36:59.8659454+07:00 0HLK9UN16ECHM:00000001 [INF] Request finished in 6215.9736ms 304 image/jpeg (791a596a)
+2019-02-03T23:36:59.9047085+07:00 0HLK9UN16ECHL:00000001 [INF] Request finished in 6122.9224ms 304 image/jpeg (791a596a)
+2019-02-03T23:36:59.9519626+07:00 0HLK9UN16ECJC:00000001 [INF] Request finished in 518.7518ms 304 text/css (791a596a)
+2019-02-03T23:36:59.9951401+07:00 0HLK9UN16ECHO:00000001 [INF] The file "/client-side/images/sub1.jpg" was not modified (f1f8d725)
+2019-02-03T23:37:00.0766122+07:00 0HLK9UN16ECHJ:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44344/client-side/fonts/simple-line-icons/Simple-Line-Icons.woff2?v=2.4.0   (ca22a1cb)
+2019-02-03T23:37:00.1352081+07:00 0HLK9UN16ECHE:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44344/client-side/fonts/font-awesome/fontawesome-webfont.woff2?v=4.7.0   (ca22a1cb)
+2019-02-03T23:37:00.1883620+07:00 0HLK9UN16ECHO:00000001 [INF] Request finished in 6432.1187ms 304 image/jpeg (791a596a)
+2019-02-03T23:37:00.2020676+07:00 0HLK9UN16ECHJ:00000002 [INF] The file "/client-side/fonts/simple-line-icons/Simple-Line-Icons.woff2" was not modified (f1f8d725)
+2019-02-03T23:37:00.2265426+07:00 0HLK9UN16ECHQ:00000001 [INF] The file "/client-side/images/brand10.png" was not modified (f1f8d725)
+2019-02-03T23:37:00.2626087+07:00 0HLK9UN16ECHE:00000002 [INF] The file "/client-side/fonts/font-awesome/fontawesome-webfont.woff2" was not modified (f1f8d725)
+2019-02-03T23:37:00.2738987+07:00 0HLK9UN16ECJB:00000001 [INF] Request finished in 648.6168ms 304 text/css (791a596a)
+2019-02-03T23:37:00.3405377+07:00 0HLK9UN16ECHH:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44344/client-side/images/bg_text_des.png   (ca22a1cb)
+2019-02-03T23:37:00.3701671+07:00 0HLK9UN16ECHJ:00000002 [INF] Request finished in 286.0913ms 304 font/woff2 (791a596a)
+2019-02-03T23:37:00.4154994+07:00 0HLK9UN16ECHQ:00000001 [INF] Request finished in 6657.7701ms 304 image/png (791a596a)
+2019-02-03T23:37:00.5335200+07:00 0HLK9UN16ECHE:00000002 [INF] Request finished in 346.665ms 304 font/woff2 (791a596a)
+2019-02-03T23:37:00.8852333+07:00 0HLK9UN16ECHC:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:44344/   (ca22a1cb)
+2019-02-03T23:37:00.9349886+07:00 0HLK9UN16ECHP:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/client-side/images/sub1a.jpg   (ca22a1cb)
+2019-02-03T23:37:00.9756755+07:00 0HLK9UN16ECI8:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/client-side/images/slider/slide-2.jpg   (ca22a1cb)
+2019-02-03T23:37:01.4640997+07:00 0HLK9UN16ECHC:00000003 [INF] Executing action method "ShopOnlineApp.Controllers.HomeController.Index (ShopOnlineApp)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2019-02-03T23:37:01.6983973+07:00 0HLK9UN16ECHP:00000001 [INF] The file "/client-side/images/sub1a.jpg" was not modified (f1f8d725)
+2019-02-03T23:37:01.9030189+07:00 0HLK9UN16ECI8:00000001 [INF] The file "/client-side/images/slider/slide-2.jpg" was not modified (f1f8d725)
+2019-02-03T23:37:02.3672967+07:00 0HLK9UN16ECHH:00000002 [INF] The file "/client-side/images/bg_text_des.png" was not modified (f1f8d725)
+2019-02-03T23:37:02.4214844+07:00 0HLK9UN16ECHC:00000003 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2019-02-03T23:37:02.5960226+07:00 0HLK9UN16ECI0:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/client-side/images/flag-chile.jpg   (ca22a1cb)
+2019-02-03T23:37:02.6055218+07:00 0HLK9UN16ECHP:00000001 [INF] Request finished in 8135.6822ms 304 image/jpeg (791a596a)
+2019-02-03T23:37:02.6229047+07:00 0HLK9UN16ECI8:00000001 [INF] Request finished in 8260.9195ms 304 image/jpeg (791a596a)
+2019-02-03T23:37:02.6709135+07:00 0HLK9UN16ECHC:00000003 [INF] Executed DbCommand ("21"ms) [Parameters=["@__p_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(@__p_0) [c].[Id], [c].[DateCreated], [c].[DateModified], [c].[Description], [c].[HomeFlag], [c].[HomeOrder], [c].[Image], [c].[Name], [c].[ParentId], [c].[SeoAlias], [c].[SeoDescription], [c].[SeoKeywords], [c].[SeoPageTitle], [c].[SortOrder], [c].[Status]
+FROM [ProductCategories] AS [c]
+WHERE [c].[HomeFlag] = 1
+ORDER BY [c].[HomeOrder], [c].[Id]" (0723d8ff)
+2019-02-03T23:37:02.7471584+07:00 0HLK9UN16ECI0:00000001 [INF] The file "/client-side/images/flag-chile.jpg" was not modified (f1f8d725)
+2019-02-03T23:37:02.8129164+07:00 0HLK9UN16ECI0:00000001 [INF] Request finished in 9155.2008ms 304 image/jpeg (791a596a)
+2019-02-03T23:37:02.8409544+07:00 0HLK9UN16ECHH:00000002 [INF] Request finished in 2496.642ms 304 image/png (791a596a)
+2019-02-03T23:37:02.8455490+07:00 0HLK9UN16ECHC:00000003 [INF] Executed DbCommand ("20"ms) [Parameters=["@__p_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT [c.Products].[Id], [c.Products].[CategoryId], [c.Products].[Content], [c.Products].[DateCreated], [c.Products].[DateModified], [c.Products].[Description], [c.Products].[HomeFlag], [c.Products].[HotFlag], [c.Products].[Image], [c.Products].[Name], [c.Products].[OriginalPrice], [c.Products].[Price], [c.Products].[PromotionPrice], [c.Products].[SeoAlias], [c.Products].[SeoDescription], [c.Products].[SeoKeywords], [c.Products].[SeoPageTitle], [c.Products].[Status], [c.Products].[Tags], [c.Products].[Unit], [c.Products].[ViewCount]
+FROM [Products] AS [c.Products]
+INNER JOIN (
+    SELECT TOP(@__p_0) [c0].[Id], [c0].[HomeOrder]
+    FROM [ProductCategories] AS [c0]
+    WHERE [c0].[HomeFlag] = 1
+    ORDER BY [c0].[HomeOrder], [c0].[Id]
+) AS [t] ON [c.Products].[CategoryId] = [t].[Id]
+ORDER BY [t].[HomeOrder], [t].[Id]" (0723d8ff)
+2019-02-03T23:37:02.8809020+07:00 0HLK9UN16ECHC:00000003 [INF] Executed DbCommand ("8"ms) [Parameters=["@__p_1='?', @__category_Id_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(@__p_1) [x].[Id], [x].[CategoryId], [x].[Content], [x].[DateCreated], [x].[DateModified], [x].[Description], [x].[HomeFlag], [x].[HotFlag], [x].[Image], [x].[Name], [x].[OriginalPrice], [x].[Price], [x].[PromotionPrice], [x].[SeoAlias], [x].[SeoDescription], [x].[SeoKeywords], [x].[SeoPageTitle], [x].[Status], [x].[Tags], [x].[Unit], [x].[ViewCount]
+FROM [Products] AS [x]
+WHERE ([x].[HomeFlag] = 1) AND ([x].[CategoryId] = @__category_Id_0)
+ORDER BY [x].[DateCreated] DESC" (0723d8ff)
+2019-02-03T23:37:02.9064271+07:00 0HLK9UN16ECHC:00000003 [INF] Executed DbCommand ("0"ms) [Parameters=["@__p_1='?', @__category_Id_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(@__p_1) [x].[Id], [x].[CategoryId], [x].[Content], [x].[DateCreated], [x].[DateModified], [x].[Description], [x].[HomeFlag], [x].[HotFlag], [x].[Image], [x].[Name], [x].[OriginalPrice], [x].[Price], [x].[PromotionPrice], [x].[SeoAlias], [x].[SeoDescription], [x].[SeoKeywords], [x].[SeoPageTitle], [x].[Status], [x].[Tags], [x].[Unit], [x].[ViewCount]
+FROM [Products] AS [x]
+WHERE ([x].[HomeFlag] = 1) AND ([x].[CategoryId] = @__category_Id_0)
+ORDER BY [x].[DateCreated] DESC" (0723d8ff)
+2019-02-03T23:37:02.9643160+07:00 0HLK9UN16ECHC:00000003 [INF] Executed DbCommand ("9"ms) [Parameters=["@__p_1='?', @__category_Id_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(@__p_1) [x].[Id], [x].[CategoryId], [x].[Content], [x].[DateCreated], [x].[DateModified], [x].[Description], [x].[HomeFlag], [x].[HotFlag], [x].[Image], [x].[Name], [x].[OriginalPrice], [x].[Price], [x].[PromotionPrice], [x].[SeoAlias], [x].[SeoDescription], [x].[SeoKeywords], [x].[SeoPageTitle], [x].[Status], [x].[Tags], [x].[Unit], [x].[ViewCount]
+FROM [Products] AS [x]
+WHERE ([x].[HomeFlag] = 1) AND ([x].[CategoryId] = @__category_Id_0)
+ORDER BY [x].[DateCreated] DESC" (0723d8ff)
+2019-02-03T23:37:02.9965380+07:00 0HLK9UN16ECHC:00000003 [INF] Executed DbCommand ("7"ms) [Parameters=["@__p_1='?', @__category_Id_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(@__p_1) [x].[Id], [x].[CategoryId], [x].[Content], [x].[DateCreated], [x].[DateModified], [x].[Description], [x].[HomeFlag], [x].[HotFlag], [x].[Image], [x].[Name], [x].[OriginalPrice], [x].[Price], [x].[PromotionPrice], [x].[SeoAlias], [x].[SeoDescription], [x].[SeoKeywords], [x].[SeoPageTitle], [x].[Status], [x].[Tags], [x].[Unit], [x].[ViewCount]
+FROM [Products] AS [x]
+WHERE ([x].[HomeFlag] = 1) AND ([x].[CategoryId] = @__category_Id_0)
+ORDER BY [x].[DateCreated] DESC" (0723d8ff)
+2019-02-03T23:37:03.0273406+07:00 0HLK9UN16ECHC:00000003 [INF] Executed DbCommand ("12"ms) [Parameters=["@__p_1='?', @__category_Id_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(@__p_1) [x].[Id], [x].[CategoryId], [x].[Content], [x].[DateCreated], [x].[DateModified], [x].[Description], [x].[HomeFlag], [x].[HotFlag], [x].[Image], [x].[Name], [x].[OriginalPrice], [x].[Price], [x].[PromotionPrice], [x].[SeoAlias], [x].[SeoDescription], [x].[SeoKeywords], [x].[SeoPageTitle], [x].[Status], [x].[Tags], [x].[Unit], [x].[ViewCount]
+FROM [Products] AS [x]
+WHERE ([x].[HomeFlag] = 1) AND ([x].[CategoryId] = @__category_Id_0)
+ORDER BY [x].[DateCreated] DESC" (0723d8ff)
+2019-02-03T23:37:03.0615930+07:00 0HLK9UN16ECHC:00000003 [INF] Executed DbCommand ("6"ms) [Parameters=["@__p_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(@__p_0) [x].[Id], [x].[CategoryId], [x].[Content], [x].[DateCreated], [x].[DateModified], [x].[Description], [x].[HomeFlag], [x].[HotFlag], [x].[Image], [x].[Name], [x].[OriginalPrice], [x].[Price], [x].[PromotionPrice], [x].[SeoAlias], [x].[SeoDescription], [x].[SeoKeywords], [x].[SeoPageTitle], [x].[Status], [x].[Tags], [x].[Unit], [x].[ViewCount]
+FROM [Products] AS [x]
+WHERE ([x].[Status] = 1) AND ([x].[HotFlag] = 1)
+ORDER BY [x].[DateCreated] DESC" (0723d8ff)
+2019-02-03T23:37:03.0975571+07:00 0HLK9UN16ECHC:00000003 [INF] Executed DbCommand ("7"ms) [Parameters=["@__p_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(@__p_0) [x].[Id], [x].[CategoryId], [x].[Content], [x].[DateCreated], [x].[DateModified], [x].[Description], [x].[HomeFlag], [x].[HotFlag], [x].[Image], [x].[Name], [x].[OriginalPrice], [x].[Price], [x].[PromotionPrice], [x].[SeoAlias], [x].[SeoDescription], [x].[SeoKeywords], [x].[SeoPageTitle], [x].[Status], [x].[Tags], [x].[Unit], [x].[ViewCount]
+FROM [Products] AS [x]
+WHERE [x].[Status] = 1
+ORDER BY [x].[DateCreated] DESC" (0723d8ff)
+2019-02-03T23:37:03.1449054+07:00 0HLK9UN16ECHC:00000003 [INF] Executed DbCommand ("4"ms) [Parameters=["@__p_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(@__p_0) [x].[Id], [x].[Content], [x].[DateCreated], [x].[DateModified], [x].[Description], [x].[HomeFlag], [x].[HotFlag], [x].[Image], [x].[Name], [x].[SeoAlias], [x].[SeoDescription], [x].[SeoKeywords], [x].[SeoPageTitle], [x].[Status], [x].[Tags], [x].[ViewCount]
+FROM [Blogs] AS [x]
+WHERE [x].[Status] = 1
+ORDER BY [x].[DateCreated] DESC" (0723d8ff)
+2019-02-03T23:37:03.2296660+07:00 0HLK9UN16ECHC:00000003 [INF] Executed DbCommand ("10"ms) [Parameters=["@__groupAlias_0='?' (Size = 25)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[Content], [x].[Description], [x].[DisplayOrder], [x].[GroupAlias], [x].[Image], [x].[Name], [x].[Status], [x].[Url]
+FROM [Slides] AS [x]
+WHERE ([x].[Status] = 1) AND ([x].[GroupAlias] = @__groupAlias_0)" (0723d8ff)
+2019-02-03T23:37:03.2695502+07:00 0HLK9UN16ECHC:00000003 [INF] Executing ViewResult, running view at path "/Views/Home/Index.cshtml". (9707eebe)
+2019-02-03T23:37:03.3183612+07:00 0HLK9UN16ECHC:00000003 [INF] Executed DbCommand ("23"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[DateCreated], [x].[DateModified], [x].[Description], [x].[HomeFlag], [x].[HomeOrder], [x].[Image], [x].[Name], [x].[ParentId], [x].[SeoAlias], [x].[SeoDescription], [x].[SeoKeywords], [x].[SeoPageTitle], [x].[SortOrder], [x].[Status]
+FROM [ProductCategories] AS [x]
+ORDER BY [x].[ParentId]" (0723d8ff)
+2019-02-03T23:37:03.3924070+07:00 0HLK9UN16ECHC:00000003 [INF] Executed DbCommand ("15"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[DateCreated], [x].[DateModified], [x].[Description], [x].[HomeFlag], [x].[HomeOrder], [x].[Image], [x].[Name], [x].[ParentId], [x].[SeoAlias], [x].[SeoDescription], [x].[SeoKeywords], [x].[SeoPageTitle], [x].[SortOrder], [x].[Status]
+FROM [ProductCategories] AS [x]
+ORDER BY [x].[ParentId]" (0723d8ff)
+2019-02-03T23:37:03.5836763+07:00 0HLK9UN16ECHC:00000003 [INF] Executed action "ShopOnlineApp.Controllers.HomeController.Index (ShopOnlineApp)" in 2538.435ms (afa2e885)
+2019-02-03T23:37:03.6598700+07:00 0HLK9UN16ECHI:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44344/favicon.ico   (ca22a1cb)
+2019-02-03T23:37:03.8274992+07:00 0HLK9UN16ECHC:00000003 [INF] Committing the session was canceled. (12038ba6)
+2019-02-03T23:37:03.8644174+07:00 0HLK9UN16ECHI:00000002 [INF] The file "/favicon.ico" was not modified (f1f8d725)
+2019-02-03T23:37:03.9520489+07:00 0HLK9UN16ECHC:00000003 [INF] Request finished in 3408.0927ms 200 text/html; charset=utf-8 (791a596a)
+2019-02-03T23:37:04.0011233+07:00 0HLK9UN16ECHI:00000002 [INF] Request finished in 295.0027ms 304 image/x-icon (791a596a)
+2019-02-03T23:38:24.4131949+07:00 0HLK9UN16ECJG:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/admin/User/index   (ca22a1cb)
+2019-02-03T23:38:24.5010566+07:00 0HLK9UN16ECJG:00000001 [INF] Authorization failed for user: null. (a4ab1676)
+2019-02-03T23:38:24.5234540+07:00 0HLK9UN16ECJG:00000001 [INF] Authorization failed for the request at filter '"Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter"'. (8b6446cb)
+2019-02-03T23:38:24.5419080+07:00 0HLK9UN16ECJG:00000001 [INF] Executing ChallengeResult with authentication schemes ([]). (f3dca807)
+2019-02-03T23:38:24.5593253+07:00 0HLK9UN16ECJG:00000001 [INF] AuthenticationScheme: "Identity.Application" was challenged. (d45f1f38)
+2019-02-03T23:38:24.5674966+07:00 0HLK9UN16ECJG:00000001 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.UserController.Index (ShopOnlineApp)" in 93.1844ms (afa2e885)
+2019-02-03T23:38:24.5795166+07:00 0HLK9UN16ECJG:00000001 [INF] Request finished in 176.6567ms 302  (791a596a)
+2019-02-03T23:38:24.5955080+07:00 0HLK9UN16ECJG:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44344/Account/Login?ReturnUrl=%2Fadmin%2FUser%2Findex   (ca22a1cb)
+2019-02-03T23:38:24.6235512+07:00 0HLK9UN16ECJG:00000002 [INF] Request finished in 13.0124ms 404  (791a596a)
+2019-02-03T23:38:31.3552674+07:00 0HLK9UN16ECJG:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/Login/Index   (ca22a1cb)
+2019-02-03T23:38:31.4706731+07:00 0HLK9UN16ECJG:00000003 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.LoginController.index (ShopOnlineApp)" with arguments ([""]) - ModelState is Valid (ba7f4ac2)
+2019-02-03T23:38:31.5051380+07:00 0HLK9UN16ECJG:00000003 [INF] AuthenticationScheme: "Identity.External" signed out. (d3f50c8d)
+2019-02-03T23:38:32.1161799+07:00 0HLK9UN16ECJG:00000003 [INF] Executing ViewResult, running view at path "/Areas/Admin/Views/Login/index.cshtml". (9707eebe)
+2019-02-03T23:38:32.1968092+07:00 0HLK9UN16ECJG:00000003 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.LoginController.index (ShopOnlineApp)" in 747.3267ms (afa2e885)
+2019-02-03T23:38:32.2089033+07:00 0HLK9UN16ECJG:00000003 [INF] Request finished in 855.3569ms 200 text/html; charset=utf-8 (791a596a)
+2019-02-03T23:38:33.0046276+07:00 0HLK9UN16ECJG:00000004 [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/Login/Index   (ca22a1cb)
+2019-02-03T23:38:33.0218361+07:00 0HLK9UN16ECJG:00000004 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.LoginController.index (ShopOnlineApp)" with arguments ([""]) - ModelState is Valid (ba7f4ac2)
+2019-02-03T23:38:33.0312011+07:00 0HLK9UN16ECJG:00000004 [INF] AuthenticationScheme: "Identity.External" signed out. (d3f50c8d)
+2019-02-03T23:38:33.0446321+07:00 0HLK9UN16ECJG:00000004 [INF] Executing ViewResult, running view at path "/Areas/Admin/Views/Login/index.cshtml". (9707eebe)
+2019-02-03T23:38:33.1696903+07:00 0HLK9UN16ECJG:00000004 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.LoginController.index (ShopOnlineApp)" in 41.7799ms (afa2e885)
+2019-02-03T23:38:33.3020696+07:00 0HLK9UN16ECJK:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/lib/jquery-validation/dist/jquery.validate.js   (ca22a1cb)
+2019-02-03T23:38:33.3557535+07:00 0HLK9UN16ECJG:00000004 [INF] Request finished in 176.666ms 200 text/html; charset=utf-8 (791a596a)
+2019-02-03T23:38:33.3718074+07:00 0HLK9UN16ECJH:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/lib/notifyjs/dist/styles/metro/notify-metro.css   (ca22a1cb)
+2019-02-03T23:38:33.4194102+07:00 0HLK9UN16ECJL:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/lib/jquery/dist/jquery.min.js   (ca22a1cb)
+2019-02-03T23:38:33.4524078+07:00 0HLK9UN16ECJI:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/lib/nprogress/nprogress.css   (ca22a1cb)
+2019-02-03T23:38:33.5266186+07:00 0HLK9UN16ECJJ:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/app/shared/shoponline.js   (ca22a1cb)
+2019-02-03T23:38:33.6109597+07:00 0HLK9UN16ECJK:00000001 [INF] The file "/lib/jquery-validation/dist/jquery.validate.js" was not modified (f1f8d725)
+2019-02-03T23:38:33.6223742+07:00 0HLK9UN16ECJH:00000001 [INF] The file "/lib/notifyjs/dist/styles/metro/notify-metro.css" was not modified (f1f8d725)
+2019-02-03T23:38:33.6542033+07:00 0HLK9UN16ECJO:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/admin-side/css/custom.min.css   (ca22a1cb)
+2019-02-03T23:38:33.6595502+07:00 0HLK9UN16ECJN:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js   (ca22a1cb)
+2019-02-03T23:38:33.6767778+07:00 0HLK9UN16ECJI:00000001 [INF] The file "/lib/nprogress/nprogress.css" was not modified (f1f8d725)
+2019-02-03T23:38:33.6920225+07:00 0HLK9UN16ECJL:00000001 [INF] The file "/lib/jquery/dist/jquery.min.js" was not modified (f1f8d725)
+2019-02-03T23:38:33.7216533+07:00 0HLK9UN16ECJJ:00000001 [INF] The file "/app/shared/shoponline.js" was not modified (f1f8d725)
+2019-02-03T23:38:33.7616983+07:00 0HLK9UN16ECJK:00000001 [INF] Request finished in 448.588ms 304 application/javascript (791a596a)
+2019-02-03T23:38:33.7726765+07:00 0HLK9UN16ECJP:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/lib/bootstrap/dist/js/bootstrap.min.js   (ca22a1cb)
+2019-02-03T23:38:33.7868039+07:00 0HLK9UN16ECJH:00000001 [INF] Request finished in 476.8152ms 304 text/css (791a596a)
+2019-02-03T23:38:33.8005631+07:00 0HLK9UN16ECJO:00000001 [INF] The file "/admin-side/css/custom.min.css" was not modified (f1f8d725)
+2019-02-03T23:38:33.8229833+07:00 0HLK9UN16ECJI:00000001 [INF] Request finished in 528.3825ms 304 text/css (791a596a)
+2019-02-03T23:38:33.8385105+07:00 0HLK9UN16ECJN:00000001 [INF] The file "/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js" was not modified (f1f8d725)
+2019-02-03T23:38:33.8558910+07:00 0HLK9UN16ECJL:00000001 [INF] Request finished in 533.5117ms 304 application/javascript (791a596a)
+2019-02-03T23:38:33.8758189+07:00 0HLK9UN16ECJJ:00000001 [INF] Request finished in 562.6153ms 304 application/javascript (791a596a)
+2019-02-03T23:38:33.9258008+07:00 0HLK9UN16ECJM:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/lib/animate.css/animate.min.css   (ca22a1cb)
+2019-02-03T23:38:33.9586190+07:00 0HLK9UN16ECJN:00000001 [INF] Request finished in 563.363ms 304 application/javascript (791a596a)
+2019-02-03T23:38:33.9714506+07:00 0HLK9UN16ECJO:00000001 [INF] Request finished in 431.3823ms 304 text/css (791a596a)
+2019-02-03T23:38:33.9836397+07:00 0HLK9UN16ECJP:00000001 [INF] The file "/lib/bootstrap/dist/js/bootstrap.min.js" was not modified (f1f8d725)
+2019-02-03T23:38:34.0208614+07:00 0HLK9UN16ECJQ:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/app/controller/login/index.js   (ca22a1cb)
+2019-02-03T23:38:34.0783545+07:00 0HLK9UN16ECJP:00000001 [INF] Request finished in 567.9954ms 304 application/javascript (791a596a)
+2019-02-03T23:38:34.0812510+07:00 0HLK9UN16ECJM:00000001 [INF] The file "/lib/animate.css/animate.min.css" was not modified (f1f8d725)
+2019-02-03T23:38:34.1066340+07:00 0HLK9UN16ECJQ:00000001 [INF] The file "/app/controller/login/index.js" was not modified (f1f8d725)
+2019-02-03T23:38:34.1546079+07:00 0HLK9UN16ECJM:00000001 [INF] Request finished in 885.6486ms 304 text/css (791a596a)
+2019-02-03T23:38:34.2373595+07:00 0HLK9UN16ECJQ:00000001 [INF] Request finished in 603.8531ms 304 application/javascript (791a596a)
+2019-02-03T23:38:46.7471905+07:00 0HLK9UN16ECJG:00000005 [INF] Request starting HTTP/1.1 POST http://localhost:44344/Admin/Login/authen application/x-www-form-urlencoded; charset=UTF-8 30 (ca22a1cb)
+2019-02-03T23:38:46.8667494+07:00 0HLK9UN16ECJG:00000005 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.LoginController.Authen (ShopOnlineApp)" with arguments (["ShopOnlineApp.Models.AccountViewModels.LoginViewModel", ""]) - ModelState is Valid (ba7f4ac2)
+2019-02-03T23:38:46.8851825+07:00 0HLK9UN16ECJG:00000005 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2019-02-03T23:38:46.9313896+07:00 0HLK9UN16ECJG:00000005 [INF] Executed DbCommand ("8"ms) [Parameters=["@__normalizedUserName_0='?' (Size = 4000)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[Avatar], [u].[Balance], [u].[BirthDay], [u].[ConcurrencyStamp], [u].[DateCreated], [u].[DateModified], [u].[Email], [u].[EmailConfirmed], [u].[FullName], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[Status], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [AppUsers] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0" (0723d8ff)
+2019-02-03T23:38:47.1965574+07:00 0HLK9UN16ECJG:00000005 [INF] Executed DbCommand ("4"ms) [Parameters=["@__user_Id_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT [uc].[Id], [uc].[ClaimType], [uc].[ClaimValue], [uc].[UserId]
+FROM [AppUserClaims] AS [uc]
+WHERE [uc].[UserId] = @__user_Id_0" (0723d8ff)
+2019-02-03T23:38:47.2849524+07:00 0HLK9UN16ECJG:00000005 [INF] Executed DbCommand ("6"ms) [Parameters=["@__userId_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT [role].[Name]
+FROM [AppUserRoles] AS [userRole]
+INNER JOIN [AppRoles] AS [role] ON [userRole].[RoleId] = [role].[Id]
+WHERE [userRole].[UserId] = @__userId_0" (0723d8ff)
+2019-02-03T23:38:47.3228584+07:00 0HLK9UN16ECJG:00000005 [INF] Executed DbCommand ("3"ms) [Parameters=["@__normalizedName_0='?' (Size = 4000)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [r].[Id], [r].[ConcurrencyStamp], [r].[Description], [r].[Name], [r].[NormalizedName]
+FROM [AppRoles] AS [r]
+WHERE [r].[NormalizedName] = @__normalizedName_0" (0723d8ff)
+2019-02-03T23:38:47.3737241+07:00 0HLK9UN16ECJG:00000005 [INF] Executed DbCommand ("3"ms) [Parameters=["@__role_Id_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT [rc].[ClaimType], [rc].[ClaimValue]
+FROM [AppRoleClaims] AS [rc]
+WHERE [rc].[RoleId] = @__role_Id_0" (0723d8ff)
+2019-02-03T23:38:47.3854831+07:00 0HLK9UN16ECJG:00000005 [INF] Executed DbCommand ("2"ms) [Parameters=["@__normalizedName_0='?' (Size = 4000)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [r].[Id], [r].[ConcurrencyStamp], [r].[Description], [r].[Name], [r].[NormalizedName]
+FROM [AppRoles] AS [r]
+WHERE [r].[NormalizedName] = @__normalizedName_0" (0723d8ff)
+2019-02-03T23:38:47.3977637+07:00 0HLK9UN16ECJG:00000005 [INF] Executed DbCommand ("1"ms) [Parameters=["@__role_Id_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT [rc].[ClaimType], [rc].[ClaimValue]
+FROM [AppRoleClaims] AS [rc]
+WHERE [rc].[RoleId] = @__role_Id_0" (0723d8ff)
+2019-02-03T23:38:47.4166488+07:00 0HLK9UN16ECJG:00000005 [INF] Executed DbCommand ("3"ms) [Parameters=["@__userId_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT [role].[Name]
+FROM [AppUserRoles] AS [userRole]
+INNER JOIN [AppRoles] AS [role] ON [userRole].[RoleId] = [role].[Id]
+WHERE [userRole].[UserId] = @__userId_0" (0723d8ff)
+2019-02-03T23:38:47.4410581+07:00 0HLK9UN16ECJG:00000005 [INF] AuthenticationScheme: "Identity.Application" signed in. (c66dd7e7)
+2019-02-03T23:38:47.4589677+07:00 0HLK9UN16ECJG:00000005 [INF] Đăng nhập thành công (ba4d6ffb)
+2019-02-03T23:38:47.4844634+07:00 0HLK9UN16ECJG:00000005 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2019-02-03T23:38:47.9615206+07:00 0HLK9UN16ECJG:00000005 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.LoginController.Authen (ShopOnlineApp)" in 1149.2549ms (afa2e885)
+2019-02-03T23:38:48.1111545+07:00 0HLK9UN16ECJG:00000005 [INF] Request finished in 1249.4471ms 200 application/json; charset=utf-8 (791a596a)
+2019-02-03T23:38:48.1251048+07:00 0HLK9UN16ECJK:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/Home/Index   (ca22a1cb)
+2019-02-03T23:38:48.1461929+07:00 0HLK9UN16ECJK:00000002 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2019-02-03T23:38:48.1689525+07:00 0HLK9UN16ECJK:00000002 [INF] Authorization was successful for user: "admin". (d7eb274a)
+2019-02-03T23:38:48.1802257+07:00 0HLK9UN16ECJK:00000002 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.HomeController.Index (ShopOnlineApp)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2019-02-03T23:38:48.8392013+07:00 0HLK9UN16ECJK:00000002 [INF] Executing ViewResult, running view at path "/Areas/Admin/Views/Home/Index.cshtml". (9707eebe)
+2019-02-03T23:38:49.6598849+07:00 0HLK9UN16ECJK:00000002 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopOnlineApp.Data.EF " (9958f5bb)
+2019-02-03T23:38:49.7162183+07:00 0HLK9UN16ECJK:00000002 [INF] Executed DbCommand ("13"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[IconCss], [x].[Name], [x].[ParentId], [x].[SortOrder], [x].[Status], [x].[URL]
+FROM [Functions] AS [x]
+WHERE [x].[Status] = 1
+ORDER BY [x].[ParentId]" (0723d8ff)
+2019-02-03T23:38:51.0707576+07:00 0HLK9UN16ECJK:00000002 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.HomeController.Index (ShopOnlineApp)" in 2813.9923ms (afa2e885)
+2019-02-03T23:38:51.5198397+07:00 0HLK9UN16ECJK:00000002 [INF] Request finished in 2981.1008ms 200 text/html; charset=utf-8 (791a596a)
+2019-02-03T23:38:51.5674914+07:00 0HLK9UN16ECJP:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44344/lib/twbs-pagination/jquery.twbsPagination.js   (ca22a1cb)
+2019-02-03T23:38:51.5869951+07:00 0HLK9UN16ECJT:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/lib/jquery-validation/dist/additional-methods.js   (ca22a1cb)
+2019-02-03T23:38:51.6059073+07:00 0HLK9UN16ECJO:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44344/lib/ckeditor/skins/moono/editor.css   (ca22a1cb)
+2019-02-03T23:38:51.6745301+07:00 0HLK9UN16ECJN:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44344/lib/mustache/mustache.min.js   (ca22a1cb)
+2019-02-03T23:38:51.7400028+07:00 0HLK9UN16ECJT:00000001 [INF] The file "/lib/jquery-validation/dist/additional-methods.js" was not modified (f1f8d725)
+2019-02-03T23:38:51.8243407+07:00 0HLK9UN16ECJP:00000002 [INF] The file "/lib/twbs-pagination/jquery.twbsPagination.js" was not modified (f1f8d725)
+2019-02-03T23:38:51.8610720+07:00 0HLK9UN16ECJO:00000002 [INF] The file "/lib/ckeditor/skins/moono/editor.css" was not modified (f1f8d725)
+2019-02-03T23:38:51.8880594+07:00 0HLK9UN16ECJK:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:44344/lib/bootstrap-daterangepicker/daterangepicker.js   (ca22a1cb)
+2019-02-03T23:38:51.9686342+07:00 0HLK9UN16ECJS:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/lib/bootbox/bootbox.js   (ca22a1cb)
+2019-02-03T23:38:51.9823406+07:00 0HLK9UN16ECJN:00000002 [INF] The file "/lib/mustache/mustache.min.js" was not modified (f1f8d725)
+2019-02-03T23:38:52.0675399+07:00 0HLK9UN16ECJT:00000001 [INF] Request finished in 535.5091ms 304 application/javascript (791a596a)
+2019-02-03T23:38:52.0803640+07:00 0HLK9UN16ECJP:00000002 [INF] Request finished in 765.0871ms 304 application/javascript (791a596a)
+2019-02-03T23:38:52.0992142+07:00 0HLK9UN16ECJO:00000002 [INF] Request finished in 805.2584ms 304 text/css (791a596a)
+2019-02-03T23:38:52.1065268+07:00 0HLK9UN16ECJK:00000003 [INF] The file "/lib/bootstrap-daterangepicker/daterangepicker.js" was not modified (f1f8d725)
+2019-02-03T23:38:52.1447250+07:00 0HLK9UN16ECJN:00000002 [INF] Request finished in 923.0815ms 304 application/javascript (791a596a)
+2019-02-03T23:38:52.1607090+07:00 0HLK9UN16ECJS:00000001 [INF] The file "/lib/bootbox/bootbox.js" was not modified (f1f8d725)
+2019-02-03T23:38:52.4527523+07:00 0HLK9UN16ECJK:00000003 [INF] Request finished in 463.6425ms 304 application/javascript (791a596a)
+2019-02-03T23:38:52.4780462+07:00 0HLK9UN16ECK2:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/lib/flot/jquery.flot.stack.js   (ca22a1cb)
+2019-02-03T23:38:52.5053362+07:00 0HLK9UN16ECK4:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/app/controller/home/index.js?v=E-zeXw_e4-kJs_4h2tuoobYJKnpI-rAgNSpcBkaymeo   (ca22a1cb)
+2019-02-03T23:38:52.5176978+07:00 0HLK9UN16ECK7:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/lib/flot/jquery.flot.resize.js   (ca22a1cb)
+2019-02-03T23:38:52.5700299+07:00 0HLK9UN16ECK5:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/lib/flot-spline/js/jquery.flot.spline.min.js   (ca22a1cb)
+2019-02-03T23:38:52.6928988+07:00 0HLK9UN16ECK2:00000001 [INF] The file "/lib/flot/jquery.flot.stack.js" was not modified (f1f8d725)
+2019-02-03T23:38:52.7633810+07:00 0HLK9UN16ECK4:00000001 [INF] Sending file. Request path: '"/app/controller/home/index.js"'. Physical path: '"G:\KhoaLuan\teducoreapp\ShopOnlineApp\wwwroot\app\controller\home\index.js"' (27b0a520)
+2019-02-03T23:38:52.7897727+07:00 0HLK9UN16ECK7:00000001 [INF] The file "/lib/flot/jquery.flot.resize.js" was not modified (f1f8d725)
+2019-02-03T23:38:52.8380924+07:00 0HLK9UN16ECK6:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/lib/flot.curvedlines/curvedLines.js   (ca22a1cb)
+2019-02-03T23:38:52.8573696+07:00 0HLK9UN16ECK5:00000001 [INF] The file "/lib/flot-spline/js/jquery.flot.spline.min.js" was not modified (f1f8d725)
+2019-02-03T23:38:52.8980909+07:00 0HLK9UN16ECJS:00000001 [INF] Request finished in 952.8022ms 304 application/javascript (791a596a)
+2019-02-03T23:38:52.9216299+07:00 0HLK9UN16ECJM:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44344/lib/nprogress/nprogress.js   (ca22a1cb)
+2019-02-03T23:38:52.9735784+07:00 0HLK9UN16ECK2:00000001 [INF] Request finished in 550.3245ms 304 application/javascript (791a596a)
+2019-02-03T23:38:53.0625649+07:00 0HLK9UN16ECK7:00000001 [INF] Request finished in 457.3512ms 304 application/javascript (791a596a)
+2019-02-03T23:38:53.0771803+07:00 0HLK9UN16ECK6:00000001 [INF] The file "/lib/flot.curvedlines/curvedLines.js" was not modified (f1f8d725)
+2019-02-03T23:38:53.2273811+07:00 0HLK9UN16ECK5:00000001 [INF] Request finished in 436.6821ms 304 application/javascript (791a596a)
+2019-02-03T23:38:53.4152350+07:00 0HLK9UN16ECK4:00000001 [INF] Request finished in 899.6478ms 200 application/javascript (791a596a)
+2019-02-03T23:38:53.4341785+07:00 0HLK9UN16ECK8:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/lib/flot.orderbars/js/jquery.flot.orderBars.js   (ca22a1cb)
+2019-02-03T23:38:53.4533615+07:00 0HLK9UN16ECK6:00000001 [INF] Request finished in 509.5267ms 304 application/javascript (791a596a)
+2019-02-03T23:38:53.6615158+07:00 0HLK9UN16ECJH:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44344/lib/bootstrap/dist/css/bootstrap.min.css   (ca22a1cb)
+2019-02-03T23:38:53.6810839+07:00 0HLK9UN16ECJM:00000002 [INF] The file "/lib/nprogress/nprogress.js" was not modified (f1f8d725)
+2019-02-03T23:38:53.6996422+07:00 0HLK9UN16ECK8:00000001 [INF] The file "/lib/flot.orderbars/js/jquery.flot.orderBars.js" was not modified (f1f8d725)
+2019-02-03T23:38:53.7842155+07:00 0HLK9UN16ECJH:00000002 [INF] The file "/lib/bootstrap/dist/css/bootstrap.min.css" was not modified (f1f8d725)
+2019-02-03T23:38:53.8267889+07:00 0HLK9UN16ECJI:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44344/lib/fastclick/lib/fastclick.js   (ca22a1cb)
+2019-02-03T23:38:53.8874488+07:00 0HLK9UN16ECJM:00000002 [INF] Request finished in 2612.2071ms 304 application/javascript (791a596a)
+2019-02-03T23:38:53.9040130+07:00 0HLK9UN16ECJR:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/lib/moment/min/moment.min.js   (ca22a1cb)
+2019-02-03T23:38:53.9250512+07:00 0HLK9UN16ECK8:00000001 [INF] Request finished in 653.3172ms 304 application/javascript (791a596a)
+2019-02-03T23:38:53.9962714+07:00 0HLK9UN16ECJH:00000002 [INF] Request finished in 2718.6948ms 304 text/css (791a596a)
+2019-02-03T23:38:54.0082457+07:00 0HLK9UN16ECJI:00000002 [INF] The file "/lib/fastclick/lib/fastclick.js" was not modified (f1f8d725)
+2019-02-03T23:38:54.0532596+07:00 0HLK9UN16ECJR:00000001 [INF] The file "/lib/moment/min/moment.min.js" was not modified (f1f8d725)
+2019-02-03T23:38:54.1627296+07:00 0HLK9UN16ECJL:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44344/lib/bootstrap-daterangepicker/daterangepicker.css   (ca22a1cb)
+2019-02-03T23:38:54.1848250+07:00 0HLK9UN16ECJI:00000002 [INF] Request finished in 2949.9453ms 304 application/javascript (791a596a)
+2019-02-03T23:38:54.1998529+07:00 0HLK9UN16ECJR:00000001 [INF] Request finished in 2847.0938ms 304 application/javascript (791a596a)
+2019-02-03T23:38:54.2238147+07:00 0HLK9UN16ECJJ:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44344/lib/font-awesome/css/font-awesome.min.css   (ca22a1cb)
+2019-02-03T23:38:54.2348125+07:00 0HLK9UN16ECJQ:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44344/lib/DateJS/build/date.js   (ca22a1cb)
+2019-02-03T23:38:54.2515162+07:00 0HLK9UN16ECJL:00000002 [INF] The file "/lib/bootstrap-daterangepicker/daterangepicker.css" was not modified (f1f8d725)
+2019-02-03T23:38:54.3100637+07:00 0HLK9UN16ECJJ:00000002 [INF] The file "/lib/font-awesome/css/font-awesome.min.css" was not modified (f1f8d725)
+2019-02-03T23:38:54.3306357+07:00 0HLK9UN16ECJG:00000006 [INF] Request starting HTTP/1.1 GET http://localhost:44344/lib/Chart.js/dist/Chart.min.js   (ca22a1cb)
+2019-02-03T23:38:54.3370902+07:00 0HLK9UN16ECJQ:00000002 [INF] The file "/lib/DateJS/build/date.js" was not modified (f1f8d725)
+2019-02-03T23:38:54.3677023+07:00 0HLK9UN16ECJU:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/lib/ckeditor/ckeditor.js   (ca22a1cb)
+2019-02-03T23:38:54.4024329+07:00 0HLK9UN16ECJL:00000002 [INF] Request finished in 3146.7667ms 304 text/css (791a596a)
+2019-02-03T23:38:54.4682748+07:00 0HLK9UN16ECJJ:00000002 [INF] Request finished in 3185.2264ms 304 text/css (791a596a)
+2019-02-03T23:38:54.5026572+07:00 0HLK9UN16ECJQ:00000002 [INF] Request finished in 3221.5275ms 304 application/javascript (791a596a)
+2019-02-03T23:38:54.5170038+07:00 0HLK9UN16ECJG:00000006 [INF] The file "/lib/Chart.js/dist/Chart.min.js" was not modified (f1f8d725)
+2019-02-03T23:38:54.5589776+07:00 0HLK9UN16ECJU:00000001 [INF] The file "/lib/ckeditor/ckeditor.js" was not modified (f1f8d725)
+2019-02-03T23:38:54.8413380+07:00 0HLK9UN16ECJG:00000006 [INF] Request finished in 3400.933ms 304 application/javascript (791a596a)
+2019-02-03T23:38:54.9102848+07:00 0HLK9UN16ECJT:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44344/lib/font-awesome/fonts/fontawesome-webfont.woff2?v=4.7.0   (ca22a1cb)
+2019-02-03T23:38:54.9345594+07:00 0HLK9UN16ECJP:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:44344/lib/bootstrap/dist/fonts/glyphicons-halflings-regular.woff2   (ca22a1cb)
+2019-02-03T23:38:55.1421259+07:00 0HLK9UN16ECJU:00000001 [INF] Request finished in 3161.6101ms 304 application/javascript (791a596a)
+2019-02-03T23:38:55.1587158+07:00 0HLK9UN16ECJV:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/lib/flot/jquery.flot.pie.js   (ca22a1cb)
+2019-02-03T23:38:55.2454827+07:00 0HLK9UN16ECJT:00000002 [INF] The file "/lib/font-awesome/fonts/fontawesome-webfont.woff2" was not modified (f1f8d725)
+2019-02-03T23:38:55.4283184+07:00 0HLK9UN16ECJP:00000003 [INF] The file "/lib/bootstrap/dist/fonts/glyphicons-halflings-regular.woff2" was not modified (f1f8d725)
+2019-02-03T23:38:55.4816946+07:00 0HLK9UN16ECJV:00000001 [INF] The file "/lib/flot/jquery.flot.pie.js" was not modified (f1f8d725)
+2019-02-03T23:38:55.4910446+07:00 0HLK9UN16ECK1:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/lib/flot/jquery.flot.js   (ca22a1cb)
+2019-02-03T23:38:55.5795846+07:00 0HLK9UN16ECK3:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/lib/flot/jquery.flot.time.js   (ca22a1cb)
+2019-02-03T23:38:55.5875764+07:00 0HLK9UN16ECJV:00000001 [INF] Request finished in 4081.4455ms 304 application/javascript (791a596a)
+2019-02-03T23:38:55.5971903+07:00 0HLK9UN16ECK0:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/admin-side/js/custom.min.js   (ca22a1cb)
+2019-02-03T23:38:55.6053834+07:00 0HLK9UN16ECJT:00000002 [INF] Request finished in 749.2802ms 304 font/woff2 (791a596a)
+2019-02-03T23:38:55.6177367+07:00 0HLK9UN16ECJP:00000003 [INF] Request finished in 926.033ms 304 font/woff2 (791a596a)
+2019-02-03T23:38:55.6238388+07:00 0HLK9UN16ECK1:00000001 [INF] The file "/lib/flot/jquery.flot.js" was not modified (f1f8d725)
+2019-02-03T23:38:55.6966432+07:00 0HLK9UN16ECK3:00000001 [INF] The file "/lib/flot/jquery.flot.time.js" was not modified (f1f8d725)
+2019-02-03T23:38:55.7542426+07:00 0HLK9UN16ECK0:00000001 [INF] Sending file. Request path: '"/admin-side/js/custom.min.js"'. Physical path: '"G:\KhoaLuan\teducoreapp\ShopOnlineApp\wwwroot\admin-side\js\custom.min.js"' (27b0a520)
+2019-02-03T23:38:55.7597750+07:00 0HLK9UN16ECK1:00000001 [INF] Request finished in 4321.55ms 304 application/javascript (791a596a)
+2019-02-03T23:38:55.7757059+07:00 0HLK9UN16ECK3:00000001 [INF] Request finished in 4301.2772ms 304 application/javascript (791a596a)
+2019-02-03T23:38:55.8945731+07:00 0HLK9UN16ECK0:00000001 [INF] Request finished in 4422.5631ms 200 application/javascript (791a596a)
+2019-02-03T23:38:56.3781109+07:00 0HLK9UN16ECJO:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/Home/GetRevenue   (ca22a1cb)
+2019-02-03T23:38:56.6154443+07:00 0HLK9UN16ECJO:00000003 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2019-02-03T23:38:56.6602224+07:00 0HLK9UN16ECJO:00000003 [INF] Authorization was successful for user: "admin". (d7eb274a)
+2019-02-03T23:38:56.6795032+07:00 0HLK9UN16ECJO:00000003 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.HomeController.GetRevenue (ShopOnlineApp)" with arguments (["", ""]) - ModelState is Valid (ba7f4ac2)
+2019-02-03T23:39:02.0323421+07:00 0HLK9UN16ECJO:00000003 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2019-02-03T23:39:02.0753079+07:00 0HLK9UN16ECJO:00000003 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.HomeController.GetRevenue (ShopOnlineApp)" in 5427.7525ms (afa2e885)
+2019-02-03T23:39:02.0930627+07:00 0HLK9UN16ECJO:00000003 [INF] Request finished in 5890.7821ms 200 application/json; charset=utf-8 (791a596a)
+2019-02-03T23:39:07.9656183+07:00 0HLK9UN16ECJN:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/Home/GetRevenue?fromDate=01%2F28%2F2019&toDate=02%2F03%2F2019   (ca22a1cb)
+2019-02-03T23:39:07.9815314+07:00 0HLK9UN16ECJN:00000003 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2019-02-03T23:39:07.9919806+07:00 0HLK9UN16ECJN:00000003 [INF] Authorization was successful for user: "admin". (d7eb274a)
+2019-02-03T23:39:08.0030400+07:00 0HLK9UN16ECJN:00000003 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.HomeController.GetRevenue (ShopOnlineApp)" with arguments (["01/28/2019", "02/03/2019"]) - ModelState is Valid (ba7f4ac2)
+2019-02-03T23:39:13.5079171+07:00 0HLK9UN16ECJN:00000003 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2019-02-03T23:39:13.5215360+07:00 0HLK9UN16ECJN:00000003 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.HomeController.GetRevenue (ShopOnlineApp)" in 5526.4196ms (afa2e885)
+2019-02-03T23:39:13.5524686+07:00 0HLK9UN16ECJN:00000003 [INF] Request finished in 5570.987ms 200 application/json; charset=utf-8 (791a596a)
+2019-02-03T23:39:19.5322214+07:00 0HLK9UN16ECJK:00000004 [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/Home/GetRevenue?fromDate=02%2F01%2F2019&toDate=02%2F28%2F2019   (ca22a1cb)
+2019-02-03T23:39:19.5456911+07:00 0HLK9UN16ECJK:00000004 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2019-02-03T23:39:19.5584267+07:00 0HLK9UN16ECJK:00000004 [INF] Authorization was successful for user: "admin". (d7eb274a)
+2019-02-03T23:39:19.5679287+07:00 0HLK9UN16ECJK:00000004 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.HomeController.GetRevenue (ShopOnlineApp)" with arguments (["02/01/2019", "02/28/2019"]) - ModelState is Valid (ba7f4ac2)
+2019-02-03T23:39:21.9132703+07:00 0HLK9UN16ECJK:00000004 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2019-02-03T23:39:21.9393595+07:00 0HLK9UN16ECJK:00000004 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.HomeController.GetRevenue (ShopOnlineApp)" in 2366.4022ms (afa2e885)
+2019-02-03T23:39:21.9687078+07:00 0HLK9UN16ECJK:00000004 [INF] Request finished in 2419.0476ms 200 application/json; charset=utf-8 (791a596a)
+2019-02-03T23:39:31.7694267+07:00 0HLK9UN16ECJS:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/Home/GetRevenue?fromDate=01%2F03%2F2019&toDate=01%2F31%2F2019   (ca22a1cb)
+2019-02-03T23:39:31.7821413+07:00 0HLK9UN16ECJS:00000002 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2019-02-03T23:39:31.7912079+07:00 0HLK9UN16ECJS:00000002 [INF] Authorization was successful for user: "admin". (d7eb274a)
+2019-02-03T23:39:31.8026103+07:00 0HLK9UN16ECJS:00000002 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.HomeController.GetRevenue (ShopOnlineApp)" with arguments (["01/03/2019", "01/31/2019"]) - ModelState is Valid (ba7f4ac2)
+2019-02-03T23:39:38.9148515+07:00 0HLK9UN16ECJS:00000002 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2019-02-03T23:39:39.0468583+07:00 0HLK9UN16ECJS:00000002 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.HomeController.GetRevenue (ShopOnlineApp)" in 7158.8823ms (afa2e885)
+2019-02-03T23:39:39.1726703+07:00 0HLK9UN16ECJS:00000002 [INF] Request finished in 7293.3973ms 200 application/json; charset=utf-8 (791a596a)
+2019-02-03T23:39:49.2299961+07:00 0HLK9UN16ECK2:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/Home/GetRevenue?fromDate=02%2F01%2F2019&toDate=02%2F03%2F2019   (ca22a1cb)
+2019-02-03T23:39:49.2442633+07:00 0HLK9UN16ECK2:00000002 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2019-02-03T23:39:49.2536469+07:00 0HLK9UN16ECK2:00000002 [INF] Authorization was successful for user: "admin". (d7eb274a)
+2019-02-03T23:39:49.2640545+07:00 0HLK9UN16ECK2:00000002 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.HomeController.GetRevenue (ShopOnlineApp)" with arguments (["02/01/2019", "02/03/2019"]) - ModelState is Valid (ba7f4ac2)
+2019-02-03T23:39:57.5011638+07:00 0HLK9UN16ECK2:00000002 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2019-02-03T23:39:57.5418460+07:00 0HLK9UN16ECK2:00000002 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.HomeController.GetRevenue (ShopOnlineApp)" in 8256.6493ms (afa2e885)
+2019-02-03T23:39:57.6387129+07:00 0HLK9UN16ECK2:00000002 [INF] Request finished in 8333.8525ms 200 application/json; charset=utf-8 (791a596a)
+2019-02-03T23:40:15.2372089+07:00 0HLK9UN16ECJK:00000005 [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/Home/GetRevenue?fromDate=02%2F02%2F2019&toDate=02%2F02%2F2019   (ca22a1cb)
+2019-02-03T23:40:15.2490406+07:00 0HLK9UN16ECJK:00000005 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2019-02-03T23:40:15.2584648+07:00 0HLK9UN16ECJK:00000005 [INF] Authorization was successful for user: "admin". (d7eb274a)
+2019-02-03T23:40:15.2679103+07:00 0HLK9UN16ECJK:00000005 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.HomeController.GetRevenue (ShopOnlineApp)" with arguments (["02/02/2019", "02/02/2019"]) - ModelState is Valid (ba7f4ac2)
+2019-02-03T23:40:28.4370601+07:00 0HLK9UN16ECJK:00000005 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2019-02-03T23:40:28.4516927+07:00 0HLK9UN16ECJK:00000005 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.HomeController.GetRevenue (ShopOnlineApp)" in 13188.5084ms (afa2e885)
+2019-02-03T23:40:28.4827122+07:00 0HLK9UN16ECJK:00000005 [INF] Request finished in 13229.5071ms 200 application/json; charset=utf-8 (791a596a)
+2019-02-03T23:41:19.3212456+07:00 0HLK9UN16ECJK:00000006 [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/Home/GetRevenue?fromDate=02%2F01%2F2019&toDate=02%2F28%2F2019   (ca22a1cb)
+2019-02-03T23:41:19.3305210+07:00 0HLK9UN16ECJK:00000006 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2019-02-03T23:41:19.3382247+07:00 0HLK9UN16ECJK:00000006 [INF] Authorization was successful for user: "admin". (d7eb274a)
+2019-02-03T23:41:19.3459811+07:00 0HLK9UN16ECJK:00000006 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.HomeController.GetRevenue (ShopOnlineApp)" with arguments (["02/01/2019", "02/28/2019"]) - ModelState is Valid (ba7f4ac2)
+2019-02-03T23:41:19.3693001+07:00 0HLK9UN16ECJK:00000006 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2019-02-03T23:41:19.3810814+07:00 0HLK9UN16ECJK:00000006 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.HomeController.GetRevenue (ShopOnlineApp)" in 39.6105ms (afa2e885)
+2019-02-03T23:41:19.4166111+07:00 0HLK9UN16ECJK:00000006 [INF] Request finished in 73.2976ms 200 application/json; charset=utf-8 (791a596a)
+2019-02-03T23:41:21.5573466+07:00 0HLK9UN16ECJK:00000007 [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/Home/GetRevenue?fromDate=01%2F28%2F2019&toDate=02%2F03%2F2019   (ca22a1cb)
+2019-02-03T23:41:21.5673511+07:00 0HLK9UN16ECJK:00000007 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2019-02-03T23:41:21.5765297+07:00 0HLK9UN16ECJK:00000007 [INF] Authorization was successful for user: "admin". (d7eb274a)
+2019-02-03T23:41:21.5842328+07:00 0HLK9UN16ECJK:00000007 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.HomeController.GetRevenue (ShopOnlineApp)" with arguments (["01/28/2019", "02/03/2019"]) - ModelState is Valid (ba7f4ac2)
+2019-02-03T23:41:21.6037370+07:00 0HLK9UN16ECJK:00000007 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2019-02-03T23:41:21.6141810+07:00 0HLK9UN16ECJK:00000007 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.HomeController.GetRevenue (ShopOnlineApp)" in 36.4632ms (afa2e885)
+2019-02-03T23:41:21.6586236+07:00 0HLK9UN16ECJK:00000007 [INF] Request finished in 65.8116ms 200 application/json; charset=utf-8 (791a596a)
+2019-02-03T23:41:29.4501186+07:00 0HLK9UN16ECJK:00000008 [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/Home/GetRevenue?fromDate=02%2F02%2F2019&toDate=02%2F02%2F2019   (ca22a1cb)
+2019-02-03T23:41:29.4655662+07:00 0HLK9UN16ECJK:00000008 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2019-02-03T23:41:29.4744020+07:00 0HLK9UN16ECJK:00000008 [INF] Authorization was successful for user: "admin". (d7eb274a)
+2019-02-03T23:41:29.4825136+07:00 0HLK9UN16ECJK:00000008 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.HomeController.GetRevenue (ShopOnlineApp)" with arguments (["02/02/2019", "02/02/2019"]) - ModelState is Valid (ba7f4ac2)
+2019-02-03T23:41:29.4921806+07:00 0HLK9UN16ECJK:00000008 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2019-02-03T23:41:29.5010016+07:00 0HLK9UN16ECJK:00000008 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.HomeController.GetRevenue (ShopOnlineApp)" in 26.5883ms (afa2e885)
+2019-02-03T23:41:29.5154795+07:00 0HLK9UN16ECJK:00000008 [INF] Request finished in 68.29ms 200 application/json; charset=utf-8 (791a596a)
+2019-02-03T23:41:31.6235842+07:00 0HLK9UN16ECJK:00000009 [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/Home/GetRevenue?fromDate=01%2F28%2F2019&toDate=02%2F03%2F2019   (ca22a1cb)
+2019-02-03T23:41:31.6384416+07:00 0HLK9UN16ECJK:00000009 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2019-02-03T23:41:31.6474645+07:00 0HLK9UN16ECJK:00000009 [INF] Authorization was successful for user: "admin". (d7eb274a)
+2019-02-03T23:41:31.6560697+07:00 0HLK9UN16ECJK:00000009 [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.HomeController.GetRevenue (ShopOnlineApp)" with arguments (["01/28/2019", "02/03/2019"]) - ModelState is Valid (ba7f4ac2)
+2019-02-03T23:41:31.6659875+07:00 0HLK9UN16ECJK:00000009 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2019-02-03T23:41:31.6739550+07:00 0HLK9UN16ECJK:00000009 [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.HomeController.GetRevenue (ShopOnlineApp)" in 26.8354ms (afa2e885)
+2019-02-03T23:41:31.6918454+07:00 0HLK9UN16ECJK:00000009 [INF] Request finished in 66.8795ms 200 application/json; charset=utf-8 (791a596a)
+2019-02-03T23:41:33.6713279+07:00 0HLK9UN16ECJK:0000000A [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/Home/GetRevenue?fromDate=01%2F28%2F2019&toDate=02%2F03%2F2019   (ca22a1cb)
+2019-02-03T23:41:33.6792492+07:00 0HLK9UN16ECJK:0000000A [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2019-02-03T23:41:33.6865832+07:00 0HLK9UN16ECJK:0000000A [INF] Authorization was successful for user: "admin". (d7eb274a)
+2019-02-03T23:41:33.6942459+07:00 0HLK9UN16ECJK:0000000A [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.HomeController.GetRevenue (ShopOnlineApp)" with arguments (["01/28/2019", "02/03/2019"]) - ModelState is Valid (ba7f4ac2)
+2019-02-03T23:41:33.7035219+07:00 0HLK9UN16ECJK:0000000A [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2019-02-03T23:41:33.7123377+07:00 0HLK9UN16ECJK:0000000A [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.HomeController.GetRevenue (ShopOnlineApp)" in 24.8688ms (afa2e885)
+2019-02-03T23:41:33.7243857+07:00 0HLK9UN16ECJK:0000000A [INF] Request finished in 51.9354ms 200 application/json; charset=utf-8 (791a596a)
+2019-02-03T23:41:40.9557425+07:00 0HLK9UN16ECJK:0000000B [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/Home/GetRevenue?fromDate=01%2F05%2F2019&toDate=02%2F03%2F2019   (ca22a1cb)
+2019-02-03T23:41:40.9657092+07:00 0HLK9UN16ECJK:0000000B [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2019-02-03T23:41:40.9768068+07:00 0HLK9UN16ECJK:0000000B [INF] Authorization was successful for user: "admin". (d7eb274a)
+2019-02-03T23:41:40.9843417+07:00 0HLK9UN16ECJK:0000000B [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.HomeController.GetRevenue (ShopOnlineApp)" with arguments (["01/05/2019", "02/03/2019"]) - ModelState is Valid (ba7f4ac2)
+2019-02-03T23:41:59.5382815+07:00 0HLK9UN16ECJK:0000000B [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2019-02-03T23:41:59.5508764+07:00 0HLK9UN16ECJK:0000000B [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.HomeController.GetRevenue (ShopOnlineApp)" in 18572.5173ms (afa2e885)
+2019-02-03T23:41:59.5927546+07:00 0HLK9UN16ECJK:0000000B [INF] Request finished in 18608.506ms 200 application/json; charset=utf-8 (791a596a)
+2019-02-03T23:42:51.7858935+07:00 0HLK9UN16ECJK:0000000C [INF] Request starting HTTP/1.1 GET http://localhost:44344/Admin/Home/GetRevenue?fromDate=02%2F02%2F2019&toDate=02%2F03%2F2019   (ca22a1cb)
+2019-02-03T23:42:51.8012921+07:00 0HLK9UN16ECJK:0000000C [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2019-02-03T23:42:51.8118200+07:00 0HLK9UN16ECJK:0000000C [INF] Authorization was successful for user: "admin". (d7eb274a)
+2019-02-03T23:42:51.8223153+07:00 0HLK9UN16ECJK:0000000C [INF] Executing action method "ShopOnlineApp.Areas.Admin.Controllers.HomeController.GetRevenue (ShopOnlineApp)" with arguments (["02/02/2019", "02/03/2019"]) - ModelState is Valid (ba7f4ac2)
+2019-02-03T23:42:55.1766128+07:00 0HLK9UN16ECJK:0000000C [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2019-02-03T23:42:55.3006060+07:00 0HLK9UN16ECJK:0000000C [INF] Executed action "ShopOnlineApp.Areas.Admin.Controllers.HomeController.GetRevenue (ShopOnlineApp)" in 3375.3696ms (afa2e885)
+2019-02-03T23:42:55.3433825+07:00 0HLK9UN16ECJK:0000000C [INF] Request finished in 3525.636ms 200 application/json; charset=utf-8 (791a596a)
+2019-02-03T23:51:14.6508397+07:00 0HLK9UN16ECK9:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44344/lib/bootstrap/dist/css/bootstrap.min.css.map   (ca22a1cb)
+2019-02-03T23:51:14.6686094+07:00 0HLK9UN16ECK9:00000001 [INF] The file "/lib/bootstrap/dist/css/bootstrap.min.css.map" was not modified (f1f8d725)
+2019-02-03T23:51:14.7913869+07:00 0HLK9UN16ECK9:00000001 [INF] Request finished in 64.0598ms 304 text/plain (791a596a)

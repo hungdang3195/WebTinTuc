@@ -77,6 +77,11 @@ namespace ShopOnlineApp.Data.EF
             _context.Set<T>().RemoveRange(entities);
         }
 
+        public void SaveChanges()
+        {
+            _context.SaveChanges();
+        }
+
         public void Update(T entity)
         {
             _context.Set<T>().Update(entity);

@@ -37,7 +37,6 @@ namespace ShopOnlineApp.Controllers
 
         [TempData]
         public string ErrorMessage { get; set; }
-
         [HttpGet]
         [AllowAnonymous]
         [Route("login.html", Name = "Login")]
@@ -76,11 +75,9 @@ namespace ShopOnlineApp.Controllers
                     _logger.LogWarning("User account locked out.");
                     return RedirectToAction(nameof(Lockout));
                 }
-                else
-                {
-                    ModelState.AddModelError(string.Empty, "Invalid login attempt.");
-                    return View(model);
-                }
+
+                ModelState.AddModelError(string.Empty, "Invalid login attempt.");
+                return View(model);
             }
 
             // If we got this far, something failed, redisplay form
@@ -226,7 +223,6 @@ namespace ShopOnlineApp.Controllers
             {
                 return View(model);
             }
-            //MM/dd/yyy
             var user = new AppUser
             {
                 UserName = model.Email,
@@ -302,14 +298,12 @@ namespace ShopOnlineApp.Controllers
             {
                 return RedirectToAction(nameof(Lockout));
             }
-            else
-            {
-                // If the user does not have an account, then ask the user to create an account.
-                ViewData["ReturnUrl"] = returnUrl;
-                ViewData["LoginProvider"] = info.LoginProvider;
-                var email = info.Principal.FindFirstValue(ClaimTypes.Email);
-                return View("ExternalLogin", new ExternalLoginViewModel());
-            }
+
+            // If the user does not have an account, then ask the user to create an account.
+            ViewData["ReturnUrl"] = returnUrl;
+            ViewData["LoginProvider"] = info.LoginProvider;
+            var email = info.Principal.FindFirstValue(ClaimTypes.Email);
+            return View("ExternalLogin", new ExternalLoginViewModel());
         }
 
 

@@ -43,19 +43,17 @@ namespace ShopOnlineApp.Data.EF
         public DbSet<ProductImage> ProductImages { set; get; }
         public DbSet<ProductQuantity> ProductQuantities { set; get; }
         public DbSet<ProductTag> ProductTags { set; get; }
-
+        public DbSet<Rating> Ratings { set; get; }
         public DbSet<Size> Sizes { set; get; }
         public DbSet<Slide> Slides { set; get; }
-
         public DbSet<Tag> Tags { set; get; }
-
         public DbSet<Permission> Permissions { get; set; }
         public DbSet<WholePrice> WholePrices { get; set; }
-
         public DbSet<AdvertistmentPage> AdvertistmentPages { get; set; }
         public DbSet<Advertistment> Advertistments { get; set; }
         public DbSet<AdvertistmentPosition> AdvertistmentPositions { get; set; }
         public DbSet<Business> Businesss { get; set; }
+        public DbSet<BlogCategory> BlogCategories { get; set; }
 
         public DbSet<BusinessAction> BusinessActions { get; set; }
         public DbSet<GrantPermission> GrantPermissions { get; set; }

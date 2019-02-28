@@ -96,7 +96,7 @@
                 var render = '';
                 $.each(response, function (i, item) {
                     render += '<div class="col-md-3"><img width="100" src="' +
-                        item.path +
+                        item.Path +
                         '"> <a class="btn  btn-sm  btn-delete-image"><i class="fa fa-trash"></i></a></div>';
                 });
                 $('#image-list').html(render);
@@ -106,11 +106,11 @@
     }
 
     function clearFileInput(ctrl) {
-        //try {
-        //    ctrl.value = null;
-        //} catch (ex) { }
-        //if (ctrl.value) {
-        //    ctrl.parentNode.replaceChild(ctrl.cloneNode(true), ctrl);
-        //}
+        try {
+            ctrl.value = null;
+        } catch (ex) { }
+        if (ctrl.value) {
+            ctrl.parentNode.replaceChild(ctrl.cloneNode(true), ctrl);
+        }
     }
 }

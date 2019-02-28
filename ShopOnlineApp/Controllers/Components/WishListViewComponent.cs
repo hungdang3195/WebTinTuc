@@ -17,7 +17,6 @@ namespace ShopOnlineApp.Controllers.Components
             if (session != null)
                 cart = JsonConvert.DeserializeObject<List<WishListViewModel>>(session);
             ViewBag.CountWishList = cart.Count;
-
             return View();
         }
     }

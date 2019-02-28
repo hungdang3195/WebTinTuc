@@ -17,5 +17,15 @@ namespace ShopOnlineApp.Controllers
         {
             return ViewComponent("WishList");
         }
+
+        public IActionResult Rating()
+        {
+            return ViewComponent("Rating");
+        }
+        public IActionResult BlogComment()
+        {
+            return ViewComponent("BlogComment");
+        }
+
     }
 }

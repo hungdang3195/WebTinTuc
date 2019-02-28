@@ -74,9 +74,9 @@
                 $.each(response, function (i, item) {
                     render += Mustache.render(template, {
                         Id: item.Id,
-                        Colors: getColorOptions(item.colorId),
-                        Sizes: getSizeOptions(item.sizeId),
-                        Quantity: item.quantity
+                        Colors: getColorOptions(item.ColorId),
+                        Sizes: getSizeOptions(item.SizeId),
+                        Quantity: item.Quantity
                     });
                 });
                 $('#table-quantity-content').html(render);
@@ -115,9 +115,9 @@
         var colors = "<select class='form-control ddlColorId'>";
         $.each(cachedObj.colors, function (i, color) {
             if (selectedId === color.Id)
-                colors += '<option value="' + color.id + '" selected="select">' + color.name + '</option>';
+                colors += '<option value="' + color.Id + '" selected="select">' + color.Name + '</option>';
             else
-                colors += '<option value="' + color.id + '">' + color.name + '</option>';
+                colors += '<option value="' + color.Id + '">' + color.Name + '</option>';
         });
         colors += "</select>";
         return colors;
@@ -127,9 +127,9 @@
         var sizes = "<select class='form-control ddlSizeId'>";
         $.each(cachedObj.sizes, function (i, size) {
             if (selectedId === size.Id)
-                sizes += '<option value="' + size.id + '" selected="select">' + size.name + '</option>';
+                sizes += '<option value="' + size.Id + '" selected="select">' + size.Name + '</option>';
             else
-                sizes += '<option value="' + size.id + '">' + size.name + '</option>';
+                sizes += '<option value="' + size.Id + '">' + size.Name + '</option>';
         });
         sizes += "</select>";
         return sizes;

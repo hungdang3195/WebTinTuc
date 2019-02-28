@@ -32,6 +32,7 @@ namespace ShopOnlineApp.Data.EF.Common
         public int PageSize { get; set; }
 
         public int RowCount { get; set; }
+        public int CurrentPage { get; set; }
 
         public int FirstRowOnPage => (PageIndex - 1) * PageSize + 1;
 

@@ -73,7 +73,7 @@ namespace ShopOnlineApp.Areas.Admin.Controllers
         public IActionResult GetPaymentMethod()
         {
             List<EnumModel> enums = ((PaymentMethod[])Enum.GetValues(typeof(PaymentMethod)))
-                .Select(c => new EnumModel()
+                .Select(c => new EnumModel
                 {
                     Value = (int)c,
                     Name = c.GetDescription()
@@ -85,7 +85,7 @@ namespace ShopOnlineApp.Areas.Admin.Controllers
         public IActionResult GetBillStatus()
         {
             List<EnumModel> enums = ((BillStatus[])Enum.GetValues(typeof(BillStatus)))
-                .Select(c => new EnumModel()
+                .Select(c => new EnumModel
                 {
                     Value = (int)c,
                     Name = c.GetDescription()
