@@ -1,17 +1,27 @@
-﻿var productController = function () {
-    var quantityManagement = new QuantityManagement();
-    var imageManagement = new ImageManagement();
-    var wholePriceManagement = new WholePriceManagement();
-    this.initialize = function () {
-        loadDataCategory();
-        loadData();
-        registerEvent();
-        registerControl();
-        imageManagement.initialize();
-        quantityManagement.initialize();
-        wholePriceManagement.initialize();
+﻿var slideController = function () {
+
+    var obj = {
+        groupAlias : [
+            {
+                value: "top",
+                Id:"top"
+            },
+            {
+                value: "brand",
+                Id: "brand"
+            }
+        ]
     }
 
+    this.initialize = function () {
+        registerControl();
+        $.when(loadGroupAlias())
+            .done(function () {
+                loadData();
+            });
+        //loadData();
+        registerEvent();
+    }
     function registerControl() {
         CKEDITOR.replace('txtContent', {});
         $.fn.modal.Constructor.prototype.enforceFocus = function () {
@@ -20,8 +30,8 @@
                 .on('focusin.bs.modal', $.proxy(function (e) {
                     if (
                         this.$element[0] !== e.target && !this.$element.has(e.target).length
-                        // CKEditor compatibility fix start.
-                        && !$(e.target).closest('.cke_dialog, .cke').length
+                            // CKEditor compatibility fix start.
+                            && !$(e.target).closest('.cke_dialog, .cke').length
                         // CKEditor compatibility fix end.
                     ) {
                         this.$element.trigger('focus');
@@ -29,7 +39,6 @@
                 }, this));
         };
     }
-
     function registerEvent() {
 
         $('#frmMaintainance').validate({
@@ -72,7 +81,6 @@
 
         $("#btnCreate").on('click', function () {
             resetFormMaintainance();
-            initTreeDropDownCategory();
             $('#modal-add-edit').modal('show');
 
         });
@@ -111,51 +119,6 @@
             });
         });
 
-        $('#btnImportExcel').on('click', function () {
-            var fileUpload = $("#fileInputExcel").get(0);
-            var files = fileUpload.files;
-
-            // Create FormData object  
-            var fileData = new FormData();
-            // Looping over all files and add it to FormData object  
-            for (var i = 0; i < files.length; i++) {
-                fileData.append("files", files[i]);
-            }
-            // Adding one more key to FormData object  
-            fileData.append('categoryId', $('#ddlCategoryIdImportExcel').combotree('getValue'));
-            $.ajax({
-                url: '/Admin/Product/ImportExcel',
-                type: 'POST',
-                data: fileData,
-                processData: false,  // tell jQuery not to process the data
-                contentType: false,  // tell jQuery not to set contentType
-                success: function (data) {
-                    $('#modal-import-excel').modal('hide');
-                    loadData();
-
-                }
-            });
-            return false;
-        });
-
-        $('#btn-export').on('click', function () {
-            $.ajax({
-                type: "POST",
-                url: "/Admin/Product/ExportExcel",
-                beforeSend: function () {
-                    shoponline.startLoading();
-                },
-                success: function (response) {
-                    window.location.href = response;
-                    shoponline.stopLoading();
-                },
-                error: function () {
-                    shoponline.notify('Has an error in progress', 'error');
-                    shoponline.stopLoading();
-                }
-            });
-        });
-
         $('body').on('click', '.btn-edit', function (e) {
             e.preventDefault();
             var that = $(this).data('id');
@@ -167,68 +130,43 @@
             deleteProduct(that);
         });
 
-        $('#btn-import').on('click', function () {
-            initTreeDropDownCategory();
-            $('#modal-import-excel').modal('show');
-        });
-
         $('#btnSave').on('click', function (e) {
-            saveProduct();
+            saveSlide();
         });
     }
-    function saveProduct() {
+    function saveSlide() {
         if ($('#frmMaintainance').valid()) {
             var id = $('#hidIdM').val();
             var name = $('#txtNameM').val();
-            var categoryId = $('#ddlCategoryIdM').combotree('getValue');
+            //var categoryId = $('#ddlCategoryIdM').combotree('getValue');
+            //var groupAlias = $('#ddlGroupAlias').val();
 
+            var groupAlias = $("#ddlGroupAlias option:selected").text();
             var description = $('#txtDescM').val();
-            var unit = $('#txtUnitM').val();
-
-            var price = $('#txtPriceM').val();
-            var originalPrice = $('#txtOriginalPriceM').val();
-            var promotionPrice = $('#txtPromotionPriceM').val();
-            var image = $('#hidId').val();
-            var tags = $('#txtTagM').val();
-            var seoKeyword = $('#txtMetakeywordM').val();
-            var seoMetaDescription = $('#txtMetaDescriptionM').val();
-            var seoPageTitle = $('#txtSeoPageTitleM').val();
-            var seoAlias = $('#txtSeoAliasM').val();
-
+           // var image = $('#hidId').val();
+            var image = $("#image_place").attr("src");
+            var url = $('#txtURL').val();
             var content = CKEDITOR.instances.txtContent.getData();
-            var status = $('#ckStatusM').prop('checked') === true ? 1 : 0;
-            var hot = $('#ckHotM').prop('checked');
-            var showHome = $('#ckShowHomeM').prop('checked');
-
+            var status = $('#ckStatusM').prop('checked');
             $.ajax({
                 type: "POST",
-                url: "/Admin/Product/SaveEntity",
+                url: "/Admin/Slide/SaveEntity",
                 data: {
                     Id: id,
                     Name: name,
-                    CategoryId: categoryId,
                     Image: image,
-                    Price: price,
-                    OriginalPrice: originalPrice,
-                    PromotionPrice: promotionPrice,
+                    GroupAlias: groupAlias,
+                    Url: url,
                     Description: description,
                     Content: content,
-                    HomeFlag: showHome,
-                    HotFlag: hot,
-                    Tags: tags,
-                    Unit: unit,
-                    Status: status,
-                    SeoPageTitle: seoPageTitle,
-                    SeoAlias: seoAlias,
-                    SeoKeywords: seoKeyword,
-                    SeoDescription: seoMetaDescription
+                    Status: status
                 },
                 dataType: "json",
                 beforeSend: function () {
                     shoponline.startLoading();
                 },
                 success: function (response) {
-                    shoponline.notify('Update product successful', 'success');
+                    shoponline.notify('Update Slide successful', 'success');
                     $('#modal-add-edit').modal('hide');
                     resetFormMaintainance();
 
@@ -243,6 +181,7 @@
             return false;
         }
     }
+
     function deleteProduct(id) {
         shoponline.confirm('Are you sure to delete?', function () {
             $.ajax({
@@ -268,7 +207,7 @@
     function loadDetails(id) {
         $.ajax({
             type: "GET",
-            url: "/Admin/Product/GetById",
+            url: "/Admin/Slide/GetById",
             data: { id: id },
             dataType: "json",
             beforeSend: function () {
@@ -278,27 +217,15 @@
                 var data = response;
                 $('#hidIdM').val(data.Id);
                 $('#txtNameM').val(data.Name);
-                initTreeDropDownCategory(data.CategoryId);
 
                 $('#txtDescM').val(data.Description);
-                $('#txtUnitM').val(data.Unit);
-
-                $('#txtPriceM').val(data.Price);
-                $('#txtOriginalPriceM').val(data.OriginalPrice);
-                $('#txtPromotionPriceM').val(data.PromotionPrice);
+                loadGroupAlias(data.GroupAlias);
                 $("#image_place").attr("src", data.Image);
                  //$('#txtImageM').val(data.ThumbnailImage);
-
-                $('#txtTagM').val(data.tags);
-                $('#txtMetakeywordM').val(data.SeoKeywords);
-                $('#txtMetaDescriptionM').val(data.SeoDescription);
-                $('#txtSeoPageTitleM').val(data.SeoPageTitle);
-                $('#txtSeoAliasM').val(data.SeoAlias);
+                $('#txtURL').val(data.Url);
                 // get instance by id 
                 CKEDITOR.instances.txtContent.setData(data.Content);
-                $('#ckStatusM').prop('checked', data.Status === 1);
-                $('#ckHotM').prop('checked', data.HotFlag);
-                $('#ckShowHomeM').prop('checked', data.HomeFlag);
+                $('#ckStatusM').prop('checked', data.Status === true);
                 $('#modal-add-edit').modal('show');
                 shoponline.stopLoading();
             },
@@ -309,89 +236,25 @@
         });
     }
 
-    function initTreeDropDownCategory(selectedId) {
-        $.ajax({
-            url: "/Admin/ProductCategory/GetAll",
-            type: 'GET',
-            dataType: 'json',
-            async: false,
-            success: function (response) {
-                var data = [];
-                $.each(response, function (i, item) {
-                    data.push({
-                        id: item.Id,
-                        text: item.Name,
-                        parentId: item.ParentId,
-                        sortOrder: item.SortOrder
-                    });
-                });
-                var arr = shoponline.unflattern(data);
-                $('#ddlCategoryIdM').combotree({
-                    data: arr
-                });
-
-                $('#ddlCategoryIdImportExcel').combotree({
-                    data: arr
-                });
-                if (selectedId !== undefined) {
-                    $('#ddlCategoryIdM').combotree('setValue', selectedId);
-                }
-            }
-        });
-    }
-
     function resetFormMaintainance() {
         $('#hidIdM').val(0);
         $('#txtNameM').val('');
-        initTreeDropDownCategory('');
 
         $('#txtDescM').val('');
-        $('#txtUnitM').val('');
-
         $('#txtPriceM').val('0');
-        $('#txtOriginalPriceM').val('');
-        $('#txtPromotionPriceM').val('');
-
-        //$('#txtImageM').val('');
-
-        $('#txtTagM').val('');
-        $('#txtMetakeywordM').val('');
-        $('#txtMetaDescriptionM').val('');
-        $('#txtSeoPageTitleM').val('');
-        $('#txtSeoAliasM').val('');
-
+        $('#txtURL').val('');
         //CKEDITOR.instances.txtContentM.setData('');
         $('#ckStatusM').prop('checked', true);
-        $('#ckHotM').prop('checked', false);
-        $('#ckShowHomeM').prop('checked', false);
     }
-    function loadDataCategory() {
-        $.ajax({
-            type: 'GET',
-            url: '/Admin/ProductCategory/GetAll',
-            dataType: 'json',
-            success: (response) => {
-                var result = "<option value=''>---Chọn danh mục---</option>";
-                $.each(response,
-                    function (i, item) {
-                        var temp = Object.assign({}, item);
-                        result += "<option value='" + temp.Id + "'>" + temp.Name + "</option>";
-                    });
-                $('#ddlCategorySearch').html(result);
-            },
-            error: function (status) {
-                shoponline.notify('Không thể load danh mục sản phẩm ', 'lỗi');
-            }
-        });
-    }
+
     function loadData(isPageChanged) {
         var template = $('#table-template').html();
         var render = "";
         $.ajax({
             type: 'GET',
-            url: '/Admin/Product/GetAllPaging',
+            url: '/Admin/Slide/GetAllPaging',
             data: {
-                categoryId: $('#ddlCategorySearch').val(),
+                //categoryId: $('#ddlCategorySearch').val(),
                 searchText: $('#txtKeyword').val(),
                 pageIndex: shoponline.configs.pageIndex,
                 pageSize: shoponline.configs.pageSize
@@ -399,20 +262,21 @@
             dataType: 'json',
             success: (response) => {
                 if (response.Data.Items.length > 0) {
-                    $.each(response.Data.Items,
+                    $.each(response.Data.Items, 
                         function (i, item) {
+
                             render += Mustache.render(template,
                                 {
                                     Id: item.Id,
                                     Name: item.Name,
+                                    Description: item.Description,
                                     Image: item.Image === null
-                                        ? '<img src="/admin-side/images/user.png" width=50'
-                                        : '<img src="' + item.Image + '" width=50 />',
-                                    CategoryName: item.ProductCategory.Name,
-                                    Price: shoponline.formatNumber(item.Price, 0),
-                                    CreatedDate: shoponline.dateTimeFormatJson(item.DateModified),
-                                    Status: shoponline.getStatus(item.Status)
-                                });
+                                        ? '<img  src="/admin-side/images/user.png" width=90'
+                                        : '<img src="' + item.Image + '" width=90 />',
+                                    GroupAlias: item.GroupAlias,
+                                    Url: item.Url,
+                                    Status: item.Status === true ? shoponline.getStatus(1) : shoponline.getStatus(0)
+                        });
                             $('#lblTotalRecords').text(response.Data.RowCount);
                             if (render !== "") {
                                 $('#tbl-content').html(render);
@@ -438,8 +302,6 @@
                 shoponline.notify('Không thể load dữ liệu', 'lỗi');
             }
         });
-
-
         function wrapPaging(recordCount, callBack, changePageSize) {
             var totalsize = Math.ceil(recordCount / shoponline.configs.pageSize);
             //Unbind pagination if it existed or click change pagesize
@@ -465,4 +327,15 @@
 
     };
 
+    function loadGroupAlias(val) {
+        var render = "";
+        $.each(obj.groupAlias, function (i, item) {
+            if (item.value === val) {
+                render += "<option selected='select' value='" + item.id + "'>" + item.value + "</option>";
+            } else {
+                render += "<option value='" + item.id + "'>" + item.value + "</option>";
+            }
+        });
+        $('#ddlGroupAlias').html(render);
+    }
 }

@@ -7,6 +7,6 @@ namespace ShopOnlineApp.Application.ViewModels.Role
 {
     public class AppRoleRequest:BaseRequest
     {
-
+        public List<string> Name { get; set; }
     }
 }

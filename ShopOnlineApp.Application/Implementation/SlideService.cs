@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using ShopOnlineApp.Application.Interfaces;
-using ShopOnlineApp.Application.ViewModels.Feedback;
+using ShopOnlineApp.Application.ViewModels.Slide;
 using ShopOnlineApp.Data.EF.Common;
 using ShopOnlineApp.Data.IRepositories;
 using ShopOnlineApp.Infrastructure.Interfaces;
@@ -10,27 +11,27 @@ using ShopOnlineApp.Utilities.Enum;
 
 namespace ShopOnlineApp.Application.Implementation
 {
-    public class FeedbackService : IFeedbackService
+    public class SlideService : ISlideService
     {
-        private readonly IFeedbackRepository _feedbackRepository;
+        private readonly ISlideRepository _slideRepository;
         private readonly IUnitOfWork _unitOfWork;
 
-        public FeedbackService(IFeedbackRepository feedbackRepository,
+        public SlideService(ISlideRepository slideRepository,
             IUnitOfWork unitOfWork)
         {
-            _feedbackRepository = feedbackRepository;
+            _slideRepository = slideRepository;
             _unitOfWork = unitOfWork;
         }
 
-        public void Add(FeedbackViewModel feedbackVm)
+        public void Add(SlideViewModel pageVm)
         {
-            var page = new  FeedbackViewModel().Map(feedbackVm);
-            _feedbackRepository.Add(page);
+            var page = new SlideViewModel().Map(pageVm);
+            _slideRepository.Add(page);
         }
 
         public void Delete(int id)
         {
-            _feedbackRepository.Remove(id);
+            _slideRepository.Remove(id);
         }
 
         public void Dispose()
@@ -38,27 +39,29 @@ namespace ShopOnlineApp.Application.Implementation
             GC.SuppressFinalize(this);
         }
 
-        public List<FeedbackViewModel> GetAll()
+        public List<SlideViewModel> GetAll()
         {
-            return new FeedbackViewModel().Map(_feedbackRepository.FindAll()).ToList();
+            return new SlideViewModel().Map(_slideRepository.FindAll()).ToList();
         }
 
-        public BaseReponse<ModelListResult<FeedbackViewModel>> GetAllPaging(FeedbackRequest request)
+        public BaseReponse<ModelListResult<SlideViewModel>> GetAllPaging(SlideRequest request)
         {
-            var query = _feedbackRepository.FindAll();
+
+            var query = _slideRepository.FindAll();
             if (!string.IsNullOrEmpty(request.SearchText))
                 query = query.Where(x => x.Name.Contains(request.SearchText));
 
+
             int totalRow = query.Count();
             var data = query.OrderByDescending(x => x.Id)
-                .Skip((request.PageIndex) * request.PageSize)
+                .Skip((request.PageIndex-1) * request.PageSize)
                 .Take(request.PageSize);
 
-            var items = new FeedbackViewModel().Map(data).ToList();
+            var items = new SlideViewModel().Map(data).ToList();
 
-            return new BaseReponse<ModelListResult<FeedbackViewModel>>
+            return new BaseReponse<ModelListResult<SlideViewModel>>
             {
-                Data = new ModelListResult<FeedbackViewModel>()
+                Data = new ModelListResult<SlideViewModel>()
                 {
                     Items = items,
                     Message = Message.Success,
@@ -69,11 +72,12 @@ namespace ShopOnlineApp.Application.Implementation
                 Message = Message.Success,
                 Status = (int)QueryStatus.Success
             };
+
         }
 
-        public FeedbackViewModel GetById(int id)
+        public SlideViewModel GetById(int id)
         {
-            return new FeedbackViewModel().Map(_feedbackRepository.FindById(id));
+            return new SlideViewModel().Map(_slideRepository.FindById(id));
         }
 
         public void SaveChanges()
@@ -81,11 +85,11 @@ namespace ShopOnlineApp.Application.Implementation
             _unitOfWork.Commit();
         }
 
-        public void Update(FeedbackViewModel feedbackVm)
+        public void Update(SlideViewModel pageVm)
         {
-            var page =new FeedbackViewModel().Map(feedbackVm);
-
-            _feedbackRepository.Update(page);
+            var page = new SlideViewModel().Map(pageVm);
+            _slideRepository.Update(page);
         }
     }
+
 }

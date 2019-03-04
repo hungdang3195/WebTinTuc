@@ -22,7 +22,7 @@ namespace ShopOnlineApp.Application.ViewModels.User
         public string PhoneNumber { set; get; }
         public string Avatar { get; set; }
         public Status Status { get; set; }
-
+        public DateTime DateModified { set; get; }
         public string Gender { get; set; }
 
         public DateTime DateCreated { get; set; }

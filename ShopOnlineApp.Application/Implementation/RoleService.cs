@@ -7,6 +7,7 @@ using AutoMapper;
 using AutoMapper.QueryableExtensions;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using ShopOnlineApp.Application.Common;
 using ShopOnlineApp.Application.Interfaces;
 using ShopOnlineApp.Application.ViewModels.Role;
 using ShopOnlineApp.Data.EF.Common;
@@ -77,11 +78,18 @@ namespace ShopOnlineApp.Application.Implementation
                 query = query.Where(x => x.Name.Contains(request.SearchText)
                 || x.Description.Contains(request.SearchText));
 
+            //if (request.Name.Any())
+            //{
+            //    foreach (var name in request.Name)
+            //    {
+                    
+            //    }
+            //}
+
             int totalRow = await query.CountAsync();
 
             query = query.Skip((request.PageIndex) * request.PageSize)
                .Take(request.PageSize);
-
 
             var items = new AppRoleViewModel().Map(query.ToList()).ToList();
 
@@ -101,6 +109,9 @@ namespace ShopOnlineApp.Application.Implementation
 
             return result;
         }
+
+
+        
 
         public async Task<AppRoleViewModel> GetById(Guid id)
         {

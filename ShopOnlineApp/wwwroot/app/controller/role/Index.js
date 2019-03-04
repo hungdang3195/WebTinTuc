@@ -39,8 +39,6 @@
         //Grant permission
         $('body').on('click', '.btn-grant', function () {
             $('#hidRoleId').val($(this).data('id'));
-            //$.when(loadFunctionList())
-            //    .done(fillPermission($('#hidRoleId').val()));
                 loadFunctionList(function(data) {
                     if (data === "success") {
                         fillPermission($('#hidRoleId').val());

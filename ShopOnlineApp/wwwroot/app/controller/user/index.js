@@ -62,12 +62,12 @@
                 },
                 success: function (response) {
                     var data = response;
-                    $('#hidId').val(data.id);
-                    $('#txtFullName').val(data.fullName);
-                    $('#txtUserName').val(data.userName);
-                    $('#txtEmail').val(data.email);
-                    $('#txtPhoneNumber').val(data.phoneNumber);
-                    $('#ckStatus').prop('checked', data.status === 1);
+                    $('#hidId').val(data.Id);
+                    $('#txtFullName').val(data.FullName);
+                    $('#txtUserName').val(data.UserName);
+                    $('#txtEmail').val(data.Email);
+                    $('#txtPhoneNumber').val(data.PhoneNumber);
+                    $('#ckStatus').prop('checked', data.Status === 1);
                     initRoleList(data.Roles);
                     disableFieldEdit(true);
                     $('#modal-add-edit').modal('show');
@@ -116,7 +116,7 @@
                         shoponline.startLoading();
                     },
                     success: function () {
-                        shoponline.notify('Save user succesful', 'success');
+                        shoponline.notify('Save user succesfull', 'success');
                         $('#modal-add-edit').modal('hide');
                         resetFormMaintainance();
 
@@ -168,7 +168,7 @@
         //                shoponline.startLoading();
         //            },
         //            success: function(response) {
-                        
+
         //            }
 
         //        });
@@ -213,8 +213,8 @@
                         checked = 'checked';
                     render += Mustache.render(template,
                         {
-                            Name: item.name,
-                            Description: item.description,
+                            Name: item.Name,
+                            Description: item.Description,
                             Checked: checked
                         });
                 });
@@ -228,7 +228,7 @@
             type: "POST",
             url: "/Admin/User/GetAllPaging",
             data: {
-               // categoryId: $('#ddl-category-search').val(),
+                // categoryId: $('#ddl-category-search').val(),
                 searchText: $('#txt-search-keyword').val(),
                 page: shoponline.configs.pageIndex,
                 pageSize: shoponline.configs.pageSize
@@ -243,12 +243,11 @@
                 if (response.Data.RowCount > 0) {
                     $.each(response.Data.Items, function (i, item) {
                         render += Mustache.render(template, {
-                            
                             FullName: item.FullName,
                             Id: item.Id,
                             UserName: item.UserName,
                             Avatar: item.Avatar === undefined ? '<img src="/admin-side/images/user.png" width=25 />' : '<img src="' + item.Avatar + '" width=25 />',
-                            DateCreated: shoponline.dateTimeFormatJson(item.DateCreated),
+                            DateCreated: shoponline.dateTimeFormatJson(item.DateModified),
                             Status: shoponline.getStatus(item.Status)
                         });
                     });

@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.SignalR;
 using ShopOnlineApp.Application.Interfaces;
 using ShopOnlineApp.Application.ViewModels.Annoucement;
 using ShopOnlineApp.Application.ViewModels.User;
+using ShopOnlineApp.Authorization;
 using ShopOnlineApp.Data.Enums;
 using ShopOnlineApp.Extensions;
 using ShopOnlineApp.SignalR;
@@ -26,14 +27,14 @@ namespace ShopOnlineApp.Areas.Admin.Controllers
             _authorizationService = authorizationService;
             _hubContext = hubContext;
         }
-        public  IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            //var result = await _authorizationService.AuthorizeAsync(User, "USER", Operations.Read);
-            //if (result.Succeeded == false)
-            //    return new RedirectResult("/Admin/Login/Index");
+            var result = await _authorizationService.AuthorizeAsync(User, "USER", Operations.Read);
+            if (result.Succeeded == false)
+                return new RedirectResult("/Admin/Authentication/NoAuthenication");
 
             return View();
-           // Task.CompletedTask;
+            // Task.CompletedTask;
 
         }
         public IActionResult GetAll()
@@ -50,9 +51,9 @@ namespace ShopOnlineApp.Areas.Admin.Controllers
 
             return new OkObjectResult(model);
         }
-            
-       [HttpPost]
-        public async Task<IActionResult>  GetAllPaging(UserRequest request)
+
+        [HttpPost]
+        public async Task<IActionResult> GetAllPaging(UserRequest request)
         {
             var model = await _userService.GetAllPagingAsync(request);
             return new OkObjectResult(model);
@@ -75,17 +76,23 @@ namespace ShopOnlineApp.Areas.Admin.Controllers
                     DateCreated = DateTime.Now,
                     Status = Status.Active,
                     Title = "User created",
-                    UserId = User.GetUserId(),  
+                    UserId = User.GetUserId(),
+                    DateModified = DateTime.Now,
                     Id = Guid.NewGuid().ToString()
                 };
 
                 await _userService.AddAsync(userVm);
+
                 await _hubContext.Clients.All.SendAsync("ReceiveMessage", announcement);
             }
             else
             {
+                userVm.DateModified=DateTime.Now;
                 await _userService.UpdateAsync(userVm);
             }
+
+            _userService.SaveChanges();
+
             return new OkObjectResult(userVm);
         }
 

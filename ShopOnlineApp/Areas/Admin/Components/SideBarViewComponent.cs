@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using ShopOnlineApp.Application.Interfaces;
 using ShopOnlineApp.Application.ViewModels.Function;
 using ShopOnlineApp.Extensions;
+using ShopOnlineApp.Utilities.Constants;
 using ShopOnlineApp.Utilities.Enum;
 
 namespace ShopOnlineApp.Areas.Admin.Components
@@ -20,19 +21,25 @@ namespace ShopOnlineApp.Areas.Admin.Components
 
         public async Task<IViewComponentResult> InvokeAsync()
         {
-
-            var roles =  ((ClaimsPrincipal) User).GetSpecificDefault("Role");
+            var roles = ((ClaimsPrincipal)User).GetSpecificDefault("Role");
             List<FunctionViewModel> functions;
 
-            if (roles.Split(";").Contains(ConstantSystem.AdminRole))
+            if (roles.Split(";").Contains(CommonConstants.AppRole.AdminRole))
             {
                 functions = await _functionService.GetAll(string.Empty);
+                return View(functions);
             }
             else
             {
-                functions= new List<FunctionViewModel>();
+                //TODO: Get by permission
+                functions = await _functionService.GetFunctionByRoles(new FunctionRequest
+                {
+                    Roles = roles.Split(";").ToList()
+                });
             }
+
             return View(functions);
+
         }
     }
 }

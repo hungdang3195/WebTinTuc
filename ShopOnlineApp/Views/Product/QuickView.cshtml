@@ -50,7 +50,7 @@
                                 </p>
                                 <p class="old-price">
                                     <span class="price-label">Regular Price:</span>
-                                    <span class="price"> @Model.Product.Price.ToString("N0") </span>
+                                    <span class="price"> @Model.Product?.Price.ToString("N0") (vnd) </span>
                                 </p>
 
                             }
@@ -58,7 +58,7 @@
                             {
                                 <p class="special-price">
                                     <span class="price-label">Special Price</span>
-                                    <span class="price"> Model.Product.Price.ToString("N0") </span>
+                                    <span class="price"> @Model.Product?.Price.ToString("N0") (vnd) </span>
                                 </p>
                             }
                         </div>
@@ -68,7 +68,7 @@
                         </div>
                         <div class="short-description">
                             <h2>Quick Overview</h2>
-                            <p>@Model.Product.Content. </p>
+                            <p>@Html.Raw(Model.Product.Content)</p>
                         </div>
                         <div class="product-color-size-area">
                             <div class="color-area">

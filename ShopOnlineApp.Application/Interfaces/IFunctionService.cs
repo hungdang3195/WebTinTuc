@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 using ShopOnlineApp.Application.ViewModels.Function;
+using ShopOnlineApp.Application.ViewModels.Role;
 
 namespace ShopOnlineApp.Application.Interfaces
 {
@@ -11,6 +12,7 @@ namespace ShopOnlineApp.Application.Interfaces
         void Add(FunctionViewModel function);
 
         Task<List<FunctionViewModel>> GetAll(string filter);
+        Task<List<FunctionViewModel>> GetFunctionByRoles(FunctionRequest reques);
 
         IEnumerable<FunctionViewModel> GetAllWithParentId(string parentId);
 

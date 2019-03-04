@@ -46,7 +46,6 @@
         $("#btn-search").on('click', function () {
             loadData();
         });
-
         $("#btn-create").on('click', function () {
             resetFormMaintainance();
             $('#modal-detail').modal('show');
@@ -61,7 +60,6 @@
             '.btnConfirm',
             function(e) {
                 e.preventDeafault();
-
             });
 
 

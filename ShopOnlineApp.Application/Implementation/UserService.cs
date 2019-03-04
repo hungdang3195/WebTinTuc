@@ -10,6 +10,7 @@ using ShopOnlineApp.Application.Interfaces;
 using ShopOnlineApp.Application.ViewModels.User;
 using ShopOnlineApp.Data.EF.Common;
 using ShopOnlineApp.Data.Entities;
+using ShopOnlineApp.Infrastructure.Interfaces;
 using ShopOnlineApp.Utilities.Enum;
 
 namespace ShopOnlineApp.Application.Implementation
@@ -18,10 +19,13 @@ namespace ShopOnlineApp.Application.Implementation
     {
         private readonly UserManager<AppUser> _userManager;
         private readonly IHttpContextAccessor _httpContextAccessor;
-        public UserService(UserManager<AppUser> userManager, IHttpContextAccessor httpContextAccessor)
+        private readonly IUnitOfWork _unitOfWork;
+
+        public UserService(UserManager<AppUser> userManager, IHttpContextAccessor httpContextAccessor, IUnitOfWork unitOfWork)
         {
             _userManager = userManager;
             _httpContextAccessor = httpContextAccessor;
+            _unitOfWork = unitOfWork;
         }
 
         public async Task<bool> AddAsync(AppUserViewModel userVm)
@@ -41,10 +45,8 @@ namespace ShopOnlineApp.Application.Implementation
                 var appUser = await _userManager.FindByNameAsync(user.UserName);
                 if (appUser != null)
                     await _userManager.AddToRolesAsync(appUser, userVm.Roles);
-
             }
             return true;
-
         }
 
         public async Task DeleteAsync(string id)
@@ -85,7 +87,8 @@ namespace ShopOnlineApp.Application.Implementation
                 Id = x.Id,
                 PhoneNumber = x.PhoneNumber,
                 Status = x.Status,
-                DateCreated = x.DateCreated
+                DateCreated = x.DateCreated,
+                DateModified = x.DateModified
 
             }).ToList();
 
@@ -118,22 +121,21 @@ namespace ShopOnlineApp.Application.Implementation
 
         public async Task UpdateAsync(AppUserViewModel userVm)
         {
-
             var user = await _userManager.FindByIdAsync(userVm.Id.ToString());
             //Remove current roles in db
-            //lay role hien tai
             var currentRoles = await _userManager.GetRolesAsync(user);
 
-            //add them role , role phai khac cac role trong user
+            string[] needRemoveRoles = currentRoles.Except(userVm.Roles).ToArray();
+
+            var data = await _userManager.RemoveFromRolesAsync(user, new List<string>
+            {
+                "Staff"
+            });
             var result = await _userManager.AddToRolesAsync(user,
                 userVm.Roles.Except(currentRoles).ToArray());
 
             if (result.Succeeded)
             {
-                //lấy hết role mà role hiện tại khác với role truyền lên và xóa nó đi
-                string[] needRemoveRoles = currentRoles.Except(userVm.Roles).ToArray();
-                await _userManager.RemoveFromRolesAsync(user, needRemoveRoles);
-
                 //Update user detail
                 user.FullName = userVm.FullName;
                 user.Status = userVm.Status;
@@ -147,6 +149,11 @@ namespace ShopOnlineApp.Application.Implementation
         public string GetUserId()
         {
            return _httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
+        }
+
+        public void SaveChanges()
+        {
+            _unitOfWork.Commit();
         }
     }
 }

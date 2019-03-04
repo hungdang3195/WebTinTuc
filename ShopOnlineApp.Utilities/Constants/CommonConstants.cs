@@ -16,7 +16,7 @@
         }
         public class UserClaims
         {
-            public const string Roles = "Roles";
+            public const string Roles = "Role";
         }
     }
 }

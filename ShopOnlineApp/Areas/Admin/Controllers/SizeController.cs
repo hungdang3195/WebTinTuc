@@ -11,9 +11,9 @@ namespace ShopOnlineApp.Areas.Admin.Controllers
     {
         private readonly ISizeService _sizeService;
 
-        public SizeController(ISizeService SizeService)
+        public SizeController(ISizeService sizeService)
         {
-            _sizeService = SizeService;
+            _sizeService = sizeService;
         }
         public IActionResult Index()
         {
@@ -43,7 +43,7 @@ namespace ShopOnlineApp.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        public IActionResult SaveEntity(SizeViewModel SizeVm)
+        public IActionResult SaveEntity(SizeViewModel sizeVm)
         {
             if (!ModelState.IsValid)
             {
@@ -52,16 +52,16 @@ namespace ShopOnlineApp.Areas.Admin.Controllers
             }
             else
             {
-                if (SizeVm.Id == 0)
+                if (sizeVm.Id == 0)
                 {
-                    _sizeService.Add(SizeVm);
+                    _sizeService.Add(sizeVm);
                 }
                 else
                 {
-                    _sizeService.Update(SizeVm);
+                    _sizeService.Update(sizeVm);
                 }
                 _sizeService.SaveChanges();
-                return new OkObjectResult(SizeVm);
+                return new OkObjectResult(sizeVm);
             }
         }
 

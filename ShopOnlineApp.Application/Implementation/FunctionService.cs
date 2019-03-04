@@ -1,12 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
 using AutoMapper;
-using AutoMapper.QueryableExtensions;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using ShopOnlineApp.Application.Common;
 using ShopOnlineApp.Application.Interfaces;
 using ShopOnlineApp.Application.ViewModels.Function;
+using ShopOnlineApp.Application.ViewModels.Role;
 using ShopOnlineApp.Data.Entities;
 using ShopOnlineApp.Data.Enums;
 using ShopOnlineApp.Data.IRepositories;
@@ -18,14 +21,19 @@ namespace ShopOnlineApp.Application.Implementation
     {
         private readonly IFunctionRepository _functionRepository;
         private readonly IUnitOfWork _unitOfWork;
+        private readonly IPermissionRepository _permissionRepository;
         private readonly IMapper _mapper;
+        private readonly RoleManager<AppRole> _roleManager;
+
 
         public FunctionService(IMapper mapper,
             IFunctionRepository functionRepository,
-            IUnitOfWork unitOfWork)
+            IUnitOfWork unitOfWork, IPermissionRepository permissionRepository, RoleManager<AppRole> roleManager)
         {
             _functionRepository = functionRepository;
             _unitOfWork = unitOfWork;
+            _permissionRepository = permissionRepository;
+            _roleManager = roleManager;
             _mapper = mapper;
         }
 
@@ -55,16 +63,49 @@ namespace ShopOnlineApp.Application.Implementation
             return new FunctionViewModel().Map(function);
         }
 
-        public async  Task<List<FunctionViewModel>> GetAll(string filter)
+        public async Task<List<FunctionViewModel>> GetAll(string filter)
         {
             var query = _functionRepository.FindAll(x => x.Status == Status.Active);
+
             if (!string.IsNullOrEmpty(filter))
                 query = query.Where(x => x.Name.Contains(filter));
+
 
             var results = await query.OrderBy(x => x.ParentId).ToListAsync();
 
             return new FunctionViewModel().Map(results).ToList();
         }
+
+        public async Task<List<FunctionViewModel>> GetFunctionByRoles(FunctionRequest request)
+        {
+            string[] roles = request.Roles.ToArray();
+            var functionIds = _permissionRepository.FindAll(await BuildingQuery(roles)).Where(x => x.CanRead).Select(x=>x.FunctionId);
+            var ids= new List<string>();
+            foreach (var id in functionIds)
+            {
+                var functionDetail = _functionRepository.FindById(id);
+                if (functionDetail.ParentId != null)
+                {
+                    ids.AddRange(new List<string>
+                    {
+                        id,
+                        functionDetail.ParentId
+                    });
+                }
+                else
+                {
+                    ids.Add(id);
+                }
+            }
+
+            var function = from fun in _functionRepository.FindAll()
+                           join id in ids.Distinct()
+                           on fun.Id equals id
+                           select fun;
+
+            return new FunctionViewModel().Map(function).ToList();
+        }
+
 
         public IEnumerable<FunctionViewModel> GetAllWithParentId(string parentId)
         {
@@ -124,6 +165,19 @@ namespace ShopOnlineApp.Application.Implementation
         public void Dispose()
         {
             GC.SuppressFinalize(this);
+        }
+
+        private async Task<Expression<Func<Permission, bool>>> BuildingQuery(params string[] keywords)
+        {
+            var predicate = PredicateBuilder.True<Permission>();
+
+            foreach (string keyword in keywords)
+            {
+                var test = await _roleManager.FindByNameAsync(keyword);
+
+                predicate = predicate.Or(p => p.RoleId == test.Id);
+            }
+            return predicate;
         }
     }
 }

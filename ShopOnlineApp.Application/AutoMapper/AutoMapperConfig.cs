@@ -139,7 +139,7 @@ namespace ShopOnlineApp.Application.AutoMapper
 
                 #region Slider
                 cfg.CreateMap<Slide, SlideViewModel>();
-                cfg.CreateMap<FooterViewModel, Footer>();
+                cfg.CreateMap<SlideViewModel, Slide>();
                 #endregion
 
                 #region MyRegion

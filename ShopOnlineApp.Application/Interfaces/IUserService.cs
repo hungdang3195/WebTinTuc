@@ -25,5 +25,7 @@ namespace ShopOnlineApp.Application.Interfaces
         Task UpdateAsync(AppUserViewModel userVm);
 
         string GetUserId();
+
+        void SaveChanges();
     }
 }
