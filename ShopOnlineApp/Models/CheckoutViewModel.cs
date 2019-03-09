@@ -22,5 +22,7 @@ namespace ShopOnlineApp.Models
                     }).ToList();
             }
         }
+        
+        public string TypePayment { get; set; }
     }
 }

@@ -14,5 +14,6 @@ namespace ShopOnlineApp.Models
         public ColorViewModel Color { get; set; }
 
         public SizeViewModel Size { get; set; }
+
     }
 }

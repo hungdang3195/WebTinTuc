@@ -10,6 +10,7 @@ using ShopOnlineApp.Application.ViewModels.Annoucement;
 using ShopOnlineApp.Application.ViewModels.Bill;
 using ShopOnlineApp.Data.Enums;
 using ShopOnlineApp.Extensions;
+using ShopOnlineApp.Infrastructure.NganLuongAPI;
 using ShopOnlineApp.Models;
 using ShopOnlineApp.Services;
 using ShopOnlineApp.SignalR;
@@ -27,6 +28,10 @@ namespace ShopOnlineApp.Controllers
         public readonly IColorService _color;
         public readonly ISizeService _size;
         private readonly IHubContext<OnlineShopHub> _hubContext;
+        //private string merchantId = ConfigHelper.GetByKey("MerchantId");
+        //private string merchantPassword = ConfigHelper.GetByKey("MerchantPassword");
+        //private string merchantEmail = ConfigHelper.GetByKey("MerchantEmail");
+
 
         public CartController(IProductService productService, IBillService billService, IViewRenderService viewRenderService, IEmailSender emailSender, IConfiguration configuration, IColorService color, ISizeService size, IHubContext<OnlineShopHub> hubContext)
         {
@@ -39,13 +44,12 @@ namespace ShopOnlineApp.Controllers
             _size = size;
             _hubContext = hubContext;
         }
+
         [Route("cart.html", Name = "Cart")]
         public IActionResult Index()
         {
             return View();
         }
-
-
 
         #region AJAX Request
         /// <summary>
@@ -91,7 +95,7 @@ namespace ShopOnlineApp.Controllers
             model.Carts = session;
             return View(model);
         }
-        [Route("checkout.html", Name = "Checkout")]
+        //[Route("checkout.html", Name = "Checkout")]
         [ValidateAntiForgeryToken]
         [HttpPost]
         public async Task<IActionResult> Checkout(CheckoutViewModel model)
@@ -122,18 +126,47 @@ namespace ShopOnlineApp.Controllers
                         CustomerName = model.CustomerName,
                         CustomerMessage = model.CustomerMessage,
                         BillDetails = details,
-                        DateCreated = DateTime.Now,
-                        PaymentMethod = model.PaymentMethod
+                        DateCreated = DateTime.Now
+                        //PaymentMethod = model.PaymentMethod
                     };
                     if (User.Identity.IsAuthenticated)
                     {
                         billViewModel.CustomerId = Guid.Parse(User.GetSpecificDefault("UserId"));
                     }
                      var dataReturn=  _billService.Create(billViewModel);
+                    _billService.Save();
+                    var currentLink = _configuration["CurrentLink"];
+                    RequestInfo info = new RequestInfo();
+                    info.Merchant_id = _configuration["Nganluong:MerchantId"];
+                    info.Merchant_password = _configuration["Nganluong:MerchantPassword"] ;
+                    info.Receiver_email = _configuration["Nganluong:MerchantEmail"] ;
+                    info.cur_code = "vnd";
+                    info.bank_code = model.BankCode;
+                    info.Order_code = dataReturn.Id.ToString();
+                    info.Total_amount = "5.000";
+                    info.fee_shipping = "0";
+                    info.Discount_amount = "0";
+                    info.order_description = "Thanh toán đơn hàng tại Online shop";
+                    info.return_url = currentLink + "/xac-nhan-don-hang.html";
+                    info.cancel_url = currentLink + "/huy-don-hang.html";
+                    info.Buyer_fullname = model.CustomerName;
+                    info.Buyer_email = "hung.dang@cto.edu.vn";
+                    info.Buyer_mobile = model.CustomerMobile;
+                    ApiCheckoutV3 objNLChecout = new ApiCheckoutV3();
+                    ResponseInfo result = objNLChecout.GetUrlCheckout(info, model.TypePayment);
+                    if (result.Error_code == "00")
+                    {
+                        return new OkObjectResult(new
+                        {
+                            status = true,
+                            urlCheckout = result.Checkout_url,
+                            message = result.Description
+                        });
+                    }
 
                     try
                     {
-                        _billService.Save();
+                       
 
                         foreach (var item in dataReturn.BillDetails)
                         {
@@ -154,16 +187,16 @@ namespace ShopOnlineApp.Controllers
 
                         ViewBag.BillModel = dataReturn;
 
-                        var announcement = new AnnouncementViewModel()
-                        {
-                            Content = $"Bạn có một yêu cầu phê duyệt",
-                            DateCreated = DateTime.Now,
-                            Status = Status.Active,
-                            Title = "User created",
-                            UserId = User.GetUserId(),
-                            Id = Guid.NewGuid().ToString()
-                        };
-                        await _hubContext.Clients.Client("").SendAsync("ReceiveMessage", announcement);
+                        //var announcement = new AnnouncementViewModel()
+                        //{
+                        //    Content = $"Bạn có một yêu cầu phê duyệt",
+                        //    DateCreated = DateTime.Now,
+                        //    Status = Status.Active,
+                        //    Title = "User created",
+                        //    UserId = User.GetUserId(),
+                        //    Id = Guid.NewGuid().ToString()
+                        //};
+                        //await _hubContext.Clients.Client("").SendAsync("ReceiveMessage", announcement);
 
                         var content = await _viewRenderService.RenderToStringAsync("Cart/_BillMail", billViewModel);
                         await _emailSender.SendEmailAsync(_configuration["MailSettings:AdminMail"], "New bill from Panda Shop", content);
@@ -175,11 +208,13 @@ namespace ShopOnlineApp.Controllers
                         ModelState.AddModelError("", ex.Message);
                     }
                 }
+                model.Carts = session;
+                HttpContext.Session.Set(CommonConstants.CartSession, new List<ShoppingCartViewModel>());
+                return View(model);
+
             }
 
-            model.Carts = session;
-            HttpContext.Session.Set(CommonConstants.CartSession,new List<ShoppingCartViewModel>());
-            return View(model);
+           return new OkObjectResult("");
         }
 
         [HttpPost]
@@ -244,8 +279,6 @@ namespace ShopOnlineApp.Controllers
             }
             return new OkObjectResult(productId);
         }
-
-
 
         /// <summary>
         /// Remove a product
@@ -322,6 +355,40 @@ namespace ShopOnlineApp.Controllers
         {
             var sizes = _billService.GetSizes();
             return new OkObjectResult(sizes);
+        }
+
+        [HttpGet("xac-nhan-don-hang.html")]
+        public ActionResult ConfirmOrder()
+        {
+            //string token = Request["token"];
+            RequestCheckOrder info = new RequestCheckOrder();
+            info.Merchant_id = _configuration["Nganluong:MerchantId"];
+            info.Merchant_password = _configuration["Authentication:MerchantPassword"];
+           // info.Receiver_email = _configuration["Authentication:MerchantEmail"];
+            //info.Merchant_id = merchantId;
+            //info.Merchant_password = merchantPassword;
+           // info.Token = token;
+            ApiCheckoutV3 objNLChecout = new ApiCheckoutV3();
+            ResponseCheckOrder result = objNLChecout.GetTransactionDetail(info);
+            if (result.errorCode == "00")
+            {
+                //update status order
+                //_orderService.UpdateStatus(int.Parse(result.order_code));
+                //_orderService.Save();
+                ViewBag.IsSuccess = true;
+                ViewBag.Result = "Thanh toán thành công. Chúng tôi sẽ liên hệ lại sớm nhất.";
+            }
+            else
+            {
+                ViewBag.IsSuccess = true;
+                ViewBag.Result = "Có lỗi xảy ra. Vui lòng liên hệ admin.";
+            }
+            return View();
+        }
+        [HttpGet("huy-don-hang.html")]
+        public ActionResult CancelOrder()
+        {
+            return View();
         }
         #endregion
     }

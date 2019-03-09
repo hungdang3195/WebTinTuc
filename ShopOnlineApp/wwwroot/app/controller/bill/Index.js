@@ -394,6 +394,7 @@
                     }
                     wrapPaging(response.Result.Data.RowCount, function () {
                         loadData();
+
                     }, isPageChanged);
                 }
                 else {

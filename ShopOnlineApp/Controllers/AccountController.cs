@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using PaulMiami.AspNetCore.Mvc.Recaptcha;
+using ShopOnlineApp.Application.ViewModels.User;
 using ShopOnlineApp.Data.Entities;
 using ShopOnlineApp.Data.Enums;
 using ShopOnlineApp.Extensions;
@@ -82,6 +83,14 @@ namespace ShopOnlineApp.Controllers
 
             // If we got this far, something failed, redisplay form
             return View(model);
+        }
+
+        [HttpGet]
+        [Route("account.html")]
+        public async Task<IActionResult>  Information()
+        {
+            var user = await _userManager.GetUserAsync(User);
+            return View(new AppUserViewModel().Map(user));
         }
 
 
@@ -201,6 +210,8 @@ namespace ShopOnlineApp.Controllers
         {
             return View();
         }
+
+
 
         [HttpGet]
         [AllowAnonymous]
