@@ -288,4 +288,10 @@
     <None Include="wwwroot\lib\jquery\jquery\src\wrap.js" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Reference Include="System.DirectoryServices">
+      <HintPath>C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\System.DirectoryServices.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>

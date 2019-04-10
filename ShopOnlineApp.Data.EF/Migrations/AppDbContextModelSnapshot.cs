@@ -235,6 +235,8 @@ namespace ShopOnlineApp.Data.EF.Migrations
 
                     b.Property<int>("AccessFailedCount");
 
+                    b.Property<string>("Address");
+
                     b.Property<string>("Avatar");
 
                     b.Property<decimal>("Balance");
@@ -252,6 +254,8 @@ namespace ShopOnlineApp.Data.EF.Migrations
                     b.Property<bool>("EmailConfirmed");
 
                     b.Property<string>("FullName");
+
+                    b.Property<bool>("Gender");
 
                     b.Property<bool>("LockoutEnabled");
 

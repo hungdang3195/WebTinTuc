@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SignalR;
 using Microsoft.Extensions.Configuration;
@@ -95,7 +97,7 @@ namespace ShopOnlineApp.Controllers
             model.Carts = session;
             return View(model);
         }
-        //[Route("checkout.html", Name = "Checkout")]
+        [Route("checkout.html", Name = "Checkout")]
         [ValidateAntiForgeryToken]
         [HttpPost]
         public async Task<IActionResult> Checkout(CheckoutViewModel model)
@@ -133,17 +135,17 @@ namespace ShopOnlineApp.Controllers
                     {
                         billViewModel.CustomerId = Guid.Parse(User.GetSpecificDefault("UserId"));
                     }
-                     var dataReturn=  _billService.Create(billViewModel);
+                    var dataReturn = _billService.Create(billViewModel);
                     _billService.Save();
                     var currentLink = _configuration["CurrentLink"];
                     RequestInfo info = new RequestInfo();
                     info.Merchant_id = _configuration["Nganluong:MerchantId"];
-                    info.Merchant_password = _configuration["Nganluong:MerchantPassword"] ;
-                    info.Receiver_email = _configuration["Nganluong:MerchantEmail"] ;
+                    info.Merchant_password = _configuration["Nganluong:MerchantPassword"];
+                    info.Receiver_email = _configuration["Nganluong:MerchantEmail"];
                     info.cur_code = "vnd";
                     info.bank_code = model.BankCode;
-                    info.Order_code = dataReturn.Id.ToString();
-                    info.Total_amount = "5.000";
+                    info.Order_code = "1";
+                    info.Total_amount = _configuration["Nganluong:money"];
                     info.fee_shipping = "0";
                     info.Discount_amount = "0";
                     info.order_description = "Thanh toán đơn hàng tại Online shop";
@@ -163,11 +165,8 @@ namespace ShopOnlineApp.Controllers
                             message = result.Description
                         });
                     }
-
                     try
                     {
-                       
-
                         foreach (var item in dataReturn.BillDetails)
                         {
                             var colorVM = _color.GetById(item.ColorId);
@@ -176,9 +175,7 @@ namespace ShopOnlineApp.Controllers
                             {
                                 item.Color = colorVM;
                             }
-
                             var sizeVM = _size.GetById(item.ColorId);
-
                             if (sizeVM != null)
                             {
                                 item.Size = sizeVM;
@@ -186,7 +183,6 @@ namespace ShopOnlineApp.Controllers
                         }
 
                         ViewBag.BillModel = dataReturn;
-
                         //var announcement = new AnnouncementViewModel()
                         //{
                         //    Content = $"Bạn có một yêu cầu phê duyệt",
@@ -211,12 +207,98 @@ namespace ShopOnlineApp.Controllers
                 model.Carts = session;
                 HttpContext.Session.Set(CommonConstants.CartSession, new List<ShoppingCartViewModel>());
                 return View(model);
-
             }
-
-           return new OkObjectResult("");
+            return new OkObjectResult("");
         }
+        //test
+        //[ValidateAntiForgeryToken]
+        //[HttpPost]
+        //public async Task<IActionResult> Checkout(CheckoutViewModel model)
+        //{
+        //    var session = HttpContext.Session.Get<List<ShoppingCartViewModel>>(CommonConstants.CartSession);
+        //    if (ModelState.IsValid)
+        //    {
+        //        if (session != null)
+        //        {
+        //            var details = new List<BillDetailViewModel>();
+        //            foreach (var item in session)
+        //            {
+        //                details.Add(new BillDetailViewModel()
+        //                {
+        //                    Product = item.Product,
+        //                    Price = item.Price,
+        //                    ColorId = item.Color.Id,
+        //                    SizeId = item.Size.Id,
+        //                    Quantity = item.Quantity,
+        //                    ProductId = item.Product.Id
+        //                });
+        //            }
+        //            var billViewModel = new BillViewModel()
+        //            {
+        //                CustomerMobile = model.CustomerMobile,
+        //                BillStatus = BillStatus.New,
+        //                CustomerAddress = model.CustomerAddress,
+        //                CustomerName = model.CustomerName,
+        //                CustomerMessage = model.CustomerMessage,
+        //                BillDetails = details,
+        //                DateCreated = DateTime.Now
+        //                //PaymentMethod = model.PaymentMethod
+        //            };
+        //            if (User.Identity.IsAuthenticated)
+        //            {
+        //                billViewModel.CustomerId = Guid.Parse(User.GetSpecificDefault("UserId"));
+        //            }
+        //            var dataReturn = _billService.Create(billViewModel);
+        //            _billService.Save();
+        //           // _configuration["Nganluong:MerchantId"]
+        //            string vnp_Returnurl = _configuration["VNPAY:vnp_Returnurl"]; //URL nhan ket qua tra ve 
+        //            string vnp_Url = _configuration["VNPAY:vnp_Url"]; //URL thanh toan cua VNPAY 
+        //            string vnp_TmnCode = _configuration["VNPAY:vnp_TmnCode"]; //Ma website
+        //            string vnp_HashSecret = _configuration["VNPAY:vnp_HashSecret"]; //Chuoi bi mat
 
+        //            HttpContextAccessor accessor = new HttpContextAccessor();
+        //            VnPayLibrary vnpay = new VnPayLibrary(accessor);
+
+        //            vnpay.AddRequestData("vnp_Version", "2.0.0");
+        //            vnpay.AddRequestData("vnp_Command", "pay");
+        //            vnpay.AddRequestData("vnp_TmnCode", vnp_TmnCode);
+
+        //            string locale = "vn";
+        //            if (!string.IsNullOrEmpty(locale))
+        //            {
+        //                vnpay.AddRequestData("vnp_Locale", locale);
+        //            }
+        //            else
+        //            {
+        //                vnpay.AddRequestData("vnp_Locale", "vn");
+        //            }
+
+        //            vnpay.AddRequestData("vnp_CurrCode", "VND");
+        //            vnpay.AddRequestData("vnp_TxnRef", dataReturn.Id.ToString());
+        //            vnpay.AddRequestData("vnp_OrderInfo", dataReturn.CustomerMessage);
+        //            vnpay.AddRequestData("vnp_OrderType", model.TypePayment); //default value: other
+        //            vnpay.AddRequestData("vnp_Amount", (10 * 100).ToString());
+        //            vnpay.AddRequestData("vnp_ReturnUrl", vnp_Returnurl);
+        //            vnpay.AddRequestData("vnp_IpAddr", vnpay.GetIpAddress());
+        //            vnpay.AddRequestData("vnp_CreateDate", DateTime.Now.ToString("yyyyMMddHHmmss"));
+
+        //            if (string.IsNullOrEmpty(model.BankCode))
+        //            {
+        //                vnpay.AddRequestData("vnp_BankCode", model.BankCode);
+        //            }
+
+        //            string paymentUrl = vnpay.CreateRequestUrl(vnp_Url, vnp_HashSecret);
+        //           // log.InfoFormat("VNPAY URL: {0}", paymentUrl);
+        //            Response.Redirect(paymentUrl);
+        //        }
+        //        model.Carts = session;
+        //        HttpContext.Session.Set(CommonConstants.CartSession, new List<ShoppingCartViewModel>());
+        //        return View(model);
+
+        //    }
+
+        //    return new OkObjectResult("");
+        //}
         [HttpPost]
         public IActionResult AddToCart(int productId, int quantity, int color, int size)
         {

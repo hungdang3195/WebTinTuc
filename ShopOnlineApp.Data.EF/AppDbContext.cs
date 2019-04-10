@@ -18,6 +18,7 @@ namespace ShopOnlineApp.Data.EF
     {
         public AppDbContext(DbContextOptions options) : base(options)
         {
+
         }
 
         public DbSet<Language> Languages { set; get; }

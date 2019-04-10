@@ -24,7 +24,6 @@ namespace ShopOnlineApp.Application.ViewModels.User
         public Status Status { get; set; }
         public DateTime DateModified { set; get; }
         public string Gender { get; set; }
-
         public DateTime DateCreated { get; set; }
 
         public List<string> Roles { get; set; }

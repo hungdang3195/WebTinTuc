@@ -49,7 +49,7 @@ namespace ShopOnlineApp.Application.Implementation
 
                 // var orderDetails = Mapper.Map<List<BillDetailViewModel>, List<BillDetail>>(billVm.BillDetails);
 
-                var orderDetails = new BillDetailViewModel().Map(billVm.BillDetails).ToList();
+                var orderDetails = new BillDetailViewModel().Map(billVm.BillDetails.AsParallel().AsOrdered().WithDegreeOfParallelism(3)).ToList();
 
                 foreach (var detail in orderDetails)
                 {
@@ -85,7 +85,7 @@ namespace ShopOnlineApp.Application.Implementation
             var updatedDetails = newDetails.Where(x => x.Id != 0).ToList();
 
             //Existed details
-            var existedDetails = _orderDetailRepository.FindAll(x => x.BillId == billVm.Id);
+            var existedDetails = _orderDetailRepository.FindAll(x => x.BillId == billVm.Id).AsNoTracking();
 
             //Clear db
             order.BillDetails.Clear();
@@ -121,7 +121,7 @@ namespace ShopOnlineApp.Application.Implementation
 
         public List<SizeViewModel> GetSizes()
         {
-            return new SizeViewModel().Map(_sizeRepository.FindAll()).ToList();
+            return new SizeViewModel().Map(_sizeRepository.FindAll().AsNoTracking()).ToList();
         }
 
         public void Save()
@@ -166,7 +166,7 @@ namespace ShopOnlineApp.Application.Implementation
         {
             var bill = _orderRepository.FindSingle(x => x.Id == billId);
             var billVm =new BillViewModel().Map(bill);
-            var billDetailVm = new BillDetailViewModel().Map(_orderDetailRepository.FindAll(x => x.BillId == billId)).ToList();
+            var billDetailVm = new BillDetailViewModel().Map(_orderDetailRepository.FindAll(x => x.BillId == billId).AsNoTracking()).ToList();
             billVm.BillDetails = billDetailVm;
             return billVm;
         }
@@ -174,12 +174,12 @@ namespace ShopOnlineApp.Application.Implementation
         public List<BillDetailViewModel> GetBillDetails(int billId)
         {
             return new BillDetailViewModel().Map(_orderDetailRepository
-                    .FindAll(x => x.BillId == billId, c => c.Bill, c => c.Color, c => c.Size, c => c.Product)).ToList();
+                    .FindAll(x => x.BillId == billId, c => c.Bill, c => c.Color, c => c.Size, c => c.Product).AsNoTracking().AsParallel().AsOrdered().WithDegreeOfParallelism(3)).ToList();
         }
 
         public List<ColorViewModel> GetColors()
         {
-            return new ColorViewModel().Map(_colorRepository.FindAll()).ToList();
+            return new ColorViewModel().Map(_colorRepository.FindAll().AsNoTracking()).ToList();
         }
 
         public BillDetailViewModel CreateDetail(BillDetailViewModel billDetailVm)
@@ -208,31 +208,32 @@ namespace ShopOnlineApp.Application.Implementation
 
         public async Task<BaseReponse<ModelListResult<BillViewModel>>> GetAllPaging(BillRequest request)
         {
-            var query = _orderRepository.FindAll();
+            var query = _orderRepository.FindAll().AsNoTracking().AsParallel();
             if (!string.IsNullOrEmpty(request.StartDate))
             {
                 DateTime start = DateTime.ParseExact(request.StartDate, "dd/MM/yyyy", CultureInfo.GetCultureInfo("vi-VN"));
-                query = query.Where(x => x.DateCreated >= start);
+                query = query.AsParallel().AsOrdered().WithDegreeOfParallelism(3).Where(x => x.DateCreated >= start);
             }
             if (!string.IsNullOrEmpty(request.EndDate))
             {
                 DateTime end = DateTime.ParseExact(request.EndDate, "dd/MM/yyyy", CultureInfo.GetCultureInfo("vi-VN"));
-                query = query.Where(x => x.DateCreated <= end);
+                query = query.AsParallel().AsOrdered().WithDegreeOfParallelism(3).Where(x => x.DateCreated <= end);
             }
             if (!string.IsNullOrEmpty(request.SearchText))
             {
-                query = query.Where(x => x.CustomerName.Contains(request.SearchText) || x.CustomerMobile.Contains(request.SearchText));
+                query = query.AsParallel().AsOrdered().WithDegreeOfParallelism(3).Where(x => x.CustomerName.Contains(request.SearchText) || x.CustomerMobile.Contains(request.SearchText));
             }
-            var totalRow = query.Count();
-            var items = await query.OrderByDescending(x => x.DateCreated)
-                .Skip((request.PageIndex ) * request.PageSize)
-                .Take(request.PageSize).ToListAsync();
+            var totalRow = query.AsParallel().AsOrdered().WithDegreeOfParallelism(3).Count();
 
-              
+            var items =  query.AsParallel().AsOrdered().WithDegreeOfParallelism(3)
+                .OrderByDescending(x => x.DateCreated)
+                .Skip(request.PageIndex * request.PageSize)
+                .Take(request.PageSize);
+            
 
             var result = new BaseReponse<ModelListResult<BillViewModel>>
             {
-                Data = new ModelListResult<BillViewModel>()
+                Data = new ModelListResult<BillViewModel>
                 {
                     Items = new BillViewModel().Map(items).ToList(),
                     Message = Message.Success,
@@ -244,7 +245,6 @@ namespace ShopOnlineApp.Application.Implementation
                 Status = (int)QueryStatus.Success
             };
             return result;
-
         }
     }
 }

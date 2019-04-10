@@ -16,12 +16,17 @@
     <script src="~/app/controller/product/image-management.js"></script>
     <script src="~/app/controller/product/whole-price-management.js"></script>
     <script src="~/app/controller/product/index.js" asp-append-version="true"></script>
-
+            
     <script>
         var product = new productController();
         product.initialize();
     </script>
 }
+    <style>
+        span.textbox.textbox-invalid.combo {
+            width: 172px;
+        }
+    </style>
 <div class="page-title">
     <div class="title_left">
         <h3>Sản phẩm <small>Danh sách sản phẩm</small></h3>

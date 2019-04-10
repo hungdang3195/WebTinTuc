@@ -83,13 +83,13 @@ namespace ShopOnlineApp.Application.Implementation
         public async Task<List<ProductCategoryViewModel>> GetHomeCategories(int top)
         {
             var categories = new ProductCategoryViewModel().Map(_productCategoryRepository
-                .FindAll(x => x.HomeFlag == true, c => c.Products)
+                .FindAll(x => x.HomeFlag == true, c => c.Products).AsNoTracking().AsParallel().AsOrdered()
                 .OrderBy(x => x.HomeOrder)
                 .Take(top)).ToList();
 
             foreach (var category in categories)
             {
-                var item =new ProductViewModel().Map(_productRepository.FindAll(x => x.HomeFlag.Value && x.CategoryId == category.Id)
+                var item =new ProductViewModel().Map(_productRepository.FindAll(x => x.HomeFlag.Value && x.CategoryId == category.Id).AsNoTracking().AsParallel().AsOrdered()
                     .OrderByDescending(x => x.DateCreated)
                     .Take(5)).ToList();
             }
@@ -157,7 +157,7 @@ namespace ShopOnlineApp.Application.Implementation
 
             _productCategoryRepository.Update(sourceCategory);
 
-            var sibling = _productCategoryRepository.FindAll(x => items.ContainsKey(x.Id));
+            var sibling = _productCategoryRepository.FindAll(x => items.ContainsKey(x.Id)).AsNoTracking().AsParallel().AsOrdered();
             foreach (var child in sibling)
             {
                 child.SortOrder = items[child.Id];

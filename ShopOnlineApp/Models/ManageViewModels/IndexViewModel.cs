@@ -17,5 +17,9 @@ namespace ShopOnlineApp.Models.ManageViewModels
         public string PhoneNumber { get; set; }
 
         public string StatusMessage { get; set; }
+
+        public string Address { get; set; }
+
+
     }
 }

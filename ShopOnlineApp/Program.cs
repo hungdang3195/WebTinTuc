@@ -19,8 +19,8 @@ namespace ShopOnlineApp
 
                 try
                 {
-                    //var dbInitializer = services.GetService<DbInitializer>();
-                    //dbInitializer.Seed().Wait();
+                    var dbInitializer = services.GetService<DbInitializer>();
+                    dbInitializer.Seed().Wait();
                 }
                 catch (Exception ex)
                 {

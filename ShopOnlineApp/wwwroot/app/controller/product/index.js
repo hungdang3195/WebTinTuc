@@ -173,6 +173,7 @@
         });
 
         $('#btnSave').on('click', function (e) {
+            e.preventDefault();
             saveProduct();
         });
     }
@@ -188,7 +189,7 @@
             var price = $('#txtPriceM').val();
             var originalPrice = $('#txtOriginalPriceM').val();
             var promotionPrice = $('#txtPromotionPriceM').val();
-            var image = $('#hidId').val();
+            var image = $("#image_place").attr("src");
             var tags = $('#txtTagM').val();
             var seoKeyword = $('#txtMetakeywordM').val();
             var seoMetaDescription = $('#txtMetaDescriptionM').val();

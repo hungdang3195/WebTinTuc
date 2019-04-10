@@ -81,6 +81,8 @@ namespace ShopOnlineApp.Areas.Admin.Controllers
                     Id = Guid.NewGuid().ToString()
                 };
 
+
+
                 await _userService.AddAsync(userVm);
 
                 await _hubContext.Clients.All.SendAsync("ReceiveMessage", announcement);

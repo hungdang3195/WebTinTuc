@@ -9,6 +9,7 @@ namespace ShopOnlineApp.Infrastructure.NganLuongAPI
 {
     public class ApiCheckoutV3
     {
+        //private readonly IHttpClientFactory _httpClientFactory;
         public ResponseInfo GetUrlCheckout(RequestInfo requestContent, string paymentMethod = "NL")
         {
             requestContent.Payment_method = paymentMethod;
@@ -143,7 +144,7 @@ namespace ShopOnlineApp.Infrastructure.NganLuongAPI
             byte[] data = encoding.GetBytes(postData);
 
             // Prepare web request...
-            HttpWebRequest myRequest = (HttpWebRequest)WebRequest.Create("https://www.nganluong.vn/checkout.api.nganluong.post.php");
+            HttpWebRequest myRequest = (HttpWebRequest)WebRequest.Create("https://sandbox.nganluong.vn:8088/nl35/checkout.api.nganluong.post.php");
             myRequest.Method = "POST";
             myRequest.ContentType = "application/x-www-form-urlencoded";
             myRequest.ContentLength = data.Length;

@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using ShopOnlineApp.Application.Interfaces;
 using ShopOnlineApp.Application.ViewModels.User;
+using ShopOnlineApp.Data.EF;
 using ShopOnlineApp.Data.EF.Common;
 using ShopOnlineApp.Data.Entities;
 using ShopOnlineApp.Infrastructure.Interfaces;
@@ -19,13 +20,20 @@ namespace ShopOnlineApp.Application.Implementation
     {
         private readonly UserManager<AppUser> _userManager;
         private readonly IHttpContextAccessor _httpContextAccessor;
+        private readonly RoleManager<AppRole> _roleManager;
         private readonly IUnitOfWork _unitOfWork;
 
-        public UserService(UserManager<AppUser> userManager, IHttpContextAccessor httpContextAccessor, IUnitOfWork unitOfWork)
+        //chạy thử xem
+        private readonly AppDbContext _context;
+
+        public UserService(UserManager<AppUser> userManager, IHttpContextAccessor httpContextAccessor,
+            RoleManager<AppRole> roleManager, IUnitOfWork unitOfWork, AppDbContext context)
         {
             _userManager = userManager;
             _httpContextAccessor = httpContextAccessor;
             _unitOfWork = unitOfWork;
+            _roleManager = roleManager;
+            _context = context;
         }
 
         public async Task<bool> AddAsync(AppUserViewModel userVm)
@@ -37,7 +45,8 @@ namespace ShopOnlineApp.Application.Implementation
                 Email = userVm.Email,
                 FullName = userVm.FullName,
                 DateCreated = DateTime.Now,
-                PhoneNumber = userVm.PhoneNumber
+                PhoneNumber = userVm.PhoneNumber,
+                DateModified = DateTime.Now
             };
             var result = await _userManager.CreateAsync(user, userVm.Password);
             if (result.Succeeded && userVm.Roles.Count > 0)
@@ -57,27 +66,27 @@ namespace ShopOnlineApp.Application.Implementation
 
         public async Task<List<AppUserViewModel>> GetAllAsync()
         {
-            return new AppUserViewModel().Map(await _userManager.Users.ToListAsync()).ToList();
+            return new AppUserViewModel().Map(await _userManager.Users.AsNoTracking().ToListAsync()).ToList();
         }
 
         public async Task<BaseReponse<ModelListResult<AppUserViewModel>>> GetAllPagingAsync(UserRequest request)
         {
-            var query = _userManager.Users;
+            var query = _userManager.Users.AsNoTracking().AsParallel();
 
             if (!string.IsNullOrEmpty(request?.SearchText))
             {
-                query = query.Where(x => x.FullName.Contains(request.SearchText)
+                query = query.AsParallel().AsOrdered().WithDegreeOfParallelism(3).Where(x => x.FullName.Contains(request.SearchText)
                                          || x.UserName.Contains(request.SearchText)
                                          || x.Email.Contains(request.SearchText));
             }
 
-            int totalRow = await query.CountAsync();
+            int totalRow =  query.AsParallel().AsOrdered().WithDegreeOfParallelism(3).Count();
 
             if (request != null)
-                query = query.Skip((request.PageIndex) * request.PageSize)
+                query = query.AsParallel().AsOrdered().WithDegreeOfParallelism(3).Skip((request.PageIndex) * request.PageSize)
                     .Take(request.PageSize);
 
-            var items = query.Select(x => new AppUserViewModel()
+            var items = query.AsParallel().AsOrdered().WithDegreeOfParallelism(3).Select(x => new AppUserViewModel()
             {
                 UserName = x.UserName,
                 Avatar = x.Avatar,
@@ -89,15 +98,13 @@ namespace ShopOnlineApp.Application.Implementation
                 Status = x.Status,
                 DateCreated = x.DateCreated,
                 DateModified = x.DateModified
-
-            }).ToList();
-
+            });
 
             var result = new BaseReponse<ModelListResult<AppUserViewModel>>
             {
                 Data = new ModelListResult<AppUserViewModel>()
                 {
-                    Items = items,
+                    Items = items.ToList(),
                     Message = Message.Success,
                     RowCount = totalRow,
                     PageSize = request.PageSize,
@@ -125,25 +132,23 @@ namespace ShopOnlineApp.Application.Implementation
             //Remove current roles in db
             var currentRoles = await _userManager.GetRolesAsync(user);
 
-            string[] needRemoveRoles = currentRoles.Except(userVm.Roles).ToArray();
-
-            var data = await _userManager.RemoveFromRolesAsync(user, new List<string>
-            {
-                "Staff"
-            });
             var result = await _userManager.AddToRolesAsync(user,
                 userVm.Roles.Except(currentRoles).ToArray());
 
             if (result.Succeeded)
             {
+                string[] needRemoveRoles = currentRoles.Except(userVm.Roles).ToArray();
+                await RemoveRolesFromUser(user.Id.ToString(), needRemoveRoles);
+
                 //Update user detail
                 user.FullName = userVm.FullName;
                 user.Status = userVm.Status;
                 user.Email = userVm.Email;
                 user.PhoneNumber = userVm.PhoneNumber;
+                user.DateModified=DateTime.Now;
+                user.DateCreated=DateTime.Now;
                 await _userManager.UpdateAsync(user);
             }
-
         }
 
         public string GetUserId()
@@ -154,6 +159,22 @@ namespace ShopOnlineApp.Application.Implementation
         public void SaveChanges()
         {
             _unitOfWork.Commit();
+        }
+
+        public async Task RemoveRolesFromUser(string userId, string[] roles)
+        {
+            var user = await _userManager.FindByIdAsync(userId);
+
+            var roleIds = _roleManager.Roles.AsNoTracking().AsParallel().AsOrdered().WithDegreeOfParallelism(3).Where(x => roles.Contains(x.Name)).Select(x => x.Id).ToList();
+            List<IdentityUserRole<Guid>> userRoles = new List<IdentityUserRole<Guid>>();
+            foreach (var roleId in roleIds)
+            {
+                userRoles.Add(new IdentityUserRole<Guid> { RoleId = roleId, UserId = user.Id });
+            }
+
+            _context.UserRoles.RemoveRange(userRoles);
+            await _context.SaveChangesAsync();
+
         }
     }
 }

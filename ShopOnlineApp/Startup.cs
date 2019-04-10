@@ -40,7 +40,7 @@ namespace ShopOnlineApp
         {
             Configuration = configuration;
         }
-
+        readonly string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
@@ -182,7 +182,8 @@ namespace ShopOnlineApp
             services.AddTransient<IBlogCategoryRepository, BlogCategoryRepository>();
             services.AddTransient<IBlogCommentRepository, BlogCommentRepository>();
             services.AddTransient<IAnnouncementService, AnnouncementService>();
-
+            services.AddTransient<IAppUserRoleRepository, AppUserRoleRepository>();
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             //service
             services.AddTransient<IFunctionService, FunctionService>();
             services.AddTransient<IProductService, ProductService>();
@@ -215,9 +216,16 @@ namespace ShopOnlineApp
 
             //Config system
             services.AddMvc();
-
-            services.AddCors(options => options.AddPolicy("CorsPolicy", builder => { builder.AllowAnyMethod().AllowAnyHeader().WithOrigins("http://localhost:3000").AllowCredentials(); }));
-
+            // services.AddCors(options => options.AddPolicy("CorsPolicy", builder => { builder.AllowAnyMethod().AllowAnyHeader().WithOrigins("http://localhost:44344", "http://localhost:3000", "http://sandbox.vnpayment.vn/paymentv2/vpcpay.html","https://merchant.vnpay.vn/merchant_webapi/merchant.html").AllowCredentials(); }));
+            services.AddCors(options =>
+            {
+                options.AddPolicy(MyAllowSpecificOrigins,
+                    builder =>
+                    {
+                        builder.WithOrigins("http://sandbox.vnpayment.vn/paymentv2/vpcpay.html",
+                            "http://www.contoso.com");
+                    });
+            });
             services.AddTransient<IAuthorizationHandler, BaseResourceAuthorizationHandler>();
 
             services.AddSignalR();
@@ -260,7 +268,11 @@ namespace ShopOnlineApp
                     template: "{area:exists}/{controller=Login}/{action=Index}/{id?}");
             });
             app.UseCookiePolicy();
-            app.UseCors("CorsPolicy");
+            //app.UseCors(
+            //    options => options.WithOrigins("http://example.com").AllowAnyMethod()
+            //);
+            //app.UseCors("CorsPolicy");
+            app.UseCors(MyAllowSpecificOrigins);
             app.UseSignalR(routes => { routes.MapHub<OnlineShopHub>("/onlineShopHub"); });
 
         }

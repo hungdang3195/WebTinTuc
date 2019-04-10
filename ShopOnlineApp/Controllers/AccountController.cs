@@ -86,13 +86,17 @@ namespace ShopOnlineApp.Controllers
         }
 
         [HttpGet]
-        [Route("account.html")]
-        public async Task<IActionResult>  Information()
+        public IActionResult  Information()
+        {
+            return View();
+        }
+       
+        [HttpGet]
+        public async Task<IActionResult> GetInformationUser()
         {
             var user = await _userManager.GetUserAsync(User);
-            return View(new AppUserViewModel().Map(user));
+            return new OkObjectResult(new AppUserViewModel().Map(user));
         }
-
 
         [HttpGet]
         [AllowAnonymous]
@@ -242,7 +246,9 @@ namespace ShopOnlineApp.Controllers
                 PhoneNumber = model.PhoneNumber,
                 BirthDay = model.BirthDay,
                 Status = Status.Active,
-                Avatar = string.Empty
+                Avatar = model.Avatar ?? string.Empty,
+                Address = model.Address,
+                Gender = model.Gender,
             };
             var result = await _userManager.CreateAsync(user, model.Password);
             if (result.Succeeded)
@@ -255,7 +261,7 @@ namespace ShopOnlineApp.Controllers
 
                 await _signInManager.SignInAsync(user, isPersistent: false);
                 _logger.LogInformation("User created a new account with password.");
-                return RedirectToLocal(returnUrl);
+                return RedirectToAction("PendingConfirm","Account", new {email= user.Email, send= callbackUrl });
             }
             AddErrors(result);
 
@@ -263,6 +269,20 @@ namespace ShopOnlineApp.Controllers
             return View(model);
         }
 
+        [HttpGet]
+        public IActionResult PendingConfirm(string email, string send)
+        {
+            ViewBag.email = email ?? "";
+            ViewBag.send = send ?? "";
+            return View();
+        }
+
+        [HttpGet]
+        public async Task<JsonResult> EmailCallback(string email, string send)
+        {
+            await _emailSender.SendEmailConfirmationAsync(email, send);
+            return Json("");
+        }
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Logout()
@@ -316,8 +336,6 @@ namespace ShopOnlineApp.Controllers
             var email = info.Principal.FindFirstValue(ClaimTypes.Email);
             return View("ExternalLogin", new ExternalLoginViewModel());
         }
-
-
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]

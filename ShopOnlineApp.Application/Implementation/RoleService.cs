@@ -35,19 +35,27 @@ namespace ShopOnlineApp.Application.Implementation
         }
         public async Task<bool> AddAsync(AppRoleViewModel roleVm)
         {
-            var role = new AppRole()
+            if (!await _roleManager.RoleExistsAsync(roleVm.ToString()))
             {
-                Name = roleVm.Name,
-                Description = roleVm.Description
-            };
-            var result = await _roleManager.CreateAsync(role);
-            return result.Succeeded;
+                await _roleManager.CreateAsync(new AppRole
+                {
+                    Name = roleVm.Name,
+                    NormalizedName = roleVm.ToString().ToUpper()
+                });
+            }
+            //var role = new AppRole()
+            //{
+            //    Name = roleVm.Name,
+            //    Description = roleVm.Description
+            //};
+            //var result = await _roleManager.CreateAsync(roleVm);
+            return true;
         }
 
         public async Task<bool> CheckPermission(string functionId, string action, string[] roles)
         {
-            var functions = _functionRepository.FindAll();
-            var permissions = _permissionRepository.FindAll();
+            var functions = _functionRepository.FindAll().AsNoTracking();
+            var permissions = _permissionRepository.FindAll().AsNoTracking();
             var query = from f in functions
                         join p in permissions on f.Id equals p.FunctionId
                         join r in _roleManager.Roles on p.RoleId equals r.Id
@@ -68,14 +76,14 @@ namespace ShopOnlineApp.Application.Implementation
 
         public async Task<List<AppRoleViewModel>> GetAllAsync()
         {
-            return new AppRoleViewModel().Map(await _roleManager.Roles.ToListAsync()).ToList();
+            return new AppRoleViewModel().Map(await _roleManager.Roles.AsNoTracking().ToListAsync()).ToList();
         }
 
         public async Task<BaseReponse<ModelListResult<AppRoleViewModel>>> GetAllPagingAsync(AppRoleRequest request)
         {
-            var query = _roleManager.Roles;
+            var query = _roleManager.Roles.AsNoTracking().AsParallel();
             if (!string.IsNullOrEmpty(request.SearchText))
-                query = query.Where(x => x.Name.Contains(request.SearchText)
+                query = query.AsParallel().AsOrdered().WithDegreeOfParallelism(3).Where(x => x.Name.Contains(request.SearchText)
                 || x.Description.Contains(request.SearchText));
 
             //if (request.Name.Any())
@@ -86,12 +94,12 @@ namespace ShopOnlineApp.Application.Implementation
             //    }
             //}
 
-            int totalRow = await query.CountAsync();
+            int totalRow =  query.Count();
 
-            query = query.Skip((request.PageIndex) * request.PageSize)
+            query = query.AsParallel().AsOrdered().WithDegreeOfParallelism(2).Skip((request.PageIndex) * request.PageSize)
                .Take(request.PageSize);
 
-            var items = new AppRoleViewModel().Map(query.ToList()).ToList();
+            var items = new AppRoleViewModel().Map(query).ToList();
 
             var result = new BaseReponse<ModelListResult<AppRoleViewModel>>
             {
@@ -121,15 +129,15 @@ namespace ShopOnlineApp.Application.Implementation
 
         public List<PermissionViewModel> GetListFunctionWithRole(Guid roleId)
         {
-            var functions =_functionRepository.FindAll(x => x.Status == Status.Active); 
+            var functions =_functionRepository.FindAll(x => x.Status == Status.Active).AsNoTracking().AsParallel().AsUnordered(); 
 
-            var permissions = _permissionRepository.FindAll();
+            var permissions = _permissionRepository.FindAll().AsNoTracking().AsParallel().AsUnordered();
 
             var query = from f in functions
                         join p in permissions on f.Id equals p.FunctionId into fp
                         from q in fp.DefaultIfEmpty()
                         where q != null && q.RoleId == roleId
-                        select new PermissionViewModel()
+                        select new PermissionViewModel
                         {
                             RoleId = roleId,
                             FunctionId = f.Id,
@@ -145,11 +153,11 @@ namespace ShopOnlineApp.Application.Implementation
         {
             var permissions = new PermissionViewModel().Map(permissionVms);
 
-            var oldPermission = _permissionRepository.FindAll().Where(x => x.RoleId == roleId).ToList();
+            var oldPermission = _permissionRepository.FindAll().AsParallel().AsOrdered().WithDegreeOfParallelism(2).Where(x => x.RoleId == roleId);
 
             if (oldPermission.Any())
             {
-                _permissionRepository.RemoveMultiple(oldPermission);
+                _permissionRepository.RemoveMultiple(oldPermission.ToList());
             }
             foreach (var permission in permissions)
             {

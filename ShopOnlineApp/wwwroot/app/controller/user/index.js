@@ -246,7 +246,7 @@
                             FullName: item.FullName,
                             Id: item.Id,
                             UserName: item.UserName,
-                            Avatar: item.Avatar === undefined ? '<img src="/admin-side/images/user.png" width=25 />' : '<img src="' + item.Avatar + '" width=25 />',
+                            Avatar: item.Avatar === undefined ? '<img src="/admin-side/images/user.png" width=70 />' : '<img src="' + item.Avatar + '" width=70 />',
                             DateCreated: shoponline.dateTimeFormatJson(item.DateModified),
                             Status: shoponline.getStatus(item.Status)
                         });

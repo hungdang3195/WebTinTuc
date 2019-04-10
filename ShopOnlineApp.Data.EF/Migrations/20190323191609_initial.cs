@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace ShopOnlineApp.Data.EF.Migrations
 {
-    public partial class FirstMigration : Migration
+    public partial class initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -98,6 +98,7 @@ namespace ShopOnlineApp.Data.EF.Migrations
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     AccessFailedCount = table.Column<int>(type: "int", nullable: false),
+                    Address = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Avatar = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Balance = table.Column<decimal>(type: "decimal(18, 2)", nullable: false),
                     BirthDay = table.Column<DateTime>(type: "datetime2", nullable: true),
@@ -107,6 +108,7 @@ namespace ShopOnlineApp.Data.EF.Migrations
                     Email = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     EmailConfirmed = table.Column<bool>(type: "bit", nullable: false),
                     FullName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Gender = table.Column<bool>(type: "bit", nullable: false),
                     LockoutEnabled = table.Column<bool>(type: "bit", nullable: false),
                     LockoutEnd = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: true),
                     NormalizedEmail = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -641,6 +643,30 @@ namespace ShopOnlineApp.Data.EF.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "BlogComment",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    BlogId = table.Column<int>(type: "int", nullable: false),
+                    DateCreated = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    DateModified = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Email = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Message = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_BlogComment", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_BlogComment_Blogs_BlogId",
+                        column: x => x.BlogId,
+                        principalTable: "Blogs",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "BlogTags",
                 columns: table => new
                 {
@@ -883,6 +909,11 @@ namespace ShopOnlineApp.Data.EF.Migrations
                 column: "CustomerId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_BlogComment_BlogId",
+                table: "BlogComment",
+                column: "BlogId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Blogs_BlogCategoryId",
                 table: "Blogs",
                 column: "BlogCategoryId");
@@ -988,6 +1019,9 @@ namespace ShopOnlineApp.Data.EF.Migrations
 
             migrationBuilder.DropTable(
                 name: "BillDetails");
+
+            migrationBuilder.DropTable(
+                name: "BlogComment");
 
             migrationBuilder.DropTable(
                 name: "BlogTags");

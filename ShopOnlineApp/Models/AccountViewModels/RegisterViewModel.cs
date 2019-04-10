@@ -16,7 +16,6 @@ namespace ShopOnlineApp.Models.AccountViewModels
         [EmailAddress]
         [Display(Name = "Email")]
         public string Email { get; set; }
-
         [Required]
         [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]
         [DataType(DataType.Password)]
@@ -36,5 +35,7 @@ namespace ShopOnlineApp.Models.AccountViewModels
 
         [Display(Name = "Avatar")]
         public string Avatar { get; set; }
+        [Display(Name="Gender")]
+        public bool Gender { get; set; }
     }
 }

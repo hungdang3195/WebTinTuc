@@ -268,7 +268,6 @@
                 $('#txtDescM').val(data.Description);
                 $("#image_place").attr("src", data.Image);
                  //$('#txtImageM').val(data.ThumbnailImage);
-
                 $('#txtTagM').val(data.Tags);
                 $('#txtMetakeywordM').val(data.SeoKeywords);
                 $('#txtMetaDescriptionM').val(data.SeoDescription);

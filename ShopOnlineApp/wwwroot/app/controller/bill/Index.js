@@ -72,7 +72,6 @@
                 data: { id: that },
                 contentType: 'json',
                 success: function (response) {
-                    console.log(response);
                     var data = response;    
                     $('#hidId').val(data.Id);
                     $('#txtCustomerName').val(data.CustomerName);
@@ -236,7 +235,6 @@
             });
         });
     };
-
     function loadBillStatus() {
         return $.ajax({
             type: "GET",
@@ -252,7 +250,6 @@
             }
         });
     }
-
     function loadPaymentMethod() {
         return $.ajax({
             type: "GET",
@@ -268,7 +265,6 @@
             }
         });
     }
-
     function loadProducts() {
         return $.ajax({
             type: "GET",
@@ -282,7 +278,6 @@
             }
         });
     }
-
     function loadColors() {
         return $.ajax({
             type: "GET",
@@ -296,7 +291,6 @@
             }
         });
     }
-
     function loadSizes() {
         return $.ajax({
             type: "GET",
@@ -310,7 +304,6 @@
             }
         });
     }
-
     function getProductOptions(selectedId) {
         var products = "<select class='form-control ddlProductId'>";
         $.each(cachedObj.products, function (i, product) {
@@ -322,7 +315,6 @@
         products += "</select>";
         return products;
     }
-
     function getColorOptions(selectedId) {
         var colors = "<select class='form-control ddlColorId'>";
         $.each(cachedObj.colors, function (i, color) {
@@ -334,7 +326,6 @@
         colors += "</select>";
         return colors;
     }
-
     function getSizeOptions(selectedId) {
         var sizes = "<select class='form-control ddlSizeId'>";
         $.each(cachedObj.sizes, function (i, size) {
@@ -358,7 +349,6 @@
         $('#ddlBillStatus').val('');
         $('#tbl-bill-details').html('');
     }
-
     function loadData(isPageChanged) {
         $.ajax({
             type: "POST",

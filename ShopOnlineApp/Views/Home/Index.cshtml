@@ -227,20 +227,20 @@
                                     <ul class="products-grid">
                                         <li class="item">
                                             <div class="item-inner">
-                                                <div class="item-img"> <a class="product-image" title="Retis lapen casen" href="/@Model.TopRateProducts[i+1]?.SeoAlias-p.@(Model.TopRateProducts[i+1]?.Id).html"> <img alt="HTML template" src="@Model.TopRateProducts[i + 1]?.Image"> </a> </div>
+                                                <div class="item-img"> <a class="product-image" title="Retis lapen casen" href="/@Model.TopRateProducts[i]?.SeoAlias-p.@(Model.TopRateProducts[i]?.Id).html"> <img alt="HTML template" src="@Model.TopRateProducts[i]?.Image"> </a> </div>
                                                 <div class="item-info">
                                                     <div class="info-inner">
-                                                        <div class="item-title"> <a title="Product title here" href="single_product.html">@Model.TopRateProducts[i + 1]?.Name </a> </div>
+                                                        <div class="item-title"> <a title="Product title here" href="single_product.html">@Model.TopRateProducts[i]?.Name </a> </div>
                                                         <div class="rating"> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> </div>
                                                         <div class="item-price">
-                                                            <div class="price-box"> <span class="regular-price"> <span class="price">@Model.TopRateProducts[i + 1]?.OriginalPrice.ToString("N0")</span> </span> </div>
+                                                            <div class="price-box"> <span class="regular-price"> <span class="price">@Model.TopRateProducts[i]?.OriginalPrice.ToString("N0")</span> </span> </div>
                                                         </div>
                                                         <div class="pro-action">
                                                             @*<button type="button" class="add-to-cart"><i class="fa fa-shopping-cart"></i></button>*@
-                                                            <button type="button" data-id="@Model.TopRateProducts[i+1].Id" class="add-to-cart"><span> Purchase</span> </button>
+                                                            <button type="button" data-id="@Model.TopRateProducts[i].Id" class="add-to-cart"><span> Purchase</span> </button>
                                                         </div>
                                                         <div class="pr-button-hover">
-                                                            <div class="mt-button add_to_wishlist"> <a href="javascript:void(0);" class="wish-list" data-id="@Model.TopRateProducts[i+1].Id"> <i class="fa fa-heart-o"></i> </a> </div>
+                                                            <div class="mt-button add_to_wishlist"> <a href="javascript:void(0);" class="wish-list" data-id="@Model.TopRateProducts[i].Id"> <i class="fa fa-heart-o"></i> </a> </div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -377,7 +377,7 @@
         <div class="slider-items-products">
             <div id="latest-news-slider" class="product-flexslider hidden-buttons">
                 <div class="slider-items slider-width-col6">
-                    @foreach (var item in Model.LastestBlogs)
+                    @foreach (var item in Model.LastestBlogs.AsParallel().AsOrdered().WithDegreeOfParallelism(2))
                     {
                         <div class="item">
                             <div class="blog-box">

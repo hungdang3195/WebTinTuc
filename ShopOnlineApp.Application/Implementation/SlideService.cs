@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Microsoft.EntityFrameworkCore;
 using ShopOnlineApp.Application.Interfaces;
 using ShopOnlineApp.Application.ViewModels.Slide;
 using ShopOnlineApp.Data.EF.Common;
@@ -41,19 +42,19 @@ namespace ShopOnlineApp.Application.Implementation
 
         public List<SlideViewModel> GetAll()
         {
-            return new SlideViewModel().Map(_slideRepository.FindAll()).ToList();
+            return new SlideViewModel().Map(_slideRepository.FindAll().AsNoTracking().AsParallel().AsOrdered().WithDegreeOfParallelism(2)).ToList();
         }
 
         public BaseReponse<ModelListResult<SlideViewModel>> GetAllPaging(SlideRequest request)
         {
 
-            var query = _slideRepository.FindAll();
+            var query = _slideRepository.FindAll().AsNoTracking().AsParallel();
             if (!string.IsNullOrEmpty(request.SearchText))
-                query = query.Where(x => x.Name.Contains(request.SearchText));
+                query = query.AsParallel().AsOrdered().WithDegreeOfParallelism(3).Where(x => x.Name.Contains(request.SearchText));
 
 
-            int totalRow = query.Count();
-            var data = query.OrderByDescending(x => x.Id)
+            int totalRow = query.AsParallel().AsOrdered().WithDegreeOfParallelism(3).Count();
+            var data = query.AsParallel().AsOrdered().WithDegreeOfParallelism(3).OrderByDescending(x => x.Id)
                 .Skip((request.PageIndex-1) * request.PageSize)
                 .Take(request.PageSize);
 

@@ -29,14 +29,12 @@ namespace ShopOnlineApp.Areas.Admin.Components
                 functions = await _functionService.GetAll(string.Empty);
                 return View(functions);
             }
-            else
+
+            //TODO: Get by permission
+            functions = await _functionService.GetFunctionByRoles(new FunctionRequest
             {
-                //TODO: Get by permission
-                functions = await _functionService.GetFunctionByRoles(new FunctionRequest
-                {
-                    Roles = roles.Split(";").ToList()
-                });
-            }
+                Roles = roles.Split(";").ToList()
+            });
 
             return View(functions);
 

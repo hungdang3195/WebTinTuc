@@ -12,8 +12,8 @@ using System;
 namespace ShopOnlineApp.Data.EF.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20190224054552_ChangInformation")]
-    partial class ChangInformation
+    [Migration("20190323191609_initial")]
+    partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -236,6 +236,8 @@ namespace ShopOnlineApp.Data.EF.Migrations
 
                     b.Property<int>("AccessFailedCount");
 
+                    b.Property<string>("Address");
+
                     b.Property<string>("Avatar");
 
                     b.Property<decimal>("Balance");
@@ -253,6 +255,8 @@ namespace ShopOnlineApp.Data.EF.Migrations
                     b.Property<bool>("EmailConfirmed");
 
                     b.Property<string>("FullName");
+
+                    b.Property<bool>("Gender");
 
                     b.Property<bool>("LockoutEnabled");
 

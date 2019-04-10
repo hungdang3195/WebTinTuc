@@ -65,13 +65,13 @@ namespace ShopOnlineApp.Application.Implementation
 
         public async Task<List<FunctionViewModel>> GetAll(string filter)
         {
-            var query = _functionRepository.FindAll(x => x.Status == Status.Active);
+            var query = _functionRepository.FindAll(x => x.Status == Status.Active).AsNoTracking().AsParallel();
 
             if (!string.IsNullOrEmpty(filter))
-                query = query.Where(x => x.Name.Contains(filter));
+                query = query.AsParallel().AsUnordered().WithDegreeOfParallelism(3).Where(x => x.Name.Contains(filter));
 
 
-            var results = await query.OrderBy(x => x.ParentId).ToListAsync();
+            var results =  query.OrderBy(x => x.ParentId);
 
             return new FunctionViewModel().Map(results).ToList();
         }
@@ -79,7 +79,7 @@ namespace ShopOnlineApp.Application.Implementation
         public async Task<List<FunctionViewModel>> GetFunctionByRoles(FunctionRequest request)
         {
             string[] roles = request.Roles.ToArray();
-            var functionIds = _permissionRepository.FindAll(await BuildingQuery(roles)).Where(x => x.CanRead).Select(x=>x.FunctionId);
+            var functionIds = _permissionRepository.FindAll(await BuildingQuery(roles)).AsNoTracking().AsParallel().AsUnordered().WithDegreeOfParallelism(3).Where(x => x.CanRead).Select(x=>x.FunctionId);
             var ids= new List<string>();
             foreach (var id in functionIds)
             {
@@ -98,7 +98,7 @@ namespace ShopOnlineApp.Application.Implementation
                 }
             }
 
-            var function = from fun in _functionRepository.FindAll()
+            var function = from fun in _functionRepository.FindAll().AsNoTracking()
                            join id in ids.Distinct()
                            on fun.Id equals id
                            select fun;
@@ -154,7 +154,7 @@ namespace ShopOnlineApp.Application.Implementation
             _functionRepository.Update(category);
 
             //Get all sibling
-            var sibling = _functionRepository.FindAll(x => items.ContainsKey(x.Id));
+            var sibling = _functionRepository.FindAll(x => items.ContainsKey(x.Id)).AsNoTracking().AsParallel().AsOrdered().WithDegreeOfParallelism(3);
             foreach (var child in sibling)
             {
                 child.SortOrder = items[child.Id];
@@ -169,13 +169,13 @@ namespace ShopOnlineApp.Application.Implementation
 
         private async Task<Expression<Func<Permission, bool>>> BuildingQuery(params string[] keywords)
         {
-            var predicate = PredicateBuilder.True<Permission>();
+            var predicate = PredicateBuilder.False<Permission>();
 
             foreach (string keyword in keywords)
             {
-                var test = await _roleManager.FindByNameAsync(keyword);
+                var role = await _roleManager.FindByNameAsync(keyword);
 
-                predicate = predicate.Or(p => p.RoleId == test.Id);
+                predicate = predicate.Or(p => p.RoleId == role.Id);
             }
             return predicate;
         }

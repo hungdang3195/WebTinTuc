@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Microsoft.EntityFrameworkCore;
 using ShopOnlineApp.Application.Interfaces;
 using ShopOnlineApp.Application.ViewModels.Rating;
 using ShopOnlineApp.Data.EF.Common;
@@ -31,15 +32,15 @@ namespace ShopOnlineApp.Application.Implementation
 
         public BaseReponse<ModelListResult<RatingViewModel>> GetAllPaging(RateRequest request)
         {
-            var query = _ratingRepository.FindAll();
+            var query = _ratingRepository.FindAll().AsNoTracking().AsParallel();
 
             if (request.ProductId >0)
             {
-                query = query.Where(x => x.ProductId == request.ProductId);
+                query = query.AsParallel().AsOrdered().WithDegreeOfParallelism(2).Where(x => x.ProductId == request.ProductId);
             }
 
-            int totalRow = query.Count();
-            query = query.OrderByDescending(x => x.DateCreated)
+            int totalRow = query.AsParallel().AsOrdered().WithDegreeOfParallelism(2).Count();
+            query = query.AsParallel().AsOrdered().WithDegreeOfParallelism(2).OrderByDescending(x => x.DateCreated)
                 .Skip(request.PageIndex * request.PageSize)
                 .Take(request.PageSize);
 
