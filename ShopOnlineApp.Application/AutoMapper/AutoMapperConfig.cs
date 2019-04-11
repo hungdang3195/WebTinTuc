@@ -208,6 +208,7 @@ namespace ShopOnlineApp.Application.AutoMapper
                 cfg.CreateMap<AnnouncementViewModel, Announcement>();
 
                 #endregion
+
             }
             catch (Exception e)
             {

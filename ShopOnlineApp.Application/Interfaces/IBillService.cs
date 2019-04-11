@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using ShopOnlineApp.Application.ViewModels.Bill;
 using ShopOnlineApp.Application.ViewModels.Color;
@@ -16,6 +17,8 @@ namespace ShopOnlineApp.Application.Interfaces
         //PagedResult<BillViewModel> GetAllPaging(string startDate, string endDate, string keyword, int pageIndex, int pageSize);
 
         Task<BaseReponse<ModelListResult<BillViewModel>>> GetAllPaging(BillRequest request);
+
+        IEnumerable<BillViewModel> GetOrdersByCustomer(Guid customerId);
 
         BillViewModel GetDetail(int billId);
 

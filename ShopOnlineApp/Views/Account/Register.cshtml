@@ -118,7 +118,7 @@
                                         <button type="submit" class="button"><i class="fa fa-user"></i>&nbsp; <span>Register</span></button>
                                     </div>
                                 </div>
-
+                            </div>
                         </form>
                     </div>
                 </div>
@@ -135,7 +135,7 @@
     <recaptcha-script validation-message-element-id="recaptchaErrorMessage" />
     <script src="~/client-app/controllers/account/register.js" asp-append-version="true"></script>
     <script>
-        $(function() {
+        $(function () {
             var register = new registerController();
             register.initialize();
         });

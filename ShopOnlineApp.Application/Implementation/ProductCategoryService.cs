@@ -38,7 +38,6 @@ namespace ShopOnlineApp.Application.Implementation
         {
             _productCategoryRepository.Remove(id);
         }
-
         public async Task<List<ProductCategoryViewModel>> GetAll()
         {
             try
@@ -86,13 +85,7 @@ namespace ShopOnlineApp.Application.Implementation
                 .FindAll(x => x.HomeFlag == true, c => c.Products).AsNoTracking().AsParallel().AsOrdered()
                 .OrderBy(x => x.HomeOrder)
                 .Take(top)).ToList();
-
-            foreach (var category in categories)
-            {
-                var item =new ProductViewModel().Map(_productRepository.FindAll(x => x.HomeFlag.Value && x.CategoryId == category.Id).AsNoTracking().AsParallel().AsOrdered()
-                    .OrderByDescending(x => x.DateCreated)
-                    .Take(5)).ToList();
-            }
+            
             return categories;
         }
 
@@ -100,8 +93,7 @@ namespace ShopOnlineApp.Application.Implementation
         {
             var source = _productCategoryRepository.FindById(sourceId);
             var target = _productCategoryRepository.FindById(targetId);
-
-            var temp = 0;
+            int temp;
             if (source != null && target != null)
             {
                 temp = source.SortOrder;
@@ -147,7 +139,6 @@ namespace ShopOnlineApp.Application.Implementation
             var productCategory = new ProductCategoryViewModel().Map(productCategoryVm);
 
             _productCategoryRepository.Update(productCategory);
-           
         }
         public void UpdateParentId(int sourceId, int targetId, Dictionary<int, int> items)
         {
@@ -164,7 +155,6 @@ namespace ShopOnlineApp.Application.Implementation
 
                 _productCategoryRepository.Update(child);
             }
-         
         }
     }
 }

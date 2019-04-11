@@ -15,5 +15,15 @@ namespace ShopOnlineApp.Models.AccountViewModels
 
         [Required]
         public string Email { get; set; }
+
+        public string StatusMessage { get; set; }
+
+        [Display(Name = "Address")]
+        public string Address { get; set; }
+        [Display(Name = "Avatar")]
+        public string Avatar { get; set; }
+        [Display(Name = "Gender")]
+        public bool Gender { get; set; }
+
     }
 }

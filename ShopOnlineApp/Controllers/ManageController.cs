@@ -61,9 +61,11 @@ namespace ShopOnlineApp.Controllers
                 PhoneNumber = user.PhoneNumber,
                 IsEmailConfirmed = user.EmailConfirmed,
                 StatusMessage = StatusMessage,
-                
+                Gender = user.Gender,
+                Address = user.Address,
+                Avatar = user.Avatar
             };
-
+            
             return View(model);
         }
 
@@ -75,37 +77,44 @@ namespace ShopOnlineApp.Controllers
             {
                 return View(model);
             }
-
             var user = await _userManager.GetUserAsync(User);
             if (user == null)
             {
                 throw new ApplicationException($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
             }
+            user.Avatar = model.Avatar;
+            user.Address = model.Address;
+            user.Gender = model.Gender;
+            user.DateModified = DateTime.Now;
+            user.Email = model.Email;
+            user.PhoneNumber = model.PhoneNumber;
+            var response = await _userManager.UpdateAsync(user);
+            AddErrors(response);
+            
+            //var email = user.Email;
+            //if (model.Email != email)
+            //{
+            //    var setEmailResult = await _userManager.SetEmailAsync(user, model.Email);
+            //    if (!setEmailResult.Succeeded)
+            //    {
+            //        throw new ApplicationException($"Unexpected error occurred setting email for user with ID '{user.Id}'.");
+            //    }
+            //}
 
-            var email = user.Email;
-            if (model.Email != email)
-            {
-                var setEmailResult = await _userManager.SetEmailAsync(user, model.Email);
-                if (!setEmailResult.Succeeded)
-                {
-                    throw new ApplicationException($"Unexpected error occurred setting email for user with ID '{user.Id}'.");
-                }
-            }
-
-            var phoneNumber = user.PhoneNumber;
-            if (model.PhoneNumber != phoneNumber)
-            {
-                var setPhoneResult = await _userManager.SetPhoneNumberAsync(user, model.PhoneNumber);
-                if (!setPhoneResult.Succeeded)
-                {
-                    throw new ApplicationException($"Unexpected error occurred setting phone number for user with ID '{user.Id}'.");
-                }
-            }
+            //var phoneNumber = user.PhoneNumber;
+            //if (model.PhoneNumber != phoneNumber)
+            //{
+            //    var setPhoneResult = await _userManager.SetPhoneNumberAsync(user, model.PhoneNumber);
+            //    if (!setPhoneResult.Succeeded)
+            //    {
+            //        throw new ApplicationException($"Unexpected error occurred setting phone number for user with ID '{user.Id}'.");
+            //    }
+            //}
 
             StatusMessage = "Your profile has been updated";
             return RedirectToAction(nameof(Index));
         }
-
+        
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> SendVerificationEmail(IndexViewModel model)

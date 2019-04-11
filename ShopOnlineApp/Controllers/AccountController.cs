@@ -86,11 +86,11 @@ namespace ShopOnlineApp.Controllers
         }
 
         [HttpGet]
-        public IActionResult  Information()
+        public IActionResult Information()
         {
             return View();
         }
-       
+
         [HttpGet]
         public async Task<IActionResult> GetInformationUser()
         {
@@ -258,10 +258,9 @@ namespace ShopOnlineApp.Controllers
                 var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
                 var callbackUrl = Url.EmailConfirmationLink(user.Id, code, Request.Scheme);
                 await _emailSender.SendEmailConfirmationAsync(model.Email, callbackUrl);
-
                 await _signInManager.SignInAsync(user, isPersistent: false);
                 _logger.LogInformation("User created a new account with password.");
-                return RedirectToAction("PendingConfirm","Account", new {email= user.Email, send= callbackUrl });
+                return RedirectToAction("PendingConfirm", "Account", new { email = user.Email, send = callbackUrl });
             }
             AddErrors(result);
 
@@ -323,7 +322,8 @@ namespace ShopOnlineApp.Controllers
             if (result.Succeeded)
             {
                 _logger.LogInformation("User logged in with {Name} provider.", info.LoginProvider);
-                return RedirectToLocal(returnUrl);
+                //return RedirectToLocal(returnUrl);
+                return RedirectToAction(nameof(HomeController.Index), "Home");
             }
             if (result.IsLockedOut)
             {
@@ -377,7 +377,7 @@ namespace ShopOnlineApp.Controllers
                     {
                         await _signInManager.SignInAsync(user, isPersistent: false);
                         _logger.LogInformation("User created an account using {Name} provider.", info.LoginProvider);
-                        return RedirectToLocal(returnUrl);
+                        return RedirectToAction(nameof(HomeController.Index), "Home");
                     }
                 }
                 AddErrors(result);
@@ -401,6 +401,11 @@ namespace ShopOnlineApp.Controllers
                 throw new ApplicationException($"Unable to load user with ID '{userId}'.");
             }
             var result = await _userManager.ConfirmEmailAsync(user, code);
+
+            if (result.Succeeded)
+            {
+                await _signInManager.SignInAsync(user, isPersistent: false);
+            }
             return View(result.Succeeded ? "ConfirmEmail" : "Error");
         }
 

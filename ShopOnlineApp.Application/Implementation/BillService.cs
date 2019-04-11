@@ -162,6 +162,12 @@ namespace ShopOnlineApp.Application.Implementation
         //    };
         //}
 
+        public IEnumerable<BillViewModel> GetOrdersByCustomer(Guid customerId)
+        {
+            var data = _orderRepository.FindAll(x => x.CustomerId == customerId, c=>c.BillDetails).AsParallel().WithExecutionMode(ParallelExecutionMode.ForceParallelism);
+            return new BillViewModel().Map(data) ;
+        }
+
         public BillViewModel GetDetail(int billId)
         {
             var bill = _orderRepository.FindSingle(x => x.Id == billId);

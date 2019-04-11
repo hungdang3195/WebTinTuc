@@ -309,7 +309,7 @@ namespace ShopOnlineApp.Application.Implementation
                 .Take(top)).ToList();
         }
 
-        public List<ProductViewModel> GetHotProduct(int top)
+        public  List<ProductViewModel>  GetHotProduct(int top)
         {
             return new ProductViewModel().Map(_productRepository.FindAll(x => x.Status == Status.Active && x.HotFlag == true).AsNoTracking().AsParallel().AsOrdered().WithDegreeOfParallelism(2)
                 .OrderByDescending(x => x.DateCreated)
