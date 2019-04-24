@@ -21,7 +21,11 @@ namespace ShopOnlineApp.Areas.Admin.Controllers
         }
         public async Task<IActionResult> GetRevenue(string fromDate, string toDate)
         {
-            return new OkObjectResult(await _reportService.GetReportAsync(fromDate, toDate));
+            if (!string.IsNullOrWhiteSpace(fromDate) && !string.IsNullOrWhiteSpace(toDate))
+            {
+                return new OkObjectResult(await _reportService.GetReportAsync(fromDate, toDate));
+            }
+            return new OkObjectResult(new{});
         }
     }
 }

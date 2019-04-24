@@ -11,7 +11,7 @@ namespace ShopOnlineApp.Application.Interfaces
 {
     public interface IBillService
     {
-        BillViewModel Create(BillViewModel billVm);
+        Task<BillViewModel> Create(BillViewModel billVm);
         void Update(BillViewModel billVm);
 
         //PagedResult<BillViewModel> GetAllPaging(string startDate, string endDate, string keyword, int pageIndex, int pageSize);

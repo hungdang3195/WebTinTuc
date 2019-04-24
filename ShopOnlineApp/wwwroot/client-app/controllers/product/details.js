@@ -2,9 +2,9 @@
     this.initialize = function () {
         registerEvents();
     }
-
+   
     function registerEvents() {
-        $('#btnAddToCart').on('click', function (e) {
+        $('body').on('click','#btnAddToCart', function (e) {
             e.preventDefault();
             var id = parseInt($(this).data('id'));
             var colorId = parseInt($('#ddlColorId').val());
@@ -15,7 +15,7 @@
                 dataType: 'json',
                 data: {
                     productId: id,
-                    quantity: parseInt($('#txtQuantity').val()),
+                    quantity: (parseInt($('#txtQuantity').val()) > 0 ? parseInt($('#txtQuantity').val()):1),
                     color: colorId,
                     size: sizeId
                 },

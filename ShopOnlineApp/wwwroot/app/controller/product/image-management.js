@@ -40,7 +40,6 @@
                     images.push(path);
                     index++;
                     $('#image-list').append('<div class="col-md-3"><img width="100" data-id=' + index + ' data-path="' + path + '" src="' + path + '">  <a class="btn  btn-sm  btn-deleted" data-id='+index+'><i class="fa fa-trash"></i></a> </div>  </div>');
-
                     shoponline.notify('Đã tải ảnh lên thành công!', 'success');
                 },
                 error: function () {
@@ -72,7 +71,7 @@
                 url: '/admin/Product/SaveImages',
                 data: {
                     productId: $('#hidId').val(),
-                    images: images
+                    images: imageList
                 },
                 type: 'post',
                 dataType: 'json',
@@ -100,7 +99,7 @@
                         '"> <a class="btn  btn-sm  btn-delete-image"><i class="fa fa-trash"></i></a></div>';
                 });
                 $('#image-list').html(render);
-                clearFileInput();
+                clearFileInput($("#fileImage"));
             }
         });
     }

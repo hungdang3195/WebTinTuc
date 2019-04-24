@@ -1,4 +1,4 @@
-using System.Text.Encodings.Web;
+﻿using System.Text.Encodings.Web;
 using System.Threading.Tasks;
 using ShopOnlineApp.Services;
 
@@ -8,8 +8,8 @@ namespace ShopOnlineApp.Extensions
     {
         public static Task SendEmailConfirmationAsync(this IEmailSender emailSender, string email, string link)
         {
-            return emailSender.SendEmailAsync(email, "Confirm your email",
-                $"Please confirm your account by clicking this link: <a href='{HtmlEncoder.Default.Encode(link)}'>link</a>");
+            return emailSender.SendEmailAsync(email, "Xác thực tài khoản",
+                $"Xin hãy click vào link để truy cập vào hệ thống: <a href='{HtmlEncoder.Default.Encode(link)}'>link</a>");
         }
     }
 }

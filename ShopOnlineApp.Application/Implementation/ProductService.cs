@@ -30,7 +30,8 @@ namespace ShopOnlineApp.Application.Implementation
         private readonly IWholePriceRepository _wholePriceRepository;
         private readonly IProductCategoryRepository _categoryRepository;
         private readonly IRatingRepository _ratingRepository;
-        public ProductService(IProductRepository productionRepository, IProductTagRepository productTagRepository, ITagRepository tagRepository, IUnitOfWork unitOfWork, IProductQuantityRepository productQuantityRepository, IProductImageRepository productImageRepository, IWholePriceRepository wholePriceRepository, IProductCategoryRepository categoryRepository, IRatingRepository ratingRepository)
+        private readonly IProductQuantityRepository _productQuantity;
+        public ProductService(IProductRepository productionRepository, IProductTagRepository productTagRepository, ITagRepository tagRepository, IUnitOfWork unitOfWork, IProductQuantityRepository productQuantityRepository, IProductImageRepository productImageRepository, IWholePriceRepository wholePriceRepository, IProductCategoryRepository categoryRepository, IRatingRepository ratingRepository, IProductQuantityRepository productQuantity)
         {
             _productRepository = productionRepository;
             _productTagRepository = productTagRepository;
@@ -41,6 +42,7 @@ namespace ShopOnlineApp.Application.Implementation
             _wholePriceRepository = wholePriceRepository;
             _categoryRepository = categoryRepository;
             _ratingRepository = ratingRepository;
+            _productQuantity = productQuantity;
         }
         public async Task<List<ProductViewModel>> GetAll()
         {
@@ -60,34 +62,34 @@ namespace ShopOnlineApp.Application.Implementation
         public async Task<BaseReponse<ModelListResult<ProductViewModel>>> GetAllPaging(ProductRequest request)
         {
             var response = (from c in _categoryRepository.FindAll().AsNoTracking()
-                           join p in _productRepository.FindAll().AsNoTracking() on c.Id equals p.CategoryId
-                           select new ProductViewModel
-                           {
-                               Name = p.Name,
-                               Id = p.Id,
-                               CategoryId = p.CategoryId,
-                               ProductCategory = new ProductCategoryViewModel()
-                               {
-                                   Name = c.Name
-                               },
-                               Description = p.Description,
-                               Content = p.Content,
-                               DateCreated = p.DateCreated,
-                               DateModified = p.DateModified,
-                               HomeFlag = p.HomeFlag,
-                               HotFlag = p.HotFlag,
-                               Price = p.Price,
-                               OriginalPrice = p.OriginalPrice,
-                               PromotionPrice = p.PromotionPrice,
-                               SeoAlias = p.SeoAlias,
-                               SeoDescription = p.SeoDescription,
-                               SeoKeywords = p.SeoKeywords,
-                               SeoPageTitle = p.SeoPageTitle,
-                               Unit = p.Unit,
-                               ViewCount = p.ViewCount,
-                               Status = p.Status,
-                               Image = p.Image
-                           }).AsParallel();
+                            join p in _productRepository.FindAll().AsNoTracking() on c.Id equals p.CategoryId
+                            select new ProductViewModel
+                            {
+                                Name = p.Name,
+                                Id = p.Id,
+                                CategoryId = p.CategoryId,
+                                ProductCategory = new ProductCategoryViewModel()
+                                {
+                                    Name = c.Name
+                                },
+                                Description = p.Description,
+                                Content = p.Content,
+                                DateCreated = p.DateCreated,
+                                DateModified = p.DateModified,
+                                HomeFlag = p.HomeFlag,
+                                HotFlag = p.HotFlag,
+                                Price = p.Price,
+                                OriginalPrice = p.OriginalPrice,
+                                PromotionPrice = p.PromotionPrice,
+                                SeoAlias = p.SeoAlias,
+                                SeoDescription = p.SeoDescription,
+                                SeoKeywords = p.SeoKeywords,
+                                SeoPageTitle = p.SeoPageTitle,
+                                Unit = p.Unit,
+                                ViewCount = p.ViewCount,
+                                Status = p.Status,
+                                Image = p.Image
+                            }).AsParallel();
 
             if (!string.IsNullOrEmpty(request.SearchText))
             {
@@ -102,7 +104,7 @@ namespace ShopOnlineApp.Application.Implementation
                 response = response.Where(x => x.CategoryId == request.CategoryId);
             }
 
-            var totalCount =  response.AsParallel().AsOrdered().Count();
+            var totalCount = response.AsParallel().AsOrdered().Count();
 
             if (request.IsPaging)
             {
@@ -124,6 +126,195 @@ namespace ShopOnlineApp.Application.Implementation
                 },
                 Message = Message.Success,
                 Status = (int)QueryStatus.Success
+            };
+        }
+
+        public ModelListResult<ProductFullViewModel> FilterProducts(ProductRequest request)
+        {
+            List<ProductFullViewModel> response = new List<ProductFullViewModel>();
+            if (request.ColorId > 0 && request.SizeId > 0)
+            {
+                response = (from c in _categoryRepository.FindAll().AsNoTracking()
+                            join p in _productRepository.FindAll().AsNoTracking() on c.Id equals p.CategoryId
+                            join quan
+                                in _productQuantity.FindAll().AsNoTracking() on p.Id equals quan.ProductId
+                            where quan.ColorId == request.ColorId && quan.SizeId == request.SizeId
+                            select new ProductFullViewModel
+                            {
+                                Name = p.Name,
+                                Id = p.Id,
+                                CategoryId = p.CategoryId,
+                                ProductCategory = new ProductCategoryViewModel()
+                                {
+                                    Name = c.Name
+                                },
+                                Description = p.Description,
+                                Content = p.Content,
+                                DateCreated = p.DateCreated,
+                                DateModified = p.DateModified,
+                                HomeFlag = p.HomeFlag,
+                                HotFlag = p.HotFlag,
+                                Price = p.Price,
+                                OriginalPrice = p.OriginalPrice,
+                                PromotionPrice = p.PromotionPrice,
+                                SeoAlias = p.SeoAlias,
+                                SeoDescription = p.SeoDescription,
+                                SeoKeywords = p.SeoKeywords,
+                                SeoPageTitle = p.SeoPageTitle,
+                                Unit = p.Unit,
+                                ViewCount = p.ViewCount,
+                                Status = p.Status,
+                                Image = p.Image,
+                                ColorId = quan.ColorId,
+                                SizeId = quan.SizeId
+
+                            }).ToList();
+            }
+            else if (request.ColorId > 0)
+            {
+                response = (from c in _categoryRepository.FindAll().AsNoTracking()
+                            join p in _productRepository.FindAll().AsNoTracking() on c.Id equals p.CategoryId
+                            join quan
+                                in _productQuantity.FindAll().AsNoTracking() on p.Id equals quan.ProductId
+                            where quan.ColorId == request.ColorId
+                            select new ProductFullViewModel
+                            {
+                                Name = p.Name,
+                                Id = p.Id,
+                                CategoryId = p.CategoryId,
+                                ProductCategory = new ProductCategoryViewModel()
+                                {
+                                    Name = c.Name
+                                },
+                                Description = p.Description,
+                                Content = p.Content,
+                                DateCreated = p.DateCreated,
+                                DateModified = p.DateModified,
+                                HomeFlag = p.HomeFlag,
+                                HotFlag = p.HotFlag,
+                                Price = p.Price,
+                                OriginalPrice = p.OriginalPrice,
+                                PromotionPrice = p.PromotionPrice,
+                                SeoAlias = p.SeoAlias,
+                                SeoDescription = p.SeoDescription,
+                                SeoKeywords = p.SeoKeywords,
+                                SeoPageTitle = p.SeoPageTitle,
+                                Unit = p.Unit,
+                                ViewCount = p.ViewCount,
+                                Status = p.Status,
+                                Image = p.Image,
+                                ColorId = quan.ColorId,
+                                SizeId = quan.SizeId
+                            }).ToList();
+            }
+            else if (request.SizeId > 0)
+            {
+                response = (from c in _categoryRepository.FindAll().AsNoTracking()
+                            join p in _productRepository.FindAll().AsNoTracking() on c.Id equals p.CategoryId
+                            join quan
+                                in _productQuantity.FindAll().AsNoTracking() on p.Id equals quan.ProductId
+                            where quan.SizeId == request.SizeId
+                            select new ProductFullViewModel
+                            {
+                                Name = p.Name,
+                                Id = p.Id,
+                                CategoryId = p.CategoryId,
+                                ProductCategory = new ProductCategoryViewModel()
+                                {
+                                    Name = c.Name
+                                },
+                                Description = p.Description,
+                                Content = p.Content,
+                                DateCreated = p.DateCreated,
+                                DateModified = p.DateModified,
+                                HomeFlag = p.HomeFlag,
+                                HotFlag = p.HotFlag,
+                                Price = p.Price,
+                                OriginalPrice = p.OriginalPrice,
+                                PromotionPrice = p.PromotionPrice,
+                                SeoAlias = p.SeoAlias,
+                                SeoDescription = p.SeoDescription,
+                                SeoKeywords = p.SeoKeywords,
+                                SeoPageTitle = p.SeoPageTitle,
+                                Unit = p.Unit,
+                                ViewCount = p.ViewCount,
+                                Status = p.Status,
+                                Image = p.Image,
+                                ColorId = quan.ColorId,
+                                SizeId = quan.SizeId
+
+                            }).ToList();
+            }
+            else
+            {
+                response = (from c in _categoryRepository.FindAll().AsNoTracking()
+                            join p in _productRepository.FindAll().AsNoTracking() on c.Id equals p.CategoryId
+                         
+                            select new ProductFullViewModel
+                            {
+                                Name = p.Name,
+                                Id = p.Id,
+                                CategoryId = p.CategoryId,
+                                ProductCategory = new ProductCategoryViewModel()
+                                {
+                                    Name = c.Name
+                                },
+                                Description = p.Description,
+                                Content = p.Content,
+                                DateCreated = p.DateCreated,
+                                DateModified = p.DateModified,
+                                HomeFlag = p.HomeFlag,
+                                HotFlag = p.HotFlag,
+                                Price = p.Price,
+                                OriginalPrice = p.OriginalPrice,
+                                PromotionPrice = p.PromotionPrice,
+                                SeoAlias = p.SeoAlias,
+                                SeoDescription = p.SeoDescription,
+                                SeoKeywords = p.SeoKeywords,
+                                SeoPageTitle = p.SeoPageTitle,
+                                Unit = p.Unit,
+                                ViewCount = p.ViewCount,
+                                Status = p.Status,
+                                Image = p.Image,
+                              
+
+                            }).ToList();
+            }
+            if (!string.IsNullOrEmpty(request.SearchText))
+            {
+                response = response.AsParallel().Where(x => x.Name.Contains(request.SearchText)).ToList();
+            }
+            else if (!string.IsNullOrEmpty(request.Name))
+            {
+                response = response.AsParallel().Where(x => x.Name.Contains(request.Name)).ToList();
+            }
+            else if (request?.CategoryId > 0)
+            {
+                response = response.AsParallel().Where(x => x.CategoryId == request.CategoryId).ToList();
+            }
+            else if (request.ColorId > 0)
+            {
+                response = response.AsParallel().Where(x => x.ColorId == request.CategoryId).ToList();
+            }
+            else if (request.SizeId > 0)
+            {
+                response = response.AsParallel().Where(x => x.SizeId == request.SizeId).ToList();
+            }
+
+            var totalCount = response.AsParallel().WithExecutionMode(ParallelExecutionMode.ForceParallelism).AsParallel().AsOrdered().Count();
+
+            if (request.IsPaging)
+            {
+                response = response.AsParallel().OrderByDescending(x => x.DateModified)
+                    .Skip((request.PageIndex - 1) * request.PageSize).Take(request.PageSize).ToList();
+            }
+            return new ModelListResult<ProductFullViewModel>()
+            {
+                Items = response.ToList(),
+                Message = Message.Success,
+                RowCount = totalCount,
+                PageSize = request.PageSize,
+                PageIndex = request.PageIndex
             };
         }
 
@@ -309,7 +500,7 @@ namespace ShopOnlineApp.Application.Implementation
                 .Take(top)).ToList();
         }
 
-        public  List<ProductViewModel>  GetHotProduct(int top)
+        public List<ProductViewModel> GetHotProduct(int top)
         {
             return new ProductViewModel().Map(_productRepository.FindAll(x => x.Status == Status.Active && x.HotFlag == true).AsNoTracking().AsParallel().AsOrdered().WithDegreeOfParallelism(2)
                 .OrderByDescending(x => x.DateCreated)
@@ -331,14 +522,14 @@ namespace ShopOnlineApp.Application.Implementation
                                join p in (from item in _ratingRepository.FindAll().AsNoTracking().AsParallel().AsOrdered()
                                           group item by item.ProductId
                     into g
-                    orderby g.Sum(x => x.Quantity + x.Price + x.Value) descending
-                    select g.Key) on u.Id equals p
-                  select u;
+                                          orderby g.Sum(x => x.Quantity + x.Price + x.Value) descending
+                                          select g.Key) on u.Id equals p
+                               select u;
 
             return new ProductViewModel().Map(resultReturn.Take(top)).ToList();
         }
 
-        public  List<ProductViewModel> GetUpsellProducts(int top)
+        public List<ProductViewModel> GetUpsellProducts(int top)
         {
             return new ProductViewModel().Map(_productRepository.FindAll(x => x.PromotionPrice != null).AsNoTracking().AsParallel().AsOrdered()
                     .OrderByDescending(x => x.DateModified)

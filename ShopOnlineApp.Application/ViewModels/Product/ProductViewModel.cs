@@ -63,5 +63,6 @@ namespace ShopOnlineApp.Application.ViewModels.Product
         public DateTime DateModified { set; get; }
 
         public Status Status { set; get; }
+
     }
 }

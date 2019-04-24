@@ -43,15 +43,16 @@
                                 <tbody>
                                     @foreach (var order in Model.AsParallel())
                                     {
+                                        var url = "order." + order.Id + ".html";
                                         foreach (var orderDetail in order.BillDetails)
                                         {
                                             totalPrice = (orderDetail.Price * orderDetail.Quantity).ToString("N0");
                                         }
                                         <tr>
                                             <!--order number-->
-                                            <td data-title="Order Number"><a href="order_details/{@order.Id}.html" class="order-number">@order.Id</a></td>
+                                            <td data-title="Order Number"><a href="@url" class="order-number">@order.Id</a></td>
                                             <!--order date-->
-                                            <td data-title="Order Date">@order.DateCreated.Value.ToString("dd-mm-yyy") </td>
+                                            <td data-title="Order Date">@order.DateCreated.Value.ToString("dd/MM/yyyy") </td>
                                             <!--order status-->
                                             <td data-title="Order Status">@order.BillStatus</td>
                                             <!--quanity-->
@@ -62,8 +63,6 @@
                                             </td>
                                         </tr>
                                     }
-
-
                                 </tbody>
                             </table>
                         </div>

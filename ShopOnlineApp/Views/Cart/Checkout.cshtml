@@ -137,7 +137,7 @@
 
                                                                             <div class="lf f25 fullsize-if-mobile ">Tổng giá trị đơn hàng</div>
                                                                             <div class="lf f25 fullsize-if-mobile">
-                                                                                <div class="left-menu-space"><strong class="ebe-currency medium18 redcolor">@totalPrice</strong></div>
+                                                                                <div class="left-menu-space"><strong class="ebe-currency medium18 redcolor"> $@totalPrice</strong></div>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -178,7 +178,7 @@
                         {
                             <form method="post" id="frmPayment">
                                 @Html.AntiForgeryToken()
-                                <h4 class="checkout-sep">1. Checkout Method</h4>
+                                @*<h4 class="checkout-sep">1. Checkout Method</h4>
                                 <div class="box-border">
                                     <div class="row">
 
@@ -191,9 +191,9 @@
                                             </div>
                                         }
                                     </div>
-                                </div>
+                                </div>*@
 
-                                <h4 class="checkout-sep">2. Shipping Information</h4>
+                                <h4 class="checkout-sep">1. Shipping Information</h4>
                                 <div class="box-border">
                                     <ul>
                                         <li class="row">
@@ -224,7 +224,7 @@
                                         </li>
                                     </ul>
                                 </div>
-                                <h4 class="checkout-sep">3. Payment Information</h4>
+                                <h4 class="checkout-sep">2. Payment Information</h4>
                                 <div class="box-border">
                                     <ul>
                                         @*@for (int i = 0; i < Model.PaymentMethods.Count; i++)
@@ -237,7 +237,7 @@
                                                 </li>
                                             }*@
                                         <label><input type="radio" id="rdoCash" name="paymentMethod" value="CASH" checked="checked" /> Tiền mặt</label>
-                                        <label><input type="radio" id="rdoNL" name="paymentMethod" value="NL" /> TK Ngân Lượng</label>
+                                        <label><input type="radio" id="rdoNL" name="paymentMethod" value="NL" /> TK VNPAY</label>
 
                                         <label><input type="radio" id="rdoBank" value="ATM_ONLINE" name="paymentMethod" /> Thẻ Ngân hàng nội địa</label>
 
@@ -394,7 +394,7 @@
                                     </ul>
                                     @*<button class="button"><i class="fa fa-angle-double-right"></i>&nbsp; <span>Continue</span></button>*@
                                 </div>
-                                <h4 class="checkout-sep last">4. Order Review</h4>
+                                <h4 class="checkout-sep last">3. Order Review</h4>
                                 <div class="box-border">
                                     <div class="table-responsive">
                                         <table class="table table-bordered cart_summary">
@@ -419,7 +419,7 @@
                                                         </td>
                                                         <td class="price"><span>@item.Price.ToString("N0") </span></td>
                                                         <td class="qty">@item.Quantity</td>
-                                                        <td class="price"><span>@((item.Price * item.Quantity).ToString("N0")) </span></td>
+                                                        <td class="price"><span> $ @((item.Price * item.Quantity).ToString("N0")) </span></td>
                                                     </tr>
 
                                                 }
@@ -429,7 +429,7 @@
                                             <tfoot>
                                                 <tr>
                                                     <td colspan="3"><strong>Total</strong></td>
-                                                    <td colspan="2"><strong>@Model.Carts.Sum(x => x.Quantity * x.Price).ToString("N0") </strong></td>
+                                                    <td colspan="2"><strong> $ @Model.Carts.Sum(x => x.Quantity * x.Price).ToString("N0") </strong></td>
                                                 </tr>
                                             </tfoot>
                                         </table>

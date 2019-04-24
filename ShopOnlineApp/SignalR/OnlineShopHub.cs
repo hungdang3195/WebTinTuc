@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.SignalR;
+﻿using System.Threading.Tasks;
+using Microsoft.AspNetCore.SignalR;
+using ShopOnlineApp.Application.ViewModels.Annoucement;
 
 namespace ShopOnlineApp.SignalR
 {
@@ -7,10 +9,9 @@ namespace ShopOnlineApp.SignalR
         //private readonly static ConnectionMapping<string> _connections =
         //    new ConnectionMapping<string>();
 
-        public void SendChatMessage(string who, string message)
+        public async Task SendMessage(AnnouncementViewModel message)
         {
-            string name = Context.User.Identity.Name;
-            
+            await Clients.All.SendAsync("ReceiveMessage", message);
         }
 
         //public override Task OnConnected()

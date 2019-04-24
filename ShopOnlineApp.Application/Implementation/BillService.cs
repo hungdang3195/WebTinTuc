@@ -38,8 +38,7 @@ namespace ShopOnlineApp.Application.Implementation
             _productRepository = productRepository;
             _unitOfWork = unitOfWork;
         }
-
-        public BillViewModel Create(BillViewModel billVm)
+        public async Task<BillViewModel>  Create(BillViewModel billVm)
         {
             try
             {
@@ -57,9 +56,9 @@ namespace ShopOnlineApp.Application.Implementation
                     detail.Price = product.Price;
                 }
                 order.BillDetails = orderDetails;
-                _orderRepository.Add(order);
+               var billEntity= await  _orderRepository.AddAsync(order);
 
-                return billVm;
+                return new BillViewModel().Map(billEntity);
 
             }
             catch (Exception e)
@@ -117,6 +116,7 @@ namespace ShopOnlineApp.Application.Implementation
             var order = _orderRepository.FindById(billId);
             order.BillStatus = status;
             _orderRepository.Update(order);
+            _unitOfWork.Commit();
         }
 
         public List<SizeViewModel> GetSizes()
@@ -170,10 +170,11 @@ namespace ShopOnlineApp.Application.Implementation
 
         public BillViewModel GetDetail(int billId)
         {
-            var bill = _orderRepository.FindSingle(x => x.Id == billId);
+            var bill = _orderRepository.FindSingle(x => x.Id == billId, c=>c.BillDetails);
+            
             var billVm =new BillViewModel().Map(bill);
-            var billDetailVm = new BillDetailViewModel().Map(_orderDetailRepository.FindAll(x => x.BillId == billId).AsNoTracking()).ToList();
-            billVm.BillDetails = billDetailVm;
+            //var billDetailVm = new BillDetailViewModel().Map(_orderDetailRepository.FindAll(x => x.BillId == billId).AsNoTracking()).ToList();
+            billVm.BillDetails = GetBillDetails(billId);
             return billVm;
         }
 

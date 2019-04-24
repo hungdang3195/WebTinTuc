@@ -44,7 +44,6 @@ namespace ShopOnlineApp.Application.Implementation
 
             if (!string.IsNullOrEmpty(blog.Tags))
             {
-               
 
                 var tags = blog.Tags.Split(',');
                 foreach (string t in tags)

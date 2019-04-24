@@ -15,12 +15,18 @@ namespace ShopOnlineApp.Controllers
         {
             _billService = billService;
         }
-        [Route("order-history.html")]
+        [Route("orders-list.html")]
         public IActionResult Index()
         {
             var orderList = _billService.GetOrdersByCustomer(User.GetUserId());
             return View(orderList);
         }
-        
+
+        [Route("order.{id}.html")]
+        public IActionResult Detail(int id)
+        {
+            var orderDetail = _billService.GetDetail(id);
+            return View(orderDetail);
+        }
     }
 }

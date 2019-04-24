@@ -14,7 +14,7 @@
     </div>
     <div>
         <div class="top-cart-content">
-            @if (Model.Count > 0)
+            @if (Model.Any())
             {
                 <div class="block-subtitle hidden">Recently added items</div>
                 <ul id="cart-sidebar" class="mini-products-list">
@@ -36,7 +36,7 @@
                         </li>
                     }
                 </ul>
-                <div class="top-subtotal">Subtotal: <span class="price">@Model.Sum(x => x.Quantity * x.Price).ToString("N0")</span></div>
+                <div class="top-subtotal">Subtotal: <span class="price"> $ @Model.Sum(x => x.Quantity * x.Price).ToString("N0")</span></div>
                 <div class="actions">
                     <button class="btn-checkout" type="button" onClick="location.href='/checkout.html'"><i class="fa fa-check"></i><span>Checkout</span></button>
                     <button class="view-cart" type="button" onClick="location.href='/cart.html'"><i class="fa fa-shopping-cart"></i><span>View Cart</span></button>

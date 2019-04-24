@@ -79,7 +79,7 @@ namespace ShopOnlineApp.Extensions
             string queryString = data.ToString();
             string rawData = GetRequestRaw();
             baseUrl += "?" + queryString;
-            string vnp_SecureHash = Utils.Md5(vnp_HashSecret + rawData);
+           string vnp_SecureHash = Utils.Md5(vnp_HashSecret + rawData);
             baseUrl += "vnp_SecureHash=" + vnp_SecureHash;
             return baseUrl;
         }

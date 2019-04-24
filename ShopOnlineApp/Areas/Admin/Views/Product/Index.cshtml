@@ -1,5 +1,7 @@
 ﻿@using System.Collections.Specialized
-
+@using Microsoft.AspNetCore.Authorization
+@using ShopOnlineApp.Authorization
+@inject IAuthorizationService AuthorizationService
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
@@ -16,17 +18,17 @@
     <script src="~/app/controller/product/image-management.js"></script>
     <script src="~/app/controller/product/whole-price-management.js"></script>
     <script src="~/app/controller/product/index.js" asp-append-version="true"></script>
-            
+
     <script>
         var product = new productController();
         product.initialize();
     </script>
 }
-    <style>
-        span.textbox.textbox-invalid.combo {
-            width: 172px;
-        }
-    </style>
+<style>
+    span.textbox.textbox-invalid.combo {
+        width: 172px;
+    }
+</style>
 <div class="page-title">
     <div class="title_left">
         <h3>Sản phẩm <small>Danh sách sản phẩm</small></h3>
@@ -48,7 +50,14 @@
             </select>
         </div>
         <div class="col-md-5 col-sm-12  form-group pull-right">
-            <button id="btnCreate" class="btn btn-success">Tạo</button>
+            @{
+                var result = await AuthorizationService.AuthorizeAsync(User, "USER", Operations.Create);
+            }
+            @if (result.Succeeded)
+            {
+                @*<button class="btn btn-success" id="btn-create" type="button">Create</button>*@
+                <button id="btnCreate" class="btn btn-success">Tạo</button>
+            }
             <a class="btn btn-danger" href="~/templates/ProductImportTemplate.xlsx">Template</a>
             <button class="btn btn-primary" id="btn-import" type="button"><i class="fa fa-file-excel-o"></i></button>
             <button class="btn btn-default" id="btn-export" type="button"><i class="fa fa-forward"></i></button>
@@ -121,8 +130,21 @@
         <td>{{CreatedDate}}</td>
         <td>{{{Status}}}</td>
         <th scope="row">
-            <a class="btn  btn-sm btn-edit" data-id="{{Id}}"><i class="fa fa-pencil"></i></a>
-            <a class="btn  btn-sm btn-delete" data-id="{{Id}}"><i class="fa fa-trash"></i></a>
+
+            @if ((await AuthorizationService.AuthorizeAsync(User, "USER", Operations.Update)).Succeeded)
+            {
+                @*<a href="#" data-id="{{Id}}" class="btn-edit"><i class="fa fa-pencil-square-o"></i></a>*@
+                <a class="btn  btn-sm btn-edit" data-id="{{Id}}"><i class="fa fa-pencil"></i></a>
+            }
+
+            @if ((await AuthorizationService.AuthorizeAsync(User, "USER", Operations.Delete)).Succeeded)
+            {
+                @*<a href="#" data-id="{{Id}}" class="btn-delete"><i class="fa fa-trash-o"></i></a>*@
+                <a class="btn  btn-sm btn-delete" data-id="{{Id}}"><i class="fa fa-trash"></i></a>
+            }
+
+            @*<a class="btn  btn-sm btn-edit" data-id="{{Id}}"><i class="fa fa-pencil"></i></a>
+                <a class="btn  btn-sm btn-delete" data-id="{{Id}}"><i class="fa fa-trash"></i></a>*@
             <a href="#" data-id="{{Id}}" class="btn btn-xs btn-images"><i class="fa fa-image"></i></a>
             <a href="#" data-id="{{Id}}" class="btn btn-xs btn-quantity"><i class="fa fa-hourglass-start"></i></a>
             <a href="#" data-id="{{Id}}" class="btn btn-xs btn-whole-price"><i class="fa fa-money"></i></a>

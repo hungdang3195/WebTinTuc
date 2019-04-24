@@ -208,6 +208,7 @@ namespace ShopOnlineApp
             services.AddTransient<IBlogCategoryService, BlogCategoryService>();
             services.AddTransient<IBlogCommentService, BlogCommentService>();
             services.AddTransient<ISlideService, SlideService>();
+            services.AddTransient<IProductQuantityService, ProductQuantityService>();
             services.ConfigureApplicationCookie(options => options.LoginPath = "/admin-login");
             //services.Configure<IdentityOptions>(opt =>
             //{
@@ -215,17 +216,32 @@ namespace ShopOnlineApp
             //});
 
             //Config system
+            services.AddCors(options => options.AddPolicy("CorsPolicy", builder => { builder.AllowAnyMethod().AllowAnyHeader().WithOrigins("http://localhost:44344", "http://localhost:3000", "http://sandbox.vnpayment.vn/paymentv2/vpcpay.html", "https://merchant.vnpay.vn/merchant_webapi/merchant.html").AllowCredentials(); }));
+
             services.AddMvc();
-            // services.AddCors(options => options.AddPolicy("CorsPolicy", builder => { builder.AllowAnyMethod().AllowAnyHeader().WithOrigins("http://localhost:44344", "http://localhost:3000", "http://sandbox.vnpayment.vn/paymentv2/vpcpay.html","https://merchant.vnpay.vn/merchant_webapi/merchant.html").AllowCredentials(); }));
-            services.AddCors(options =>
-            {
-                options.AddPolicy(MyAllowSpecificOrigins,
-                    builder =>
-                    {
-                        builder.WithOrigins("http://sandbox.vnpayment.vn/paymentv2/vpcpay.html",
-                            "http://www.contoso.com");
-                    });
-            });
+            //services.AddCors(options =>
+            //{
+            //    options.AddPolicy(MyAllowSpecificOrigins,
+            //        builder =>
+            //        {
+            //            builder.WithOrigins("http://sandbox.vnpayment.vn/paymentv2/vpcpay.html",
+            //                "http://www.contoso.com");
+            //        });
+            //});n
+            //services.AddCors(options => options.AddPolicy("CorsPolicy",
+            //    builder =>
+            //    {
+            //        builder.AllowAnyMethod()
+            //            .AllowAnyHeader()
+            //            .WithOrigins("http://sandbox.vnpayment.vn/paymentv2/vpcpay.html")
+            //            .AllowCredentials();
+            //    }));
+            //services.AddCors(o => o.AddPolicy("TeduCorsPolicy", builder =>
+            //{
+            //    builder.AllowAnyOrigin()
+            //        .AllowAnyMethod()
+            //        .AllowAnyHeader();
+            //}));
             services.AddTransient<IAuthorizationHandler, BaseResourceAuthorizationHandler>();
 
             services.AddSignalR();
@@ -254,6 +270,12 @@ namespace ShopOnlineApp
             var options = app.ApplicationServices.GetService<IOptions<RequestLocalizationOptions>>();
             app.UseRequestLocalization(options.Value);
 
+            //app.UseCors(
+            //    optionss => optionss.WithOrigins("http://sandbox.vnpayment.vn/paymentv2/vpcpay.html").AllowAnyMethod()
+            //);
+
+            app.UseCors("CorsPolicy");
+
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
@@ -267,6 +289,7 @@ namespace ShopOnlineApp
                 routes.MapRoute(name: "login",
                     template: "{area:exists}/{controller=Login}/{action=Index}/{id?}");
             });
+            //app.UseCors("TeduCorsPolicy");
             app.UseCookiePolicy();
             //app.UseCors(
             //    options => options.WithOrigins("http://example.com").AllowAnyMethod()

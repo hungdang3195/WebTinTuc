@@ -12,103 +12,51 @@ using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using CloudinaryDotNet;
 using CloudinaryDotNet.Actions;
-using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Options;
 using ShopOnlineApp.Application.Interfaces;
 using ShopOnlineApp.Application.ViewModels.Product;
-using ShopOnlineApp.Extensions;
+using ShopOnlineApp.Authorization;
 using ShopOnlineApp.Models;
-using ShopOnlineApp.Models.ProductViewModels;
 using ShopOnlineApp.Utilities.Helpers;
 
 namespace ShopOnlineApp.Areas.Admin.Controllers
 {
-    [CheckPermission]
+    //[CheckPermission]
     public class ProductController : BaseController
     {
         #region public  property 
         private readonly IProductService _productService;
         private readonly IConfiguration _configuration;
-        private readonly Cloudinary _cloudinary;
+    
         private readonly IProductCategoryService _productCategoryService;
         private readonly IBillService _billService;
+        private readonly IAuthorizationService _authorizationService;
 
         private readonly IHostingEnvironment _hostingEnvironment;
         #endregion
         #region constructer
-        public ProductController(IProductService productService, IConfiguration configuration, IOptions<CloudinaryImage> cloudinaryConfig, IHostingEnvironment hostingEnvironment, IProductCategoryService productCategoryService, IBillService billService)
+        public ProductController(IProductService productService, IConfiguration configuration, IHostingEnvironment hostingEnvironment, IProductCategoryService productCategoryService, IBillService billService, IAuthorizationService authorizationService)
         {
             _productService = productService;
             _configuration = configuration;
-            var cloudinaryConfig1 = cloudinaryConfig;
             _hostingEnvironment = hostingEnvironment;
             _productCategoryService = productCategoryService;
             _billService = billService;
-            Account acc = new Account(
-                cloudinaryConfig1.Value.CloudName,
-                cloudinaryConfig1.Value.ApiKey,
-                cloudinaryConfig1.Value.ApiSecret
-            );
-
-            _cloudinary = new Cloudinary(acc);
+            _authorizationService = authorizationService;
         }
         #endregion
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
+            var result = await _authorizationService.AuthorizeAsync(User, "USER", Operations.Read);
+            if (result.Succeeded == false)
+                return new RedirectResult("/Admin/Authentication/NoAuthenication");
             return View();
         }
-
-        [HttpPost]
-        public IActionResult UploadImage()
-        {
-            string url = "";
-            DateTime now = DateTime.Now;
-
-            try
-            {
-                var files = Request.Form.Files;
-                if (files.Count == 0)
-                {
-                    return new BadRequestObjectResult(files);
-                }
-                else
-                {
-                     
-                    var file = files[0];
-                    using (var stream = file.OpenReadStream())
-                    {
-                      
-                        ImageUploadParams uploadParams = new ImageUploadParams()
-                        {
-                            File = new FileDescription(file.Name, stream),
-                            Transformation = new Transformation()
-                                .Width(200).Height(200).Crop("fill").Gravity("face"),
-                            PublicId = "Product/" + file.Name,
-                            Overwrite = true,
-                            NotificationUrl = "http://mysite/my_notification_endpoint"
-                        };
-
-                        ImageUploadResult uploadResult = _cloudinary.Upload(uploadParams);
-
-                        if (uploadResult != null)
-                        {
-                            url = uploadResult.Uri.ToString();
-                        }
-                    }
-                }
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e);
-                throw;
-            }
-            
-            return new OkObjectResult(url);
-        }
+        
         public async  Task<IActionResult>  GetAll()
         {
-            //var dataReturn = await _productService.GetAll();
             var model = await _productService.GetAll();
             return new OkObjectResult(model);
         }

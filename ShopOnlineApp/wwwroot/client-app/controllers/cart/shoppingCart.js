@@ -90,9 +90,9 @@
             Status: false
         }
         $.ajax({
-            url: '/Cart/Checkout',
             type: 'POST',
             dataType: 'json',
+            url: '/Cart/Checkout',
             data: {
                 CustomerName: $('#txtName').val(),
                 CustomerAddress: $('#txtAddress').val(),
@@ -100,27 +100,14 @@
                 CustomerMobile: $('#txtPhone').val(),
                 CustomerMessage: $('#txtMessage').val(),
                 TypePayment: $('input[name="paymentMethod"]:checked').val(),
-                BankCode: $('input[groupname="bankcode"]:checked').prop('id'),
+                BankCode: $('input[groupname="bankcode"]:checked').prop('id')
             },
             success: function (response) {
                 if (response.status) {
-                    if (response.urlCheckout != undefined && response.urlCheckout !== '') {
-
-                        window.location.href = response.urlCheckout;
-                    }
-                    else {
-                        console.log('create order ok');
-                        $('#divCheckout').hide();
-                        cart.deleteAll();
-                        setTimeout(function () {
-                            $('#cartContent').html('Cảm ơn bạn đã đặt hàng thành công. Chúng tôi sẽ liên hệ sớm nhất.');
-                        }, 2000);
-                    }
+                    window.location.replace(response.url);
+                    return;
                 }
-                else {
-                    $('#divMessage').show();
-                    $('#divMessage').text(response.message);
-                }
+                shoponline.notify(response.message, 'warning');
             }
         });
     },

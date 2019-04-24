@@ -31,13 +31,17 @@ namespace ShopOnlineApp.Areas.Admin.Components
             }
 
             //TODO: Get by permission
-            functions = await _functionService.GetFunctionByRoles(new FunctionRequest
+            if (roles.Length > 4)
             {
-                Roles = roles.Split(";").ToList()
-            });
+                functions = await _functionService.GetFunctionByRoles(new FunctionRequest
+                {
+                    Roles = roles.Split(";").ToList()
+                });
 
-            return View(functions);
+                return View(functions);
+            }
 
+            return View(new List<FunctionViewModel>());
         }
     }
 }

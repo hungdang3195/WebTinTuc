@@ -8,6 +8,7 @@ namespace ShopOnlineApp.Data.IRepositories
 {
     public interface IProductQuantityRepository: IRepository<ProductQuantity, int>
     {
+        ProductQuantity GetByProductId(int productId);
 
     }
 }

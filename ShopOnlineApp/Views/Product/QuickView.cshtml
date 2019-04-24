@@ -52,7 +52,6 @@
                                     <span class="price-label">Regular Price:</span>
                                     <span class="price"> @Model.Product?.Price.ToString("N0") (vnd) </span>
                                 </p>
-
                             }
                             else
                             {
@@ -63,8 +62,9 @@
                             }
                         </div>
                         <div class="ratings">
+                       
                             <div class="rating"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> </div>
-                            <p class="availability in-stock pull-right">Availability: <span>In Stock</span></p>
+                            <p class="availability pull-right  @(Model.Product.Status==ShopOnlineApp.Data.Enums.Status.Active?"in-stock":"out-of-stock")">Availability: <span>In Stock</span></p>
                         </div>
                         <div class="short-description">
                             <h2>Quick Overview</h2>
@@ -74,7 +74,7 @@
                             <div class="color-area">
                                 <h2 class="saider-bar-title">Color</h2>
                                 <div class="color">
-                                    <select asp-items="Model.Colors" id="ddlColorId"></select>
+                                    <select asp-items="Model.Colors" id="ddlColorId" style="width: 81px;"></select>
                                 </div>
                             </div>
                             <div class="size-area">

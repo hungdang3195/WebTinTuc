@@ -45,13 +45,14 @@
             dateType: 'json',
             url: '/Admin/Login/Authen',
             success: function (res) {
+
                 if (res.Success===true) {
                     window.location.href = "/Admin/Home/Index";
                     shoponline.notify('Đăng nhập thành công', 'success');
                 }
                 else {
-                    window.location.href = "/Admin/Login/Index";
-                    shoponline.notify('Đăng nhập thất bại', 'error');
+                    window.location.href = "/admin-login";
+                    shoponline.notify('Tên đăng nhập hoặc mật khẩu không đúng', 'error');
                 }
             }
         })

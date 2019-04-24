@@ -48,6 +48,7 @@
             padding: 5px 1em 10px .4em;
         }
     </style>
+    @RenderSection("Styles", required: false);
 </head>
 
 <body class="@ViewData["BodyClass"]">
@@ -92,9 +93,9 @@
     <!-- JS -->
     <!-- jquery js -->
     <script type="text/javascript" src="~/client-side/js/jquery.min.js"></script>
-    
+
     <script src="~/lib/signalr/signalr.js"></script>
-<!-- bootstrap js -->
+    <!-- bootstrap js -->
     <script type="text/javascript" src="~/client-side/js/bootstrap.min.js"></script>
 
     <!-- owl.carousel.min js -->
@@ -115,6 +116,8 @@
     <script src="~/lib/notifyjs/dist/notify.js"></script>
     <script src="~/client-side/js/cloud-zoom.js"></script>
     <script src="~/client-side/js/jquery.bxslider.js"></script>
+    <script src="~/lib/mustache/mustache.min.js"></script>
+    <script src="~/lib/twbs-pagination/jquery.twbsPagination.js"></script>
     <script src="~/client-side/js/jquery.magnifying-zoom.js"></script>
     <script src="~/client-side/js/jquery.flexslider.js"></script>
     <script src="~/lib/notifyjs/dist/styles/metro/notify-metro.js"></script>

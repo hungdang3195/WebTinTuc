@@ -8,12 +8,14 @@ using ShopOnlineApp.Data.EF.Common;
 
 namespace ShopOnlineApp.Application.Interfaces
 {
-    public interface IProductService:IDisposable
+    public interface IProductService : IDisposable
     {
         Task<List<ProductViewModel>> GetAll();
         Task<BaseReponse<ModelListResult<ProductViewModel>>> GetAllPaging(ProductRequest request);
+        ModelListResult<ProductFullViewModel> FilterProducts(ProductRequest request);
+
         Task<ProductViewModel> Add(ProductViewModel product);
-         ProductViewModel  GetById(int id);
+        ProductViewModel GetById(int id);
         void Update(ProductViewModel product);
         void Save();
         void Delete(int id);
