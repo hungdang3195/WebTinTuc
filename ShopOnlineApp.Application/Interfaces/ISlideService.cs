@@ -1,21 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using ShopOnlineApp.Application.ViewModels.Color;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using ShopOnlineApp.Application.ViewModels.Slide;
 using ShopOnlineApp.Data.EF.Common;
-using ShopOnlineApp.Data.Entities;
 
 namespace ShopOnlineApp.Application.Interfaces
 {
     public interface ISlideService
     {
-        void Add(SlideViewModel slideVm);
-        void Update(SlideViewModel slideVm);
-        void Delete(int id);
-        List<SlideViewModel> GetAll();
-        BaseReponse<ModelListResult<SlideViewModel>> GetAllPaging(SlideRequest request);
-        SlideViewModel GetById(int id);
+        Task Add(SlideViewModel slideVm);
+        Task Update(SlideViewModel slideVm);
+        Task Delete(int id);
+        Task<List<SlideViewModel>>  GetAll();
+        Task<BaseReponse<ModelListResult<SlideViewModel>>>  GetAllPaging(SlideRequest request);
+        Task<SlideViewModel>  GetById(int id);
         void SaveChanges();
     }
 }

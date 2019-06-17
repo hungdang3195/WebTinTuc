@@ -18,12 +18,15 @@ namespace ShopOnlineApp.Application.Implementation
 {
     public class BillService : IBillService
     {
+        #region Private Method
         private readonly IBillRepository _orderRepository;
         private readonly IBillDetailRepository _orderDetailRepository;
         private readonly IColorRepository _colorRepository;
         private readonly ISizeRepository _sizeRepository;
         private readonly IProductRepository _productRepository;
         private readonly IUnitOfWork _unitOfWork;
+        #endregion
+        #region Constructor
         public BillService(IBillRepository orderRepository,
             IBillDetailRepository orderDetailRepository,
             IColorRepository colorRepository,
@@ -38,13 +41,16 @@ namespace ShopOnlineApp.Application.Implementation
             _productRepository = productRepository;
             _unitOfWork = unitOfWork;
         }
-        public async Task<BillViewModel>  Create(BillViewModel billVm)
+
+        #endregion
+        #region Public method
+        public async Task<BillViewModel> Create(BillViewModel billVm)
         {
             try
             {
                 //var order = Mapper.Map<BillViewModel, Bill>(billVm);
 
-                var order= new BillViewModel().Map(billVm);
+                var order = new BillViewModel().Map(billVm);
 
                 // var orderDetails = Mapper.Map<List<BillDetailViewModel>, List<BillDetail>>(billVm.BillDetails);
 
@@ -52,11 +58,11 @@ namespace ShopOnlineApp.Application.Implementation
 
                 foreach (var detail in orderDetails)
                 {
-                    var product = _productRepository.FindById(detail.ProductId);
+                    var product =await _productRepository.FindById(detail.ProductId);
                     detail.Price = product.Price;
                 }
                 order.BillDetails = orderDetails;
-               var billEntity= await  _orderRepository.AddAsync(order);
+                var billEntity = await _orderRepository.AddAsync(order);
 
                 return new BillViewModel().Map(billEntity);
 
@@ -66,62 +72,47 @@ namespace ShopOnlineApp.Application.Implementation
                 Console.WriteLine(e);
                 throw;
             }
-           
+
         }
 
-        public void Update(BillViewModel billVm)
+        public async Task Update(BillViewModel billVm)
         {
-            //Mapping to order domain
-            var order =new BillViewModel().Map(billVm);
-
-            //Get order Detail
+            var order = new BillViewModel().Map(billVm);
             var newDetails = order.BillDetails;
-
-            //new details added
             var addedDetails = newDetails.Where(x => x.Id == 0).ToList();
-
-            //get updated details
             var updatedDetails = newDetails.Where(x => x.Id != 0).ToList();
-
-            //Existed details
-            var existedDetails = _orderDetailRepository.FindAll(x => x.BillId == billVm.Id).AsNoTracking();
-
-            //Clear db
+            var existedDetails = (await _orderDetailRepository.FindAll(x => x.BillId == billVm.Id)).AsNoTracking();
             order.BillDetails.Clear();
-
             foreach (var detail in updatedDetails)
             {
-                var product = _productRepository.FindById(detail.ProductId);
+                var product = await _productRepository.FindById(detail.ProductId);
                 detail.Price = product.Price;
-                _orderDetailRepository.Update(detail);
+                await _orderDetailRepository.Update(detail);
             }
 
             foreach (var detail in addedDetails)
             {
-                var product = _productRepository.FindById(detail.ProductId);
+                var product = await _productRepository.FindById(detail.ProductId);
                 detail.Price = product.Price;
-                _orderDetailRepository.Add(detail);
+                await _orderDetailRepository.Add(detail);
             }
-
-            _orderDetailRepository.RemoveMultiple(existedDetails.Except(updatedDetails).ToList());
-
-            order.DateCreated=DateTime.Now;
-            order.DateModified=DateTime.Now;
-
-            _orderRepository.Update(order);
+            await _orderDetailRepository.RemoveMultiple(existedDetails.Except(updatedDetails).ToList());
+            order.DateCreated = DateTime.Now;
+            order.DateModified = DateTime.Now;
+            await _orderRepository.Update(order);
         }
 
-        public void UpdateStatus(int billId, BillStatus status)
+        public async Task UpdateStatus(int billId, BillStatus status)
         {
-            var order = _orderRepository.FindById(billId);
+            var order = await _orderRepository.FindById(billId);
             order.BillStatus = status;
-            _orderRepository.Update(order);
+            await _orderRepository.Update(order);
             _unitOfWork.Commit();
         }
 
-        public List<SizeViewModel> GetSizes()
+        public async Task<List<SizeViewModel>> GetSizes()
         {
-            return new SizeViewModel().Map(_sizeRepository.FindAll().AsNoTracking()).ToList();
+            return new SizeViewModel().Map((await _sizeRepository.FindAll()).AsNoTracking()).ToList();
         }
 
         public void Save()
@@ -129,93 +120,58 @@ namespace ShopOnlineApp.Application.Implementation
             _unitOfWork.Commit();
         }
 
-        //public PagedResult<BillViewModel> GetAllPaging(string startDate, string endDate, string keyword
-        //    , int pageIndex, int pageSize)
-        //{
-        //    var query = _orderRepository.FindAll();
-        //    if (!string.IsNullOrEmpty(startDate))
-        //    {
-        //        DateTime start = DateTime.ParseExact(startDate, "dd/MM/yyyy", CultureInfo.GetCultureInfo("vi-VN"));
-        //        query = query.Where(x => x.DateCreated >= start);
-        //    }
-        //    if (!string.IsNullOrEmpty(endDate))
-        //    {
-        //        DateTime end = DateTime.ParseExact(endDate, "dd/MM/yyyy", CultureInfo.GetCultureInfo("vi-VN"));
-        //        query = query.Where(x => x.DateCreated <= end);
-        //    }
-        //    if (!string.IsNullOrEmpty(keyword))
-        //    {
-        //        query = query.Where(x => x.CustomerName.Contains(keyword) || x.CustomerMobile.Contains(keyword));
-        //    }
-        //    var totalRow = query.Count();
-        //    var data = query.OrderByDescending(x => x.DateCreated)
-        //        .Skip((pageIndex - 1) * pageSize)
-        //        .Take(pageSize)
-        //        .ProjectTo<BillViewModel>()
-        //        .ToList();
-        //    return new PagedResult<BillViewModel>()
-        //    {
-        //        CurrentPage = pageIndex,
-        //        PageSize = pageSize,
-        //        Results = data,
-        //        RowCount = totalRow
-        //    };
-        //}
-
-        public IEnumerable<BillViewModel> GetOrdersByCustomer(Guid customerId)
+        public async Task<IEnumerable<BillViewModel>> GetOrdersByCustomer(Guid customerId)
         {
-            var data = _orderRepository.FindAll(x => x.CustomerId == customerId, c=>c.BillDetails).AsParallel().WithExecutionMode(ParallelExecutionMode.ForceParallelism);
-            return new BillViewModel().Map(data) ;
+            var data = (await _orderRepository.FindAll(x => x.CustomerId == customerId, c => c.BillDetails)).AsParallel().WithExecutionMode(ParallelExecutionMode.ForceParallelism);
+            return new BillViewModel().Map(data);
         }
 
-        public BillViewModel GetDetail(int billId)
+        public async Task<BillViewModel> GetDetail(int billId)
         {
-            var bill = _orderRepository.FindSingle(x => x.Id == billId, c=>c.BillDetails);
-            
-            var billVm =new BillViewModel().Map(bill);
-            //var billDetailVm = new BillDetailViewModel().Map(_orderDetailRepository.FindAll(x => x.BillId == billId).AsNoTracking()).ToList();
-            billVm.BillDetails = GetBillDetails(billId);
+            var bill = await _orderRepository.FindSingle(x => x.Id == billId, c => c.BillDetails);
+
+            var billVm = new BillViewModel().Map(bill);
+            billVm.BillDetails = await GetBillDetails(billId);
             return billVm;
         }
 
-        public List<BillDetailViewModel> GetBillDetails(int billId)
+        public async Task<List<BillDetailViewModel>> GetBillDetails(int billId)
         {
-            return new BillDetailViewModel().Map(_orderDetailRepository
-                    .FindAll(x => x.BillId == billId, c => c.Bill, c => c.Color, c => c.Size, c => c.Product).AsNoTracking().AsParallel().AsOrdered().WithDegreeOfParallelism(3)).ToList();
+            return new BillDetailViewModel().Map((await _orderDetailRepository
+                    .FindAll(x => x.BillId == billId, c => c.Bill, c => c.Color, c => c.Size, c => c.Product)).AsNoTracking().AsParallel().AsOrdered().WithDegreeOfParallelism(3)).ToList();
         }
 
-        public List<ColorViewModel> GetColors()
+        public async Task<List<ColorViewModel>> GetColors()
         {
-            return new ColorViewModel().Map(_colorRepository.FindAll().AsNoTracking()).ToList();
+            return new ColorViewModel().Map((await _colorRepository.FindAll()).AsNoTracking()).ToList();
         }
 
-        public BillDetailViewModel CreateDetail(BillDetailViewModel billDetailVm)
+        public async Task<BillDetailViewModel> CreateDetail(BillDetailViewModel billDetailVm)
         {
             var billDetail = new BillDetailViewModel().Map(billDetailVm);
-            _orderDetailRepository.Add(billDetail);
+            await _orderDetailRepository.Add(billDetail);
             return billDetailVm;
         }
 
-        public void DeleteDetail(int productId, int billId, int colorId, int sizeId)
+        public async Task DeleteDetail(int productId, int billId, int colorId, int sizeId)
         {
-            var detail = _orderDetailRepository.FindSingle(x => x.ProductId == productId
-           && x.BillId == billId && x.ColorId == colorId && x.SizeId == sizeId);
-            _orderDetailRepository.Remove(detail);
+            var detail = await _orderDetailRepository.FindSingle(x => x.ProductId == productId
+            && x.BillId == billId && x.ColorId == colorId && x.SizeId == sizeId);
+            await _orderDetailRepository.Remove(detail);
         }
 
-        public ColorViewModel GetColor(int id)
+        public async Task<ColorViewModel> GetColor(int id)
         {
-            return new ColorViewModel().Map(_colorRepository.FindById(id));
+            return new ColorViewModel().Map(await _colorRepository.FindById(id));
         }
-
-        public SizeViewModel GetSize(int id)
+        public async Task<SizeViewModel> GetSize(int id)
         {
-            return new SizeViewModel().Map(_sizeRepository.FindById(id));
+            return new SizeViewModel().Map(await _sizeRepository.FindById(id));
         }
 
         public async Task<BaseReponse<ModelListResult<BillViewModel>>> GetAllPaging(BillRequest request)
         {
-            var query = _orderRepository.FindAll().AsNoTracking().AsParallel();
+            var query = (await _orderRepository.FindAll()).AsNoTracking().AsParallel();
             if (!string.IsNullOrEmpty(request.StartDate))
             {
                 DateTime start = DateTime.ParseExact(request.StartDate, "dd/MM/yyyy", CultureInfo.GetCultureInfo("vi-VN"));
@@ -232,11 +188,11 @@ namespace ShopOnlineApp.Application.Implementation
             }
             var totalRow = query.AsParallel().AsOrdered().WithDegreeOfParallelism(3).Count();
 
-            var items =  query.AsParallel().AsOrdered().WithDegreeOfParallelism(3)
+            var items = query.AsParallel().AsOrdered().WithDegreeOfParallelism(3)
                 .OrderByDescending(x => x.DateCreated)
                 .Skip(request.PageIndex * request.PageSize)
                 .Take(request.PageSize);
-            
+
 
             var result = new BaseReponse<ModelListResult<BillViewModel>>
             {
@@ -253,5 +209,6 @@ namespace ShopOnlineApp.Application.Implementation
             };
             return result;
         }
+        #endregion
     }
 }

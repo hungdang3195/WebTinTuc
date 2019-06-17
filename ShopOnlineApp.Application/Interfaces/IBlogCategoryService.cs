@@ -8,17 +8,16 @@ namespace ShopOnlineApp.Application.Interfaces
 {
     public interface IBlogCategoryService
     {
-        BlogCategoryViewModel Add(BlogCategoryViewModel BlogCategoryVm);
-        void Update(BlogCategoryViewModel BlogCategoryVm);
-        void Delete(int id);
+        Task<BlogCategoryViewModel> Add(BlogCategoryViewModel BlogCategoryVm);
+        Task Update(BlogCategoryViewModel BlogCategoryVm);
+        Task Delete(int id);
         Task<List<BlogCategoryViewModel>> GetAll();
         Task<List<BlogCategoryViewModel>> GetAll(string keyword);
         Task<List<BlogCategoryViewModel>> GetAllByParentId(int parentId);
-        BlogCategoryViewModel GetById(int id);
-        void UpdateParentId(int sourceId, int targetId, Dictionary<int, int> items);
-        void ReOrder(int sourceId, int targetId);
+        Task<BlogCategoryViewModel> GetById(int id);
+        Task UpdateParentId(int sourceId, int targetId, Dictionary<int, int> items);
+        Task ReOrder(int sourceId, int targetId);
        // Task<List<BlogCategoryViewModel>> GetHomeCategories(int top);
-
         // Task<List<BlogCategoryViewModel>> Unflatern();
         void Save();
     }

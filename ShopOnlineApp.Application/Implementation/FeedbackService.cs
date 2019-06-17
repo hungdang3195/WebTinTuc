@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using ShopOnlineApp.Application.Interfaces;
 using ShopOnlineApp.Application.ViewModels.Feedback;
 using ShopOnlineApp.Data.EF.Common;
@@ -22,15 +23,15 @@ namespace ShopOnlineApp.Application.Implementation
             _unitOfWork = unitOfWork;
         }
 
-        public void Add(FeedbackViewModel feedbackVm)
+        public async Task Add(FeedbackViewModel feedbackVm)
         {
-            var page = new  FeedbackViewModel().Map(feedbackVm);
-            _feedbackRepository.Add(page);
+            var page = new FeedbackViewModel().Map(feedbackVm);
+            await _feedbackRepository.Add(page);
         }
 
-        public void Delete(int id)
+        public async Task Delete(int id)
         {
-            _feedbackRepository.Remove(id);
+            await _feedbackRepository.Remove(id);
         }
 
         public void Dispose()
@@ -38,14 +39,14 @@ namespace ShopOnlineApp.Application.Implementation
             GC.SuppressFinalize(this);
         }
 
-        public List<FeedbackViewModel> GetAll()
+        public async Task<List<FeedbackViewModel>> GetAll()
         {
-            return new FeedbackViewModel().Map(_feedbackRepository.FindAll()).ToList();
+            return new FeedbackViewModel().Map(await _feedbackRepository.FindAll()).ToList();
         }
 
-        public BaseReponse<ModelListResult<FeedbackViewModel>> GetAllPaging(FeedbackRequest request)
+        public async Task<BaseReponse<ModelListResult<FeedbackViewModel>>> GetAllPaging(FeedbackRequest request)
         {
-            var query = _feedbackRepository.FindAll();
+            var query = await _feedbackRepository.FindAll();
             if (!string.IsNullOrEmpty(request.SearchText))
                 query = query.Where(x => x.Name.Contains(request.SearchText));
 
@@ -71,9 +72,9 @@ namespace ShopOnlineApp.Application.Implementation
             };
         }
 
-        public FeedbackViewModel GetById(int id)
+        public async Task<FeedbackViewModel> GetById(int id)
         {
-            return new FeedbackViewModel().Map(_feedbackRepository.FindById(id));
+            return new FeedbackViewModel().Map(await _feedbackRepository.FindById(id));
         }
 
         public void SaveChanges()
@@ -81,11 +82,10 @@ namespace ShopOnlineApp.Application.Implementation
             _unitOfWork.Commit();
         }
 
-        public void Update(FeedbackViewModel feedbackVm)
+        public async Task Update(FeedbackViewModel feedbackVm)
         {
-            var page =new FeedbackViewModel().Map(feedbackVm);
-
-            _feedbackRepository.Update(page);
+            var page = new FeedbackViewModel().Map(feedbackVm);
+            await _feedbackRepository.Update(page);
         }
     }
 }

@@ -19,7 +19,7 @@ namespace ShopOnlineApp.Controllers.Components
         public async Task<IViewComponentResult> InvokeAsync()
         {
             var productId = HttpContext.Session.Get<int>(CommonConstants.ProductId);
-            var dataReturn = _ratingService.GetAllPaging(new RateRequest
+            var dataReturn =await _ratingService.GetAllPaging(new RateRequest
             {
                 PageSize = 3,
                 PageIndex = 0,

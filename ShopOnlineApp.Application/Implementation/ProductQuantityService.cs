@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 using ShopOnlineApp.Application.Interfaces;
 using ShopOnlineApp.Data.IRepositories;
 
@@ -13,9 +14,9 @@ namespace ShopOnlineApp.Application.Implementation
         {
             _quantityRepository = quantityRepository;
         }
-        public bool SellProduct(int productId, int quantity)
+        public async Task<bool> SellProduct(int productId, int quantity)
         {
-            var productQuantiry = _quantityRepository.GetByProductId(productId);
+            var productQuantiry = await _quantityRepository.GetByProductId(productId);
             if (productQuantiry != null)
             {
                 return productQuantiry.Quantity >= quantity;
@@ -23,13 +24,13 @@ namespace ShopOnlineApp.Application.Implementation
             return false;
         }
 
-        public void UpdateQuantityProduct(int productId, int quantity)
+        public async Task UpdateQuantityProduct(int productId, int quantity)
         {
-            var productQuantity = _quantityRepository.GetByProductId(productId);
+            var productQuantity = await _quantityRepository.GetByProductId(productId);
             if (productQuantity != null)
             {
                 productQuantity.Quantity -= quantity;
-                _quantityRepository.SaveChanges();
+                await _quantityRepository.SaveChanges();
             }
 
         }

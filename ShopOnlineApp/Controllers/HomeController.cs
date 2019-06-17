@@ -37,12 +37,12 @@ namespace ShopOnlineApp.Controllers
             ViewData["BodyClass"] = "cms-index-index cms-home-page";
             var homeVm = new HomeViewModel();
             homeVm.HomeCategories =await _productCategoryService.GetHomeCategories(5);
-            homeVm.HotProducts = _productService.GetHotProduct(5);
-            homeVm.TopSellProducts = _productService.GetLastest(5);
-            homeVm.NewProducts = _productService.GetLastest(6);
-            homeVm.TopRateProducts = _productService.GetRatingProducts(3);
-            homeVm.LastestBlogs = _blogService.GetLastest(5);
-            homeVm.HomeSlides = _commonService.GetSlides("top");
+            homeVm.HotProducts =await _productService.GetHotProduct(5);
+            homeVm.TopSellProducts =await _productService.GetLastest(5);
+            homeVm.NewProducts =await _productService.GetLastest(6);
+            homeVm.TopRateProducts =await _productService.GetRatingProducts(3);
+            homeVm.LastestBlogs =await _blogService.GetLastest(5);
+            homeVm.HomeSlides =await _commonService.GetSlides("top");
             return View(homeVm);
         }
 

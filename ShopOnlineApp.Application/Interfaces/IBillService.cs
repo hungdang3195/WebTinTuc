@@ -12,32 +12,22 @@ namespace ShopOnlineApp.Application.Interfaces
     public interface IBillService
     {
         Task<BillViewModel> Create(BillViewModel billVm);
-        void Update(BillViewModel billVm);
-
-        //PagedResult<BillViewModel> GetAllPaging(string startDate, string endDate, string keyword, int pageIndex, int pageSize);
-
+        Task Update(BillViewModel billVm);
         Task<BaseReponse<ModelListResult<BillViewModel>>> GetAllPaging(BillRequest request);
 
-        IEnumerable<BillViewModel> GetOrdersByCustomer(Guid customerId);
+        Task<IEnumerable<BillViewModel>> GetOrdersByCustomer(Guid customerId);
 
-        BillViewModel GetDetail(int billId);
+        Task<BillViewModel> GetDetail(int billId);
+        Task<BillDetailViewModel> CreateDetail(BillDetailViewModel billDetailVm);
 
-        BillDetailViewModel CreateDetail(BillDetailViewModel billDetailVm);
+        Task DeleteDetail(int productId, int billId, int colorId, int sizeId);
 
-        void DeleteDetail(int productId, int billId, int colorId, int sizeId);
-
-        void UpdateStatus(int orderId, BillStatus status);
-
-        List<BillDetailViewModel> GetBillDetails(int billId);
-
-        List<ColorViewModel> GetColors();
-
-        List<SizeViewModel> GetSizes();
-
-        ColorViewModel GetColor(int id);
-
-        SizeViewModel GetSize(int id);
-
+        Task UpdateStatus(int orderId, BillStatus status);
+        Task<List<BillDetailViewModel>>  GetBillDetails(int billId);
+        Task<List<ColorViewModel>>  GetColors();
+        Task<List<SizeViewModel>>  GetSizes();
+        Task<ColorViewModel> GetColor(int id);
+        Task<SizeViewModel> GetSize(int id);
         void Save();
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using ShopOnlineApp.Application.Interfaces;
 using ShopOnlineApp.Application.ViewModels.Contact;
 using ShopOnlineApp.Data.EF.Common;
@@ -12,25 +13,35 @@ namespace ShopOnlineApp.Application.Implementation
 {
     public class ContactService : IContactService
     {
+        #region private method
         private readonly IContactRepository _contactRepository;
         private readonly IUnitOfWork _unitOfWork;
 
+        #endregion
+
+        #region constructor
+
+        #region public method
         public ContactService(IContactRepository contactRepository,
-            IUnitOfWork unitOfWork)
+           IUnitOfWork unitOfWork)
         {
             _contactRepository = contactRepository;
             _unitOfWork = unitOfWork;
         }
 
-        public void Add(ContactViewModel pageVm)
+
+        #endregion
+
+
+        public async Task Add(ContactViewModel pageVm)
         {
             var page = new ContactViewModel().Map(pageVm);
-            _contactRepository.Add(page);
+            await _contactRepository.Add(page);
         }
 
-        public void Delete(string id)
+        public async Task Delete(string id)
         {
-            _contactRepository.Remove(id);
+            await _contactRepository.Remove(id);
         }
 
         public void Dispose()
@@ -38,15 +49,15 @@ namespace ShopOnlineApp.Application.Implementation
             GC.SuppressFinalize(this);
         }
 
-        public List<ContactViewModel> GetAll()
+        public async Task<List<ContactViewModel>> GetAll()
         {
-            return new ContactViewModel().Map(_contactRepository.FindAll()).ToList();
+            return new ContactViewModel().Map(await _contactRepository.FindAll()).ToList();
         }
 
-        public BaseReponse<ModelListResult<ContactViewModel>> GetAllPaging(ContactRequest request)
+        public async Task<BaseReponse<ModelListResult<ContactViewModel>>> GetAllPaging(ContactRequest request)
         {
 
-            var query = _contactRepository.FindAll();
+            var query = await _contactRepository.FindAll();
             if (!string.IsNullOrEmpty(request.SearchText))
                 query = query.Where(x => x.Name.Contains(request.SearchText));
 
@@ -70,23 +81,22 @@ namespace ShopOnlineApp.Application.Implementation
                 Message = Message.Success,
                 Status = (int)QueryStatus.Success
             };
-
         }
-
-        public ContactViewModel GetById(string id)
+        public async Task<ContactViewModel> GetById(string id)
         {
-            return new ContactViewModel().Map(_contactRepository.FindById(id));
+            return new ContactViewModel().Map(await _contactRepository.FindById(id));
         }
-
         public void SaveChanges()
         {
             _unitOfWork.Commit();
         }
-
-        public void Update(ContactViewModel pageVm)
+        public async Task Update(ContactViewModel pageVm)
         {
             var page = new ContactViewModel().Map(pageVm);
-            _contactRepository.Update(page);
+            await _contactRepository.Update(page);
         }
+
+        #endregion
+
     }
 }

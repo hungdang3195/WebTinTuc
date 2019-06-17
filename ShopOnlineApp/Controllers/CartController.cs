@@ -240,7 +240,7 @@ namespace ShopOnlineApp.Controllers
                             ProductId = item.Product.Id
                         });
 
-                        canBuy = _quantityService.SellProduct(item.Product.Id, item.Quantity);
+                        canBuy = await _quantityService.SellProduct(item.Product.Id, item.Quantity);
 
                         if (!canBuy)
                         {
@@ -290,7 +290,7 @@ namespace ShopOnlineApp.Controllers
                         string paymentUrl = vnpay.CreateRequestUrl(vnp_Url, vnp_HashSecret);
                         return new OkObjectResult(new
                         {
-                            status=true,
+                            status = true,
                             url = paymentUrl
                         });
                     }
@@ -304,32 +304,23 @@ namespace ShopOnlineApp.Controllers
 
                 model.Carts = session;
                 HttpContext.Session.Set(CommonConstants.CartSession, new List<ShoppingCartViewModel>());
-
                 return View(model);
-
             }
-
             return new OkObjectResult("");
         }
         [HttpPost]
-        public IActionResult AddToCart(int productId, int quantity, int color, int size)
+        public async Task<IActionResult> AddToCart(int productId, int quantity, int color, int size)
         {
-            //Get product detail
-            var product = _productService.GetById(productId);
-
-            //Get session with item list from cart
+            var product = await _productService.GetById(productId);
             var session = HttpContext.Session.Get<List<ShoppingCartViewModel>>(CommonConstants.CartSession);
             if (session != null)
             {
-                //Convert string to list object
                 bool hasChanged = false;
 
-                //Check exist with item product id
                 if (session.Any(x => x.Product.Id == productId))
                 {
                     foreach (var item in session)
                     {
-                        //Update quantity for product if match product id
                         if (item.Product.Id == productId)
                         {
                             item.Quantity += quantity;
@@ -344,14 +335,12 @@ namespace ShopOnlineApp.Controllers
                     {
                         Product = product,
                         Quantity = quantity,
-                        Color = _billService.GetColor(color),
-                        Size = _billService.GetSize(size),
+                        Color = await _billService.GetColor(color),
+                        Size = await _billService.GetSize(size),
                         Price = product.PromotionPrice ?? product.Price
                     });
                     hasChanged = true;
                 }
-
-                //Update back to cart
                 if (hasChanged)
                 {
                     HttpContext.Session.Set(CommonConstants.CartSession, session);
@@ -359,14 +348,13 @@ namespace ShopOnlineApp.Controllers
             }
             else
             {
-                //Add new cart
                 var cart = new List<ShoppingCartViewModel>();
                 cart.Add(new ShoppingCartViewModel()
                 {
                     Product = product,
                     Quantity = quantity,
-                    Color = _billService.GetColor(color),
-                    Size = _billService.GetSize(size),
+                    Color = await _billService.GetColor(color),
+                    Size = await _billService.GetSize(size),
                     Price = product.PromotionPrice ?? product.Price
                 });
                 HttpContext.Session.Set(CommonConstants.CartSession, cart);
@@ -398,7 +386,7 @@ namespace ShopOnlineApp.Controllers
             return new EmptyResult();
         }
 
-        public IActionResult UpdateCart(int productId, int quantity, int color, int size)
+        public async Task<IActionResult> UpdateCart(int productId, int quantity, int color, int size)
         {
             var session = HttpContext.Session.Get<List<ShoppingCartViewModel>>(CommonConstants.CartSession);
             if (session != null)
@@ -408,10 +396,10 @@ namespace ShopOnlineApp.Controllers
                 {
                     if (item.Product.Id == productId)
                     {
-                        var product = _productService.GetById(productId);
+                        var product = await _productService.GetById(productId);
                         item.Product = product;
-                        item.Size = _billService.GetSize(size);
-                        item.Color = _billService.GetColor(color);
+                        item.Size = await _billService.GetSize(size);
+                        item.Color = await _billService.GetColor(color);
                         item.Quantity = quantity;
                         item.Price = product.PromotionPrice ?? product.Price;
                         hasChanged = true;
@@ -427,16 +415,16 @@ namespace ShopOnlineApp.Controllers
         }
 
         [HttpGet]
-        public IActionResult GetColors()
+        public async Task<IActionResult> GetColors()
         {
-            var colors = _billService.GetColors();
+            var colors = await _billService.GetColors();
             return new OkObjectResult(colors);
         }
 
         [HttpGet]
-        public IActionResult GetSizes()
+        public async Task<IActionResult> GetSizes()
         {
-            var sizes = _billService.GetSizes();
+            var sizes = await _billService.GetSizes();
             return new OkObjectResult(sizes);
         }
 
@@ -448,11 +436,11 @@ namespace ShopOnlineApp.Controllers
             //_orderService.Save();
             var billSession = HttpContext.Session.Get<BillViewModel>(CommonConstants.BillSession);
 
-            _billService.UpdateStatus(billSession.Id,BillStatus.InProgress);
+            await _billService.UpdateStatus(billSession.Id, BillStatus.InProgress);
 
             foreach (var bill in billSession.BillDetails)
             {
-                _quantityService.UpdateQuantityProduct(bill.ProductId,bill.Quantity);
+                await _quantityService.UpdateQuantityProduct(bill.ProductId, bill.Quantity);
             }
 
             var announcement = new AnnouncementViewModel()

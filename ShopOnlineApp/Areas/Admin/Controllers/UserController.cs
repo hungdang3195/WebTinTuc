@@ -32,10 +32,7 @@ namespace ShopOnlineApp.Areas.Admin.Controllers
             var result = await _authorizationService.AuthorizeAsync(User, "USER", Operations.Read);
             if (result.Succeeded == false)
                 return new RedirectResult("/Admin/Authentication/NoAuthenication");
-
             return View();
-            // Task.CompletedTask;
-
         }
         public IActionResult GetAll()
         {

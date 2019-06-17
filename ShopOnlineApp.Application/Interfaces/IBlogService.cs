@@ -8,42 +8,24 @@ namespace ShopOnlineApp.Application.Interfaces
 {
     public interface IBlogService
     {
-        BlogViewModel Add(BlogViewModel product);
-
-        void Update(BlogViewModel product);
-
-        void Delete(int id);
-
-        List<BlogViewModel> GetAll();
-
+        Task<BlogViewModel> Add(BlogViewModel product);
+        Task Update(BlogViewModel product);
+        Task Delete(int id);
+        Task<List<BlogViewModel>> GetAll();
         Task<BaseReponse<ModelListResult<BlogViewModel>>> GetAllPaging(BlogRequest request);
-
-        IEnumerable<BlogViewModel> GetLastest(int top);
-
-        List<BlogViewModel> GetHotProduct(int top);
-
-        List<BlogViewModel> GetListPaging(int page, int pageSize, string sort, out int totalRow);
-
-        List<BlogViewModel> Search(string keyword, int page, int pageSize, string sort, out int totalRow);
-
-        List<BlogViewModel> GetList(string keyword);
-
-        List<BlogViewModel> GetReatedBlogs(int id, int top);
-
-        List<string> GetListByName(string name);
-
-        BlogViewModel GetById(int id);
-
+        Task<IEnumerable<BlogViewModel>> GetLastest(int top);
+        Task<List<BlogViewModel>> GetHotProduct(int top);
+        Task<List<BlogViewModel>> GetListPaging(int page, int pageSize, string sort);
+        Task<List<BlogViewModel>> Search(string keyword, int page, int pageSize, string sort);
+        Task<List<BlogViewModel>> GetList(string keyword);
+        Task<List<BlogViewModel>> GetReatedBlogs(int id, int top);
+        Task<List<string>>  GetListByName(string name);
+        Task<BlogViewModel> GetById(int id);
         void Save();
-
-        List<TagViewModel> GetListTagById(int id);
-
-        TagViewModel GetTag(string tagId);
-
-        void IncreaseView(int id);
-
-        List<BlogViewModel> GetListByTag(string tagId, int page, int pagesize, out int totalRow);
-
-        List<TagViewModel> GetListTag(string searchText);
+        Task<List<TagViewModel>>  GetListTagById(int id);
+        Task<TagViewModel>  GetTag(string tagId);
+        Task IncreaseView(int id);
+        Task<List<BlogViewModel>>  GetListByTag(string tagId, int page, int pagesize, out int totalRow);
+        Task<List<TagViewModel>>  GetListTag(string searchText);
     }
 }

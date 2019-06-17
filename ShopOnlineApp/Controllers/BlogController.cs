@@ -33,34 +33,35 @@ namespace ShopOnlineApp.Controllers
         public async Task<IActionResult> Index(int id)
         {
             var model = new BlogDetailViewModel();
-            model.Blog = _blogService.GetById(id);
-            model.Blog.CountComment = _blogComment.FindAll().Count(x => x.BlogId == id);
+            model.Blog =await _blogService.GetById(id);
+            model.Blog.CountComment =(await _blogComment.FindAll()).Count(x => x.BlogId == id);
             model.Categories = await _blogCategoryService.GetAll();
-            model.PopularPosts = (from k in _blogService.GetAll().OrderByDescending(x => x.DateModified).ToList()
+            model.PopularPosts = (from k in (await _blogService.GetAll()).OrderByDescending(x => x.DateModified).ToList()
                                   select new BlogViewModel
                                   {
                                       Image = k.Image,
                                       Id = k.Id,
-                                      CountComment = _blogComment.FindAll(y => y.BlogId == k.Id).Count(),
+                                      CountComment = 4,
                                       DateModified = k.DateModified,
                                       Description = k.Description,
                                       SeoAlias = k.SeoAlias
                                   }).Take(5);
-            model.ReLateBlogs = (from b in _blogService.GetAll().Where(x => x.BlogCategoryId == model.Blog.BlogCategoryId && x.Id != id ).ToList()
+            model.ReLateBlogs = (from b in (await _blogService.GetAll()).Where(x => x.BlogCategoryId == model.Blog.BlogCategoryId && x.Id != id ).ToList()
                                  select new BlogViewModel
                                  {
                                      Image = b.Image,
                                      Id = b.Id,
-                                     CountComment = _blogComment.FindAll(y => y.BlogId == b.Id).Count(),
+                                     CountComment=0,
+                                   //  CountComment =(await _blogComment.FindAll(y => y.BlogId == b.Id)).Count(),
                                      DateModified = b.DateModified,
                                      Description = b.Description,
                                      SeoAlias = b.SeoAlias
                                  }).Take(5);
 
-            model.BlogTags = _blogTagRepository.FindAll().Take(10);
+            model.BlogTags =(await _blogTagRepository.FindAll()).Take(10);
 
             HttpContext.Session.Set(CommonConstants.BlogId, id);
-            model.Tags = _blogTagRepository.FindAll(x => x.BlogId == id).Select(x => x.TagId).ToList();
+            model.Tags =(await _blogTagRepository.FindAll(x => x.BlogId == id)).Select(x => x.TagId).ToList();
             return View(model);
         }
 
@@ -94,7 +95,7 @@ namespace ShopOnlineApp.Controllers
             catalog.SortType = sortBy;
             var data = await _blogService.GetAllPaging(request);
             catalog.Data = data.Data;
-            catalog.Category = _blogCategoryService.GetById(id);
+            catalog.Category =await _blogCategoryService.GetById(id);
             return View(catalog);
         }
     }

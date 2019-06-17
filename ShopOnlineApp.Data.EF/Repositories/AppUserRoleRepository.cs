@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
+using System.Threading.Tasks;
 using ShopOnlineApp.Data.Entities;
 using ShopOnlineApp.Data.IRepositories;
 
 namespace ShopOnlineApp.Data.EF.Repositories
 {
-    public class AppUserRoleRepository :IAppUserRoleRepository
+    public class AppUserRoleRepository : IAppUserRoleRepository
     {
         private readonly AppDbContext _context;
 
@@ -17,54 +18,54 @@ namespace ShopOnlineApp.Data.EF.Repositories
             _context = context;
         }
 
-        public void Add(AppRole entity)
+        public async Task Add(AppRole entity)
         {
             _context.AppRoles.Add(entity);
             _context.SaveChanges();
-
+            await Task.CompletedTask;
         }
 
-        public IQueryable<AppRole> FindAll(params Expression<Func<AppRole, object>>[] includeProperties)
+        public async Task<IQueryable<AppRole>>  FindAll(params Expression<Func<AppRole, object>>[] includeProperties)
         {
             throw new NotImplementedException();
         }
 
-        public IQueryable<AppRole> FindAll(Expression<Func<AppRole, bool>> predicate, params Expression<Func<AppRole, object>>[] includeProperties)
+        public async Task<IQueryable<AppRole>>  FindAll(Expression<Func<AppRole, bool>> predicate, params Expression<Func<AppRole, object>>[] includeProperties)
         {
             throw new NotImplementedException();
         }
 
-        public AppRole FindById(Guid id, params Expression<Func<AppRole, object>>[] includeProperties)
+        public async Task<AppRole>  FindById(Guid id, params Expression<Func<AppRole, object>>[] includeProperties)
         {
             throw new NotImplementedException();
         }
 
-        public AppRole FindSingle(Expression<Func<AppRole, bool>> predicate, params Expression<Func<AppRole, object>>[] includeProperties)
+        public async Task<AppRole>  FindSingle(Expression<Func<AppRole, bool>> predicate, params Expression<Func<AppRole, object>>[] includeProperties)
         {
             throw new NotImplementedException();
         }
 
-        public void Remove(AppRole entity)
+        public Task Remove(AppRole entity)
         {
             throw new NotImplementedException();
         }
 
-        public void Remove(Guid id)
+        public Task Remove(Guid id)
         {
             throw new NotImplementedException();
         }
 
-        public void RemoveMultiple(List<AppRole> entities)
+        public Task RemoveMultiple(List<AppRole> entities)
         {
             throw new NotImplementedException();
         }
 
-        public void SaveChanges()
+        public Task SaveChanges()
         {
             throw new NotImplementedException();
         }
 
-        public void Update(AppRole entity)
+        public Task Update(AppRole entity)
         {
             throw new NotImplementedException();
         }

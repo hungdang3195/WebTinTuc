@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using ShopOnlineApp.Application.Interfaces;
 using ShopOnlineApp.Application.ViewModels.Page;
 using ShopOnlineApp.Data.EF.Common;
@@ -22,15 +23,15 @@ namespace ShopOnlineApp.Application.Implementation
             _unitOfWork = unitOfWork;
         }
 
-        public void Add(PageViewModel pageVm)
+        public async Task Add(PageViewModel pageVm)
         {
             var page =new PageViewModel().Map(pageVm);
-            _pageRepository.Add(page);
+           await _pageRepository.Add(page);
         }
 
-        public void Delete(int id)
+        public async Task Delete(int id)
         {
-            _pageRepository.Remove(id);
+           await _pageRepository.Remove(id);
         }
 
         public void Dispose()
@@ -38,14 +39,14 @@ namespace ShopOnlineApp.Application.Implementation
             GC.SuppressFinalize(this);
         }
 
-        public List<PageViewModel> GetAll()
+        public async Task<List<PageViewModel>>  GetAll()
         {
-            return new PageViewModel().Map(_pageRepository.FindAll()).ToList();
+            return new PageViewModel().Map(await _pageRepository.FindAll()).ToList();
         }
 
-        public BaseReponse<ModelListResult<PageViewModel>> GetAllPaging(PageRequest request)
+        public async Task<BaseReponse<ModelListResult<PageViewModel>>>  GetAllPaging(PageRequest request)
         {
-            var query = _pageRepository.FindAll();
+            var query =await _pageRepository.FindAll();
             if (!string.IsNullOrEmpty(request.SearchText))
                 query = query.Where(x => x.Name.Contains(request.SearchText));
 
@@ -71,15 +72,14 @@ namespace ShopOnlineApp.Application.Implementation
                 Status = (int)QueryStatus.Success
             };
         }
-
-        public PageViewModel GetByAlias(string alias)
+        public async Task<PageViewModel>  GetByAlias(string alias)
         {
-            return new PageViewModel().Map(_pageRepository.FindSingle(x => x.Alias == alias));
+            return new PageViewModel().Map(await _pageRepository.FindSingle(x => x.Alias == alias));
         }
 
-        public PageViewModel GetById(int id)
+        public async Task<PageViewModel>  GetById(int id)
         {
-            return new PageViewModel().Map(_pageRepository.FindById(id));
+            return new PageViewModel().Map(await _pageRepository.FindById(id));
         }
 
         public void SaveChanges()
@@ -87,10 +87,10 @@ namespace ShopOnlineApp.Application.Implementation
             _unitOfWork.Commit();
         }
 
-        public void Update(PageViewModel pageVm)
+        public async Task Update(PageViewModel pageVm)
         {
             var page =new  PageViewModel().Map(pageVm);
-            _pageRepository.Update(page);
+           await _pageRepository.Update(page);
         }
     }
 }

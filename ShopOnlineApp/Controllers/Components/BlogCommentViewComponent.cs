@@ -18,7 +18,7 @@ namespace ShopOnlineApp.Controllers.Components
         public async Task<IViewComponentResult> InvokeAsync()
         {
             var blogId = HttpContext.Session.Get<int>(CommonConstants.BlogId);
-            var dataReturn = _blogCommentService.GetAllPaging(new BlogCommentRequest
+            var dataReturn =await _blogCommentService.GetAllPaging(new BlogCommentRequest
             {
                 PageSize = 5,
                 PageIndex = 0,

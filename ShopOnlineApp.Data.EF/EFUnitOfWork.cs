@@ -1,4 +1,5 @@
-﻿using ShopOnlineApp.Infrastructure.Interfaces;
+﻿using System.Threading.Tasks;
+using ShopOnlineApp.Infrastructure.Interfaces;
 
 namespace ShopOnlineApp.Data.EF
 {

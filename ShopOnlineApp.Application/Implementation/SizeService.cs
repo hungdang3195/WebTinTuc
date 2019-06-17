@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using ShopOnlineApp.Application.Interfaces;
 using ShopOnlineApp.Application.ViewModels.Size;
 using ShopOnlineApp.Data.EF.Common;
@@ -10,7 +11,7 @@ using ShopOnlineApp.Utilities.Enum;
 
 namespace ShopOnlineApp.Application.Implementation
 {
-    public class SizeService:ISizeService
+    public class SizeService : ISizeService
     {
         private readonly ISizeRepository _sizeRepository;
         private readonly IUnitOfWork _unitOfWork;
@@ -22,15 +23,15 @@ namespace ShopOnlineApp.Application.Implementation
             _unitOfWork = unitOfWork;
         }
 
-        public void Add(SizeViewModel pageVm)
+        public async Task Add(SizeViewModel pageVm)
         {
             var page = new SizeViewModel().Map(pageVm);
-            _sizeRepository.Add(page);
+            await _sizeRepository.Add(page);
         }
 
-        public void Delete(int id)
+        public async Task Delete(int id)
         {
-            _sizeRepository.Remove(id);
+            await _sizeRepository.Remove(id);
         }
 
         public void Dispose()
@@ -38,15 +39,15 @@ namespace ShopOnlineApp.Application.Implementation
             GC.SuppressFinalize(this);
         }
 
-        public List<SizeViewModel> GetAll()
+        public async Task<List<SizeViewModel>>  GetAll()
         {
-            return new SizeViewModel().Map(_sizeRepository.FindAll()).ToList();
+            return new SizeViewModel().Map(await _sizeRepository.FindAll()).ToList();
         }
 
-        public BaseReponse<ModelListResult<SizeViewModel>> GetAllPaging(SizeRequest request)
+        public async Task<BaseReponse<ModelListResult<SizeViewModel>>>  GetAllPaging(SizeRequest request)
         {
 
-            var query = _sizeRepository.FindAll();
+            var query =await _sizeRepository.FindAll();
             if (!string.IsNullOrEmpty(request.SearchText))
                 query = query.Where(x => x.Name.Contains(request.SearchText));
 
@@ -73,9 +74,9 @@ namespace ShopOnlineApp.Application.Implementation
 
         }
 
-        public SizeViewModel GetById(int id)
+        public async Task<SizeViewModel>  GetById(int id)
         {
-            return new SizeViewModel().Map(_sizeRepository.FindById(id));
+            return new SizeViewModel().Map(await _sizeRepository.FindById(id));
         }
 
         public void SaveChanges()
@@ -83,10 +84,10 @@ namespace ShopOnlineApp.Application.Implementation
             _unitOfWork.Commit();
         }
 
-        public void Update(SizeViewModel pageVm)
+        public async Task Update(SizeViewModel pageVm)
         {
             var page = new SizeViewModel().Map(pageVm);
-            _sizeRepository.Update(page);
+           await _sizeRepository.Update(page);
         }
     }
 }

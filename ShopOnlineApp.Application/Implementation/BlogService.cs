@@ -6,7 +6,6 @@ using Microsoft.EntityFrameworkCore;
 using ShopOnlineApp.Application.Interfaces;
 using ShopOnlineApp.Application.ViewModels;
 using ShopOnlineApp.Application.ViewModels.Blogs;
-using ShopOnlineApp.Application.ViewModels.Product;
 using ShopOnlineApp.Application.ViewModels.Tag;
 using ShopOnlineApp.Data.EF.Common;
 using ShopOnlineApp.Data.Entities;
@@ -21,11 +20,16 @@ namespace ShopOnlineApp.Application.Implementation
 {
     public class BlogService : IBlogService
     {
+        #region private method
         private readonly IBlogRepository _blogRepository;
         private readonly ITagRepository _tagRepository;
         private readonly IBlogTagRepository _blogTagRepository;
         private readonly IUnitOfWork _unitOfWork;
         private readonly IBlogCategoryRepository _categoryRepository;
+
+        #endregion
+
+        #region Constructor
         public BlogService(IBlogRepository blogRepository,
             IBlogTagRepository blogTagRepository,
             ITagRepository tagRepository,
@@ -37,19 +41,20 @@ namespace ShopOnlineApp.Application.Implementation
             _unitOfWork = unitOfWork;
             _categoryRepository = categoryRepository;
         }
+        #endregion
 
-        public BlogViewModel Add(BlogViewModel blogVm)
+        #region Public method
+        public async Task<BlogViewModel> Add(BlogViewModel blogVm)
         {
             var blog = new BlogViewModel().Map(blogVm);
 
             if (!string.IsNullOrEmpty(blog.Tags))
             {
-
                 var tags = blog.Tags.Split(',');
                 foreach (string t in tags)
                 {
                     var tagId = TextHelper.ToUnsignString(t);
-                    if (!_tagRepository.FindAll(x => x.Id == tagId).Any())
+                    if (!(await _tagRepository.FindAll(x => x.Id == tagId)).Any())
                     {
                         Tag tag = new Tag
                         {
@@ -57,31 +62,31 @@ namespace ShopOnlineApp.Application.Implementation
                             Name = t,
                             Type = CommonConstants.BlogTag
                         };
-                        _tagRepository.Add(tag);
+                        await _tagRepository.Add(tag);
                     }
 
                     var blogTag = new BlogTag { TagId = tagId };
                     blog.BlogTags.Add(blogTag);
                 }
             }
-            _blogRepository.Add(blog);
+            await _blogRepository.Add(blog);
             return blogVm;
         }
 
-        public void Delete(int id)
+        public async Task Delete(int id)
         {
-            _blogRepository.Remove(id);
+            await _blogRepository.Remove(id);
         }
 
-        public List<BlogViewModel> GetAll()
+        public async Task<List<BlogViewModel>> GetAll()
         {
-            return new BlogViewModel().Map(_blogRepository.FindAll(c => c.BlogTags)).ToList();
+            return new BlogViewModel().Map(await _blogRepository.FindAll(c => c.BlogTags)).ToList();
         }
 
         public async Task<BaseReponse<ModelListResult<BlogViewModel>>> GetAllPaging(BlogRequest request)
         {
-            var response = from c in _categoryRepository.FindAll()
-                           join p in _blogRepository.FindAll().AsNoTracking() on c.Id equals p.BlogCategoryId 
+            var response = from c in await _categoryRepository.FindAll()
+                           join p in (await _blogRepository.FindAll()).AsNoTracking() on c.Id equals p.BlogCategoryId
                            select new BlogViewModel
                            {
                                Name = p.Name,
@@ -114,7 +119,7 @@ namespace ShopOnlineApp.Application.Implementation
             {
                 response = response.Where(x => x.Name.Contains(request.Name));
             }
-            else if (request?.CategoryId > 0)
+            else if (request.CategoryId > 0)
             {
                 response = response.Where(x => x.BlogCategoryId == request.CategoryId);
             }
@@ -127,9 +132,7 @@ namespace ShopOnlineApp.Application.Implementation
                     .Skip((request.PageIndex - 1) * request.PageSize).Take(request.PageSize);
             }
 
-            //var items = new ProductViewModel().Map(response).ToList();
-
-            return new BaseReponse<ModelListResult<BlogViewModel>>()
+            return new BaseReponse<ModelListResult<BlogViewModel>>
             {
                 Data = new ModelListResult<BlogViewModel>()
                 {
@@ -143,10 +146,9 @@ namespace ShopOnlineApp.Application.Implementation
                 Status = (int)QueryStatus.Success
             };
         }
-
-        public BlogViewModel GetById(int id)
+        public async Task<BlogViewModel> GetById(int id)
         {
-            return new BlogViewModel().Map(_blogRepository.FindById(id));
+            return new BlogViewModel().Map(await _blogRepository.FindById(id));
         }
 
         public void Save()
@@ -154,19 +156,19 @@ namespace ShopOnlineApp.Application.Implementation
             _unitOfWork.Commit();
         }
 
-        public void Update(BlogViewModel blog)
+        public async Task Update(BlogViewModel blog)
         {
-            _blogRepository.Update(new BlogViewModel().Map(blog));
+            await _blogRepository.Update(new BlogViewModel().Map(blog));
             if (!string.IsNullOrEmpty(blog.Tags))
             {
-                var blogTags = _blogTagRepository.FindAll(x => x.BlogId == blog.Id);
-                _blogTagRepository.RemoveMultiple(blogTags.ToList());
+                var blogTags = await _blogTagRepository.FindAll(x => x.BlogId == blog.Id);
+                await _blogTagRepository.RemoveMultiple(blogTags.ToList());
 
                 string[] tags = blog.Tags.Split(',');
                 foreach (string t in tags)
                 {
                     var tagId = TextHelper.ToUnsignString(t);
-                    if (!_tagRepository.FindAll(x => x.Id == tagId).Any())
+                    if (!(await _tagRepository.FindAll(x => x.Id == tagId)).Any())
                     {
                         Tag tag = new Tag
                         {
@@ -174,35 +176,35 @@ namespace ShopOnlineApp.Application.Implementation
                             Name = t,
                             Type = CommonConstants.ProductTag
                         };
-                        _tagRepository.Add(tag);
+                        await _tagRepository.Add(tag);
                     }
-                    _blogTagRepository.RemoveMultiple(_blogTagRepository.FindAll(x => x.Id == blog.Id).ToList());
+                    await _blogTagRepository.RemoveMultiple((await _blogTagRepository.FindAll(x => x.Id == blog.Id)).ToList());
                     BlogTag blogTag = new BlogTag
                     {
                         BlogId = blog.Id,
                         TagId = tagId
                     };
-                    _blogTagRepository.Add(blogTag);
+                    await _blogTagRepository.Add(blogTag);
                 }
             }
         }
 
-        public IEnumerable<BlogViewModel> GetLastest(int top)
+        public async Task<IEnumerable<BlogViewModel>> GetLastest(int top)
         {
-            return new BlogViewModel().Map(_blogRepository.FindAll(x => x.Status == Status.Active).OrderByDescending(x => x.DateCreated)
+            return new BlogViewModel().Map((await _blogRepository.FindAll(x => x.Status == Status.Active)).OrderByDescending(x => x.DateCreated)
                 .Take(top)).ToList();
         }
 
-        public List<BlogViewModel> GetHotProduct(int top)
+        public async Task<List<BlogViewModel>> GetHotProduct(int top)
         {
-            return new BlogViewModel().Map(_blogRepository.FindAll(x => x.Status == Status.Active && x.HotFlag == true)
+            return new BlogViewModel().Map((await _blogRepository.FindAll(x => x.Status == Status.Active && x.HotFlag == true))
                     .OrderByDescending(x => x.DateCreated)
                     .Take(top)).ToList();
         }
 
-        public List<BlogViewModel> GetListPaging(int page, int pageSize, string sort, out int totalRow)
+        public async Task<List<BlogViewModel>> GetListPaging(int page, int pageSize, string sort)
         {
-            var query = _blogRepository.FindAll(x => x.Status == Status.Active);
+            var query = await _blogRepository.FindAll(x => x.Status == Status.Active);
 
             switch (sort)
             {
@@ -215,21 +217,19 @@ namespace ShopOnlineApp.Application.Implementation
                     break;
             }
 
-            totalRow = query.Count();
-
             return new BlogViewModel().Map(query.Skip((page - 1) * pageSize)
                     .Take(pageSize)).ToList();
         }
 
-        public List<string> GetListByName(string name)
+        public async Task<List<string>> GetListByName(string name)
         {
-            return _blogRepository.FindAll(x => x.Status == Status.Active
-            && x.Name.Contains(name)).Select(y => y.Name).ToList();
+            return (await _blogRepository.FindAll(x => x.Status == Status.Active
+            && x.Name.Contains(name))).Select(y => y.Name).ToList();
         }
 
-        public List<BlogViewModel> Search(string keyword, int page, int pageSize, string sort, out int totalRow)
+        public async Task<List<BlogViewModel>> Search(string keyword, int page, int pageSize, string sort)
         {
-            var query = _blogRepository.FindAll(x => x.Status == Status.Active
+            var query = await _blogRepository.FindAll(x => x.Status == Status.Active
             && x.Name.Contains(keyword));
 
             switch (sort)
@@ -243,72 +243,74 @@ namespace ShopOnlineApp.Application.Implementation
                     break;
             }
 
-            totalRow = query.Count();
-
             return new BlogViewModel().Map(query.Skip((page - 1) * pageSize)
                     .Take(pageSize)).ToList();
         }
 
-        public List<BlogViewModel> GetReatedBlogs(int id, int top)
+        public async Task<List<BlogViewModel>> GetReatedBlogs(int id, int top)
         {
-            return new BlogViewModel().Map(_blogRepository
-                    .FindAll(x => x.Status == Status.Active && x.Id != id)
+            return new BlogViewModel().Map((await _blogRepository
+                    .FindAll(x => x.Status == Status.Active && x.Id != id))
                     .OrderByDescending(x => x.DateCreated)
                     .Take(top))
             .ToList();
         }
 
-        public List<TagViewModel> GetListTagById(int id)
+        public async Task<List<TagViewModel>> GetListTagById(int id)
         {
-            return _blogTagRepository.FindAll(x => x.BlogId == id, c => c.Tag)
+            return (await _blogTagRepository.FindAll(x => x.BlogId == id, c => c.Tag))
                 .Select(y => y.Tag)
                 .ProjectTo<TagViewModel>()
                 .ToList();
         }
 
-        public void IncreaseView(int id)
+        public async Task IncreaseView(int id)
         {
-            var product = _blogRepository.FindById(id);
+            var product = await _blogRepository.FindById(id);
             if (product.ViewCount.HasValue)
                 product.ViewCount += 1;
             else
                 product.ViewCount = 1;
         }
 
-        public List<BlogViewModel> GetListByTag(string tagId, int page, int pageSize, out int totalRow)
+        public Task<List<BlogViewModel>> GetListByTag(string tagId, int page, int pagesize, out int totalRow)
         {
-            var query = from p in _blogRepository.FindAll()
-                        join pt in _blogTagRepository.FindAll()
+            throw new System.NotImplementedException();
+        }
+
+        public async Task<List<BlogViewModel>> GetListByTag(string tagId, int page, int pageSize)
+        {
+            var query = from p in await _blogRepository.FindAll()
+                        join pt in await _blogTagRepository.FindAll()
                         on p.Id equals pt.BlogId
                         where pt.TagId == tagId && p.Status == Status.Active
                         orderby p.DateCreated descending
                         select p;
-
-            totalRow = query.Count();
-
             query = query.Skip((page - 1) * pageSize).Take(pageSize);
 
             return new BlogViewModel().Map(query).ToList();
 
         }
 
-        public TagViewModel GetTag(string tagId)
+        public async Task<TagViewModel> GetTag(string tagId)
         {
-            return new TagViewModel().Map(_tagRepository.FindSingle(x => x.Id == tagId));
+            return new TagViewModel().Map(await _tagRepository.FindSingle(x => x.Id == tagId));
         }
 
-        public List<BlogViewModel> GetList(string keyword)
+        public async Task<List<BlogViewModel>> GetList(string keyword)
         {
             var query = !string.IsNullOrEmpty(keyword) ?
-               new BlogViewModel().Map(_blogRepository.FindAll(x => x.Name.Contains(keyword))).ToList()
-                : new BlogViewModel().Map(_blogRepository.FindAll());
+               new BlogViewModel().Map(await _blogRepository.FindAll(x => x.Name.Contains(keyword))).ToList()
+                : new BlogViewModel().Map(await _blogRepository.FindAll());
             return query.ToList();
         }
 
-        public List<TagViewModel> GetListTag(string searchText)
+        public async Task<List<TagViewModel>> GetListTag(string searchText)
         {
-            return new TagViewModel().Map(_tagRepository.FindAll(x => x.Type == CommonConstants.ProductTag
+            return new TagViewModel().Map(await _tagRepository.FindAll(x => x.Type == CommonConstants.ProductTag
                                                                       && searchText.Contains(x.Name))).ToList();
         }
+
+        #endregion
     }
 }

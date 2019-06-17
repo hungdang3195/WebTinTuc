@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Linq;
-using AutoMapper.QueryableExtensions;
+using System.Threading.Tasks;
 using ShopOnlineApp.Application.Common;
 using ShopOnlineApp.Application.Interfaces;
 using ShopOnlineApp.Application.ViewModels.Annoucement;
@@ -11,26 +11,30 @@ namespace ShopOnlineApp.Application.Implementation
 {
     public class AnnouncementService : IAnnouncementService
     {
+        #region Private property
         private readonly IRepository<Announcement, string> _announcementRepository;
         private readonly IRepository<AnnouncementUser, int> _announcementUserRepository;
-        
+        #endregion
 
+        #region Constructor
         public AnnouncementService(IRepository<Announcement, string> announcementRepository,
             IRepository<AnnouncementUser, int> announcementUserRepository,
             IUnitOfWork unitOfWork)
         {
             _announcementUserRepository = announcementUserRepository;
-            this._announcementRepository = announcementRepository;
+            _announcementRepository = announcementRepository;
         }
+        #endregion
 
-        public PagedResult<AnnouncementViewModel> GetAllUnReadPaging(Guid userId, int pageIndex, int pageSize)
+        #region Public method
+        public async Task<PagedResult<AnnouncementViewModel>> GetAllUnReadPaging(Guid userId, int pageIndex, int pageSize)
         {
-            var query = from x in _announcementRepository.FindAll()
-                        join y in _announcementUserRepository.FindAll()
+            var query = from x in await _announcementRepository.FindAll()
+                        join y in await _announcementUserRepository.FindAll()
                             on x.Id equals y.AnnouncementId
                             into xy
-                        from annonUser in xy.DefaultIfEmpty()
-                        where annonUser.HasRead == false && (annonUser.UserId == null || annonUser.UserId == userId)
+                        from annoucementUser in xy.DefaultIfEmpty()
+                        where annoucementUser.HasRead == false && (annoucementUser.UserId == null || annoucementUser.UserId == userId)
                         select x;
             int totalRow = query.Count();
 
@@ -44,18 +48,16 @@ namespace ShopOnlineApp.Application.Implementation
                 RowCount = totalRow,
                 PageSize = pageSize
             };
-
             return paginationSet;
         }
-
-        public bool MarkAsRead(Guid userId, string id)
+        public async Task<bool> MarkAsRead(Guid userId, string id)
         {
             bool result = false;
-            var announ = _announcementUserRepository.FindSingle(x => x.AnnouncementId == id
-                                                                               && x.UserId == userId);
-            if (announ == null)
+            var announEntities = await _announcementUserRepository.FindSingle(x => x.AnnouncementId == id
+                                                                                && x.UserId == userId);
+            if (announEntities == null)
             {
-                _announcementUserRepository.Add(new AnnouncementUser
+                await _announcementUserRepository.Add(new AnnouncementUser
                 {
                     AnnouncementId = id,
                     UserId = userId,
@@ -65,30 +67,29 @@ namespace ShopOnlineApp.Application.Implementation
             }
             else
             {
-                if (announ.HasRead == false)
+                if (announEntities.HasRead == false)
                 {
-                    announ.HasRead = true;
-                    _announcementUserRepository.SaveChanges();
+                    announEntities.HasRead = true;
+                    await _announcementUserRepository.SaveChanges();
                     result = true;
                 }
 
             }
             return result;
         }
-
-        public void AddAnnoucement(AnnouncementViewModel announcementVm)
+        public async Task AddAnnoucement(AnnouncementViewModel announcementVm)
         {
             var annoucement = new AnnouncementViewModel().Map(announcementVm);
-
-           _announcementRepository.Add(annoucement);
-            _announcementUserRepository.Add(new AnnouncementUser
+            await _announcementRepository.Add(annoucement);
+            await _announcementUserRepository.Add(new AnnouncementUser
             {
                 AnnouncementId = annoucement.Id,
                 HasRead = false,
                 UserId = annoucement.UserId
             });
-            _announcementRepository.SaveChanges();
-            _announcementUserRepository.SaveChanges();
+            await _announcementRepository.SaveChanges();
+            await _announcementUserRepository.SaveChanges();
         }
+        #endregion
     }
 }

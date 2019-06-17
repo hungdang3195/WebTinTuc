@@ -55,10 +55,10 @@ namespace ShopOnlineApp.Areas.Admin.Controllers
         }
 
         [HttpGet]
-        public string UpdatePermission(int id, Guid userId)
+        public async Task<string>  UpdatePermission(int id, Guid userId)
         {
             string message = "";
-            bool isCheck = _permissionService.UpdatePermisson(id, userId);
+            bool isCheck =await _permissionService.UpdatePermisson(id, userId);
             if (isCheck)
             {
                 message = "<div class='alert alert-success'>Quyền cập nhật thành công </div>";

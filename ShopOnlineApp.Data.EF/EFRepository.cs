@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using ShopOnlineApp.Infrastructure.Interfaces;
 using ShopOnlineApp.Infrastructure.SharedKernel;
@@ -16,9 +17,9 @@ namespace ShopOnlineApp.Data.EF
         {
             _context = context;
         }
-        public void Add(T entity)
+        public async Task Add(T entity)
         {
-            _context.Add(entity);
+            await _context.AddAsync(entity);
         }
 
         public void Dispose()
@@ -26,65 +27,84 @@ namespace ShopOnlineApp.Data.EF
             _context?.Dispose();
         }
 
-        public IQueryable<T> FindAll(params Expression<Func<T, object>>[] includeProperties)
+        public async Task<IQueryable<T>> FindAll(params Expression<Func<T, object>>[] includeProperties)
         {
-            IQueryable<T> items = _context.Set<T>();
+            var items = await GetAll().ToListAsync();
             if (includeProperties != null)
             {
                 foreach (var includeProperty in includeProperties)
                 {
-                    items = items.Include(includeProperty);
+                    items = items.AsQueryable().Include(includeProperty).ToList();
                 }
             }
-            return items;
+            return items.AsQueryable();
         }
 
-        public IQueryable<T> FindAll(Expression<Func<T, bool>> predicate, params Expression<Func<T, object>>[] includeProperties)
+        public async Task<IQueryable<T>> FindAll(Expression<Func<T, bool>> predicate, params Expression<Func<T, object>>[] includeProperties)
         {
-            IQueryable<T> items = _context.Set<T>();
+            var items = await GetAll().ToListAsync();
             if (includeProperties != null)
             {
                 foreach (var includeProperty in includeProperties)
                 {
-                    items = items.Include(includeProperty);
+                    items = items.AsQueryable().Include(includeProperty).ToList();
                 }
             }
-            return items.Where(predicate);
+            return items.AsQueryable().Where(predicate);
         }
 
-        public T FindById(K id, params Expression<Func<T, object>>[] includeProperties)
+        public async Task<T> FindById(K id, params Expression<Func<T, object>>[] includeProperties)
         {
-            return FindAll(includeProperties).SingleOrDefault(x => x.Id.Equals(id));
+            return await FindByCondition(x => x.Id.Equals(id)).FirstOrDefaultAsync();
         }
 
-        public T FindSingle(Expression<Func<T, bool>> predicate, params Expression<Func<T, object>>[] includeProperties)
+        public async Task<T> FindSingle(Expression<Func<T, bool>> predicate, params Expression<Func<T, object>>[] includeProperties)
         {
-            return FindAll(includeProperties).SingleOrDefault(predicate);
+            return await FindByCondition(predicate).FirstOrDefaultAsync();
         }
 
-        public void Remove(T entity)
+        public async Task Remove(T entity)
+        {
+            DeleteItem(entity);
+            await SaveChanges();
+        }
+
+        public async Task Remove(K id)
+        {
+            await Remove(await FindById(id));
+            await SaveChanges();
+        }
+
+        public async Task RemoveMultiple(List<T> entities)
+        {
+            _context.Set<T>().RemoveRange(entities);
+            await SaveChanges();
+        }
+
+        public async Task Update(T entity)
+        {
+            _context.Set<T>().Update(entity);
+            await SaveChanges();
+        }
+
+        private IQueryable<T> GetAll()
+        {
+            return _context.Set<T>();
+        }
+        private IQueryable<T> FindByCondition(Expression<Func<T, bool>> expression)
+        {
+            return _context.Set<T>()
+                .Where(expression);
+        }
+
+        public void DeleteItem(T entity)
         {
             _context.Set<T>().Remove(entity);
         }
 
-        public void Remove(K id)
+        public async Task SaveChanges()
         {
-            Remove(FindById(id));
-        }
-
-        public void RemoveMultiple(List<T> entities)
-        {
-            _context.Set<T>().RemoveRange(entities);
-        }
-
-        public void SaveChanges()
-        {
-            _context.SaveChanges();
-        }
-
-        public void Update(T entity)
-        {
-            _context.Set<T>().Update(entity);
+            await _context.SaveChangesAsync();
         }
     }
 }

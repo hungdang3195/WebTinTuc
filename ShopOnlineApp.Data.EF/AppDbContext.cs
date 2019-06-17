@@ -107,6 +107,8 @@ namespace ShopOnlineApp.Data.EF
             }
             return base.SaveChanges();
         }
+
+
     }
 
     public class DesignTimeDbContextFactory : IDesignTimeDbContextFactory<AppDbContext>

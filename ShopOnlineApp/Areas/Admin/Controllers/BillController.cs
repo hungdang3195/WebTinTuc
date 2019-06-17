@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
@@ -106,7 +107,7 @@ namespace ShopOnlineApp.Areas.Admin.Controllers
             return new OkObjectResult(sizes);
         }
         [HttpPost]
-        public IActionResult ExportExcel(int billId)
+        public async Task<IActionResult>  ExportExcel(int billId)
         {
             string sWebRootFolder = _hostingEnvironment.WebRootPath;
             string sFileName = $"Bill_{billId}.xlsx";
@@ -127,7 +128,7 @@ namespace ShopOnlineApp.Areas.Admin.Controllers
                     // add a new worksheet to the empty workbook
                     ExcelWorksheet worksheet = package.Workbook.Worksheets["TEDUOrder"];
                     // Data Acces, load order header data.
-                    var billDetail = _billService.GetDetail(billId);
+                    var billDetail =await _billService.GetDetail(billId);
 
                     // Insert customer data into template
                     worksheet.Cells[4, 1].Value = "Customer Name: " + billDetail.CustomerName;
@@ -137,7 +138,7 @@ namespace ShopOnlineApp.Areas.Admin.Controllers
                     int rowIndex = 9;
 
                     // load order details
-                    var orderDetails = _billService.GetBillDetails(billId);
+                    var orderDetails =await _billService.GetBillDetails(billId);
                     int count = 1;
                     foreach (var orderDetail in orderDetails)
                     {

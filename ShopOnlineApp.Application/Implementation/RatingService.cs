@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using ShopOnlineApp.Application.Interfaces;
 using ShopOnlineApp.Application.ViewModels.Rating;
@@ -22,19 +23,19 @@ namespace ShopOnlineApp.Application.Implementation
             _unitOfWork = unitOfWork;
         }
 
-        public RatingViewModel Add(RatingViewModel ratingVm)
+        public async Task<RatingViewModel> Add(RatingViewModel ratingVm)
         {
             var page = new RatingViewModel().Map(ratingVm);
-            _ratingRepository.Add(page);
+            await _ratingRepository.Add(page);
             _unitOfWork.Commit();
             return ratingVm;
         }
 
-        public BaseReponse<ModelListResult<RatingViewModel>> GetAllPaging(RateRequest request)
+        public async Task<BaseReponse<ModelListResult<RatingViewModel>>>  GetAllPaging(RateRequest request)
         {
-            var query = _ratingRepository.FindAll().AsNoTracking().AsParallel();
+            var query =(await _ratingRepository.FindAll()).AsNoTracking().AsParallel();
 
-            if (request.ProductId >0)
+            if (request.ProductId > 0)
             {
                 query = query.AsParallel().AsOrdered().WithDegreeOfParallelism(2).Where(x => x.ProductId == request.ProductId);
             }

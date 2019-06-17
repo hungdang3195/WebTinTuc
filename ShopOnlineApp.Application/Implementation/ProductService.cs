@@ -48,9 +48,8 @@ namespace ShopOnlineApp.Application.Implementation
         {
             try
             {
-                var response = await _productRepository.FindAll().AsNoTracking().ToListAsync();
-
-                return response.Any() ? new ProductViewModel().Map(response).ToList() : new List<ProductViewModel>();
+                var response = await _productRepository.FindAll();
+                return response.Any() ? new ProductViewModel().Map(response.AsNoTracking()).ToList() : new List<ProductViewModel>();
             }
             catch (Exception e)
             {
@@ -61,8 +60,10 @@ namespace ShopOnlineApp.Application.Implementation
 
         public async Task<BaseReponse<ModelListResult<ProductViewModel>>> GetAllPaging(ProductRequest request)
         {
-            var response = (from c in _categoryRepository.FindAll().AsNoTracking()
-                            join p in _productRepository.FindAll().AsNoTracking() on c.Id equals p.CategoryId
+            var categoryEntities = await _categoryRepository.FindAll();
+            var productEntities = await _productRepository.FindAll();
+            var response = (from c in categoryEntities.AsNoTracking()
+                            join p in productEntities.AsNoTracking() on c.Id equals p.CategoryId
                             select new ProductViewModel
                             {
                                 Name = p.Name,
@@ -112,8 +113,6 @@ namespace ShopOnlineApp.Application.Implementation
                     .Skip((request.PageIndex - 1) * request.PageSize).Take(request.PageSize);
             }
 
-            //var items = new ProductViewModel().Map(response).ToList();
-
             return new BaseReponse<ModelListResult<ProductViewModel>>()
             {
                 Data = new ModelListResult<ProductViewModel>()
@@ -129,22 +128,24 @@ namespace ShopOnlineApp.Application.Implementation
             };
         }
 
-        public ModelListResult<ProductFullViewModel> FilterProducts(ProductRequest request)
+        public async Task<ModelListResult<ProductFullViewModel>> FilterProducts(ProductRequest request)
         {
             List<ProductFullViewModel> response = new List<ProductFullViewModel>();
+            var categoryEntities = await _categoryRepository.FindAll();
+            var productEntities = await _productRepository.FindAll();
+            var productQuantityEntities = await _productQuantity.FindAll();
             if (request.ColorId > 0 && request.SizeId > 0)
             {
-                response = (from c in _categoryRepository.FindAll().AsNoTracking()
-                            join p in _productRepository.FindAll().AsNoTracking() on c.Id equals p.CategoryId
-                            join quan
-                                in _productQuantity.FindAll().AsNoTracking() on p.Id equals quan.ProductId
+                response = (from c in categoryEntities.AsNoTracking()
+                            join p in productEntities.AsNoTracking() on c.Id equals p.CategoryId
+                            join quan in productQuantityEntities.AsNoTracking() on p.Id equals quan.ProductId
                             where quan.ColorId == request.ColorId && quan.SizeId == request.SizeId
                             select new ProductFullViewModel
                             {
                                 Name = p.Name,
                                 Id = p.Id,
                                 CategoryId = p.CategoryId,
-                                ProductCategory = new ProductCategoryViewModel()
+                                ProductCategory = new ProductCategoryViewModel
                                 {
                                     Name = c.Name
                                 },
@@ -172,10 +173,10 @@ namespace ShopOnlineApp.Application.Implementation
             }
             else if (request.ColorId > 0)
             {
-                response = (from c in _categoryRepository.FindAll().AsNoTracking()
-                            join p in _productRepository.FindAll().AsNoTracking() on c.Id equals p.CategoryId
+                response = (from c in categoryEntities.AsNoTracking()
+                            join p in productEntities.AsNoTracking() on c.Id equals p.CategoryId
                             join quan
-                                in _productQuantity.FindAll().AsNoTracking() on p.Id equals quan.ProductId
+                                in productQuantityEntities.AsNoTracking() on p.Id equals quan.ProductId
                             where quan.ColorId == request.ColorId
                             select new ProductFullViewModel
                             {
@@ -209,10 +210,10 @@ namespace ShopOnlineApp.Application.Implementation
             }
             else if (request.SizeId > 0)
             {
-                response = (from c in _categoryRepository.FindAll().AsNoTracking()
-                            join p in _productRepository.FindAll().AsNoTracking() on c.Id equals p.CategoryId
+                response = (from c in categoryEntities.AsNoTracking()
+                            join p in productEntities.AsNoTracking() on c.Id equals p.CategoryId
                             join quan
-                                in _productQuantity.FindAll().AsNoTracking() on p.Id equals quan.ProductId
+                                in productQuantityEntities.AsNoTracking() on p.Id equals quan.ProductId
                             where quan.SizeId == request.SizeId
                             select new ProductFullViewModel
                             {
@@ -247,9 +248,9 @@ namespace ShopOnlineApp.Application.Implementation
             }
             else
             {
-                response = (from c in _categoryRepository.FindAll().AsNoTracking()
-                            join p in _productRepository.FindAll().AsNoTracking() on c.Id equals p.CategoryId
-                         
+                response = (from c in categoryEntities.AsNoTracking()
+                            join p in productEntities.AsNoTracking() on c.Id equals p.CategoryId
+
                             select new ProductFullViewModel
                             {
                                 Name = p.Name,
@@ -276,8 +277,6 @@ namespace ShopOnlineApp.Application.Implementation
                                 ViewCount = p.ViewCount,
                                 Status = p.Status,
                                 Image = p.Image,
-                              
-
                             }).ToList();
             }
             if (!string.IsNullOrEmpty(request.SearchText))
@@ -327,7 +326,9 @@ namespace ShopOnlineApp.Application.Implementation
                 foreach (string t in tags)
                 {
                     var tagId = TextHelper.ToUnsignString(t);
-                    if (!_tagRepository.FindAll(x => x.Id == tagId).AsNoTracking().Any())
+                    var tagEntities = await _tagRepository.FindAll(x => x.Id == tagId);
+                    var canCreate = !tagEntities.AsNoTracking().Any();
+                    if (canCreate)
                     {
                         Tag tag = new Tag
                         {
@@ -335,7 +336,7 @@ namespace ShopOnlineApp.Application.Implementation
                             Name = t,
                             Type = CommonConstants.ProductTag
                         };
-                        _tagRepository.Add(tag);
+                        await _tagRepository.Add(tag);
                     }
 
                     ProductTag productTag = new ProductTag
@@ -351,18 +352,17 @@ namespace ShopOnlineApp.Application.Implementation
                 {
                     product.ProductTags.Add(productTag);
                 }
-                _productRepository.Add(product);
-
+                await _productRepository.Add(product);
             }
             return productVm;
         }
 
-        public ProductViewModel GetById(int id)
+        public async Task<ProductViewModel> GetById(int id)
         {
-            return new ProductViewModel().Map(_productRepository.FindById(id));
+            return new ProductViewModel().Map(await _productRepository.FindById(id));
         }
 
-        public void Update(ProductViewModel productVm)
+        public async Task Update(ProductViewModel productVm)
         {
             List<ProductTag> productTags = new List<ProductTag>();
 
@@ -372,12 +372,17 @@ namespace ShopOnlineApp.Application.Implementation
                 foreach (string t in tags)
                 {
                     var tagId = TextHelper.ToUnsignString(t);
-                    if (!_tagRepository.FindAll(x => x.Id == tagId).AsNoTracking().Any())
+                    var tagEntities = await _tagRepository.FindAll(x => x.Id == tagId);
+                    var canCreated = !tagEntities.AsNoTracking().Any();
+                    if (canCreated)
                     {
                         Tag tag = new Tag { Id = tagId, Name = t, Type = CommonConstants.ProductTag };
-                        _tagRepository.Add(tag);
+                        await _tagRepository.Add(tag);
                     }
-                    _productTagRepository.RemoveMultiple(_productTagRepository.FindAll(x => x.Id == productVm.Id).AsNoTracking().ToList());
+
+                    var productTagEntities = await _productTagRepository.FindAll(x => x.Id == productVm.Id);
+                    await _productTagRepository.RemoveMultiple(productTagEntities.AsNoTracking().ToList());
+
                     ProductTag productTag = new ProductTag
                     {
                         TagId = tagId
@@ -392,12 +397,12 @@ namespace ShopOnlineApp.Application.Implementation
             {
                 product.ProductTags.Add(productTag);
             }
-            _productRepository.Update(product);
+            await _productRepository.Update(product);
         }
 
-        public void Delete(int id)
+        public async Task Delete(int id)
         {
-            _productRepository.Remove(id);
+            await _productRepository.Remove(id);
         }
         public void Save()
         {
@@ -409,7 +414,7 @@ namespace ShopOnlineApp.Application.Implementation
             GC.SuppressFinalize(this);
         }
 
-        public void ImportExcel(string filePath, int categoryId)
+        public async Task ImportExcel(string filePath, int categoryId)
         {
             using (var package = new ExcelPackage(new FileInfo(filePath)))
             {
@@ -444,17 +449,18 @@ namespace ShopOnlineApp.Application.Implementation
 
                     product.Status = Status.Active;
 
-                    _productRepository.Add(product);
+                    await _productRepository.Add(product);
                 }
             }
         }
 
-        public void AddQuantity(int productId, List<ProductQuantityViewModel> quantities)
+        public async Task AddQuantity(int productId, List<ProductQuantityViewModel> quantities)
         {
-            _productQuantityRepository.RemoveMultiple(_productQuantityRepository.FindAll(x => x.ProductId == productId).AsNoTracking().ToList());
+            var dataNeedDelete = await _productQuantityRepository.FindAll(x => x.ProductId == productId);
+            await _productQuantityRepository.RemoveMultiple(dataNeedDelete.AsNoTracking().ToList());
             foreach (var quantity in quantities)
             {
-                _productQuantityRepository.Add(new ProductQuantity()
+                await _productQuantityRepository.Add(new ProductQuantity()
                 {
                     ProductId = productId,
                     ColorId = quantity.ColorId,
@@ -464,22 +470,25 @@ namespace ShopOnlineApp.Application.Implementation
             }
         }
 
-        public List<ProductQuantityViewModel> GetQuantities(int productId)
+        public async Task<List<ProductQuantityViewModel>> GetQuantities(int productId)
         {
-            return new ProductQuantityViewModel().Map(_productQuantityRepository.FindAll(x => x.ProductId == productId).AsNoTracking()).ToList();
+            var productQuantityEntities = await _productQuantityRepository.FindAll(x => x.ProductId == productId);
+            return new ProductQuantityViewModel().Map(productQuantityEntities.AsNoTracking()).ToList();
         }
 
-        public List<ProductImageViewModel> GetImages(int productId)
+        public async Task<List<ProductImageViewModel>> GetImages(int productId)
         {
-            return new ProductImageViewModel().Map(_productImageRepository.FindAll(x => x.ProductId == productId).AsNoTracking()).ToList();
+            var imageEntities = await _productImageRepository.FindAll(x => x.ProductId == productId);
+            return new ProductImageViewModel().Map(imageEntities.AsNoTracking()).ToList();
         }
 
-        public void AddWholePrice(int productId, List<WholePriceViewModel> wholePrices)
+        public async Task AddWholePrice(int productId, List<WholePriceViewModel> wholePrices)
         {
-            _wholePriceRepository.RemoveMultiple(_wholePriceRepository.FindAll(x => x.ProductId == productId).AsNoTracking().ToList());
+            var wholePriceEntities = await _wholePriceRepository.FindAll(x => x.ProductId == productId);
+            await _wholePriceRepository.RemoveMultiple(wholePriceEntities.AsNoTracking().ToList());
             foreach (var wholePrice in wholePrices)
             {
-                _wholePriceRepository.Add(new WholePrice()
+                await _wholePriceRepository.Add(new WholePrice
                 {
                     ProductId = productId,
                     FromQuantity = wholePrice.FromQuantity,
@@ -489,37 +498,42 @@ namespace ShopOnlineApp.Application.Implementation
             }
         }
 
-        public List<WholePriceViewModel> GetWholePrices(int productId)
+        public async Task<List<WholePriceViewModel>> GetWholePrices(int productId)
         {
-            return new WholePriceViewModel().Map(_wholePriceRepository.FindAll(x => x.ProductId == productId).AsNoTracking()).ToList();
+            var wholePriceEntities = await _wholePriceRepository.FindAll(x => x.ProductId == productId);
+            return new WholePriceViewModel().Map(wholePriceEntities.AsNoTracking()).ToList();
         }
 
-        public List<ProductViewModel> GetLastest(int top)
+        public async Task<List<ProductViewModel>> GetLastest(int top)
         {
-            return new ProductViewModel().Map(_productRepository.FindAll(x => x.Status == Status.Active).AsNoTracking().OrderByDescending(x => x.DateCreated)
+            var productEntities = await _productRepository.FindAll(x => x.Status == Status.Active);
+            return new ProductViewModel().Map(productEntities.AsNoTracking().OrderByDescending(x => x.DateCreated)
                 .Take(top)).ToList();
         }
 
-        public List<ProductViewModel> GetHotProduct(int top)
+        public async Task<List<ProductViewModel>> GetHotProduct(int top)
         {
-            return new ProductViewModel().Map(_productRepository.FindAll(x => x.Status == Status.Active && x.HotFlag == true).AsNoTracking().AsParallel().AsOrdered().WithDegreeOfParallelism(2)
+            var productEntities = await _productRepository.FindAll(x => x.Status == Status.Active && x.HotFlag == true);
+            return new ProductViewModel().Map(productEntities.AsNoTracking().AsParallel().AsOrdered().WithDegreeOfParallelism(2)
                 .OrderByDescending(x => x.DateCreated)
                 .Take(top)).ToList();
         }
 
-        public List<ProductViewModel> GetRelatedProducts(int id, int top)
+        public async Task<List<ProductViewModel>> GetRelatedProducts(int id, int top)
         {
-            var product = _productRepository.FindById(id);
-            return new ProductViewModel().Map(_productRepository
-                .FindAll(x => x.Status == Status.Active && x.Id != id && x.CategoryId == product.CategoryId).AsNoTracking().AsParallel().AsOrdered()
+            var product = await _productRepository.FindById(id);
+            var productEntities = await _productRepository
+                .FindAll(x => x.Status == Status.Active && x.Id != id && x.CategoryId == product.CategoryId);
+
+            return new ProductViewModel().Map(productEntities.AsNoTracking().AsParallel().AsOrdered()
                 .OrderByDescending(x => x.DateCreated)
                 .Take(top)).ToList();
         }
 
-        public List<ProductViewModel> GetRatingProducts(int top)
+        public async Task<List<ProductViewModel>> GetRatingProducts(int top)
         {
-            var resultReturn = from u in _productRepository.FindAll().AsNoTracking().AsParallel().AsOrdered()
-                               join p in (from item in _ratingRepository.FindAll().AsNoTracking().AsParallel().AsOrdered()
+            var resultReturn = from u in (await _productRepository.FindAll()).AsNoTracking().AsParallel().AsOrdered()
+                               join p in (from item in (await _ratingRepository.FindAll()).AsNoTracking().AsParallel().AsOrdered()
                                           group item by item.ProductId
                     into g
                                           orderby g.Sum(x => x.Quantity + x.Price + x.Value) descending
@@ -529,17 +543,17 @@ namespace ShopOnlineApp.Application.Implementation
             return new ProductViewModel().Map(resultReturn.Take(top)).ToList();
         }
 
-        public List<ProductViewModel> GetUpsellProducts(int top)
+        public async Task<List<ProductViewModel>> GetUpsellProducts(int top)
         {
-            return new ProductViewModel().Map(_productRepository.FindAll(x => x.PromotionPrice != null).AsNoTracking().AsParallel().AsOrdered()
+            return new ProductViewModel().Map((await _productRepository.FindAll(x => x.PromotionPrice != null)).AsNoTracking().AsParallel().AsOrdered()
                     .OrderByDescending(x => x.DateModified)
                     .Take(top)).ToList();
         }
 
-        public List<TagViewModel> GetProductTags(int productId)
+        public async Task<List<TagViewModel>> GetProductTags(int productId)
         {
-            var tags = _tagRepository.FindAll().AsNoTracking();
-            var productTags = _productTagRepository.FindAll().AsNoTracking();
+            var tags = (await _tagRepository.FindAll()).AsNoTracking();
+            var productTags = (await _productTagRepository.FindAll()).AsNoTracking();
 
             var query = from t in tags
                         join pt in productTags
@@ -554,19 +568,19 @@ namespace ShopOnlineApp.Application.Implementation
 
         }
 
-        public bool CheckAvailability(int productId, int size, int color)
+        public async Task<bool> CheckAvailability(int productId, int size, int color)
         {
-            var quantity = _productQuantityRepository.FindSingle(x => x.ColorId == color && x.SizeId == size && x.ProductId == productId);
+            var quantity = await _productQuantityRepository.FindSingle(x => x.ColorId == color && x.SizeId == size && x.ProductId == productId);
             if (quantity == null)
                 return false;
             return quantity.Quantity > 0;
         }
-        public void AddImages(int productId, string[] images)
+        public async Task AddImages(int productId, string[] images)
         {
-            _productImageRepository.RemoveMultiple(_productImageRepository.FindAll(x => x.ProductId == productId).AsNoTracking().AsParallel().AsOrdered().ToList());
+            await _productImageRepository.RemoveMultiple((await _productImageRepository.FindAll(x => x.ProductId == productId)).AsNoTracking().AsParallel().AsOrdered().ToList());
             foreach (var image in images)
             {
-                _productImageRepository.Add(new ProductImage()
+                await _productImageRepository.Add(new ProductImage()
                 {
                     Path = image,
                     ProductId = productId,

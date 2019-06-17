@@ -1,8 +1,10 @@
-﻿namespace ShopOnlineApp.Application.Interfaces
+﻿using System.Threading.Tasks;
+
+namespace ShopOnlineApp.Application.Interfaces
 {
     public interface IProductQuantityService
     {
-        bool SellProduct(int productId, int quantity);
-        void UpdateQuantityProduct(int productId, int quantity);
+        Task<bool> SellProduct(int productId, int quantity);
+        Task UpdateQuantityProduct(int productId, int quantity);
     }
 }

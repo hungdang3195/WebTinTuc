@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using System.Threading.Tasks;
 using ShopOnlineApp.Application.Interfaces;
 using ShopOnlineApp.Application.ViewModels.BlogComment;
 using ShopOnlineApp.Data.EF.Common;
@@ -18,17 +19,17 @@ namespace ShopOnlineApp.Application.Implementation
             _unitOfWork = unitOfWork;
         }
 
-        public BlogCommentViewModel Add(BlogCommentViewModel blogCommentVm)
+        public async Task<BlogCommentViewModel> Add(BlogCommentViewModel blogCommentVm)
         {
             var page = new BlogCommentViewModel().Map(blogCommentVm);
-            _blogCommentRepository.Add(page);
+            await _blogCommentRepository.Add(page);
             _unitOfWork.Commit();
             return blogCommentVm;
         }
 
-        public BaseReponse<ModelListResult<BlogCommentViewModel>> GetAllPaging(BlogCommentRequest request)
+        public async Task<BaseReponse<ModelListResult<BlogCommentViewModel>>> GetAllPaging(BlogCommentRequest request)
         {
-            var query = _blogCommentRepository.FindAll();
+            var query = await _blogCommentRepository.FindAll();
 
             if (request.BlogId > 0)
             {
@@ -57,5 +58,5 @@ namespace ShopOnlineApp.Application.Implementation
             };
         }
     }
-    
+
 }

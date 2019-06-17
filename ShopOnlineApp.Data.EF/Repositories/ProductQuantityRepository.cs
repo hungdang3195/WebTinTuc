@@ -1,7 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 using ShopOnlineApp.Data.Entities;
 using ShopOnlineApp.Data.IRepositories;
 
@@ -14,10 +13,9 @@ namespace ShopOnlineApp.Data.EF.Repositories
         {
             _context = context;
         }
-
-        public ProductQuantity GetByProductId(int productId)
+        public async Task<ProductQuantity>  GetByProductId(int productId)
         {
-            return _context.ProductQuantities.FirstOrDefault(x => x.ProductId == productId);
+            return await _context.Set<ProductQuantity>().Where(x=>x.ProductId==productId).FirstOrDefaultAsync();
         }
     }
 }

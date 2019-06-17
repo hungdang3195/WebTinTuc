@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net;
+using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using ShopOnlineApp.Application.Interfaces;
 using ShopOnlineApp.Application.ViewModels.GranPermission;
@@ -24,24 +24,24 @@ namespace ShopOnlineApp.Application.Implementation
             _businessActionService = businessActionService;
             _unitOfWork = unitOfWork;
         }
-        public  List<PermissionActionViewModel> GetPermissons(string businessId, Guid userId)
+        public async Task<List<PermissionActionViewModel>> GetPermissons(string businessId, Guid userId)
         {
 
-            var grantItems =(from g in _grantPermissionRepository.FindAll().AsNoTracking()
-                 join p in _businessActionService.FindAll() on g.BusinessActionId equals p.Id
-                 where g.UserId == userId && p.BusinessId == businessId
-                 select new PermissionActionViewModel
-                 {
-                     Description = p.Description,
-                     IsGranted = true,
-                     PermissionID = p.Id,
-                     PermissionName = p.Name
-                 });
+            var grantItems = (from g in (await _grantPermissionRepository.FindAll()).AsNoTracking()
+                              join p in await _businessActionService.FindAll() on g.BusinessActionId equals p.Id
+                              where g.UserId == userId && p.BusinessId == businessId
+                              select new PermissionActionViewModel
+                              {
+                                  Description = p.Description,
+                                  IsGranted = true,
+                                  PermissionID = p.Id,
+                                  PermissionName = p.Name
+                              });
 
-            var allPermissons = from p in _businessActionService.FindAll().AsNoTracking().AsParallel().AsOrdered().WithDegreeOfParallelism(3).GroupBy(x=>x.Name).Select(x=>x.FirstOrDefault())
-                               where p.BusinessId == businessId
-                               select new PermissionActionViewModel
-                               { PermissionID = p.Id, PermissionName = p.Name, Description = p.Description, IsGranted = false };
+            var allPermissons = from p in (await _businessActionService.FindAll()).AsNoTracking().AsParallel().AsOrdered().WithDegreeOfParallelism(3).GroupBy(x => x.Name).Select(x => x.FirstOrDefault())
+                                where p.BusinessId == businessId
+                                select new PermissionActionViewModel
+                                { PermissionID = p.Id, PermissionName = p.Name, Description = p.Description, IsGranted = false };
 
             var listpermissionId = grantItems.Select(p => p.PermissionID);
 
@@ -54,39 +54,36 @@ namespace ShopOnlineApp.Application.Implementation
 
             return grantItems.ToList();
         }
-        public bool UpdatePermisson(int id, Guid userId)
+        public async Task<bool> UpdatePermisson(int id, Guid userId)
         {
-            var grant = _grantPermissionRepository.FindAll(x=>x.BusinessActionId==id).AsNoTracking().AsParallel().AsOrdered().WithDegreeOfParallelism(3).SingleOrDefault();
+            var grant = (await _grantPermissionRepository.FindAll(x => x.BusinessActionId == id)).AsNoTracking().AsParallel().AsOrdered().WithDegreeOfParallelism(3).SingleOrDefault();
             if (grant == null)
             {
                 var shopGrant = new GrantPermission
                 {
-                  BusinessActionId = id,
+                    BusinessActionId = id,
                     UserId = userId
                 };
 
-                _grantPermissionRepository.Add(shopGrant);
+                await _grantPermissionRepository.Add(shopGrant);
                 _unitOfWork.Commit();
 
                 return true;
             }
-            else
-            {
-                _grantPermissionRepository.Remove(grant);
-                _unitOfWork.Commit();
-                return false;
-            }
+            await _grantPermissionRepository.Remove(grant);
+            _unitOfWork.Commit();
+            return false;
         }
 
-        public IEnumerable<string> GetRoleNameByUserId(Guid userId)
-        {
-            var permissions = from p in _businessActionService.FindAll().AsNoTracking().AsParallel().AsOrdered().WithDegreeOfParallelism(3).ToList()
-                join g in _grantPermissionRepository.FindAll().AsNoTracking().AsParallel().AsOrdered().WithDegreeOfParallelism(3)
-                    on p.Id equals g.BusinessActionId
-                where g.UserId == userId
-                select p.Name.ToLower();
-            return permissions;
 
+        public async Task<IEnumerable<string>> GetRoleNameByUserId(Guid userId)
+        {
+            var permissions = from p in (await _businessActionService.FindAll()).AsNoTracking().AsParallel().AsOrdered().WithDegreeOfParallelism(3).ToList()
+                              join g in (await _grantPermissionRepository.FindAll()).AsNoTracking().AsParallel().AsOrdered().WithDegreeOfParallelism(3)
+                                  on p.Id equals g.BusinessActionId
+                              where g.UserId == userId
+                              select p.Name.ToLower();
+            return permissions;
         }
     }
 }

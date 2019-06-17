@@ -40,26 +40,26 @@ namespace ShopOnlineApp.Controllers
             return View(categories);
         }
         [Route("quick-view.{id}.html")]
-        public IActionResult QuickView(int id)
+        public async Task<IActionResult>  QuickView(int id)
         {
             ViewData["BodyClass"] = "product-page";
             var model = new DetailViewModel();
-            model.Product = _productService.GetById(id);
-            model.Category = _productCategoryService.GetById(model.Product.CategoryId);
+            model.Product =await _productService.GetById(id);
+            model.Category =await _productCategoryService.GetById(model.Product.CategoryId);
             // model.RelatedProducts = _productService.GetRelatedProducts(id, 9);
             //model.UpsellProducts = _productService.GetUpsellProducts(6);
-            model.ProductImages = _productService.GetImages(id);
+            model.ProductImages =await _productService.GetImages(id);
             model.ProductImages.Add(new ProductImageViewModel
             {
                 Path = model.Product.Image
             });
-            model.Tags = _productService.GetProductTags(id);
-            model.Colors = _billService.GetColors().Select(x => new SelectListItem()
+            model.Tags =await _productService.GetProductTags(id);
+            model.Colors =(await _billService.GetColors()).Select(x => new SelectListItem()
             {
                 Text = x.Name,
                 Value = x.Id.ToString()
             }).ToList();
-            model.Sizes = _billService.GetSizes().Select(x => new SelectListItem()
+            model.Sizes =(await _billService.GetSizes()).Select(x => new SelectListItem()
             {
                 Text = x.Name,
                 Value = x.Id.ToString()
@@ -93,7 +93,7 @@ namespace ShopOnlineApp.Controllers
 
             var categories = new List<LookupItem>();
 
-            var category = _productCategoryService.GetById(id);
+            var category =await _productCategoryService.GetById(id);
 
             if (category.ParentId == null)
             {
@@ -103,7 +103,7 @@ namespace ShopOnlineApp.Controllers
                 {
                     Id = x.Id,
                     Name = x.Name,
-                    Key= x.SeoAlias
+                    Key = x.SeoAlias
                 }).ToList();
             }
             else
@@ -117,21 +117,21 @@ namespace ShopOnlineApp.Controllers
                 }).ToList();
             }
 
-            var sizeVMs = _sizeService.GetAll();
+            var sizeVMs =await _sizeService.GetAll();
             productCategory.Sizes = sizeVMs.Select(x => new LookupItem
             {
                 Id = x.Id,
                 Name = x.Name
             }).ToList();
 
-            var colorVMs = _colorService.GetAll();
+            var colorVMs =await _colorService.GetAll();
             productCategory.Colors = colorVMs.Select(x => new LookupItem
             {
                 Id = x.Id,
                 Name = x.Name
             }).ToList();
 
-            var categoryCurrent= _productCategoryService.GetById(id);
+            var categoryCurrent =await _productCategoryService.GetById(id);
 
 
             productCategory.CurrentCategory = new LookupItem
@@ -141,7 +141,7 @@ namespace ShopOnlineApp.Controllers
             };
             //get cart model
 
-           productCategory.CartViewModels = HttpContext.Session.Get<List<ShoppingCartViewModel>>(CommonConstants.CartSession);
+            productCategory.CartViewModels = HttpContext.Session.Get<List<ShoppingCartViewModel>>(CommonConstants.CartSession);
 
             productCategory.Categories = categories;
             return View(productCategory);
@@ -185,26 +185,26 @@ namespace ShopOnlineApp.Controllers
         }
 
         [Route("{alias}-p.{id}.html", Name = "ProductDetail")]
-        public IActionResult Details(int id)
+        public async Task<IActionResult> Details(int id)
         {
             ViewData["BodyClass"] = "product-page";
             var model = new DetailViewModel();
-            model.Product = _productService.GetById(id);
-            model.Category = _productCategoryService.GetById(model.Product.CategoryId);
-            model.RelatedProducts = _productService.GetRelatedProducts(id, 9);
-            model.UpsellProducts = _productService.GetUpsellProducts(6);
-            model.ProductImages = _productService.GetImages(id);
+            model.Product = await _productService.GetById(id);
+            model.Category = await _productCategoryService.GetById(model.Product.CategoryId);
+            model.RelatedProducts = await _productService.GetRelatedProducts(id, 9);
+            model.UpsellProducts = await _productService.GetUpsellProducts(6);
+            model.ProductImages = await _productService.GetImages(id);
             model.ProductImages.Add(new ProductImageViewModel
             {
                 Path = model.Product.Image
             });
-            model.Tags = _productService.GetProductTags(id);
-            model.Colors = _billService.GetColors().Select(x => new SelectListItem()
+            model.Tags = await _productService.GetProductTags(id);
+            model.Colors = (await _billService.GetColors()).Select(x => new SelectListItem()
             {
                 Text = x.Name,
                 Value = x.Id.ToString()
             }).ToList();
-            model.Sizes = _billService.GetSizes().Select(x => new SelectListItem()
+            model.Sizes = (await _billService.GetSizes()).Select(x => new SelectListItem()
             {
                 Text = x.Name,
                 Value = x.Id.ToString()

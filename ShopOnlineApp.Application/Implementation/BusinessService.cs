@@ -24,12 +24,12 @@ namespace ShopOnlineApp.Application.Implementation
 
         public async Task<List<BusinessViewModel>> GetAll()
         {
-            return new BusinessViewModel().Map(await _repository.FindAll().ToListAsync()).ToList();
+            return new BusinessViewModel().Map(await _repository.FindAll()).ToList();
         }
 
         public async Task<BaseReponse<ModelListResult<BusinessViewModel>>> GetAllPagingAsync(BusinessRequest request)
         {
-            var query = _repository.FindAll();
+            var query = await _repository.FindAll();
 
             if (!string.IsNullOrEmpty(request?.SearchText))
             {
@@ -40,7 +40,7 @@ namespace ShopOnlineApp.Application.Implementation
             int totalRow = await query.CountAsync();
 
             if (request != null)
-                query = query.Skip((request.PageIndex-1) * request.PageSize)
+                query = query.Skip((request.PageIndex - 1) * request.PageSize)
                     .Take(request.PageSize);
 
             var items = new BusinessViewModel().Map(query).ToList();
@@ -81,23 +81,22 @@ namespace ShopOnlineApp.Application.Implementation
             return result;
         }
 
-        public BusinessViewModel GetByIdAsync(string id)
+        public async Task<BusinessViewModel> GetByIdAsync(string id)
         {
-            return new BusinessViewModel().Map(_repository.FindById(id));
+            return new BusinessViewModel().Map(await _repository.FindById(id));
         }
 
-        public void  Update(BusinessViewModel businessVm)
+        public async Task Update(BusinessViewModel businessVm)
         {
-            var currentBusiness = _repository.FindById(businessVm.Id);
-
+            var currentBusiness = await _repository.FindById(businessVm.Id);
             currentBusiness.Name = businessVm.Name;
-            _repository.Update(currentBusiness);
+            await _repository.Update(currentBusiness);
             _unitOfWork.Commit();
         }
 
-        public void Delete(string id)
+        public async Task Delete(string id)
         {
-            _repository.Remove(id);
+            await _repository.Remove(id);
             _unitOfWork.Commit();
         }
     }

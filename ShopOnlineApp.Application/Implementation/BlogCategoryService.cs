@@ -12,7 +12,7 @@ using ShopOnlineApp.Infrastructure.Interfaces;
 
 namespace ShopOnlineApp.Application.Implementation
 {
-    public class BlogCategoryService:IBlogCategoryService
+    public class BlogCategoryService : IBlogCategoryService
     {
         private readonly IBlogCategoryRepository _blogCategoryRepository;
         private readonly IUnitOfWork _unitOfWork;
@@ -24,26 +24,26 @@ namespace ShopOnlineApp.Application.Implementation
             _unitOfWork = unitOfWork;
         }
 
-        public BlogCategoryViewModel Add(BlogCategoryViewModel blogCategoryVm)
+        public async Task<BlogCategoryViewModel> Add(BlogCategoryViewModel blogCategoryVm)
         {
             var blogCategory = new BlogCategoryViewModel().Map(blogCategoryVm);
-            blogCategory.DateCreated=DateTime.Now;
-            blogCategory.DateModified=DateTime.Now;
-            _blogCategoryRepository.Add(blogCategory);
+            blogCategory.DateCreated = DateTime.Now;
+            blogCategory.DateModified = DateTime.Now;
+            await _blogCategoryRepository.Add(blogCategory);
             return blogCategoryVm;
         }
 
-        public void Delete(int id)
+        public async Task Delete(int id)
         {
-            _blogCategoryRepository.Remove(id);
+            await _blogCategoryRepository.Remove(id);
         }
 
         public async Task<List<BlogCategoryViewModel>> GetAll()
         {
             try
             {
-                var dataReturn = await _blogCategoryRepository.FindAll().OrderBy(x => x.ParentId).AsNoTracking().ToListAsync();
-                var items = new BlogCategoryViewModel().Map(dataReturn).ToList();
+                var blogCategoryEntities = await _blogCategoryRepository.FindAll();
+                var items = new BlogCategoryViewModel().Map(blogCategoryEntities.OrderBy(x => x.ParentId).AsNoTracking()).ToList();
                 return items;
             }
             catch (Exception e)
@@ -56,11 +56,11 @@ namespace ShopOnlineApp.Application.Implementation
         public async Task<List<BlogCategoryViewModel>> GetAll(string keyword)
         {
             if (!string.IsNullOrEmpty(keyword))
-                return _blogCategoryRepository.FindAll(x => x.Name.Contains(keyword)
-                || x.Description.Contains(keyword))
+                return (await _blogCategoryRepository.FindAll(x => x.Name.Contains(keyword)
+                || x.Description.Contains(keyword)))
                     .OrderBy(x => x.ParentId).AsNoTracking().ProjectTo<BlogCategoryViewModel>().ToList();
 
-            return _blogCategoryRepository.FindAll().AsNoTracking().OrderBy(x => x.ParentId)
+            return (await _blogCategoryRepository.FindAll()).AsNoTracking().OrderBy(x => x.ParentId)
                 .ProjectTo<BlogCategoryViewModel>()
                 .ToList();
         }
@@ -69,13 +69,13 @@ namespace ShopOnlineApp.Application.Implementation
         public async Task<List<BlogCategoryViewModel>> GetAllByParentId(int parentId)
         {
             var dataReturn = await _blogCategoryRepository.FindAll(x => x.Status == Status.Active
-              && x.ParentId == parentId).ToListAsync();
+              && x.ParentId == parentId);
             return new BlogCategoryViewModel().Map(dataReturn).ToList();
         }
 
-        public BlogCategoryViewModel GetById(int id)
+        public async Task<BlogCategoryViewModel> GetById(int id)
         {
-            return new BlogCategoryViewModel().Map(_blogCategoryRepository.FindById(id));
+            return new BlogCategoryViewModel().Map(await _blogCategoryRepository.FindById(id));
         }
 
         //public async Task<List<BlogCategoryViewModel>> GetHomeCategories(int top)
@@ -94,20 +94,18 @@ namespace ShopOnlineApp.Application.Implementation
         //    return categories;
         //}
 
-        public void ReOrder(int sourceId, int targetId)
+        public async Task ReOrder(int sourceId, int targetId)
         {
-            var source = _blogCategoryRepository.FindById(sourceId);
-            var target = _blogCategoryRepository.FindById(targetId);
-
-            var temp = 0;
+            var source = await _blogCategoryRepository.FindById(sourceId);
+            var target = await _blogCategoryRepository.FindById(targetId);
             if (source != null && target != null)
             {
-                temp = source.SortOrder;
+                var temp = source.SortOrder;
                 source.SortOrder = target.SortOrder;
                 target.SortOrder = temp;
             }
-            _blogCategoryRepository.Update(source);
-            _blogCategoryRepository.Update(target);
+            await _blogCategoryRepository.Update(source);
+            await _blogCategoryRepository.Update(target);
             Save();
         }
 
@@ -140,28 +138,27 @@ namespace ShopOnlineApp.Application.Implementation
 
         //}
 
-        public void Update(BlogCategoryViewModel blogCategoryVm)
+        public async Task Update(BlogCategoryViewModel blogCategoryVm)
         {
             var blogCategory = new BlogCategoryViewModel().Map(blogCategoryVm);
             blogCategory.DateCreated = DateTime.Now;
             blogCategory.DateModified = DateTime.Now;
-            _blogCategoryRepository.Update(blogCategory);
+            await _blogCategoryRepository.Update(blogCategory);
 
         }
-        public void UpdateParentId(int sourceId, int targetId, Dictionary<int, int> items)
+        public async Task UpdateParentId(int sourceId, int targetId, Dictionary<int, int> items)
         {
-            var sourceCategory = _blogCategoryRepository.FindById(sourceId);
+            var sourceCategory = await _blogCategoryRepository.FindById(sourceId);
 
             sourceCategory.ParentId = targetId;
 
-            _blogCategoryRepository.Update(sourceCategory);
+            await _blogCategoryRepository.Update(sourceCategory);
 
-            var sibling = _blogCategoryRepository.FindAll(x => items.ContainsKey(x.Id));
+            var sibling = await _blogCategoryRepository.FindAll(x => items.ContainsKey(x.Id));
             foreach (var child in sibling)
             {
                 child.SortOrder = items[child.Id];
-
-                _blogCategoryRepository.Update(child);
+                await _blogCategoryRepository.Update(child);
             }
 
         }

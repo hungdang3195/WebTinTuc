@@ -13,39 +13,50 @@ namespace ShopOnlineApp.Application.Implementation
 {
     public class BusinessActionService : IBusinessActionService
     {
+        #region Private property
         private readonly IBusinessActionRepository _repository;
         private readonly IUnitOfWork _unitOfWork;
+
+        #endregion
+
+        #region Constructor
         public BusinessActionService(IBusinessActionRepository repository, IUnitOfWork unitOfWork)
         {
             _repository = repository;
             _unitOfWork = unitOfWork;
         }
 
+        #endregion
+
+        #region Public method
         public async Task<List<BusinessActionViewModel>> GetAll(BusinessActionRequest request)
         {
-                return new BusinessActionViewModel().Map(await _repository.FindAll(x => x.BusinessId == request.BusinessId).ToListAsync()).ToList();
+            return new BusinessActionViewModel().Map(await _repository.FindAll(x => x.BusinessId == request.BusinessId)).ToList();
         }
 
-        public List<BusinessActionViewModel>  GetByBusinessIds(string businessId)
+        public async Task<List<BusinessActionViewModel>> GetByBusinessIds(string businessId)
         {
-            var items = _repository.FindAll(x => x.BusinessId == businessId).GroupBy(x=>x.Name).Select(x=>x.FirstOrDefault());
+            var items = (await _repository.FindAll(x => x.BusinessId == businessId)).GroupBy(x => x.Name).Select(x => x.FirstOrDefault());
 
             return new BusinessActionViewModel().Map(items).ToList();
         }
 
-        public BusinessActionViewModel GetByActionId(int id)
+        public async Task<BusinessActionViewModel> GetByActionId(int id)
         {
-            return new BusinessActionViewModel().Map(_repository.FindById(id));
+            return new BusinessActionViewModel().Map(await _repository.FindById(id));
         }
 
-        public void Update(BusinessActionViewModel businessVm)
+        public async Task Update(BusinessActionViewModel businessVm)
         {
-            var currentBusiness = _repository.FindById(businessVm.Id);
+            var currentBusiness = await _repository.FindById(businessVm.Id);
 
             currentBusiness.Name = businessVm.Name;
             currentBusiness.Description = businessVm.Description;
-            _repository.Update(currentBusiness);
+            await _repository.Update(currentBusiness);
             _unitOfWork.Commit();
         }
+
+        #endregion
+
     }
 }

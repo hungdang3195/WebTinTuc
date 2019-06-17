@@ -34,9 +34,9 @@ namespace ShopOnlineApp.Controllers
         }
 
         [HttpPost]
-        public IActionResult AddToWishList(int productId)
+        public async Task<IActionResult>  AddToWishList(int productId)
         {
-            var product = _productService.GetById(productId);
+            var product =await _productService.GetById(productId);
             if (product != null)
             {
                 var session = HttpContext.Session.Get<List<WishListViewModel>>(CommonConstants.WishListSession);

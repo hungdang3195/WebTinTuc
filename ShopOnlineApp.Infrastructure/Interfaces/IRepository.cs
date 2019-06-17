@@ -2,29 +2,30 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Threading.Tasks;
 
 namespace ShopOnlineApp.Infrastructure.Interfaces
 {
     public interface IRepository<T, K> where T : class
     {
-        T FindById(K id, params Expression<Func<T, object>>[] includeProperties);
+        Task<T>  FindById(K id, params Expression<Func<T, object>>[] includeProperties);
 
-        T FindSingle(Expression<Func<T, bool>> predicate, params Expression<Func<T, object>>[] includeProperties);
+        Task<T> FindSingle(Expression<Func<T, bool>> predicate, params Expression<Func<T, object>>[] includeProperties);
 
-        IQueryable<T> FindAll(params Expression<Func<T, object>>[] includeProperties);
+        Task<IQueryable<T>> FindAll(params Expression<Func<T, object>>[] includeProperties);
 
-        IQueryable<T> FindAll(Expression<Func<T, bool>> predicate, params Expression<Func<T, object>>[] includeProperties);
+        Task<IQueryable<T>>  FindAll(Expression<Func<T, bool>> predicate, params Expression<Func<T, object>>[] includeProperties);
 
-        void Add(T entity);
+        Task Add(T entity);
 
-        void Update(T entity);
+        Task Update(T entity);
 
-        void Remove(T entity);
+        Task Remove(T entity);
 
-        void Remove(K id);
+        Task Remove(K id);
 
-        void RemoveMultiple(List<T> entities);
+        Task RemoveMultiple(List<T> entities);
 
-        void SaveChanges();
+        Task SaveChanges();
     }
 }

@@ -80,7 +80,7 @@ namespace ShopOnlineApp.Areas.Admin.Controllers
                 file.Delete();
                 file = new FileInfo(Path.Combine(sWebRootFolder, sFileName));
             }
-            var blogs =  _blogService.GetAll();
+            var blogs = await _blogService.GetAll();
             using (ExcelPackage package = new ExcelPackage(file))
             {
                 // add a new worksheet to the empty workbook

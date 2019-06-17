@@ -9,7 +9,6 @@ using Microsoft.EntityFrameworkCore;
 using ShopOnlineApp.Application.Common;
 using ShopOnlineApp.Application.Interfaces;
 using ShopOnlineApp.Application.ViewModels.Function;
-using ShopOnlineApp.Application.ViewModels.Role;
 using ShopOnlineApp.Data.Entities;
 using ShopOnlineApp.Data.Enums;
 using ShopOnlineApp.Data.IRepositories;
@@ -19,12 +18,14 @@ namespace ShopOnlineApp.Application.Implementation
 {
     public class FunctionService : IFunctionService
     {
+        #region Private property
         private readonly IFunctionRepository _functionRepository;
         private readonly IUnitOfWork _unitOfWork;
         private readonly IPermissionRepository _permissionRepository;
         private readonly IMapper _mapper;
         private readonly RoleManager<AppRole> _roleManager;
 
+        #endregion
 
         public FunctionService(IMapper mapper,
             IFunctionRepository functionRepository,
@@ -38,40 +39,39 @@ namespace ShopOnlineApp.Application.Implementation
         }
 
 
-        public bool CheckExistedId(string id)
+        public async Task<bool> CheckExistedId(string id)
         {
-            return _functionRepository.FindById(id) != null;
+            return await _functionRepository.FindById(id) != null;
         }
 
-        public void Add(FunctionViewModel functionVm)
+        public async Task Add(FunctionViewModel functionVm)
         {
-            if (!CheckExistedId(functionVm.Id))
+            if (!await CheckExistedId(functionVm.Id))
             {
                 var function = new FunctionViewModel().Map(functionVm);
-                _functionRepository.Add(function);
+                await _functionRepository.Add(function);
             }
         }
 
-        public void Delete(string id)
+        public async Task Delete(string id)
         {
-            _functionRepository.Remove(id);
+            await _functionRepository.Remove(id);
         }
 
-        public FunctionViewModel GetById(string id)
+        public async Task<FunctionViewModel> GetById(string id)
         {
-            var function = _functionRepository.FindSingle(x => x.Id == id);
+            var function = await _functionRepository.FindSingle(x => x.Id == id);
             return new FunctionViewModel().Map(function);
         }
 
         public async Task<List<FunctionViewModel>> GetAll(string filter)
         {
-            var query = _functionRepository.FindAll(x => x.Status == Status.Active).AsNoTracking().AsParallel();
+            var query = (await _functionRepository.FindAll(x => x.Status == Status.Active)).AsNoTracking().AsParallel();
 
             if (!string.IsNullOrEmpty(filter))
                 query = query.AsParallel().AsUnordered().WithDegreeOfParallelism(3).Where(x => x.Name.Contains(filter));
 
-
-            var results =  query.OrderBy(x => x.ParentId);
+            var results = query.OrderBy(x => x.ParentId);
 
             return new FunctionViewModel().Map(results).ToList();
         }
@@ -79,11 +79,11 @@ namespace ShopOnlineApp.Application.Implementation
         public async Task<List<FunctionViewModel>> GetFunctionByRoles(FunctionRequest request)
         {
             string[] roles = request.Roles.ToArray();
-            var functionIds = _permissionRepository.FindAll(await BuildingQuery(roles)).AsNoTracking().AsParallel().AsUnordered().WithDegreeOfParallelism(3).Where(x => x.CanRead).Select(x=>x.FunctionId);
-            var ids= new List<string>();
+            var functionIds = (await _permissionRepository.FindAll(await BuildingQuery(roles))).AsNoTracking().AsParallel().AsUnordered().WithDegreeOfParallelism(3).Where(x => x.CanRead).Select(x => x.FunctionId);
+            var ids = new List<string>();
             foreach (var id in functionIds)
             {
-                var functionDetail = _functionRepository.FindById(id);
+                var functionDetail = await _functionRepository.FindById(id);
                 if (functionDetail.ParentId != null)
                 {
                     ids.AddRange(new List<string>
@@ -98,7 +98,7 @@ namespace ShopOnlineApp.Application.Implementation
                 }
             }
 
-            var function = from fun in _functionRepository.FindAll().AsNoTracking()
+            var function = from fun in (await _functionRepository.FindAll()).AsNoTracking()
                            join id in ids.Distinct()
                            on fun.Id equals id
                            select fun;
@@ -106,19 +106,18 @@ namespace ShopOnlineApp.Application.Implementation
             return new FunctionViewModel().Map(function).ToList();
         }
 
-
-        public IEnumerable<FunctionViewModel> GetAllWithParentId(string parentId)
+        public async Task<IEnumerable<FunctionViewModel>> GetAllWithParentId(string parentId)
         {
-            return new FunctionViewModel().Map(_functionRepository.FindAll(x => x.ParentId == parentId).ToList());
+            return new FunctionViewModel().Map(await _functionRepository.FindAll(x => x.ParentId == parentId)).ToList();
         }
         public void Save()
         {
             _unitOfWork.Commit();
         }
 
-        public void Update(FunctionViewModel functionVm)
+        public async Task Update(FunctionViewModel functionVm)
         {
-            var functionDb = _functionRepository.FindById(functionVm.Id);
+            var functionDb = await _functionRepository.FindById(functionVm.Id);
             if (functionDb != null)
             {
                 functionDb.Name = functionVm.Name;
@@ -127,38 +126,33 @@ namespace ShopOnlineApp.Application.Implementation
                 functionDb.SortOrder = functionVm.SortOrder;
                 functionDb.URL = functionVm.URL;
                 functionDb.Status = functionVm.Status;
-                _functionRepository.Update(functionDb);
+                await _functionRepository.Update(functionDb);
                 _unitOfWork.Commit();
             }
         }
 
-        public void ReOrder(string sourceId, string targetId)
+        public async Task ReOrder(string sourceId, string targetId)
         {
-
-            var source = _functionRepository.FindById(sourceId);
-            var target = _functionRepository.FindById(targetId);
+            var source = await _functionRepository.FindById(sourceId);
+            var target = await _functionRepository.FindById(targetId);
             int tempOrder = source.SortOrder;
-
             source.SortOrder = target.SortOrder;
             target.SortOrder = tempOrder;
-
-            _functionRepository.Update(source);
-            _functionRepository.Update(target);
+            await _functionRepository.Update(source);
+            await _functionRepository.Update(target);
         }
 
-        public void UpdateParentId(string sourceId, string targetId, Dictionary<string, int> items)
+        public async Task UpdateParentId(string sourceId, string targetId, Dictionary<string, int> items)
         {
-            //Update parent id for source
-            var category = _functionRepository.FindById(sourceId);
+            var category = await _functionRepository.FindById(sourceId);
             category.ParentId = targetId;
-            _functionRepository.Update(category);
+            await _functionRepository.Update(category);
 
-            //Get all sibling
-            var sibling = _functionRepository.FindAll(x => items.ContainsKey(x.Id)).AsNoTracking().AsParallel().AsOrdered().WithDegreeOfParallelism(3);
+            var sibling = (await _functionRepository.FindAll(x => items.ContainsKey(x.Id))).AsNoTracking().AsParallel().AsOrdered().WithDegreeOfParallelism(3);
             foreach (var child in sibling)
             {
                 child.SortOrder = items[child.Id];
-                _functionRepository.Update(child);
+                await _functionRepository.Update(child);
             }
         }
 

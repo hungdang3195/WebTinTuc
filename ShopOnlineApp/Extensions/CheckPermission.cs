@@ -39,7 +39,7 @@ namespace ShopOnlineApp.Extensions
                 return;
             }
 
-            var lstPermission = permissionService.GetRoleNameByUserId(currentUser.Id).ToList();
+            var lstPermission =(await permissionService.GetRoleNameByUserId(currentUser.Id)).ToList();
 
             if (!lstPermission.Contains(actionLink.ToLower()))
             {

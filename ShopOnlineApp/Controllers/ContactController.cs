@@ -37,9 +37,9 @@ namespace ShopOnlineApp.Controllers
         }
         [Route("contact.html")]
         [HttpGet]
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            var contact = _contactService.GetById(CommonConstants.DefaultContactId);
+            var contact = await _contactService.GetById(CommonConstants.DefaultContactId);
             var model = new ContactPageViewModel { Contact = contact };
             return View(model);
         }
@@ -51,7 +51,7 @@ namespace ShopOnlineApp.Controllers
         {
             if (ModelState.IsValid)
             {
-                _feedbackService.Add(model.Feedback);
+                await _feedbackService.Add(model.Feedback);
                 _feedbackService.SaveChanges();
                 var announcement = new AnnouncementViewModel()
                 {
@@ -70,7 +70,7 @@ namespace ShopOnlineApp.Controllers
                 ViewData["Success"] = true;
             }
 
-            model.Contact = _contactService.GetById("default");
+            model.Contact =await _contactService.GetById("default");
 
             return View("Index", model);
         }
