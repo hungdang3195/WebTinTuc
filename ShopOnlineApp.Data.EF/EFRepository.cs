@@ -11,7 +11,7 @@ namespace ShopOnlineApp.Data.EF
 {
     public class EFRepository<T, K> : IRepository<T, K>, IDisposable where T : DomainEntity<K>
     {
-        private readonly AppDbContext _context;
+        public readonly AppDbContext _context;
 
         public EFRepository(AppDbContext context)
         {

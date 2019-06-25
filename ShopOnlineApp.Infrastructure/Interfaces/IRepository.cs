@@ -12,7 +12,7 @@ namespace ShopOnlineApp.Infrastructure.Interfaces
 
         Task<T> FindSingle(Expression<Func<T, bool>> predicate, params Expression<Func<T, object>>[] includeProperties);
 
-        Task<IQueryable<T>> FindAll(params Expression<Func<T, object>>[] includeProperties);
+        Task<IQueryable<T>>  FindAll(params Expression<Func<T, object>>[] includeProperties);
 
         Task<IQueryable<T>>  FindAll(Expression<Func<T, bool>> predicate, params Expression<Func<T, object>>[] includeProperties);
 

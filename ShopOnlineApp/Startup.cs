@@ -78,6 +78,11 @@ namespace ShopOnlineApp
                 // User settings
                 options.User.RequireUniqueEmail = true;
             });
+            services.AddDistributedRedisCache(options =>
+            {
+                options.InstanceName = Configuration.GetValue<string>("Redis:Name");
+                options.Configuration = Configuration.GetValue<string>("Redis:Host");
+            });
 
             services.AddAuthentication()
                 .AddFacebook(facebookOpts =>

@@ -32,6 +32,7 @@ namespace ShopOnlineApp.Application.Interfaces
         Task<List<ProductViewModel>> GetUpsellProducts(int top);
         Task<List<TagViewModel>> GetProductTags(int productId);
         Task<bool> CheckAvailability(int productId, int size, int color);
+        Task<IEnumerable<ProductViewModel>> SearchAsync(string key,int page,int pageSize=5);
         #endregion
     }
 }

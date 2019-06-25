@@ -174,10 +174,13 @@ namespace ShopOnlineApp.Controllers
             ViewData["BodyClass"] = "shop_grid_full_width_page";
             catalog.PageSize = pageSize ?? _configuration.GetValue<int>("PageSize");
             catalog.SortType = sortBy;
-            var request = new ProductRequest { PageSize = pageSize ?? _configuration.GetValue<int>("PageSize") };
-            request.SortBy = sortBy;
-            request.SearchText = keyword;
-            request.PageIndex = page;
+            var request = new ProductRequest
+            {
+                PageSize = pageSize ?? _configuration.GetValue<int>("PageSize"),
+                SortBy = sortBy,
+                SearchText = keyword,
+                PageIndex = page
+            };
             var data = await _productService.GetAllPaging(request);
             catalog.Data = data.Data;
             catalog.Keyword = keyword;
@@ -188,8 +191,7 @@ namespace ShopOnlineApp.Controllers
         public async Task<IActionResult> Details(int id)
         {
             ViewData["BodyClass"] = "product-page";
-            var model = new DetailViewModel();
-            model.Product = await _productService.GetById(id);
+            var model = new DetailViewModel {Product = await _productService.GetById(id)};
             model.Category = await _productCategoryService.GetById(model.Product.CategoryId);
             model.RelatedProducts = await _productService.GetRelatedProducts(id, 9);
             model.UpsellProducts = await _productService.GetUpsellProducts(6);
@@ -218,13 +220,8 @@ namespace ShopOnlineApp.Controllers
         [HttpGet]
         public async Task<IActionResult> SuggestSearch(string keyword)
         {
-            var model = await _productService.GetAllPaging(new ProductRequest()
-            {
-                SearchText = keyword,
-                PageSize = 5,
-                PageIndex = 1
-            });
-            return new OkObjectResult(model.Data.Items.Select(x => new { x.Name, x.Image, x.Price }));
+            var model = await _productService.SearchAsync(keyword,1,5);
+            return new OkObjectResult(model?.Select(x => new { x.Name, x.Image, x.Price }));
         }
 
     }

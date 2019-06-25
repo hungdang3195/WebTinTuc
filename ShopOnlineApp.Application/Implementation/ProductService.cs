@@ -48,7 +48,7 @@ namespace ShopOnlineApp.Application.Implementation
         {
             try
             {
-                var response = await _productRepository.FindAll();
+                var response = await _productRepository.FindAllProductAsync(x=>true);
                 return response.Any() ? new ProductViewModel().Map(response.AsNoTracking()).ToList() : new List<ProductViewModel>();
             }
             catch (Exception e)
@@ -57,11 +57,10 @@ namespace ShopOnlineApp.Application.Implementation
                 throw;
             }
         }
-
         public async Task<BaseReponse<ModelListResult<ProductViewModel>>> GetAllPaging(ProductRequest request)
         {
             var categoryEntities = await _categoryRepository.FindAll();
-            var productEntities = await _productRepository.FindAll();
+            var productEntities = await _productRepository.FindAllProductAsync(x=>true);
             var response = (from c in categoryEntities.AsNoTracking()
                             join p in productEntities.AsNoTracking() on c.Id equals p.CategoryId
                             select new ProductViewModel
@@ -132,7 +131,7 @@ namespace ShopOnlineApp.Application.Implementation
         {
             List<ProductFullViewModel> response = new List<ProductFullViewModel>();
             var categoryEntities = await _categoryRepository.FindAll();
-            var productEntities = await _productRepository.FindAll();
+            var productEntities = await _productRepository.FindAllProductAsync(x=>true);
             var productQuantityEntities = await _productQuantity.FindAll();
             if (request.ColorId > 0 && request.SizeId > 0)
             {
@@ -506,14 +505,14 @@ namespace ShopOnlineApp.Application.Implementation
 
         public async Task<List<ProductViewModel>> GetLastest(int top)
         {
-            var productEntities = await _productRepository.FindAll(x => x.Status == Status.Active);
+            var productEntities = await _productRepository.FindAllProductAsync(x => x.Status == Status.Active);
             return new ProductViewModel().Map(productEntities.AsNoTracking().OrderByDescending(x => x.DateCreated)
                 .Take(top)).ToList();
         }
 
         public async Task<List<ProductViewModel>> GetHotProduct(int top)
         {
-            var productEntities = await _productRepository.FindAll(x => x.Status == Status.Active && x.HotFlag == true);
+            var productEntities = await _productRepository.FindAllProductAsync(x => x.Status == Status.Active && x.HotFlag == true);
             return new ProductViewModel().Map(productEntities.AsNoTracking().AsParallel().AsOrdered().WithDegreeOfParallelism(2)
                 .OrderByDescending(x => x.DateCreated)
                 .Take(top)).ToList();
@@ -532,7 +531,7 @@ namespace ShopOnlineApp.Application.Implementation
 
         public async Task<List<ProductViewModel>> GetRatingProducts(int top)
         {
-            var resultReturn = from u in (await _productRepository.FindAll()).AsNoTracking().AsParallel().AsOrdered()
+            var resultReturn = from u in (await _productRepository.FindAllProductAsync(x=>true)).AsNoTracking().AsParallel().AsOrdered()
                                join p in (from item in (await _ratingRepository.FindAll()).AsNoTracking().AsParallel().AsOrdered()
                                           group item by item.ProductId
                     into g
@@ -545,7 +544,7 @@ namespace ShopOnlineApp.Application.Implementation
 
         public async Task<List<ProductViewModel>> GetUpsellProducts(int top)
         {
-            return new ProductViewModel().Map((await _productRepository.FindAll(x => x.PromotionPrice != null)).AsNoTracking().AsParallel().AsOrdered()
+            return new ProductViewModel().Map((await _productRepository.FindAllProductAsync(x => x.PromotionPrice != null)).AsNoTracking().AsParallel().AsOrdered()
                     .OrderByDescending(x => x.DateModified)
                     .Take(top)).ToList();
         }
@@ -575,6 +574,13 @@ namespace ShopOnlineApp.Application.Implementation
                 return false;
             return quantity.Quantity > 0;
         }
+
+        public async Task<IEnumerable<ProductViewModel>> SearchAsync(string key,int page, int pageSize = 5)
+        {
+            var data= await _productRepository.FindProductsAsync(key,page,pageSize);
+            return new ProductViewModel().Map(data);
+        }
+
         public async Task AddImages(int productId, string[] images)
         {
             await _productImageRepository.RemoveMultiple((await _productImageRepository.FindAll(x => x.ProductId == productId)).AsNoTracking().AsParallel().AsOrdered().ToList());
