@@ -1,2 +1,1 @@
-# teducoreapp
-Tedu Core App For Course TEDU-17
+Khoa luan tot nghiep
