@@ -6,7 +6,6 @@ using Microsoft.AspNetCore.Identity;
 using ShopOnlineApp.Data.Entities;
 using ShopOnlineApp.Data.Enums;
 using ShopOnlineApp.Utilities.Constants;
-using TeduCoreApp.Data.EF;
 
 namespace ShopOnlineApp.Data.EF
 {
