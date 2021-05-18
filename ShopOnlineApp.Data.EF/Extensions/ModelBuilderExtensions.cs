@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace TeduCoreApp.Data.EF.Extensions
+namespace ShopOnlineApp.Data.EF.Extensions
 {
     public static class ModelBuilderExtensions
     {

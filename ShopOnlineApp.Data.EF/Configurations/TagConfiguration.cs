@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using TeduCoreApp.Data.EF.Extensions;
+﻿using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using ShopOnlineApp.Data.EF.Extensions;
 using Microsoft.EntityFrameworkCore;
 using ShopOnlineApp.Data.Entities;
 
-namespace TeduCoreApp.Data.EF.Configurations
+namespace ShopOnlineApp.Data.EF.Configurations
 {
     public class TagConfiguration : DbEntityConfiguration<Tag>
     {

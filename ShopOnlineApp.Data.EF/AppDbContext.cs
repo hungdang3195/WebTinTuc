@@ -7,10 +7,10 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Microsoft.EntityFrameworkCore.Design;
 using Microsoft.Extensions.Configuration;
+using ShopOnlineApp.Data.EF.Configurations;
+using ShopOnlineApp.Data.EF.Extensions;
 using ShopOnlineApp.Data.Entities;
 using ShopOnlineApp.Data.Interfaces;
-using TeduCoreApp.Data.EF.Configurations;
-using TeduCoreApp.Data.EF.Extensions;
 
 namespace ShopOnlineApp.Data.EF
 {

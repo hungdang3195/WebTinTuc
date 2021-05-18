@@ -10,7 +10,6 @@ using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json;
 using ShopOnlineApp.Data.Entities;
 using ShopOnlineApp.Data.IRepositories;
-using TeduCoreApp.Data.EF;
 
 namespace ShopOnlineApp.Data.EF.Repositories
 {
