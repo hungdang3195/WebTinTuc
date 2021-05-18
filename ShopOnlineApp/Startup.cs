@@ -28,6 +28,7 @@ using ShopOnlineApp.Data.Entities;
 using ShopOnlineApp.Data.IRepositories;
 using ShopOnlineApp.Helper;
 using ShopOnlineApp.Infrastructure.Interfaces;
+using ShopOnlineApp.Initialization;
 using ShopOnlineApp.Models;
 using ShopOnlineApp.Services;
 using ShopOnlineApp.SignalR;
@@ -112,9 +113,7 @@ namespace ShopOnlineApp
 
             services.AddTransient<IEmailSender, EmailSender>();
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
-
-            services.AddTransient<DbInitializer>();
-
+            services.AddInitializationStages();
             services.AddMvc(options =>
                 {
                     options.CacheProfiles.Add("Default",

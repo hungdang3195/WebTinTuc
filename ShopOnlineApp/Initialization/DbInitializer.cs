@@ -1,16 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Identity;
+using ShopOnlineApp.Data.EF;
 using ShopOnlineApp.Data.Entities;
 using ShopOnlineApp.Data.Enums;
 using ShopOnlineApp.Utilities.Constants;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
-namespace ShopOnlineApp.Data.EF
+namespace ShopOnlineApp.Initialization
 {
-    public class DbInitializer
+    public class DbInitializer : IStage
     {
+        public int Order => 1;
+
         private readonly AppDbContext _context;
         private readonly UserManager<AppUser> _userManager;
         private readonly RoleManager<AppRole> _roleManager;
@@ -21,7 +24,7 @@ namespace ShopOnlineApp.Data.EF
             _roleManager = roleManager;
         }
 
-        public async Task Seed()
+        public async Task ExecuteAsync()
         {
             if (!_roleManager.Roles.Any())
             {
