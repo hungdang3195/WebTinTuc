@@ -223,29 +223,6 @@ namespace ShopOnlineApp
             services.AddCors(options => options.AddPolicy("CorsPolicy", builder => { builder.AllowAnyMethod().AllowAnyHeader().WithOrigins("http://localhost:44344", "http://localhost:3000", "http://sandbox.vnpayment.vn/paymentv2/vpcpay.html", "https://merchant.vnpay.vn/merchant_webapi/merchant.html").AllowCredentials(); }));
 
             services.AddMvc();
-            //services.AddCors(options =>
-            //{
-            //    options.AddPolicy(MyAllowSpecificOrigins,
-            //        builder =>
-            //        {
-            //            builder.WithOrigins("http://sandbox.vnpayment.vn/paymentv2/vpcpay.html",
-            //                "http://www.contoso.com");
-            //        });
-            //});n
-            //services.AddCors(options => options.AddPolicy("CorsPolicy",
-            //    builder =>
-            //    {
-            //        builder.AllowAnyMethod()
-            //            .AllowAnyHeader()
-            //            .WithOrigins("http://sandbox.vnpayment.vn/paymentv2/vpcpay.html")
-            //            .AllowCredentials();
-            //    }));
-            //services.AddCors(o => o.AddPolicy("TeduCorsPolicy", builder =>
-            //{
-            //    builder.AllowAnyOrigin()
-            //        .AllowAnyMethod()
-            //        .AllowAnyHeader();
-            //}));
             services.AddTransient<IAuthorizationHandler, BaseResourceAuthorizationHandler>();
 
             services.AddSignalR();
@@ -278,7 +255,15 @@ namespace ShopOnlineApp
             //    optionss => optionss.WithOrigins("http://sandbox.vnpayment.vn/paymentv2/vpcpay.html").AllowAnyMethod()
             //);
 
-            app.UseCors("CorsPolicy");
+            //app.UseCors("CorsPolicy");
+
+            app.UseCors(opts =>
+            {
+                opts.AllowAnyHeader();
+                opts.AllowAnyMethod();
+                opts.AllowCredentials();
+                opts.SetIsOriginAllowed(origin => true);
+            });
 
             app.UseMvc(routes =>
             {
