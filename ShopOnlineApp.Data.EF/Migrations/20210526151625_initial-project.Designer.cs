@@ -10,8 +10,8 @@ using ShopOnlineApp.Data.EF;
 namespace ShopOnlineApp.Data.EF.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20210525074529_InitialProject")]
-    partial class InitialProject
+    [Migration("20210526151625_initial-project")]
+    partial class initialproject
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

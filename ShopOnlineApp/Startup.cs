@@ -283,19 +283,15 @@ namespace ShopOnlineApp
                 opts.SetIsOriginAllowed(origin => true);
             });
 
-            app.UseEndpoints(endpoints => {
-                endpoints.MapControllerRoute(
-                    name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
-                endpoints.MapRazorPages();
-            });
+            app.UseRouting();
 
-            //app.UseEndpoints(endpoints =>
-            //{
-            //    endpoints.MapControllerRoute("default", "{controller=Home}/{action=Index}");
-            //    endpoints.MapControllerRoute("areaRoute", "{area:exists}/{controller=Home}/{action=Index}/{id?}");
-            //    endpoints.MapControllerRoute("login", "{area:exists}/{controller=Login}/{action=Index}/{id?}");
-            //});
+
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllerRoute("default", "{controller=Home}/{action=Index}");
+                endpoints.MapControllerRoute("areaRoute", "{area:exists}/{controller=Home}/{action=Index}/{id?}");
+                endpoints.MapControllerRoute("login", "{area:exists}/{controller=Login}/{action=Index}/{id?}");
+            });
 
             app.UseCookiePolicy();
 

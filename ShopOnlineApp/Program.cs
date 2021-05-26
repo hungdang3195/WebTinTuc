@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
+using ShopOnlineApp.Initialization;
 
 namespace ShopOnlineApp
 {
@@ -10,7 +11,7 @@ namespace ShopOnlineApp
         public static void Main(string[] args)
         {
             BuildWebHost(args)
-            //.AutoInit()
+            .AutoInit()
             .Run();
         }
 
