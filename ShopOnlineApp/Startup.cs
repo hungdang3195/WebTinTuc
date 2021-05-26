@@ -13,6 +13,7 @@ using Microsoft.AspNetCore.Mvc.Razor;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Newtonsoft.Json.Serialization;
@@ -21,6 +22,7 @@ using ShopOnline.Application.Dapper.Implements;
 using ShopOnline.Application.Dapper.Interfaces;
 using ShopOnlineApp.Application.Implementation;
 using ShopOnlineApp.Application.Interfaces;
+using ShopOnlineApp.Areas.Admin.Controllers;
 using ShopOnlineApp.Authorization;
 using ShopOnlineApp.Data.EF;
 using ShopOnlineApp.Data.EF.Repositories;
@@ -32,6 +34,8 @@ using ShopOnlineApp.Initialization;
 using ShopOnlineApp.Models;
 using ShopOnlineApp.Services;
 using ShopOnlineApp.SignalR;
+using ShopOnlineApp.Utilities.Mvc.Filters;
+//using ShopOnlineApp.Utilities.Mvc.Filters;
 
 namespace ShopOnlineApp
 {
@@ -47,11 +51,17 @@ namespace ShopOnlineApp
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<AppDbContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"),
-                o=>o.MigrationsAssembly("ShopOnlineApp.Data.EF")));
+            //services.AddDbContext<AppDbContext>(options =>
+            //    options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"),
+            //    o => o.MigrationsAssembly("ShopOnlineApp.Data.EF")));
+            //sservices.AddDbContext<ApplicationDbContext>(options =>
+            //.UseNpgsql(Configuration.GetConnectionString("DefaultConnection")));
 
-            services.AddIdentity<AppUser, AppRole>()
+            services.AddDbContext<AppDbContext>(options =>
+                 options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection"),
+                 o => o.MigrationsAssembly("ShopOnlineApp.Data.EF")));
+
+             services.AddIdentity<AppUser, AppRole>()
                 .AddEntityFrameworkStores<AppDbContext>()
                 .AddDefaultTokenProviders();
             services.Configure<CloudinaryImage>(Configuration.GetSection("CloudinarySettings"));
@@ -85,16 +95,16 @@ namespace ShopOnlineApp
             //    options.Configuration = Configuration.GetValue<string>("Redis:Host");
             //});
 
-            services.AddAuthentication()
-                .AddFacebook(facebookOpts =>
-                {
-                    facebookOpts.AppId = Configuration["Authentication:Facebook:AppId"];
-                    facebookOpts.AppSecret = Configuration["Authentication:Facebook:AppSecret"];
-                })
-                .AddGoogle(googleOpts => {
-                    googleOpts.ClientId = Configuration["Authentication:Google:ClientId"];
-                    googleOpts.ClientSecret = Configuration["Authentication:Google:ClientSecret"];
-                });
+            services.AddAuthentication();
+            //.AddFacebook(facebookOpts =>
+            //{
+            //    facebookOpts.AppId = Configuration["Authentication:Facebook:AppId"];
+            //    facebookOpts.AppSecret = Configuration["Authentication:Facebook:AppSecret"];
+            //})
+            //.AddGoogle(googleOpts => {
+            //    googleOpts.ClientId = Configuration["Authentication:Google:ClientId"];
+            //    googleOpts.ClientSecret = Configuration["Authentication:Google:ClientSecret"];
+            //});
 
             services.AddRecaptcha(new RecaptchaOptions
             {
@@ -102,13 +112,12 @@ namespace ShopOnlineApp
                 SecretKey = Configuration["Recaptcha:SecretKey"]
             });
 
-            services.AddAutoMapper();
+            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             services.AddMemoryCache();
             // Add application services.
             services.AddScoped<UserManager<AppUser>, UserManager<AppUser>>();
             services.AddScoped<RoleManager<AppRole>, RoleManager<AppRole>>();
 
-            services.AddSingleton(Mapper.Configuration);
             services.AddScoped<IMapper>(sp => new Mapper(sp.GetRequiredService<AutoMapper.IConfigurationProvider>(), sp.GetService));
 
             services.AddTransient<IEmailSender, EmailSender>();
@@ -116,6 +125,7 @@ namespace ShopOnlineApp
             services.AddInitializationStages();
             services.AddMvc(options =>
                 {
+                    options.Filters.Add<ExceptionHandler>();
                     options.CacheProfiles.Add("Default",
                         new CacheProfile
                         {
@@ -131,7 +141,13 @@ namespace ShopOnlineApp
                     LanguageViewLocationExpanderFormat.Suffix,
                     opts => { opts.ResourcesPath = "Resources"; })
                 .AddDataAnnotationsLocalization()
-                .AddJsonOptions(options => options.SerializerSettings.ContractResolver = new DefaultContractResolver());
+                .AddApplicationPart(typeof(BlogController).Assembly);
+
+            services.AddControllers().AddNewtonsoftJson(options =>
+            {
+
+                options.SerializerSettings.ContractResolver = new DefaultContractResolver();
+            });
 
             services.AddLocalization(opts => { opts.ResourcesPath = "Resources"; });
 
@@ -151,19 +167,19 @@ namespace ShopOnlineApp
                     opts.SupportedUICultures = supportedCultures;
                 });
             //add config system
-            services.AddTransient(typeof(IUnitOfWork),typeof(EFUnitOfWork));
+            services.AddTransient(typeof(IUnitOfWork), typeof(EFUnitOfWork));
             services.AddTransient(typeof(IRepository<,>), typeof(EFRepository<,>));
             //end config
 
             //repository
-            services.AddTransient<IProductCategoryRepository,ProductCategoryRepository>();
+            services.AddTransient<IProductCategoryRepository, ProductCategoryRepository>();
             services.AddTransient<IFunctionRepository, FunctionRepository>();
             services.AddTransient<IProductRepository, ProductRepository>();
             services.AddTransient<ITagRepository, TagRepository>();
             services.AddTransient<IProductQuantityRepository, ProductQuantityRepository>();
-            
+
             services.AddTransient<IProductTagRepository, ProductTagRepository>();
-            services.AddTransient<IPermissionRepository,PermissionRepository>();
+            services.AddTransient<IPermissionRepository, PermissionRepository>();
             services.AddTransient<IBusinessRepository, BusinessRepository>();
             services.AddTransient<IBusinessActionRepository, BusinessActionRepository>();
             services.AddTransient<IBillRepository, BillRepository>();
@@ -222,21 +238,23 @@ namespace ShopOnlineApp
             //Config system
             services.AddCors(options => options.AddPolicy("CorsPolicy", builder => { builder.AllowAnyMethod().AllowAnyHeader().WithOrigins("http://localhost:44344", "http://localhost:3000", "http://sandbox.vnpayment.vn/paymentv2/vpcpay.html", "https://merchant.vnpay.vn/merchant_webapi/merchant.html").AllowCredentials(); }));
 
-            services.AddMvc();
+            //services.AddMvc(options=> {
+            //    options.Filters.Add<ExceptionHandler>();
+            //});
             services.AddTransient<IAuthorizationHandler, BaseResourceAuthorizationHandler>();
 
             services.AddSignalR();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env,ILoggerFactory logger)
+        public void Configure(IApplicationBuilder app, IHostEnvironment env, ILoggerFactory logger)
         {
             logger.AddFile("Logs/shoponline-{Date}.txt");
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                app.UseBrowserLink();
-                app.UseDatabaseErrorPage();
+                //app.UseBrowserLink();
+                //app.UseDatabaseErrorPage();
             }
             else
             {
@@ -265,27 +283,24 @@ namespace ShopOnlineApp
                 opts.SetIsOriginAllowed(origin => true);
             });
 
-            app.UseMvc(routes =>
-            {
-                routes.MapRoute(
+            app.UseEndpoints(endpoints => {
+                endpoints.MapControllerRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
-
-                routes.MapRoute(
-                    name: "areaRoute", 
-                    template: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
-
-                routes.MapRoute(name: "login",
-                    template: "{area:exists}/{controller=Login}/{action=Index}/{id?}");
+                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                endpoints.MapRazorPages();
             });
-            //app.UseCors("TeduCorsPolicy");
+
+            //app.UseEndpoints(endpoints =>
+            //{
+            //    endpoints.MapControllerRoute("default", "{controller=Home}/{action=Index}");
+            //    endpoints.MapControllerRoute("areaRoute", "{area:exists}/{controller=Home}/{action=Index}/{id?}");
+            //    endpoints.MapControllerRoute("login", "{area:exists}/{controller=Login}/{action=Index}/{id?}");
+            //});
+
             app.UseCookiePolicy();
-            //app.UseCors(
-            //    options => options.WithOrigins("http://example.com").AllowAnyMethod()
-            //);
-            //app.UseCors("CorsPolicy");
+
             app.UseCors(MyAllowSpecificOrigins);
-            app.UseSignalR(routes => { routes.MapHub<OnlineShopHub>("/onlineShopHub"); });
+            //app.UseSignalR(routes => { routes.MapHub<OnlineShopHub>("/onlineShopHub"); });
 
         }
     }

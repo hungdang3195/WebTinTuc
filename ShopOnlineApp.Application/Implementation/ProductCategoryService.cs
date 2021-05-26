@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using AutoMapper.QueryableExtensions;
 using Microsoft.EntityFrameworkCore;
 using ShopOnlineApp.Application.Interfaces;
@@ -18,15 +19,17 @@ namespace ShopOnlineApp.Application.Implementation
         private readonly IProductCategoryRepository _productCategoryRepository;
         private readonly IUnitOfWork _unitOfWork;
         private readonly IProductRepository _productRepository;
+        private readonly IConfigurationProvider _mapConfig;
         #endregion
 
         #region Constructor
         public ProductCategoryService(IProductCategoryRepository productCategoryRepository,
-            IUnitOfWork unitOfWork, IProductRepository productRepository)
+            IUnitOfWork unitOfWork, IProductRepository productRepository, IConfigurationProvider mapConfig)
         {
             _productCategoryRepository = productCategoryRepository;
             _unitOfWork = unitOfWork;
             _productRepository = productRepository;
+            _mapConfig = mapConfig;
         }
 
         #endregion
@@ -65,10 +68,10 @@ namespace ShopOnlineApp.Application.Implementation
             if (!string.IsNullOrEmpty(keyword))
                 return (await _productCategoryRepository.FindAll(x => x.Name.Contains(keyword)
                 || x.Description.Contains(keyword)))
-                    .OrderBy(x => x.ParentId).AsNoTracking().ProjectTo<ProductCategoryViewModel>().ToList();
+                    .OrderBy(x => x.ParentId).AsNoTracking().ProjectTo<ProductCategoryViewModel>(_mapConfig).ToList();
 
             return (await _productCategoryRepository.FindAll()).AsNoTracking().OrderBy(x => x.ParentId)
-                .ProjectTo<ProductCategoryViewModel>()
+                .ProjectTo<ProductCategoryViewModel>(_mapConfig)
                 .ToList();
         }
 

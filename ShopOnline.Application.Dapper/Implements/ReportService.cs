@@ -20,28 +20,29 @@ namespace ShopOnline.Application.Dapper.Implements
         }
         public async Task<IEnumerable<RevenueReportViewModel>> GetReportAsync(string fromDate, string toDate)
         {
-            using (var sqlConnection = new SqlConnection(_configuration.GetConnectionString("DefaultConnection")))
-            {
-                await sqlConnection.OpenAsync();
-                var dynamicParameters = new DynamicParameters();
-                var now = DateTime.Now;
+            return null;
+            //using (var sqlConnection = new SqlConnection(_configuration.GetConnectionString("DefaultConnection")))
+            //{
+            //    await sqlConnection.OpenAsync();
+            //    var dynamicParameters = new DynamicParameters();
+            //    var now = DateTime.Now;
 
-                var firstDayOfMonth = new DateTime(now.Year, now.Month, 1);
-                var lastDayOfMonth = firstDayOfMonth.AddMonths(1).AddDays(-1);
+            //    var firstDayOfMonth = new DateTime(now.Year, now.Month, 1);
+            //    var lastDayOfMonth = firstDayOfMonth.AddMonths(1).AddDays(-1);
 
-                dynamicParameters.Add("@fromDate", string.IsNullOrEmpty(fromDate) ? firstDayOfMonth.ToString("MM/dd/yyyy") : fromDate);
-                dynamicParameters.Add("@toDate", string.IsNullOrEmpty(toDate) ? lastDayOfMonth.ToString("MM/dd/yyyy") : toDate);
+            //    dynamicParameters.Add("@fromDate", string.IsNullOrEmpty(fromDate) ? firstDayOfMonth.ToString("MM/dd/yyyy") : fromDate);
+            //    dynamicParameters.Add("@toDate", string.IsNullOrEmpty(toDate) ? lastDayOfMonth.ToString("MM/dd/yyyy") : toDate);
 
-                try
-                {
-                    return await sqlConnection.QueryAsync<RevenueReportViewModel>(
-                        "GetRevenueDaily", dynamicParameters, commandType: CommandType.StoredProcedure);
-                }
-                catch (Exception ex)
-                {
-                    throw;
-                }
-            }
+            //    try
+            //    {
+            //        return await sqlConnection.QueryAsync<RevenueReportViewModel>(
+            //            "GetRevenueDaily", dynamicParameters, commandType: CommandType.StoredProcedure);
+            //    }
+            //    catch (Exception ex)
+            //    {
+            //        throw;
+            //    }
+            //}
         }
     }
 }

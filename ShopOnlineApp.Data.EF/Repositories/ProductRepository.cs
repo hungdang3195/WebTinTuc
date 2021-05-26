@@ -26,7 +26,7 @@ namespace ShopOnlineApp.Data.EF.Repositories
         }
         public async Task<IEnumerable<Product>> FindProductsAsync(string name,int page, int pageSize = 5)
         {
-            var data= await this._context.Products.AsNoTracking().FromSql($"GetProductsByName {name} ").ToListAsync();
+            var data= await this._context.Products.FromSqlRaw($"GetProductsByName {name} ").ToListAsync();
             return data?.OrderByDescending(x => x.Price).Skip(page * pageSize).Take(pageSize);
         }
 

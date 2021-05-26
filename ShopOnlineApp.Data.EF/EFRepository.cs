@@ -11,11 +11,11 @@ namespace ShopOnlineApp.Data.EF
 {
     public class EFRepository<T, K> : IRepository<T, K>, IDisposable where T : DomainEntity<K>
     {
-        public readonly AppDbContext _context;
+        protected  AppDbContext _context;
 
         public EFRepository(AppDbContext context)
         {
-            _context = context;
+            _context = context ?? throw new ArgumentException(nameof(context)); ;
         }
         public async Task Add(T entity)
         {

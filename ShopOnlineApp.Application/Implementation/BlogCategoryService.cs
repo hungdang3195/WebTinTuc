@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using AutoMapper.QueryableExtensions;
 using Microsoft.EntityFrameworkCore;
 using ShopOnlineApp.Application.Interfaces;
@@ -16,12 +17,14 @@ namespace ShopOnlineApp.Application.Implementation
     {
         private readonly IBlogCategoryRepository _blogCategoryRepository;
         private readonly IUnitOfWork _unitOfWork;
+        private readonly IConfigurationProvider _mapConfig;
 
         public BlogCategoryService(IBlogCategoryRepository blogCategoryRepository,
-            IUnitOfWork unitOfWork, IBlogRepository blogRepository)
+            IUnitOfWork unitOfWork, IBlogRepository blogRepository, IConfigurationProvider mapConfig)
         {
             _blogCategoryRepository = blogCategoryRepository;
             _unitOfWork = unitOfWork;
+            _mapConfig = mapConfig;
         }
 
         public async Task<BlogCategoryViewModel> Add(BlogCategoryViewModel blogCategoryVm)
@@ -58,10 +61,10 @@ namespace ShopOnlineApp.Application.Implementation
             if (!string.IsNullOrEmpty(keyword))
                 return (await _blogCategoryRepository.FindAll(x => x.Name.Contains(keyword)
                 || x.Description.Contains(keyword)))
-                    .OrderBy(x => x.ParentId).AsNoTracking().ProjectTo<BlogCategoryViewModel>().ToList();
+                    .OrderBy(x => x.ParentId).AsNoTracking().ProjectTo<BlogCategoryViewModel>(_mapConfig).ToList();
 
             return (await _blogCategoryRepository.FindAll()).AsNoTracking().OrderBy(x => x.ParentId)
-                .ProjectTo<BlogCategoryViewModel>()
+                .ProjectTo<BlogCategoryViewModel>(_mapConfig)
                 .ToList();
         }
 

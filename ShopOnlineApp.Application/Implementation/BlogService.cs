@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using AutoMapper.QueryableExtensions;
 using Microsoft.EntityFrameworkCore;
 using ShopOnlineApp.Application.Interfaces;
@@ -26,20 +27,21 @@ namespace ShopOnlineApp.Application.Implementation
         private readonly IBlogTagRepository _blogTagRepository;
         private readonly IUnitOfWork _unitOfWork;
         private readonly IBlogCategoryRepository _categoryRepository;
-
+        private readonly IConfigurationProvider _mapperConfig;
         #endregion
 
         #region Constructor
         public BlogService(IBlogRepository blogRepository,
             IBlogTagRepository blogTagRepository,
             ITagRepository tagRepository,
-            IUnitOfWork unitOfWork, IBlogCategoryRepository categoryRepository)
+            IUnitOfWork unitOfWork, IBlogCategoryRepository categoryRepository, IConfigurationProvider mapperConfig)
         {
             _blogRepository = blogRepository;
             _blogTagRepository = blogTagRepository;
             _tagRepository = tagRepository;
             _unitOfWork = unitOfWork;
             _categoryRepository = categoryRepository;
+            _mapperConfig = mapperConfig;
         }
         #endregion
 
@@ -260,7 +262,7 @@ namespace ShopOnlineApp.Application.Implementation
         {
             return (await _blogTagRepository.FindAll(x => x.BlogId == id, c => c.Tag))
                 .Select(y => y.Tag)
-                .ProjectTo<TagViewModel>()
+                .ProjectTo<TagViewModel>(_mapperConfig)
                 .ToList();
         }
 

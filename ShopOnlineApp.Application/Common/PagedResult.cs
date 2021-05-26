@@ -9,7 +9,6 @@ namespace ShopOnlineApp.Application.Common
         {
             Results = new List<T>();
         }
-        public IList<T> Results { get; set; }
     }
 
 }
