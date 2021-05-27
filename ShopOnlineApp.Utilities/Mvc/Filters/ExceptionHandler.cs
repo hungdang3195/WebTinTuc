@@ -1,8 +1,10 @@
 ﻿using System;
 using FluentValidation;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
+using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
 namespace ShopOnlineApp.Utilities.Mvc.Filters
@@ -10,11 +12,13 @@ namespace ShopOnlineApp.Utilities.Mvc.Filters
     public class ExceptionHandler : ExceptionFilterAttribute
     {
         private readonly ILogger<ExceptionHandler> _logger;
-
-        public ExceptionHandler(ILogger<ExceptionHandler> logger)
+        private readonly IHostEnvironment _hostingEnvironment;
+        public ExceptionHandler(ILogger<ExceptionHandler> logger, IHostEnvironment hostingEnvironment)
         {
             _logger = logger;
+            _hostingEnvironment = hostingEnvironment;
         }
+       
 
         public override void OnException(ExceptionContext context)
         {
@@ -41,10 +45,9 @@ namespace ShopOnlineApp.Utilities.Mvc.Filters
                     {
                         var problemDetails = new ValidationProblemDetails(context.ModelState);
                         problemDetails.Detail = invalidOperationException.Message;
-
                         context.Result = new ObjectResult(problemDetails)
                         {
-                            StatusCode = StatusCodes.Status400BadRequest
+                            StatusCode = StatusCodes.Status400BadRequest,
                         };
                         context.ExceptionHandled = true;
                         return;
@@ -68,9 +71,20 @@ namespace ShopOnlineApp.Utilities.Mvc.Filters
                     }
 
                 default:
-                    _logger.LogError(context.Exception, "Exception thrown but no one can catch it");
+                    string stack = string.Empty;
+                    if (!_hostingEnvironment.IsProduction())
+                    {
+                        stack = context.Exception.StackTrace;
+                    }
+                    context.Result = new JsonResult(new
+                    {
+                        error = new[] { context.Exception.Message },
+                        stackTrace = stack
+                    });
+                    context.HttpContext.Response.StatusCode = StatusCodes.Status500InternalServerError;
                     break;
             }
+            base.OnException(context);
         }
     }
 }

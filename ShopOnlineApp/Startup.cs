@@ -61,9 +61,9 @@ namespace ShopOnlineApp
                  options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection"),
                  o => o.MigrationsAssembly("ShopOnlineApp.Data.EF")));
 
-             services.AddIdentity<AppUser, AppRole>()
-                .AddEntityFrameworkStores<AppDbContext>()
-                .AddDefaultTokenProviders();
+            services.AddIdentity<AppUser, AppRole>()
+               .AddEntityFrameworkStores<AppDbContext>()
+               .AddDefaultTokenProviders();
             services.Configure<CloudinaryImage>(Configuration.GetSection("CloudinarySettings"));
 
             services.AddSession(options =>
@@ -125,7 +125,6 @@ namespace ShopOnlineApp
             services.AddInitializationStages();
             services.AddMvc(options =>
                 {
-                    options.Filters.Add<ExceptionHandler>();
                     options.CacheProfiles.Add("Default",
                         new CacheProfile
                         {
@@ -143,7 +142,10 @@ namespace ShopOnlineApp
                 .AddDataAnnotationsLocalization()
                 .AddApplicationPart(typeof(BlogController).Assembly);
 
-            services.AddControllers().AddNewtonsoftJson(options =>
+            services.AddControllers(options =>
+            {
+                options.Filters.Add<ExceptionHandler>();
+            }).AddNewtonsoftJson(options =>
             {
 
                 options.SerializerSettings.ContractResolver = new DefaultContractResolver();
@@ -236,7 +238,7 @@ namespace ShopOnlineApp
             //});
 
             //Config system
-            services.AddCors(options => options.AddPolicy("CorsPolicy", builder => { builder.AllowAnyMethod().AllowAnyHeader().WithOrigins("http://localhost:44344", "http://localhost:3000", "http://sandbox.vnpayment.vn/paymentv2/vpcpay.html", "https://merchant.vnpay.vn/merchant_webapi/merchant.html").AllowCredentials(); }));
+            //services.AddCors(options => options.AddPolicy("CorsPolicy", builder => { builder.AllowAnyMethod().AllowAnyHeader().WithOrigins("http://localhost:44344", "http://localhost:3000", "http://sandbox.vnpayment.vn/paymentv2/vpcpay.html", "https://merchant.vnpay.vn/merchant_webapi/merchant.html").AllowCredentials(); }));
 
             //services.AddMvc(options=> {
             //    options.Filters.Add<ExceptionHandler>();

@@ -14,7 +14,7 @@ namespace ShopOnlineApp.Controllers
     {
         private readonly IProductService _productService;
         private readonly IProductCategoryService _productCategoryService;
-        private  readonly IBlogService _blogService;
+        private readonly IBlogService _blogService;
         private readonly ICommonService _commonService;
         private readonly IStringLocalizer<HomeController> _localizer;
 
@@ -29,20 +29,20 @@ namespace ShopOnlineApp.Controllers
             _localizer = localizer;
         }
 
-        public async Task<IActionResult>  Index()
+        public async Task<IActionResult> Index()
         {
             var title = _localizer["Title"];
-           var culture = HttpContext.Features.Get<IRequestCultureFeature>().RequestCulture.Culture.Name;
+            var culture = HttpContext.Features.Get<IRequestCultureFeature>().RequestCulture.Culture.Name;
 
             ViewData["BodyClass"] = "cms-index-index cms-home-page";
             var homeVm = new HomeViewModel();
-            homeVm.HomeCategories =await _productCategoryService.GetHomeCategories(5);
-            homeVm.HotProducts =await _productService.GetHotProduct(5);
-            homeVm.TopSellProducts =await _productService.GetLastest(5);
-            homeVm.NewProducts =await _productService.GetLastest(6);
-            homeVm.TopRateProducts =await _productService.GetRatingProducts(3);
-            homeVm.LastestBlogs =await _blogService.GetLastest(5);
-            homeVm.HomeSlides =await _commonService.GetSlides("top");
+            homeVm.HomeCategories = await _productCategoryService.GetHomeCategories(5);
+            homeVm.HotProducts = await _productService.GetHotProduct(5);
+            homeVm.TopSellProducts = await _productService.GetLastest(5);
+            homeVm.NewProducts = await _productService.GetLastest(6);
+            homeVm.TopRateProducts = await _productService.GetRatingProducts(3);
+            homeVm.LastestBlogs = await _blogService.GetLastest(5);
+            homeVm.HomeSlides = await _commonService.GetSlides("top");
             return View(homeVm);
         }
 
