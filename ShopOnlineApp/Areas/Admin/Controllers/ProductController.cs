@@ -10,17 +10,13 @@ using System.IO;
 using System.Linq;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
-using CloudinaryDotNet;
-using CloudinaryDotNet.Actions;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Options;
 using ShopOnlineApp.Application.Interfaces;
 using ShopOnlineApp.Application.ViewModels.Product;
 using ShopOnlineApp.Authorization;
-using ShopOnlineApp.Models;
 using ShopOnlineApp.Utilities.Helpers;
-
+using ShopOnlineApp.Application.Filter;
 namespace ShopOnlineApp.Areas.Admin.Controllers
 {
     //[CheckPermission]

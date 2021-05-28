@@ -20,6 +20,7 @@ using Newtonsoft.Json.Serialization;
 using PaulMiami.AspNetCore.Mvc.Recaptcha;
 using ShopOnline.Application.Dapper.Implements;
 using ShopOnline.Application.Dapper.Interfaces;
+using ShopOnlineApp.Application.Filter;
 using ShopOnlineApp.Application.Implementation;
 using ShopOnlineApp.Application.Interfaces;
 using ShopOnlineApp.Areas.Admin.Controllers;
@@ -244,6 +245,7 @@ namespace ShopOnlineApp
             //    options.Filters.Add<ExceptionHandler>();
             //});
             services.AddTransient<IAuthorizationHandler, BaseResourceAuthorizationHandler>();
+            services.AddTransient<EnsureProductExistsFilter>();
 
             services.AddSignalR();
         }
