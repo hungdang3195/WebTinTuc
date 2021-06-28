@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using ShopOnlineApp.Data.EF;
 using System.Linq;
 
 namespace ShopOnlineApp.Initialization
@@ -15,7 +16,7 @@ namespace ShopOnlineApp.Initialization
 
                 foreach (var stage in scope.ServiceProvider.GetServices<IStage>().OrderBy(t => t.Order))
                 {
-                    stage.ExecuteAsync().Wait();
+                    stage.ExecuteAsync().GetAwaiter().GetResult();
                 }
             }
 

@@ -16,7 +16,7 @@ namespace ShopOnlineApp.Data.EF
 {
     public class AppDbContext : IdentityDbContext<AppUser, AppRole, Guid>
     {
-        public AppDbContext(DbContextOptions options) : base(options)
+        public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {
 
         }

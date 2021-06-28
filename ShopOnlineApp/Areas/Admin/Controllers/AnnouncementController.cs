@@ -17,7 +17,7 @@ namespace ShopOnlineApp.Areas.Admin.Controllers
         public IActionResult GetAllPaging(int page, int pageSize)
         {
             var model = _announcementService.GetAllUnReadPaging(User.GetUserId(), page, pageSize);
-            return new OkObjectResult(model);
+            return new OkObjectResult(new { });
         }
 
         [HttpPost]

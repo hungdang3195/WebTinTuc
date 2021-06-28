@@ -25,7 +25,7 @@ namespace ShopOnlineApp.Areas.Admin.Controllers
         #region public  property 
         private readonly IProductService _productService;
         private readonly IConfiguration _configuration;
-    
+
         private readonly IProductCategoryService _productCategoryService;
         private readonly IBillService _billService;
         private readonly IAuthorizationService _authorizationService;
@@ -50,8 +50,8 @@ namespace ShopOnlineApp.Areas.Admin.Controllers
                 return new RedirectResult("/Admin/Authentication/NoAuthenication");
             return View();
         }
-        
-        public async  Task<IActionResult>  GetAll()
+
+        public async Task<IActionResult> GetAll()
         {
             var model = await _productService.GetAll();
             return new OkObjectResult(model);
@@ -60,8 +60,8 @@ namespace ShopOnlineApp.Areas.Admin.Controllers
         public async Task<IActionResult> GetAllPaging(ProductRequest request)
         {
             var model = await _productService.GetAllPaging(request);
-            
-            return  new OkObjectResult(model);
+
+            return new OkObjectResult(model);
 
         }
         [HttpGet]
@@ -72,7 +72,7 @@ namespace ShopOnlineApp.Areas.Admin.Controllers
             return new OkObjectResult(model);
         }
         [HttpPost]
-        public async Task<IActionResult>  ExportExcel()
+        public async Task<IActionResult> ExportExcel()
         {
             string sWebRootFolder = _hostingEnvironment.WebRootPath;
             string directory = Path.Combine(sWebRootFolder, "export-files");
@@ -88,7 +88,7 @@ namespace ShopOnlineApp.Areas.Admin.Controllers
                 file.Delete();
                 file = new FileInfo(Path.Combine(sWebRootFolder, sFileName));
             }
-            var products =await _productService.GetAll();
+            var products = await _productService.GetAll();
             using (ExcelPackage package = new ExcelPackage(file))
             {
                 // add a new worksheet to the empty workbook
@@ -125,7 +125,7 @@ namespace ShopOnlineApp.Areas.Admin.Controllers
         }
 
 
-         [HttpPost]
+        [HttpPost]
         public IActionResult ImportExcel(IList<IFormFile> files, int categoryId)
         {
             if (files != null && files.Count > 0)
@@ -214,6 +214,6 @@ namespace ShopOnlineApp.Areas.Admin.Controllers
             var wholePrices = _productService.GetWholePrices(productId);
             return new OkObjectResult(wholePrices);
         }
-      
+
     }
 }

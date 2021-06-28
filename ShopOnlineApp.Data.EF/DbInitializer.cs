@@ -241,7 +241,7 @@ namespace ShopOnlineApp.Data.EF
                 {
                     Id = "HomeTitle",
                     Name = "Tiêu đề trang chủ",
-                    Value1 = "Trang chủ TeduShop",
+                    Value1 = "Trang chủ Shop",
                     Status = Status.Active
                 });
             }
@@ -251,7 +251,7 @@ namespace ShopOnlineApp.Data.EF
                 {
                     Id = "HomeMetaKeyword",
                     Name = "Từ khoá trang chủ",
-                    Value1 = "Trang chủ TeduShop",
+                    Value1 = "Trang chủ Shop",
                     Status = Status.Active
                 });
             }
@@ -261,7 +261,7 @@ namespace ShopOnlineApp.Data.EF
                 {
                     Id = "HomeMetaDescription",
                     Name = "Mô tả trang chủ",
-                    Value1 = "Trang chủ TeduShop",
+                    Value1 = "Trang chủ Shop",
                     Status = Status.Active
                 });
             }

@@ -60,7 +60,10 @@ namespace ShopOnlineApp
 
             services.AddDbContext<AppDbContext>(options =>
                  options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection"),
-                 o => o.MigrationsAssembly("ShopOnlineApp.Data.EF")));
+                 o => {
+                     o.EnableRetryOnFailure();
+                     o.MigrationsAssembly("ShopOnlineApp.Data.EF");
+                 }));
 
             services.AddIdentity<AppUser, AppRole>()
                .AddEntityFrameworkStores<AppDbContext>()
