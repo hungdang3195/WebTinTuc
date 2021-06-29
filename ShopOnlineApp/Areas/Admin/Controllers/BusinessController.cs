@@ -15,7 +15,7 @@ using ShopOnlineApp.Utilities;
 
 namespace ShopOnlineApp.Areas.Admin.Controllers
 {
-   
+
     public class BusinessController : BaseController
     {
         private readonly AppDbContext _context;
@@ -28,32 +28,32 @@ namespace ShopOnlineApp.Areas.Admin.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult>  Index()
-        {   
+        public async Task<IActionResult> Index()
+        {
             var businesss = await _businessService.GetAll();
 
             var businnesDiff = businesss.Select(x => x.Id).ToList().Except(ExceptController.Except());
 
-            List<BusinessViewModel> businessVm = new List<BusinessViewModel>();
+            List<BusinessViewModel> businessVm = new();
 
             foreach (var item in businnesDiff)
             {
-                businessVm.Add(businesss.SingleOrDefault(x=>x.Id==item));
+                businessVm.Add(businesss.SingleOrDefault(x => x.Id == item));
             }
 
             return View(businessVm);
         }
 
         [HttpGet]
-        public IActionResult GetById(string id)
+        public async Task<IActionResult> GetById(string id)
         {
-            var item = _businessService.GetByIdAsync(id);
+            var item = await _businessService.GetByIdAsync(id);
             return new OkObjectResult(item);
         }
         [HttpPost]
-        public ActionResult Delete(string id)
+        public async Task<ActionResult> Delete(string id)
         {
-            _businessService.Delete(id);
+            await _businessService.Delete(id);
             return new OkObjectResult(true);
         }
 
@@ -103,8 +103,6 @@ namespace ShopOnlineApp.Areas.Admin.Controllers
         public async Task<ActionResult> GetAllPaging(BusinessRequest request)
         {
             var items = await _businessService.GetAllPagingAsync(request);
-
-
             return new OkObjectResult(items);
         }
 
@@ -123,7 +121,7 @@ namespace ShopOnlineApp.Areas.Admin.Controllers
             }
             else
             {
-                 _businessService.Update(businessVm);
+                _businessService.Update(businessVm);
             }
             return new OkObjectResult(businessVm);
         }

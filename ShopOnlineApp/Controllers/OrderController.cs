@@ -16,16 +16,16 @@ namespace ShopOnlineApp.Controllers
             _billService = billService;
         }
         [Route("orders-list.html")]
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            var orderList = _billService.GetOrdersByCustomer(User.GetUserId());
+            var orderList = await _billService.GetOrdersByCustomer(User.GetUserId());
             return View(orderList);
         }
 
         [Route("order.{id}.html")]
-        public IActionResult Detail(int id)
+        public async Task<IActionResult> Detail(int id)
         {
-            var orderDetail = _billService.GetDetail(id);
+            var orderDetail = await _billService.GetDetail(id);
             return View(orderDetail);
         }
     }

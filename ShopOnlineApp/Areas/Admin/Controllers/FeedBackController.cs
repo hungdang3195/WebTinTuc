@@ -20,20 +20,20 @@ namespace ShopOnlineApp.Areas.Admin.Controllers
         {
             return View();
         }
-        public IActionResult GetAllPaging(FeedbackRequest request)
+        public async Task<IActionResult> GetAllPaging(FeedbackRequest request)
         {
-            var model = _feedbackService.GetAllPaging(request);
+            var model = await _feedbackService.GetAllPaging(request);
             return new OkObjectResult(model);
         }
 
         [HttpPost]
-        public IActionResult Delete(int id)
+        public async Task<IActionResult> Delete(int id)
         {
             if (!ModelState.IsValid)
             {
                 return new BadRequestObjectResult(ModelState);
             }
-            _feedbackService.Delete(id);
+            await _feedbackService.Delete(id);
             _feedbackService.SaveChanges();
             return new OkObjectResult(id);
         }

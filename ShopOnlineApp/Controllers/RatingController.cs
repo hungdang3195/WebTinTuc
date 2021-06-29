@@ -3,6 +3,7 @@ using ShopOnlineApp.Application.Interfaces;
 using ShopOnlineApp.Application.ViewModels.Rating;
 using ShopOnlineApp.Extensions;
 using ShopOnlineApp.Utilities.Constants;
+using System.Threading.Tasks;
 
 namespace ShopOnlineApp.Controllers
 {
@@ -17,17 +18,17 @@ namespace ShopOnlineApp.Controllers
         {
             return View();
         }
-        public IActionResult GetAll(RateRequest request)
+        public async Task<IActionResult> GetAll(RateRequest request)
         {
-            var allRates = _ratingService.GetAllPaging(request);
+            var allRates = await _ratingService.GetAllPaging(request);
 
             return new OkObjectResult(allRates);
         }
         [HttpPost]
-        public IActionResult Rating(RatingViewModel rate)
+        public async Task<IActionResult> Rating(RatingViewModel rate)
         {
             rate.ProductId = HttpContext.Session.Get<int>(CommonConstants.ProductId);
-            _ratingService.Add(rate);
+            await _ratingService.Add(rate);
             return new OkObjectResult(rate);
         }
     }

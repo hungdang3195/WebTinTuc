@@ -12,7 +12,7 @@ namespace ShopOnlineApp.Initialization
 {
     public class DbInitializer : IStage
     {
-        public int Order => 1;
+        public int Order => 2;
 
         private readonly AppDbContext _context;
         private readonly UserManager<AppUser> _userManager;

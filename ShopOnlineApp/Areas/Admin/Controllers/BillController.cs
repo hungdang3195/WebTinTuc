@@ -31,27 +31,27 @@ namespace ShopOnlineApp.Areas.Admin.Controllers
         }
 
         [HttpGet]
-        public IActionResult GetById(int id)
+        public async Task<IActionResult> GetById(int id)
         {
-            var model = _billService.GetDetail(id);
+            var model = await _billService.GetDetail(id);
 
             return new OkObjectResult(model);
         }
         [HttpGet]
-        public IActionResult UpdateStatus(int billId, BillStatus status)
+        public async Task<IActionResult> UpdateStatus(int billId, BillStatus status)
         {
-            _billService.UpdateStatus(billId, status);
+            await _billService.UpdateStatus(billId, status);
 
             return new OkResult();
         }
         [HttpPost]
-        public IActionResult GetAllPaging(BillRequest request)
+        public async Task<IActionResult> GetAllPaging(BillRequest request)
         {
-            var model = _billService.GetAllPaging(request);
+            var model = await _billService.GetAllPaging(request);
             return new OkObjectResult(model);
         }
         [HttpPost]
-        public IActionResult SaveEntity(BillViewModel billVm)
+        public async Task<IActionResult> SaveEntity(BillViewModel billVm)
         {
             if (!ModelState.IsValid)
             {
@@ -60,11 +60,11 @@ namespace ShopOnlineApp.Areas.Admin.Controllers
             }
             if (billVm.Id == 0)
             {
-                _billService.Create(billVm);
+                await _billService.Create(billVm);
             }
             else
             {
-                _billService.Update(billVm);
+                await _billService.Update(billVm);
             }
             _billService.Save();
             return new OkObjectResult(billVm);
@@ -94,20 +94,20 @@ namespace ShopOnlineApp.Areas.Admin.Controllers
         }
 
         [HttpGet]
-        public IActionResult GetColors()
+        public async Task<IActionResult> GetColors()
         {
-            var colors = _billService.GetColors();
+            var colors = await _billService.GetColors();
             return new OkObjectResult(colors);
         }
 
         [HttpGet]
-        public IActionResult GetSizes()
+        public async Task<IActionResult> GetSizes()
         {
-            var sizes = _billService.GetSizes();
+            var sizes = await _billService.GetSizes();
             return new OkObjectResult(sizes);
         }
         [HttpPost]
-        public async Task<IActionResult>  ExportExcel(int billId)
+        public async Task<IActionResult> ExportExcel(int billId)
         {
             string sWebRootFolder = _hostingEnvironment.WebRootPath;
             string sFileName = $"Bill_{billId}.xlsx";
@@ -128,7 +128,7 @@ namespace ShopOnlineApp.Areas.Admin.Controllers
                     // add a new worksheet to the empty workbook
                     ExcelWorksheet worksheet = package.Workbook.Worksheets["TEDUOrder"];
                     // Data Acces, load order header data.
-                    var billDetail =await _billService.GetDetail(billId);
+                    var billDetail = await _billService.GetDetail(billId);
 
                     // Insert customer data into template
                     worksheet.Cells[4, 1].Value = "Customer Name: " + billDetail.CustomerName;
@@ -138,7 +138,7 @@ namespace ShopOnlineApp.Areas.Admin.Controllers
                     int rowIndex = 9;
 
                     // load order details
-                    var orderDetails =await _billService.GetBillDetails(billId);
+                    var orderDetails = await _billService.GetBillDetails(billId);
                     int count = 1;
                     foreach (var orderDetail in orderDetails)
                     {

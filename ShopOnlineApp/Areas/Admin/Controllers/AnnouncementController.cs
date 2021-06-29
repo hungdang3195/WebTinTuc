@@ -2,6 +2,7 @@
 using ShopOnlineApp.Application.Interfaces;
 using ShopOnlineApp.Application.ViewModels.Annoucement;
 using ShopOnlineApp.Extensions;
+using System.Threading.Tasks;
 
 namespace ShopOnlineApp.Areas.Admin.Controllers
 {
@@ -14,25 +15,25 @@ namespace ShopOnlineApp.Areas.Admin.Controllers
             _announcementService = announcementService;
         }
         [HttpGet]
-        public IActionResult GetAllPaging(int page, int pageSize)
+        public async Task<IActionResult> GetAllPaging(int page, int pageSize)
         {
-            var model = _announcementService.GetAllUnReadPaging(User.GetUserId(), page, pageSize);
-            return new OkObjectResult(new { });
+            var model = await _announcementService.GetAllUnReadPaging(User.GetUserId(), page, pageSize);
+            return new OkObjectResult(model);
         }
 
         [HttpPost]
-        public IActionResult MarkAsRead(string id)
+        public async Task<IActionResult> MarkAsRead(string id)
         {
-            var result = _announcementService.MarkAsRead(User.GetUserId(), id);
+            var result =await _announcementService.MarkAsRead(User.GetUserId(), id);
             return new OkObjectResult(result);
         }
 
         [HttpPost]
-        public IActionResult CreateAnnoucement(AnnouncementViewModel announcementViewModel)
+        public async Task<IActionResult> CreateAnnoucement(AnnouncementViewModel announcementViewModel)
         {
             if (announcementViewModel != null)
             {
-                _announcementService.AddAnnoucement(announcementViewModel);
+               await _announcementService.AddAnnoucement(announcementViewModel);
             }
 
             return new  OkObjectResult("");

@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using ShopOnlineApp.Application.Interfaces;
@@ -19,31 +21,31 @@ namespace ShopOnlineApp.Areas.Admin.Controllers
         {
             return View();
         }
-        public IActionResult GetAll()
+        public async Task<IActionResult> GetAll()
         {
             //var dataReturn = await _productService.GetAll();
-            var model = _sizeService.GetAll();
+            var model = await _sizeService.GetAll();
             return new OkObjectResult(model);
         }
 
-        public IActionResult GetAllPaging(SizeRequest request)
+        public async Task<IActionResult> GetAllPaging(SizeRequest request)
         {
-            var model = _sizeService.GetAllPaging(request);
+            var model = await _sizeService.GetAllPaging(request);
 
             return new OkObjectResult(model);
 
         }
 
         [HttpGet]
-        public IActionResult GetById(int id)
+        public async Task<IActionResult> GetById(int id)
         {
-            var model = _sizeService.GetById(id);
+            var model = await _sizeService.GetById(id);
 
             return new OkObjectResult(model);
         }
 
         [HttpPost]
-        public IActionResult SaveEntity(SizeViewModel sizeVm)
+        public async Task<IActionResult> SaveEntity(SizeViewModel sizeVm)
         {
             if (!ModelState.IsValid)
             {
@@ -54,11 +56,11 @@ namespace ShopOnlineApp.Areas.Admin.Controllers
             {
                 if (sizeVm.Id == 0)
                 {
-                    _sizeService.Add(sizeVm);
+                    await _sizeService.Add(sizeVm);
                 }
                 else
                 {
-                    _sizeService.Update(sizeVm);
+                    await _sizeService.Update(sizeVm);
                 }
                 _sizeService.SaveChanges();
                 return new OkObjectResult(sizeVm);
@@ -66,13 +68,13 @@ namespace ShopOnlineApp.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        public IActionResult Delete(int id)
+        public async Task<IActionResult> Delete([Required] int id)
         {
             if (!ModelState.IsValid)
             {
                 return new BadRequestObjectResult(ModelState);
             }
-            _sizeService.Delete(id);
+            await _sizeService.Delete(id);
             _sizeService.SaveChanges();
             return new OkObjectResult(id);
         }

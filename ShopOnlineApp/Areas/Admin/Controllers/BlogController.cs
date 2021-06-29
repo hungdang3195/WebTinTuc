@@ -42,10 +42,10 @@ namespace ShopOnlineApp.Areas.Admin.Controllers
         {
             return View();
         }
-        public IActionResult GetAll()
+        public async Task<IActionResult> GetAll()
         {
             //var dataReturn = await _BlogService.GetAll();
-            var model =  _blogService.GetAll();
+            var model = await _blogService.GetAll();
             return new OkObjectResult(model);
         }
 
@@ -57,9 +57,9 @@ namespace ShopOnlineApp.Areas.Admin.Controllers
 
         }
         [HttpGet]
-        public IActionResult GetById(int id)
+        public async Task<IActionResult> GetById(int id)
         {
-            var model = _blogService.GetById(id);
+            var model = await _blogService.GetById(id);
 
             return new OkObjectResult(model);
         }
@@ -93,7 +93,7 @@ namespace ShopOnlineApp.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        public IActionResult SaveEntity(BlogViewModel blogVm)
+        public async Task<IActionResult> SaveEntity(BlogViewModel blogVm)
         {
             if (!ModelState.IsValid)
             {
@@ -105,11 +105,11 @@ namespace ShopOnlineApp.Areas.Admin.Controllers
                 blogVm.SeoAlias = TextHelper.ToUnsignString(blogVm.Name);
                 if (blogVm.Id == 0)
                 {
-                    _blogService.Add(blogVm);
+                    await _blogService.Add(blogVm);
                 }
                 else
                 {
-                    _blogService.Update(blogVm);
+                    await _blogService.Update(blogVm);
                 }
                 _blogService.Save();
                 return new OkObjectResult(blogVm);
@@ -148,7 +148,7 @@ namespace ShopOnlineApp.Areas.Admin.Controllers
         //}
 
         [HttpPost]
-        public IActionResult Delete(int id)
+        public async Task<IActionResult> Delete(int id)
         {
             if (!ModelState.IsValid)
             {
@@ -156,7 +156,7 @@ namespace ShopOnlineApp.Areas.Admin.Controllers
             }
             else
             {
-                _blogService.Delete(id);
+                await _blogService.Delete(id);
                 _blogService.Save();
 
                 return new OkObjectResult(id);

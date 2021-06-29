@@ -13,7 +13,7 @@ using ShopOnlineApp.Data.IRepositories;
 
 namespace ShopOnlineApp.Data.EF.Repositories
 {
-    public class ProductRepository : EFRepository<Product,int>, IProductRepository
+    public class ProductRepository : EFRepository<Product, int>, IProductRepository
     {
         private readonly Settings _settings;
         private readonly IDistributedCache _distributedCache;
@@ -24,13 +24,13 @@ namespace ShopOnlineApp.Data.EF.Repositories
             _distributedCache = distributedCache;
             _configuration = configuration;
         }
-        public async Task<IEnumerable<Product>> FindProductsAsync(string name,int page, int pageSize = 5)
+        public async Task<IEnumerable<Product>> FindProductsAsync(string name, int page, int pageSize = 5)
         {
-            var data= await this._context.Products.FromSqlRaw($"GetProductsByName {name} ").ToListAsync();
+            var data = await _context.Products.FromSqlRaw($"GetProductsByName {name} ").ToListAsync();
             return data?.OrderByDescending(x => x.Price).Skip(page * pageSize).Take(pageSize);
         }
 
-        public new  async Task<IQueryable<Product>> FindAllProductAsync(Expression<Func<Product, bool>> predicate,
+        public async Task<IQueryable<Product>> FindAllProductAsync(Expression<Func<Product, bool>> predicate,
             params Expression<Func<Product, object>>[] includeProperties)
         {
             IEnumerable<Product> products = null;

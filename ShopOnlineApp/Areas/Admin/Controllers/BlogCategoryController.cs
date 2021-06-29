@@ -35,9 +35,9 @@ namespace ShopOnlineApp.Areas.Admin.Controllers
         }
 
         [HttpGet]
-        public IActionResult GetById(int id)
+        public async Task<IActionResult> GetById(int id)
         {
-            var items = _blogCategoryService.GetById(id);
+            var items = await _blogCategoryService.GetById(id);
             if (items != null)
             {
                 return new OkObjectResult(items);
@@ -47,21 +47,21 @@ namespace ShopOnlineApp.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        public IActionResult Delete(int id)
+        public async Task<IActionResult> Delete(int id)
         {
             if (id == 0)
             {
                 return new BadRequestResult();
             }
 
-            _blogCategoryService.Delete(id);
+            await _blogCategoryService.Delete(id);
             _unitOfWork.Commit();
             return new OkObjectResult(id);
         }
 
 
         [HttpPost]
-        public IActionResult SaveEntity(BlogCategoryViewModel BlogVm)
+        public async Task<IActionResult> SaveEntity(BlogCategoryViewModel BlogVm)
         {
             if (!ModelState.IsValid)
             {
@@ -72,16 +72,16 @@ namespace ShopOnlineApp.Areas.Admin.Controllers
             BlogVm.SeoAlias = TextHelper.ToUnsignString(BlogVm.Name);
             if (BlogVm.Id == 0)
             {
-                _blogCategoryService.Add(BlogVm);
+                await _blogCategoryService.Add(BlogVm);
             }
             else
             {
-                _blogCategoryService.Update(BlogVm);
+                await _blogCategoryService.Update(BlogVm);
             }
             _unitOfWork.Commit();
             return new OkObjectResult(BlogVm);
         }
-        public IActionResult UpdateParentId(int sourceId, int targetId, Dictionary<int, int> items)
+        public async Task<IActionResult> UpdateParentId(int sourceId, int targetId, Dictionary<int, int> items)
         {
 
             if (!ModelState.IsValid)
@@ -94,12 +94,12 @@ namespace ShopOnlineApp.Areas.Admin.Controllers
                 return new BadRequestObjectResult(ModelState);
             }
 
-            _blogCategoryService.UpdateParentId(sourceId, targetId, items);
+            await _blogCategoryService.UpdateParentId(sourceId, targetId, items);
             _unitOfWork.Commit();
             return new OkResult();
         }
 
-        public IActionResult ReOrder(int sourceId, int targetId)
+        public async Task<IActionResult> ReOrder(int sourceId, int targetId)
         {
             if (!ModelState.IsValid)
             {
@@ -111,7 +111,7 @@ namespace ShopOnlineApp.Areas.Admin.Controllers
                 return new BadRequestObjectResult(ModelState);
             }
 
-            _blogCategoryService.ReOrder(sourceId, targetId);
+            await _blogCategoryService.ReOrder(sourceId, targetId);
             _unitOfWork.Commit();
             return new OkResult();
         }

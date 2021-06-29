@@ -16,7 +16,6 @@ namespace ShopOnlineApp.Areas.Admin.Controllers
         public IActionResult Index()
         {
             var getInfo = User.GetSpecificDefault("Email");
-
             return View();
         }
         public async Task<IActionResult> GetRevenue(string fromDate, string toDate)

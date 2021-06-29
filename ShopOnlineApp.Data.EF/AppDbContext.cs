@@ -110,20 +110,7 @@ namespace ShopOnlineApp.Data.EF
 
 
     }
-
-    //public class DesignTimeDbContextFactory : IDesignTimeDbContextFactory<AppDbContext>
-    //{
-    //    public AppDbContext CreateDbContext(string[] args)
-    //    {
-    //        IConfiguration configuration = new ConfigurationBuilder()
-    //            .SetBasePath(Directory.GetCurrentDirectory())
-    //            .AddJsonFile("appsettings.json").Build();
-    //        var builder = new DbContextOptionsBuilder<AppDbContext>();
-    //        var connectionString = configuration.GetConnectionString("DefaultConnection");
-    //        builder.UseNpgsql(connectionString);
-    //        return new AppDbContext(builder.Options);
-    //    }
-    //}
+        
     public class MyDbContextFactory : IDesignTimeDbContextFactory<AppDbContext>
     {
         AppDbContext IDesignTimeDbContextFactory<AppDbContext>.CreateDbContext(string[] args)

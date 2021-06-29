@@ -76,16 +76,16 @@ namespace ShopOnlineApp.Areas.Admin.Controllers
 
 
         [HttpPost]
-        public IActionResult ListAllFunction(Guid roleId)
+        public async Task<IActionResult> ListAllFunction(Guid roleId)
         {
-            var functions = _roleService.GetListFunctionWithRole(roleId);
+            var functions = await _roleService.GetListFunctionWithRole(roleId);
             return new OkObjectResult(functions);
         }
 
         [HttpPost]
-        public IActionResult SavePermission(List<PermissionViewModel> listPermmission, Guid roleId)
+        public async Task<IActionResult> SavePermission(List<PermissionViewModel> listPermmission, Guid roleId)
         {
-            _roleService.SavePermission(listPermmission, roleId);
+            await _roleService.SavePermission(listPermmission, roleId);
             return new OkResult();
         }
     }

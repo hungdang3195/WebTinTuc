@@ -34,9 +34,9 @@ namespace ShopOnlineApp.Areas.Admin.Controllers
                 return new RedirectResult("/Admin/Authentication/NoAuthenication");
             return View();
         }
-        public IActionResult GetAll()
+        public async Task<IActionResult> GetAll()
         {
-            var model = _userService.GetAllAsync();
+            var model = await _userService.GetAllAsync();
 
             return new OkObjectResult(model);
         }
@@ -84,7 +84,7 @@ namespace ShopOnlineApp.Areas.Admin.Controllers
             }
             else
             {
-                userVm.DateModified=DateTime.Now;
+                userVm.DateModified = DateTime.Now;
                 await _userService.UpdateAsync(userVm);
             }
 

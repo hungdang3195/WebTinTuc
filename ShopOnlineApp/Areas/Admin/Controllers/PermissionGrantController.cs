@@ -39,7 +39,7 @@ namespace ShopOnlineApp.Areas.Admin.Controllers
                         Value = item.Id
                     });
                 }
-               
+
             }
 
             ViewBag.items = items;
@@ -49,16 +49,16 @@ namespace ShopOnlineApp.Areas.Admin.Controllers
         }
 
         [HttpGet]
-        public IActionResult GetPermissions([FromQuery]string businessId, [FromQuery]Guid userId)
+        public async Task<IActionResult> GetPermissions([FromQuery] string businessId, [FromQuery] Guid userId)
         {
-            return new OkObjectResult(_permissionService.GetPermissons(businessId,userId));
+            return new OkObjectResult(await _permissionService.GetPermissons(businessId, userId));
         }
 
         [HttpGet]
-        public async Task<string>  UpdatePermission(int id, Guid userId)
+        public async Task<string> UpdatePermission(int id, Guid userId)
         {
             string message = "";
-            bool isCheck =await _permissionService.UpdatePermisson(id, userId);
+            bool isCheck = await _permissionService.UpdatePermisson(id, userId);
             if (isCheck)
             {
                 message = "<div class='alert alert-success'>Quyền cập nhật thành công </div>";

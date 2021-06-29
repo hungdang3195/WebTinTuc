@@ -18,7 +18,7 @@ namespace ShopOnlineApp.Areas.Admin.Controllers
 
         public FunctionController(IFunctionService functionService)
         {
-            this._functionService = functionService;
+            _functionService = functionService;
         }
 
         #endregion Initialize
@@ -29,9 +29,9 @@ namespace ShopOnlineApp.Areas.Admin.Controllers
         }
 
         [HttpGet]
-        public IActionResult GetAllFillter(string filter)
+        public async Task<IActionResult> GetAllFillter(string filter)
         {
-            var model = _functionService.GetAll(filter);
+            var model = await _functionService.GetAll(filter);
             return new ObjectResult(model);
         }
 
@@ -53,15 +53,15 @@ namespace ShopOnlineApp.Areas.Admin.Controllers
 
 
         [HttpGet]
-        public IActionResult GetById(string id)
+        public async Task<IActionResult> GetById(string id)
         {
-            var model = _functionService.GetById(id);
+            var model = await _functionService.GetById(id);
 
             return new ObjectResult(model);
         }
 
         [HttpPost]
-        public IActionResult SaveEntity(FunctionViewModel functionVm)
+        public async Task<IActionResult> SaveEntity(FunctionViewModel functionVm)
         {
             if (!ModelState.IsValid)
             {
@@ -71,11 +71,11 @@ namespace ShopOnlineApp.Areas.Admin.Controllers
 
             if (functionVm.IsUpdated)
             {
-                _functionService.Update(functionVm);
+                await _functionService.Update(functionVm);
             }
             else
             {
-                _functionService.Add(functionVm);
+                await _functionService.Add(functionVm);
             }
 
             _functionService.Save();
@@ -83,7 +83,7 @@ namespace ShopOnlineApp.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        public IActionResult UpdateParentId(string sourceId, string targetId, Dictionary<string, int> items)
+        public async Task<IActionResult> UpdateParentId(string sourceId, string targetId, Dictionary<string, int> items)
         {
             if (!ModelState.IsValid)
             {
@@ -97,7 +97,7 @@ namespace ShopOnlineApp.Areas.Admin.Controllers
                 }
                 else
                 {
-                    _functionService.UpdateParentId(sourceId, targetId, items);
+                    await _functionService.UpdateParentId(sourceId, targetId, items);
                     _functionService.Save();
                     return new OkResult();
                 }
@@ -105,7 +105,7 @@ namespace ShopOnlineApp.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        public IActionResult ReOrder(string sourceId, string targetId)
+        public async Task<IActionResult> ReOrder(string sourceId, string targetId)
         {
             if (!ModelState.IsValid)
             {
@@ -119,7 +119,7 @@ namespace ShopOnlineApp.Areas.Admin.Controllers
                 }
                 else
                 {
-                    _functionService.ReOrder(sourceId, targetId);
+                    await _functionService.ReOrder(sourceId, targetId);
                     _functionService.Save();
                     return new OkObjectResult(sourceId);
                 }
@@ -127,7 +127,7 @@ namespace ShopOnlineApp.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        public IActionResult Delete(string id)
+        public async Task<IActionResult> Delete(string id)
         {
             if (!ModelState.IsValid)
             {
@@ -135,7 +135,7 @@ namespace ShopOnlineApp.Areas.Admin.Controllers
             }
             else
             {
-                _functionService.Delete(id);
+                await _functionService.Delete(id);
                 _functionService.Save();
                 return new OkObjectResult(id);
             }

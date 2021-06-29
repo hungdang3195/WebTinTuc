@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using ShopOnlineApp.Application.Interfaces;
@@ -21,30 +22,30 @@ namespace ShopOnlineApp.Areas.Admin.Controllers
             return View();
         }
 
-        public IActionResult GetAll()
+        public async Task<IActionResult> GetAll()
         {
-            var model = _pageService.GetAll();
+            var model = await _pageService.GetAll();
 
             return new OkObjectResult(model);
         }
 
         [HttpGet]
-        public IActionResult GetById(int id)
+        public async Task<IActionResult> GetById(int id)
         {
-            var model = _pageService.GetById(id);
+            var model = await _pageService.GetById(id);
 
             return new OkObjectResult(model);
         }
 
         [HttpGet]
-        public IActionResult GetAllPaging(PageRequest request)
+        public async Task<IActionResult> GetAllPaging(PageRequest request)
         {
-            var model = _pageService.GetAllPaging(request);
+            var model = await _pageService.GetAllPaging(request);
             return new OkObjectResult(model);
         }
 
         [HttpPost]
-        public IActionResult SaveEntity(PageViewModel pageVm)
+        public async Task<IActionResult> SaveEntity(PageViewModel pageVm)
         {
             if (!ModelState.IsValid)
             {
@@ -53,24 +54,24 @@ namespace ShopOnlineApp.Areas.Admin.Controllers
             }
             if (pageVm.Id == 0)
             {
-                _pageService.Add(pageVm);
+                await _pageService.Add(pageVm);
             }
             else
             {
-                _pageService.Update(pageVm);
+                await _pageService.Update(pageVm);
             }
             _pageService.SaveChanges();
             return new OkObjectResult(pageVm);
         }
 
         [HttpPost]
-        public IActionResult Delete(int id)
+        public async Task<IActionResult> Delete(int id)
         {
             if (!ModelState.IsValid)
             {
                 return new BadRequestObjectResult(ModelState);
             }
-            _pageService.Delete(id);
+            await _pageService.Delete(id);
             _pageService.SaveChanges();
 
             return new OkObjectResult(id);

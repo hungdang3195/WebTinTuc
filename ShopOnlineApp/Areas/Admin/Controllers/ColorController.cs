@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using ShopOnlineApp.Application.Interfaces;
@@ -19,31 +20,29 @@ namespace ShopOnlineApp.Areas.Admin.Controllers
         {
             return View();
         }
-        public IActionResult GetAll()
+        public async Task<IActionResult> GetAll()
         {
             //var dataReturn = await _productService.GetAll();
-            var model = _colorService.GetAll();
+            var model = await _colorService.GetAll();
             return new OkObjectResult(model);
         }
 
-        public IActionResult GetAllPaging(ColorRequest request)
+        public async Task<IActionResult> GetAllPaging(ColorRequest request)
         {
-            var model =  _colorService.GetAllPaging(request);
-
+            var model = await _colorService.GetAllPaging(request);
             return new OkObjectResult(model);
-
         }
 
         [HttpGet]
-        public IActionResult GetById(int id)
+        public async Task<IActionResult> GetById(int id)
         {
-            var model = _colorService.GetById(id);
+            var model = await _colorService.GetById(id);
 
             return new OkObjectResult(model);
         }
 
         [HttpPost]
-        public IActionResult SaveEntity(ColorViewModel colorVm)
+        public async Task<IActionResult> SaveEntity(ColorViewModel colorVm)
         {
             if (!ModelState.IsValid)
             {
@@ -54,11 +53,11 @@ namespace ShopOnlineApp.Areas.Admin.Controllers
             {
                 if (colorVm.Id == 0)
                 {
-                    _colorService.Add(colorVm);
+                    await _colorService.Add(colorVm);
                 }
                 else
                 {
-                    _colorService.Update(colorVm);
+                    await _colorService.Update(colorVm);
                 }
                 _colorService.SaveChanges();
                 return new OkObjectResult(colorVm);
@@ -66,13 +65,13 @@ namespace ShopOnlineApp.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        public IActionResult Delete(int id)
+        public async Task<IActionResult> Delete(int id)
         {
             if (!ModelState.IsValid)
             {
                 return new BadRequestObjectResult(ModelState);
             }
-            _colorService.Delete(id);
+            await _colorService.Delete(id);
             _colorService.SaveChanges();
             return new OkObjectResult(id);
         }

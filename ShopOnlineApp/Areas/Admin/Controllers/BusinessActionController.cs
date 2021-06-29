@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using ShopOnlineApp.Application.Interfaces;
@@ -7,7 +8,7 @@ using ShopOnlineApp.Application.ViewModels.BusinessAction;
 
 namespace ShopOnlineApp.Areas.Admin.Controllers
 {
-    public class BusinessActionController:BaseController
+    public class BusinessActionController : BaseController
     {
         private readonly IBusinessActionService _actionService;
 
@@ -16,27 +17,27 @@ namespace ShopOnlineApp.Areas.Admin.Controllers
             _actionService = actionService;
         }
 
-        public IActionResult GetAll(BusinessActionRequest request)
+        public async Task<IActionResult> GetAll(BusinessActionRequest request)
         {
-            return new OkObjectResult(_actionService.GetAll(request));
+            return new OkObjectResult(await _actionService.GetAll(request));
         }
 
-        public IActionResult Index([FromQuery]string businessId)
+        public async Task<IActionResult> Index([FromQuery] string businessId)
         {
-            var items = _actionService.GetByBusinessIds(businessId);
+            var items = await _actionService.GetByBusinessIds(businessId);
             return View(items);
         }
 
         [HttpGet]
-        public IActionResult GetById(int id)
+        public async Task<IActionResult> GetById(int id)
         {
-            var currentAction = _actionService.GetByActionId(id);
+            var currentAction = await _actionService.GetByActionId(id);
             return new OkObjectResult(currentAction);
         }
 
 
         [HttpPost]
-        public IActionResult SaveEntity(BusinessActionViewModel businessVm)
+        public async Task<IActionResult> SaveEntity(BusinessActionViewModel businessVm)
         {
             if (!ModelState.IsValid)
             {
@@ -44,13 +45,13 @@ namespace ShopOnlineApp.Areas.Admin.Controllers
                 return new BadRequestObjectResult(allErrors);
             }
 
-            if (businessVm.Id == null)
+            if (businessVm.Id > 0)
             {
-                //await _businessService.AddAsync(businessVm);
+                await _actionService.Update(businessVm);
             }
             else
             {
-                _actionService.Update(businessVm);
+                await _actionService.Update(businessVm);
             }
             return new OkObjectResult(businessVm);
         }

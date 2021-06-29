@@ -12,7 +12,7 @@ using ShopOnlineApp.Utilities.Constants;
 
 namespace ShopOnlineApp.Controllers
 {
-    public class BlogCommentController:Controller
+    public class BlogCommentController : Controller
     {
         private readonly IBlogCommentService _blogCommentService;
         public BlogCommentController(IBlogCommentService blogCommentService)
@@ -23,17 +23,17 @@ namespace ShopOnlineApp.Controllers
         {
             return View();
         }
-        public IActionResult GetAll(BlogCommentRequest request)
+        public async Task<IActionResult> GetAll(BlogCommentRequest request)
         {
-            var allRates = _blogCommentService.GetAllPaging(request);
+            var allRates = await _blogCommentService.GetAllPaging(request);
 
             return new OkObjectResult(allRates);
         }
         [HttpPost]
-        public IActionResult Comment(BlogCommentViewModel rate)
+        public async Task<IActionResult> Comment(BlogCommentViewModel rate)
         {
             rate.BlogId = HttpContext.Session.Get<int>(CommonConstants.BlogId);
-            _blogCommentService.Add(rate);
+            await _blogCommentService.Add(rate);
             return new OkObjectResult(rate);
         }
     }

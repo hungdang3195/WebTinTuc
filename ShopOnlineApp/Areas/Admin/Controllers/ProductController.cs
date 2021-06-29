@@ -65,9 +65,9 @@ namespace ShopOnlineApp.Areas.Admin.Controllers
 
         }
         [HttpGet]
-        public IActionResult GetById(int id)
+        public async Task<IActionResult> GetById(int id)
         {
-            var model = _productService.GetById(id);
+            var model = await _productService.GetById(id);
 
             return new OkObjectResult(model);
         }
@@ -101,7 +101,7 @@ namespace ShopOnlineApp.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        public IActionResult SaveEntity(ProductViewModel productVm)
+        public async Task<IActionResult> SaveEntity(ProductViewModel productVm)
         {
             if (!ModelState.IsValid)
             {
@@ -113,11 +113,11 @@ namespace ShopOnlineApp.Areas.Admin.Controllers
                 productVm.SeoAlias = TextHelper.ToUnsignString(productVm.Name);
                 if (productVm.Id == 0)
                 {
-                    _productService.Add(productVm);
+                    await _productService.Add(productVm);
                 }
                 else
                 {
-                    _productService.Update(productVm);
+                    await _productService.Update(productVm);
                 }
                 _productService.Save();
                 return new OkObjectResult(productVm);
@@ -156,7 +156,7 @@ namespace ShopOnlineApp.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        public IActionResult Delete(int id)
+        public async Task<IActionResult> Delete(int id)
         {
             if (!ModelState.IsValid)
             {
@@ -164,7 +164,7 @@ namespace ShopOnlineApp.Areas.Admin.Controllers
             }
             else
             {
-                _productService.Delete(id);
+                await _productService.Delete(id);
                 _productService.Save();
 
                 return new OkObjectResult(id);
@@ -172,48 +172,47 @@ namespace ShopOnlineApp.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        public IActionResult SaveQuantities(int productId, List<ProductQuantityViewModel> quantities)
+        public async Task<IActionResult> SaveQuantities(int productId, List<ProductQuantityViewModel> quantities)
         {
-            _productService.AddQuantity(productId, quantities);
+            await _productService.AddQuantity(productId, quantities);
             _productService.Save();
             return new OkObjectResult(quantities);
         }
 
         [HttpGet]
-        public IActionResult GetQuantities(int productId)
+        public async Task<IActionResult> GetQuantities(int productId)
         {
-            var quantities = _productService.GetQuantities(productId);
+            var quantities = await _productService.GetQuantities(productId);
             return new OkObjectResult(quantities);
         }
         [HttpPost]
-        public IActionResult SaveImages(int productId, string[] images)
+        public async Task<IActionResult> SaveImages(int productId, string[] images)
         {
-            _productService.AddImages(productId, images);
+            await _productService.AddImages(productId, images);
             _productService.Save();
             return new OkObjectResult(images);
         }
 
         [HttpGet]
-        public IActionResult GetImages(int productId)
+        public async Task<IActionResult> GetImages(int productId)
         {
-            var images = _productService.GetImages(productId);
+            var images = await _productService.GetImages(productId);
             return new OkObjectResult(images);
         }
 
         [HttpPost]
-        public IActionResult SaveWholePrice(int productId, List<WholePriceViewModel> wholePrices)
+        public async Task<IActionResult> SaveWholePrice(int productId, List<WholePriceViewModel> wholePrices)
         {
-            _productService.AddWholePrice(productId, wholePrices);
+            await _productService.AddWholePrice(productId, wholePrices);
             _productService.Save();
             return new OkObjectResult(wholePrices);
         }
 
         [HttpGet]
-        public IActionResult GetWholePrices(int productId)
+        public async Task<IActionResult> GetWholePrices(int productId)
         {
-            var wholePrices = _productService.GetWholePrices(productId);
+            var wholePrices = await _productService.GetWholePrices(productId);
             return new OkObjectResult(wholePrices);
         }
-
     }
 }

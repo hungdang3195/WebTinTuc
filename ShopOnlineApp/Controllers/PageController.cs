@@ -17,9 +17,9 @@ namespace ShopOnlineApp.Controllers
         }
 
         [Route("page/{alias}.html", Name = "Page")]
-        public IActionResult Index(string alias)
+        public async Task<IActionResult> Index(string alias)
         {
-            var page = _pageService.GetByAlias(alias);
+            var page = await _pageService.GetByAlias(alias);
             return View(page);
         }
     }

@@ -40,26 +40,26 @@ namespace ShopOnlineApp.Controllers
             return View(categories);
         }
         [Route("quick-view.{id}.html")]
-        public async Task<IActionResult>  QuickView(int id)
+        public async Task<IActionResult> QuickView(int id)
         {
             ViewData["BodyClass"] = "product-page";
             var model = new DetailViewModel();
-            model.Product =await _productService.GetById(id);
-            model.Category =await _productCategoryService.GetById(model.Product.CategoryId);
+            model.Product = await _productService.GetById(id);
+            model.Category = await _productCategoryService.GetById(model.Product.CategoryId);
             // model.RelatedProducts = _productService.GetRelatedProducts(id, 9);
             //model.UpsellProducts = _productService.GetUpsellProducts(6);
-            model.ProductImages =await _productService.GetImages(id);
+            model.ProductImages = await _productService.GetImages(id);
             model.ProductImages.Add(new ProductImageViewModel
             {
                 Path = model.Product.Image
             });
-            model.Tags =await _productService.GetProductTags(id);
-            model.Colors =(await _billService.GetColors()).Select(x => new SelectListItem()
+            model.Tags = await _productService.GetProductTags(id);
+            model.Colors = (await _billService.GetColors()).Select(x => new SelectListItem()
             {
                 Text = x.Name,
                 Value = x.Id.ToString()
             }).ToList();
-            model.Sizes =(await _billService.GetSizes()).Select(x => new SelectListItem()
+            model.Sizes = (await _billService.GetSizes()).Select(x => new SelectListItem()
             {
                 Text = x.Name,
                 Value = x.Id.ToString()
@@ -93,7 +93,7 @@ namespace ShopOnlineApp.Controllers
 
             var categories = new List<LookupItem>();
 
-            var category =await _productCategoryService.GetById(id);
+            var category = await _productCategoryService.GetById(id);
 
             if (category.ParentId == null)
             {
@@ -117,21 +117,21 @@ namespace ShopOnlineApp.Controllers
                 }).ToList();
             }
 
-            var sizeVMs =await _sizeService.GetAll();
+            var sizeVMs = await _sizeService.GetAll();
             productCategory.Sizes = sizeVMs.Select(x => new LookupItem
             {
                 Id = x.Id,
                 Name = x.Name
             }).ToList();
 
-            var colorVMs =await _colorService.GetAll();
+            var colorVMs = await _colorService.GetAll();
             productCategory.Colors = colorVMs.Select(x => new LookupItem
             {
                 Id = x.Id,
                 Name = x.Name
             }).ToList();
 
-            var categoryCurrent =await _productCategoryService.GetById(id);
+            var categoryCurrent = await _productCategoryService.GetById(id);
 
 
             productCategory.CurrentCategory = new LookupItem
@@ -148,7 +148,7 @@ namespace ShopOnlineApp.Controllers
         }
 
         [Route("loadData.html")]
-        public IActionResult GetDataCategory(int id, int? pageSize, string sortBy, int colorId, int sizeId,
+        public async Task<IActionResult> GetDataCategory(int id, int? pageSize, string sortBy, int colorId, int sizeId,
             int page = 1)
         {
             sortBy = sortBy ?? "";
@@ -162,7 +162,7 @@ namespace ShopOnlineApp.Controllers
             request.ColorId = colorId;
             request.SizeId = sizeId;
 
-            var dataReturn = _productService.FilterProducts(request);
+            var dataReturn = await _productService.FilterProducts(request);
 
             return new OkObjectResult(dataReturn);
         }
@@ -191,7 +191,7 @@ namespace ShopOnlineApp.Controllers
         public async Task<IActionResult> Details(int id)
         {
             ViewData["BodyClass"] = "product-page";
-            var model = new DetailViewModel {Product = await _productService.GetById(id)};
+            var model = new DetailViewModel { Product = await _productService.GetById(id) };
             model.Category = await _productCategoryService.GetById(model.Product.CategoryId);
             model.RelatedProducts = await _productService.GetRelatedProducts(id, 9);
             model.UpsellProducts = await _productService.GetUpsellProducts(6);
@@ -220,7 +220,7 @@ namespace ShopOnlineApp.Controllers
         [HttpGet]
         public async Task<IActionResult> SuggestSearch(string keyword)
         {
-            var model = await _productService.SearchAsync(keyword,1,5);
+            var model = await _productService.SearchAsync(keyword, 1, 5);
             return new OkObjectResult(model?.Select(x => new { x.Name, x.Image, x.Price }));
         }
 

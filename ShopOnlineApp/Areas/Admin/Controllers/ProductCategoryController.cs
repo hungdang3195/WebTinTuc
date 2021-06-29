@@ -37,9 +37,9 @@ namespace ShopOnlineApp.Areas.Admin.Controllers
         }
 
         [HttpGet]
-        public IActionResult GetById(int id)
+        public async Task<IActionResult> GetById(int id)
         {
-            var items = _productCategoryService.GetById(id);
+            var items = await _productCategoryService.GetById(id);
             if (items != null)
             {
                 return new OkObjectResult(items);
@@ -50,21 +50,21 @@ namespace ShopOnlineApp.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        public IActionResult Delete(int id)
+        public async Task<IActionResult> Delete(int id)
         {
             if (id == 0)
             {
                 return new BadRequestResult();
             }
 
-            _productCategoryService.Delete(id);
+            await _productCategoryService.Delete(id);
             _unitOfWork.Commit();
             return new OkObjectResult(id);
         }
 
 
         [HttpPost]
-        public IActionResult SaveEntity(ProductCategoryViewModel productVm)
+        public async Task<IActionResult> SaveEntity(ProductCategoryViewModel productVm)
         {
             if (!ModelState.IsValid)
             {
@@ -75,16 +75,16 @@ namespace ShopOnlineApp.Areas.Admin.Controllers
             productVm.SeoAlias = TextHelper.ToUnsignString(productVm.Name);
             if (productVm.Id == 0)
             {
-                _productCategoryService.Add(productVm);
+                await _productCategoryService.Add(productVm);
             }
             else
             {
-                _productCategoryService.Update(productVm);
+                await _productCategoryService.Update(productVm);
             }
             _unitOfWork.Commit();
             return new OkObjectResult(productVm);
         }
-        public IActionResult UpdateParentId(int sourceId, int targetId, Dictionary<int, int> items)
+        public async Task<IActionResult> UpdateParentId(int sourceId, int targetId, Dictionary<int, int> items)
         {
 
             if (!ModelState.IsValid)
@@ -97,12 +97,12 @@ namespace ShopOnlineApp.Areas.Admin.Controllers
                 return new BadRequestObjectResult(ModelState);
             }
 
-            _productCategoryService.UpdateParentId(sourceId, targetId,items);
+            await _productCategoryService.UpdateParentId(sourceId, targetId, items);
             _unitOfWork.Commit();
             return new OkResult();
         }
 
-        public IActionResult ReOrder(int sourceId,int targetId)
+        public async Task<IActionResult> ReOrder(int sourceId, int targetId)
         {
             if (!ModelState.IsValid)
             {
@@ -114,13 +114,13 @@ namespace ShopOnlineApp.Areas.Admin.Controllers
                 return new BadRequestObjectResult(ModelState);
             }
 
-            _productCategoryService.ReOrder(sourceId,targetId);
+            await _productCategoryService.ReOrder(sourceId, targetId);
             _unitOfWork.Commit();
             return new OkResult();
         }
 
         [HttpGet]
-        public async Task<IActionResult>  GetAll()
+        public async Task<IActionResult> GetAll()
         {
             var items = await _productCategoryService.GetAll();
             return new OkObjectResult(items);

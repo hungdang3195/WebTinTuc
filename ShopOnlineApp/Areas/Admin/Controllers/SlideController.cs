@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using ShopOnlineApp.Application.Interfaces;
@@ -18,21 +19,21 @@ namespace ShopOnlineApp.Areas.Admin.Controllers
         {
             return View();
         }
-        public IActionResult GetAllPaging(SlideRequest request)
+        public async Task<IActionResult> GetAllPaging(SlideRequest request)
         {
-            var model = _slideService.GetAllPaging(request);
+            var model = await _slideService.GetAllPaging(request);
             return new OkObjectResult(model);
         }
 
         [HttpGet]
-        public IActionResult GetById(int id)
+        public async Task<IActionResult> GetById(int id)
         {
-            var model = _slideService.GetById(id);
+            var model = await _slideService.GetById(id);
             return new OkObjectResult(model);
         }
 
         [HttpPost]
-        public IActionResult SaveEntity(SlideViewModel slideVm)
+        public async Task<IActionResult> SaveEntity(SlideViewModel slideVm)
         {
             if (!ModelState.IsValid)
             {
@@ -42,11 +43,11 @@ namespace ShopOnlineApp.Areas.Admin.Controllers
 
             if (slideVm.Id == 0)
             {
-                _slideService.Add(slideVm);
+                await _slideService.Add(slideVm);
             }
             else
             {
-                _slideService.Update(slideVm);
+                await _slideService.Update(slideVm);
             }
 
             _slideService.SaveChanges();
@@ -54,13 +55,13 @@ namespace ShopOnlineApp.Areas.Admin.Controllers
             return new OkObjectResult(slideVm);
         }
         [HttpPost]
-        public IActionResult Delete(int id)
+        public async Task<IActionResult> Delete(int id)
         {
             if (!ModelState.IsValid)
             {
                 return new BadRequestObjectResult(ModelState);
             }
-            _slideService.Delete(id);
+            await _slideService.Delete(id);
             _slideService.SaveChanges();
             return new OkObjectResult(id);
         }
