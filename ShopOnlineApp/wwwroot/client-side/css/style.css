@@ -6719,6 +6719,7 @@ p.note {
 	border-bottom: 1px solid #e1e1e1;
 	padding: 12px;
 	text-align: center;
+	vertical-align: middle;
 }
 .wishlist-item .th-details a {
 	font-size: 14px;

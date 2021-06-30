@@ -101,7 +101,7 @@
                                                                                 <div class="col-md-5">
                                                                                     <div class="lf f25 fullsize-if-mobile">
                                                                                         <div data-size="1" style="text-align: center;">
-                                                                                            <img width="117px;" src="@item.Product.Image"/>
+                                                                                            <img width="117px;" src="@item.Product?.Image"/>
                                                                                         </div>
 
                                                                                     </div>
@@ -111,9 +111,9 @@
 
 
                                                                                         <div class="left-menu-space">
-                                                                                            <h4><a href="javascript:void(0);" target="_blank" class="bluecolor">@item.Product.Name</a></h4>
+                                                                                            <h4><a href="javascript:void(0);" target="_blank" class="bluecolor">@item.Product?.Name</a></h4>
                                                                                             <div class="l30">
-                                                                                                <div class="redcolor"><strong class="ebe-currency">@item.Product.Price</strong></div>
+                                                                                                <div class="redcolor"><strong class="ebe-currency">@item.Product?.Price</strong></div>
                                                                                                 <div>Màu sắc: @item.Color?.Name </div>
                                                                                                 <div>Kích thước: @item.Size?.Name </div>
                                                                                                 <div>Số lượng: @item.Quantity</div>

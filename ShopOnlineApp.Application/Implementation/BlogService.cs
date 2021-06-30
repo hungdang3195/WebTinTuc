@@ -87,66 +87,75 @@ namespace ShopOnlineApp.Application.Implementation
 
         public async Task<BaseReponse<ModelListResult<BlogViewModel>>> GetAllPaging(BlogRequest request)
         {
-            var response = from c in await _categoryRepository.FindAll()
-                           join p in (await _blogRepository.FindAll()).AsNoTracking() on c.Id equals p.BlogCategoryId
-                           select new BlogViewModel
-                           {
-                               Name = p.Name,
-                               Id = p.Id,
-                               BlogCategoryId = p.BlogCategoryId,
-                               BlogCategory = new BlogCategoryViewModel
+            try
+            {
+                var response = from c in await _categoryRepository.FindAll()
+                               join p in (await _blogRepository.FindAll()).AsNoTracking() on c.Id equals p.BlogCategoryId
+                               select new BlogViewModel
                                {
-                                   Name = c.Name
-                               },
-                               Description = p.Description,
-                               Content = p.Content,
-                               DateCreated = p.DateCreated,
-                               DateModified = p.DateModified,
-                               HomeFlag = p.HomeFlag,
-                               HotFlag = p.HotFlag,
-                               SeoAlias = p.SeoAlias,
-                               SeoDescription = p.SeoDescription,
-                               SeoKeywords = p.SeoKeywords,
-                               SeoPageTitle = p.SeoPageTitle,
-                               ViewCount = p.ViewCount,
-                               Status = p.Status,
-                               Image = p.Image
-                           };
+                                   Name = p.Name,
+                                   Id = p.Id,
+                                   BlogCategoryId = p.BlogCategoryId,
+                                   BlogCategory = new BlogCategoryViewModel
+                                   {
+                                       Name = c.Name
+                                   },
+                                   Description = p.Description,
+                                   Content = p.Content,
+                                   DateCreated = p.DateCreated,
+                                   DateModified = p.DateModified,
+                                   HomeFlag = p.HomeFlag,
+                                   HotFlag = p.HotFlag,
+                                   SeoAlias = p.SeoAlias,
+                                   SeoDescription = p.SeoDescription,
+                                   SeoKeywords = p.SeoKeywords,
+                                   SeoPageTitle = p.SeoPageTitle,
+                                   ViewCount = p.ViewCount,
+                                   Status = p.Status,
+                                   Image = p.Image
+                               };
 
-            if (!string.IsNullOrEmpty(request.SearchText))
-            {
-                response = response.Where(x => x.Name.Contains(request.SearchText));
-            }
-            else if (!string.IsNullOrEmpty(request.Name))
-            {
-                response = response.Where(x => x.Name.Contains(request.Name));
-            }
-            else if (request.CategoryId > 0)
-            {
-                response = response.Where(x => x.BlogCategoryId == request.CategoryId);
-            }
-
-            var totalCount = await response.CountAsync();
-
-            if (request.IsPaging)
-            {
-                response = response.OrderByDescending(x => x.DateModified)
-                    .Skip((request.PageIndex - 1) * request.PageSize).Take(request.PageSize);
-            }
-
-            return new BaseReponse<ModelListResult<BlogViewModel>>
-            {
-                Data = new ModelListResult<BlogViewModel>()
+                if (!string.IsNullOrEmpty(request.SearchText))
                 {
-                    Items = response.ToList(),
+                    response = response.Where(x => x.Name.Contains(request.SearchText));
+                }
+                else if (!string.IsNullOrEmpty(request.Name))
+                {
+                    response = response.Where(x => x.Name.Contains(request.Name));
+                }
+                else if (request.CategoryId > 0)
+                {
+                    response = response.Where(x => x.BlogCategoryId == request.CategoryId);
+                }
+
+                var items = response.ToList();
+                var totalCount = items.Count();
+                if (request.IsPaging)
+                {
+                    response = response.OrderByDescending(x => x.DateModified)
+                        .Skip((request.PageIndex - 1) * request.PageSize).Take(request.PageSize);
+                }
+
+                return new BaseReponse<ModelListResult<BlogViewModel>>
+                {
+                    Data = new ModelListResult<BlogViewModel>()
+                    {
+                        Items = items,
+                        Message = Message.Success,
+                        RowCount = totalCount,
+                        PageSize = request.PageSize,
+                        PageIndex = request.PageIndex
+                    },
                     Message = Message.Success,
-                    RowCount = totalCount,
-                    PageSize = request.PageSize,
-                    PageIndex = request.PageIndex
-                },
-                Message = Message.Success,
-                Status = (int)QueryStatus.Success
-            };
+                    Status = (int)QueryStatus.Success
+                };
+            }
+            catch (System.Exception ex)
+            {
+                System.Console.WriteLine(ex.Message);
+                throw;
+            }
+            
         }
         public async Task<BlogViewModel> GetById(int id)
         {

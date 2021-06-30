@@ -237,11 +237,11 @@ jQuery(document).ready(function() {
         	Mega Menu
         ******************************************/
 
-        jQuery('.mega-menu-title').on('click', function() {
+        jQuery('.mega-menu-title').on('click', function () {
             if (jQuery('.mega-menu-category').is(':visible')) {
                 jQuery('.mega-menu-category').slideUp();
             } else {
-                jQuery('.mega-menu-category').slideDown();
+                jQuery('.mega-menu-category').slideDown(3000);
             }
         });
 

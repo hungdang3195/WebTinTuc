@@ -367,8 +367,8 @@
             success: function (response) {
                 var template = $('#table-template').html();
                 var render = "";
-                if (response.Result.Data.RowCount > 0) {
-                    $.each(response.Result.Data.Items, function (i, item) {
+                if (response.Data.RowCount > 0) {
+                    $.each(response.Data.Items, function (i, item) {
                         render += Mustache.render(template, {
                             CustomerName: item.CustomerName,
                             Id: item.Id,
@@ -377,12 +377,12 @@
                             BillStatus: getBillStatusName(item.BillStatus)
                         });
                     });
-                    $("#lbl-total-records").text(response.Result.Data.RowCount);
+                    $("#lbl-total-records").text(response.Data.RowCount);
                     if (render !== undefined) {
                         $('#tbl-content').html(render);
 
                     }
-                    wrapPaging(response.Result.Data.RowCount, function () {
+                    wrapPaging(response.Data.RowCount, function () {
                         loadData();
 
                     }, isPageChanged);

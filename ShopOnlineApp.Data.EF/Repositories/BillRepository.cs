@@ -21,8 +21,6 @@ namespace ShopOnlineApp.Data.EF.Repositories
         public async Task<Bill> AddAsync(Bill entity)
         {
             await _context.Bills.AddAsync(entity);
-             await _context.SaveChangesAsync();
-            _context.Entry(entity).GetDatabaseValues();
             return entity;
         }
     }

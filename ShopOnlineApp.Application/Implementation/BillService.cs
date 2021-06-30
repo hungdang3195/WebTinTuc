@@ -54,17 +54,14 @@ namespace ShopOnlineApp.Application.Implementation
 
                 // var orderDetails = Mapper.Map<List<BillDetailViewModel>, List<BillDetail>>(billVm.BillDetails);
 
-                var orderDetails = new BillDetailViewModel().Map(billVm.BillDetails.AsParallel().AsOrdered().WithDegreeOfParallelism(3)).ToList();
+                // var orderDetails = new BillDetailViewModel().Map(billVm.BillDetails).ToList();
 
-                foreach (var detail in orderDetails)
-                {
-                    var product =await _productRepository.FindById(detail.ProductId);
-                    detail.Price = product.Price;
-                }
-                order.BillDetails = orderDetails;
+                // order.BillDetails = orderDetails;
+               
                 var billEntity = await _orderRepository.AddAsync(order);
-
-                return new BillViewModel().Map(billEntity);
+                _unitOfWork.Commit();
+                billVm.Id = billEntity.Id;
+                return billVm;
 
             }
             catch (Exception e)
@@ -172,23 +169,23 @@ namespace ShopOnlineApp.Application.Implementation
         public async Task<BaseReponse<ModelListResult<BillViewModel>>> GetAllPaging(BillRequest request)
         {
             var query = (await _orderRepository.FindAll()).AsNoTracking().AsParallel();
-            if (!string.IsNullOrEmpty(request.StartDate))
+            if (!string.IsNullOrEmpty(request?.StartDate))
             {
                 DateTime start = DateTime.ParseExact(request.StartDate, "dd/MM/yyyy", CultureInfo.GetCultureInfo("vi-VN"));
-                query = query.AsParallel().AsOrdered().WithDegreeOfParallelism(3).Where(x => x.DateCreated >= start);
+                query = query.Where(x => x.DateCreated >= start);
             }
-            if (!string.IsNullOrEmpty(request.EndDate))
+            if (!string.IsNullOrEmpty(request?.EndDate))
             {
                 DateTime end = DateTime.ParseExact(request.EndDate, "dd/MM/yyyy", CultureInfo.GetCultureInfo("vi-VN"));
-                query = query.AsParallel().AsOrdered().WithDegreeOfParallelism(3).Where(x => x.DateCreated <= end);
+                query = query.AsParallel().Where(x => x.DateCreated <= end);
             }
-            if (!string.IsNullOrEmpty(request.SearchText))
+            if (!string.IsNullOrEmpty(request?.SearchText))
             {
-                query = query.AsParallel().AsOrdered().WithDegreeOfParallelism(3).Where(x => x.CustomerName.Contains(request.SearchText) || x.CustomerMobile.Contains(request.SearchText));
+                query = query.Where(x => x.CustomerName.Contains(request.SearchText) || x.CustomerMobile.Contains(request.SearchText));
             }
-            var totalRow = query.AsParallel().AsOrdered().WithDegreeOfParallelism(3).Count();
+            var totalRow = query.Count();
 
-            var items = query.AsParallel().AsOrdered().WithDegreeOfParallelism(3)
+            var items = query
                 .OrderByDescending(x => x.DateCreated)
                 .Skip(request.PageIndex * request.PageSize)
                 .Take(request.PageSize);

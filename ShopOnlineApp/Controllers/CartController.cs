@@ -11,6 +11,7 @@ using ShopOnlineApp.Application.Interfaces;
 using ShopOnlineApp.Application.ViewModels.Annoucement;
 using ShopOnlineApp.Application.ViewModels.Bill;
 using ShopOnlineApp.Data.Enums;
+using ShopOnlineApp.Data.IRepositories;
 using ShopOnlineApp.Extensions;
 using ShopOnlineApp.Infrastructure.NganLuongAPI;
 using ShopOnlineApp.Models;
@@ -31,12 +32,13 @@ namespace ShopOnlineApp.Controllers
         public readonly ISizeService _size;
         private readonly IProductQuantityService _quantityService;
         private readonly IHubContext<OnlineShopHub> _hubContext;
+        private readonly IProductRepository _productRepository;
         //private string merchantId = ConfigHelper.GetByKey("MerchantId");
         //private string merchantPassword = ConfigHelper.GetByKey("MerchantPassword");
         //private string merchantEmail = ConfigHelper.GetByKey("MerchantEmail");
 
 
-        public CartController(IProductService productService, IBillService billService, IViewRenderService viewRenderService, IEmailSender emailSender, IConfiguration configuration, IColorService color, ISizeService size, IHubContext<OnlineShopHub> hubContext, IProductQuantityService quantityService)
+        public CartController(IProductService productService, IBillService billService, IViewRenderService viewRenderService, IEmailSender emailSender, IConfiguration configuration, IColorService color, ISizeService size, IHubContext<OnlineShopHub> hubContext, IProductQuantityService quantityService, IProductRepository productRepository)
         {
             _productService = productService;
             _billService = billService;
@@ -47,6 +49,7 @@ namespace ShopOnlineApp.Controllers
             _size = size;
             _hubContext = hubContext;
             _quantityService = quantityService;
+            _productRepository = productRepository;
         }
 
         [Route("cart.html", Name = "Cart")]
@@ -217,16 +220,16 @@ namespace ShopOnlineApp.Controllers
         [HttpPost]
         public async Task<IActionResult> Checkout(CheckoutViewModel model)
         {
-            var session = HttpContext.Session.Get<List<ShoppingCartViewModel>>(CommonConstants.CartSession);
+            var sessions = HttpContext.Session.Get<List<ShoppingCartViewModel>>(CommonConstants.CartSession);
             if (ModelState.IsValid)
             {
-                if (session != null)
+                if (sessions != null)
                 {
                     var details = new List<BillDetailViewModel>();
 
                     decimal totalMoney = 0;
                     bool canBuy = true;
-                    foreach (var item in session)
+                    foreach (var item in sessions)
                     {
                         totalMoney += item.Price * item.Quantity;
 
@@ -302,7 +305,7 @@ namespace ShopOnlineApp.Controllers
                     });
                 }
 
-                model.Carts = session;
+                model.Carts = sessions;
                 HttpContext.Session.Set(CommonConstants.CartSession, new List<ShoppingCartViewModel>());
                 return View(model);
             }
@@ -435,7 +438,7 @@ namespace ShopOnlineApp.Controllers
             //_orderService.UpdateStatus(int.Parse(result.order_code));
             //_orderService.Save();
             var billSession = HttpContext.Session.Get<BillViewModel>(CommonConstants.BillSession);
-
+           
             await _billService.UpdateStatus(billSession.Id, BillStatus.InProgress);
 
             foreach (var bill in billSession.BillDetails)

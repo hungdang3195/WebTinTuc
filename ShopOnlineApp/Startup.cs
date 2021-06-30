@@ -271,8 +271,7 @@ namespace ShopOnlineApp
             app.UseSession();
             app.UseStaticFiles();
 
-            app.UseAuthentication();
-
+           
             var options = app.ApplicationServices.GetService<IOptions<RequestLocalizationOptions>>();
             app.UseRequestLocalization(options.Value);
 
@@ -290,8 +289,9 @@ namespace ShopOnlineApp
                 opts.SetIsOriginAllowed(origin => true);
             });
 
+            app.UseAuthentication();
             app.UseRouting();
-
+            app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
