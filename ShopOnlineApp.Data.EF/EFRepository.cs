@@ -11,11 +11,11 @@ namespace ShopOnlineApp.Data.EF
 {
     public class EFRepository<T, K> : IRepository<T, K>, IDisposable where T : DomainEntity<K>
     {
-        protected  AppDbContext _context;
+        protected AppDbContext _context;
 
         public EFRepository(AppDbContext context)
         {
-            _context = context ?? throw new ArgumentException(nameof(context)); ;
+            _context = context ?? throw new ArgumentException(null, nameof(context)); ;
         }
         public async Task Add(T entity)
         {
@@ -40,7 +40,7 @@ namespace ShopOnlineApp.Data.EF
             return items.AsQueryable();
         }
 
-        public async Task<IQueryable<T>> FindAll(Expression<Func<T, bool>> predicate, params Expression<Func<T, object>>[] includeProperties)
+        public async Task<IQueryable<T>> FindAll(Expression<Func<T, bool>> predicate, params string[] includeProperties)
         {
             var items = await GetAll().ToListAsync();
             if (includeProperties != null)
@@ -105,6 +105,19 @@ namespace ShopOnlineApp.Data.EF
         public async Task SaveChanges()
         {
             await _context.SaveChangesAsync();
+        }
+
+        public async Task<IQueryable<T>> NewFindAll(Expression<Func<T, bool>> predicate, params string[] includeProperties)
+        {
+            var items = await GetAll().ToListAsync();
+            if (includeProperties != null)
+            {
+                foreach (var includeProperty in includeProperties)
+                {
+                    items = items.AsQueryable().Include(includeProperty).ToList();
+                }
+            }
+            return items.AsQueryable().Where(predicate);
         }
     }
 }

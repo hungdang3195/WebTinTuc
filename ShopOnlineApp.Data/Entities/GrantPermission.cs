@@ -10,14 +10,14 @@ namespace ShopOnlineApp.Data.Entities
     [Table("GrantPermission")]
     public class GrantPermission:DomainEntity<int>
     {
-        [ForeignKey("BusinessAction")]
+        
         [Column(Order = 1)]
         public int BusinessActionId { get; set; }
         [Column(Order = 2)]
-        [ForeignKey("AppUser")]
         public Guid UserId { get; set; }
+        [ForeignKey("UserId")]
         public virtual AppUser AppUser { get; set; }
-
+        [ForeignKey("BusinessActionId")]
         public virtual BusinessAction BusinessAction { get; set; }
     }
 }

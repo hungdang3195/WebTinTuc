@@ -12,9 +12,10 @@ namespace ShopOnlineApp.Data.Entities
 
         public string Description { get; set; }
 
-        [ForeignKey("Businness")]
+        
         public string BusinessId { get; set; }
 
+        [ForeignKey("BusinessId")]
         public virtual Business Business { get; set; }
 
         public virtual ICollection<GrantPermission> GrantPermissions { get; set; }

@@ -235,7 +235,6 @@ namespace ShopOnlineApp.Controllers
 
                         details.Add(new BillDetailViewModel()
                         {
-                            Product = item.Product,
                             Price = item.Price,
                             ColorId = item.Color.Id,
                             SizeId = item.Size.Id,

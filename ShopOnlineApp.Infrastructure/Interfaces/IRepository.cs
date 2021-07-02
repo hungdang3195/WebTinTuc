@@ -14,7 +14,9 @@ namespace ShopOnlineApp.Infrastructure.Interfaces
 
         Task<IQueryable<T>>  FindAll(params Expression<Func<T, object>>[] includeProperties);
 
-        Task<IQueryable<T>>  FindAll(Expression<Func<T, bool>> predicate, params Expression<Func<T, object>>[] includeProperties);
+        Task<IQueryable<T>>  FindAll(Expression<Func<T, bool>> predicate, params string[] includeProperties);
+
+        Task<IQueryable<T>> NewFindAll(Expression<Func<T, bool>> predicate,params string[] includeProperties);
 
         Task Add(T entity);
 

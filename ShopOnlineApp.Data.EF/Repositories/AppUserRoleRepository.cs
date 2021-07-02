@@ -35,12 +35,22 @@ namespace ShopOnlineApp.Data.EF.Repositories
             throw new NotImplementedException();
         }
 
+        public Task<IQueryable<AppRole>> FindAll(Expression<Func<AppRole, bool>> predicate, params string[] includeProperties)
+        {
+            throw new NotImplementedException();
+        }
+
         public async Task<AppRole>  FindById(Guid id, params Expression<Func<AppRole, object>>[] includeProperties)
         {
             throw new NotImplementedException();
         }
 
         public async Task<AppRole>  FindSingle(Expression<Func<AppRole, bool>> predicate, params Expression<Func<AppRole, object>>[] includeProperties)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<IQueryable<AppRole>> NewFindAll(Expression<Func<AppRole, bool>> predicate, params string[] includeProperties)
         {
             throw new NotImplementedException();
         }

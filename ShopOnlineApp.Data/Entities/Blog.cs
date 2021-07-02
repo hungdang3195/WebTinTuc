@@ -87,7 +87,7 @@ namespace ShopOnlineApp.Data.Entities
         public string SeoDescription { set; get; }
 
         [ForeignKey("BlogCategoryId")]
-        public BlogCategory BlogCategory { set; get; }
+        public virtual BlogCategory BlogCategory { set; get; }
 
         public virtual ICollection<BlogComment> BlogComments { set; get; }
         //public virtual ICollection<BlogCategory> BlogCategories { set; get; }

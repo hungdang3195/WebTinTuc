@@ -15,7 +15,7 @@ namespace ShopOnlineApp.Data.Entities
         public DateTime DateCreated { get; set; }
         public DateTime DateModified { get; set; }
         [ForeignKey("BlogId")]
-        public Blog Blog { get; set; }
+        public virtual Blog Blog { get; set; }
 
     }
 }

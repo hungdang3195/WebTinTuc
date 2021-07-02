@@ -9,6 +9,7 @@ using ShopOnlineApp.Application.ViewModels.Bill;
 using ShopOnlineApp.Application.ViewModels.Color;
 using ShopOnlineApp.Application.ViewModels.Size;
 using ShopOnlineApp.Data.EF.Common;
+using ShopOnlineApp.Data.Entities;
 using ShopOnlineApp.Data.Enums;
 using ShopOnlineApp.Data.IRepositories;
 using ShopOnlineApp.Infrastructure.Interfaces;
@@ -48,20 +49,12 @@ namespace ShopOnlineApp.Application.Implementation
         {
             try
             {
-                //var order = Mapper.Map<BillViewModel, Bill>(billVm);
-
-                var order = new BillViewModel().Map(billVm);
-
-                // var orderDetails = Mapper.Map<List<BillDetailViewModel>, List<BillDetail>>(billVm.BillDetails);
-
-                // var orderDetails = new BillDetailViewModel().Map(billVm.BillDetails).ToList();
-
-                // order.BillDetails = orderDetails;
-               
-                var billEntity = await _orderRepository.AddAsync(order);
+                var bill = new Bill(billVm.CustomerName, billVm.CustomerAddress, billVm.CustomerMobile, billVm.CustomerMessage, billVm.BillStatus,
+                    billVm.PaymentMethod, billVm.Status, billVm.CustomerId);
+                bill.AddBillDetails(new BillDetailViewModel().Map(billVm.BillDetails).ToList());
+                await _orderRepository.AddAsync(bill);
                 _unitOfWork.Commit();
-                billVm.Id = billEntity.Id;
-                return billVm;
+                return new BillViewModel().Map(bill);
 
             }
             catch (Exception e)
@@ -79,7 +72,7 @@ namespace ShopOnlineApp.Application.Implementation
             var addedDetails = newDetails.Where(x => x.Id == 0).ToList();
             var updatedDetails = newDetails.Where(x => x.Id != 0).ToList();
             var existedDetails = (await _orderDetailRepository.FindAll(x => x.BillId == billVm.Id)).AsNoTracking();
-            order.BillDetails.Clear();
+            order.ClearBillDetail();
             foreach (var detail in updatedDetails)
             {
                 var product = await _productRepository.FindById(detail.ProductId);
@@ -119,7 +112,7 @@ namespace ShopOnlineApp.Application.Implementation
 
         public async Task<IEnumerable<BillViewModel>> GetOrdersByCustomer(Guid customerId)
         {
-            var data = (await _orderRepository.FindAll(x => x.CustomerId == customerId, c => c.BillDetails)).AsParallel().WithExecutionMode(ParallelExecutionMode.ForceParallelism);
+            var data = await _orderRepository.FindAll(x => x.CustomerId == customerId, c => c.BillDetails);
             return new BillViewModel().Map(data);
         }
 
@@ -134,8 +127,10 @@ namespace ShopOnlineApp.Application.Implementation
 
         public async Task<List<BillDetailViewModel>> GetBillDetails(int billId)
         {
-            return new BillDetailViewModel().Map((await _orderDetailRepository
-                    .FindAll(x => x.BillId == billId, c => c.Bill, c => c.Color, c => c.Size, c => c.Product)).AsNoTracking().AsParallel().AsOrdered().WithDegreeOfParallelism(3)).ToList();
+            var test = await _orderDetailRepository
+                .NewFindAll(x => x.BillId == billId, new string[] { "Bill", "Color", "Size", "Product" });
+            return new BillDetailViewModel().Map(await _orderDetailRepository
+                    .NewFindAll(x => x.BillId == billId, new string[] { "Bill", "Color", "Size", "Product" })).ToList();
         }
 
         public async Task<List<ColorViewModel>> GetColors()
@@ -168,7 +163,7 @@ namespace ShopOnlineApp.Application.Implementation
 
         public async Task<BaseReponse<ModelListResult<BillViewModel>>> GetAllPaging(BillRequest request)
         {
-            var query = (await _orderRepository.FindAll()).AsNoTracking().AsParallel();
+            var query = (await _orderRepository.FindAll()).AsNoTracking();
             if (!string.IsNullOrEmpty(request?.StartDate))
             {
                 DateTime start = DateTime.ParseExact(request.StartDate, "dd/MM/yyyy", CultureInfo.GetCultureInfo("vi-VN"));
@@ -177,7 +172,7 @@ namespace ShopOnlineApp.Application.Implementation
             if (!string.IsNullOrEmpty(request?.EndDate))
             {
                 DateTime end = DateTime.ParseExact(request.EndDate, "dd/MM/yyyy", CultureInfo.GetCultureInfo("vi-VN"));
-                query = query.AsParallel().Where(x => x.DateCreated <= end);
+                query = query.Where(x => x.DateCreated <= end);
             }
             if (!string.IsNullOrEmpty(request?.SearchText))
             {

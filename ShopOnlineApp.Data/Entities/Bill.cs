@@ -12,7 +12,6 @@ namespace ShopOnlineApp.Data.Entities
     [Table("Bills")]
     public class Bill : DomainEntity<int>, ISwitchable, IDateTracking
     {
-        public Bill() { }
 
         public Bill(string customerName, string customerAddress, string customerMobile, string customerMessage,
             BillStatus billStatus, PaymentMethod paymentMethod, Status status, Guid? customerId)
@@ -25,6 +24,7 @@ namespace ShopOnlineApp.Data.Entities
             PaymentMethod = paymentMethod;
             Status = status;
             CustomerId = customerId;
+            _billDetails = new List<BillDetail>();
         }
 
         public Bill(int id, string customerName, string customerAddress, string customerMobile, string customerMessage,
@@ -39,6 +39,7 @@ namespace ShopOnlineApp.Data.Entities
             PaymentMethod = paymentMethod;
             Status = status;
             CustomerId = customerId;
+            _billDetails = new List<BillDetail>();
         }
         [Required]
         [MaxLength(256)]
@@ -71,6 +72,17 @@ namespace ShopOnlineApp.Data.Entities
         [ForeignKey("CustomerId")]
         public virtual AppUser User { set; get; }
 
-        public virtual ICollection<BillDetail> BillDetails { set; get; }
+        private List<BillDetail> _billDetails = new List<BillDetail>();
+        public virtual IReadOnlyList<BillDetail> BillDetails => _billDetails.AsReadOnly();
+
+        public void AddBillDetails(IList<BillDetail> billDetails)
+        {
+            _billDetails.AddRange(billDetails);
+        }
+
+        public void ClearBillDetail()
+        {
+            _billDetails.Clear();
+        }
     }
 }

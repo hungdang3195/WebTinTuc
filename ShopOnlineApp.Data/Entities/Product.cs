@@ -10,7 +10,7 @@ using ShopOnlineApp.Infrastructure.SharedKernel;
 namespace ShopOnlineApp.Data.Entities
 {
     [Table("Products")]
-    public  class Product : DomainEntity<int>, ISwitchable, IDateTracking, IHasSeoMetaData
+    public class Product : DomainEntity<int>, ISwitchable, IDateTracking, IHasSeoMetaData
     {
         public Product()
         {
@@ -108,9 +108,9 @@ namespace ShopOnlineApp.Data.Entities
         public string Unit { get; set; }
 
         [ForeignKey("CategoryId")]
-        public ProductCategory ProductCategory { set; get; }
+        public virtual ProductCategory ProductCategory { set; get; }
 
-        public ICollection<ProductTag> ProductTags { set; get; }
+        public virtual ICollection<ProductTag> ProductTags { set; get; }
 
         public string SeoPageTitle { set; get; }
 

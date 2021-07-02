@@ -59,8 +59,9 @@ namespace ShopOnlineApp
             //.UseNpgsql(Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddDbContext<AppDbContext>(options =>
-                 options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection"),
-                 o => {
+              options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection"),
+                 o =>
+                 {
                      o.EnableRetryOnFailure();
                      o.MigrationsAssembly("ShopOnlineApp.Data.EF");
                  }));
@@ -271,7 +272,7 @@ namespace ShopOnlineApp
             app.UseSession();
             app.UseStaticFiles();
 
-           
+
             var options = app.ApplicationServices.GetService<IOptions<RequestLocalizationOptions>>();
             app.UseRequestLocalization(options.Value);
 
