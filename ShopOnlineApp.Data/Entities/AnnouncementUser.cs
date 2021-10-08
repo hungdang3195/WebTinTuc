@@ -8,7 +8,6 @@ namespace ShopOnlineApp.Data.Entities
     [Table("AnnouncementUsers")]
     public class AnnouncementUser : DomainEntity<int>
     {
-        [StringLength(128)]
         [Required]
         public string AnnouncementId { get; set; }
 

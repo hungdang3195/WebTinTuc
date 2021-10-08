@@ -11,7 +11,6 @@ namespace ShopOnlineApp.Data.Entities
         [Required]
         public Guid RoleId { get; set; }
 
-        [StringLength(128)]
         [Required]
         public string FunctionId { get; set; }
 

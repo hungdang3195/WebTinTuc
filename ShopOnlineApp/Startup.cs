@@ -52,19 +52,28 @@ namespace ShopOnlineApp
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            //services.AddDbContext<AppDbContext>(options =>
-            //    options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"),
-            //    o => o.MigrationsAssembly("ShopOnlineApp.Data.EF")));
+
             //sservices.AddDbContext<ApplicationDbContext>(options =>
             //.UseNpgsql(Configuration.GetConnectionString("DefaultConnection")));
 
+            //services.AddDbContext<AppDbContext>(options =>
+            //  options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection"),
+            //     o =>
+            //     {
+            //         o.EnableRetryOnFailure();
+            //         o.MigrationsAssembly("ShopOnlineApp.Data.EF");
+            //     }));
+            var host = Configuration["DBHOST"] ?? "localhost";
+            var port = Configuration["DBPORT"] ?? "1433";
+            var password = Configuration["DBPASSWORD"] ?? "Pa55w0rd2021";
+
             services.AddDbContext<AppDbContext>(options =>
-              options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection"),
-                 o =>
-                 {
-                     o.EnableRetryOnFailure();
-                     o.MigrationsAssembly("ShopOnlineApp.Data.EF");
-                 }));
+               options.UseSqlServer($"server={host},{port};user id=sa;password={password};"
+                    + $"Database=Products",
+               o => {
+                   o.MigrationsAssembly("ShopOnlineApp.Data.EF");
+                   o.EnableRetryOnFailure();
+               }));
 
             services.AddIdentity<AppUser, AppRole>()
                .AddEntityFrameworkStores<AppDbContext>()
